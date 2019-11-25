@@ -1,0 +1,14 @@
+R_CODE_OUTPATH=plots/PCA/PCA_scatterplot.r
+library/general_libraries.txt
+core_parameter/normexp_sample_and_sample_group_names.txt
+input_file/working_directory.txt
+input_file/normexp_input_files.txt
+parse_data/normexp_transpose_and_scale_normexp_matrix.txt
+default_aesthetic/SL2_theme.txt
+default_aesthetic/default_GGplot_colours_function.txt
+default_aesthetic/default_sample_and_sample_group_colours_by_SS_column.txt
+default_aesthetic/default_sample_labels.txt
+default_aesthetic/default_sample_group_labels.txt
+helper_function/save_plot.txt
+plot_function/normexp_pca_scatter_plot_function.txt
+plot/normexp_pca_scatter_plot.txt

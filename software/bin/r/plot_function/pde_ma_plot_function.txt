@@ -1,0 +1,11 @@
+##----- MA Plot Function -----##
+make_MA_plot <- function(non_significant_colour,significant_colour,dot_size,dot_transparency,significant_name,non_significant_name,x_axis_label,y_axis_label,legend_position,data_label_size) 
+{
+  PDE_annotated_parsed = PDE_annotated
+  PDE_annotated_parsed$row_means = rowMeans(normexp_matrix)
+  PDE_annotated_parsed_significant = subset(PDE_annotated_parsed,sig == "True")
+  
+  ggp = ggplot(data=PDE_annotated_parsed, aes(x=log(row_means+0.001,10), y=log2fold, colour=sig, group=sig,fill=sig)) + geom_point(size=dot_size,alpha=dot_transparency) + scale_color_manual(values=c(non_significant_colour,significant_colour),breaks=c("True","False"),labels=c(significant_name, non_significant_name)) + scale_fill_manual(values=c(non_significant_colour,significant_colour),breaks=c("True","False"),labels=c(significant_name, non_significant_name)) + xlab(x_axis_label) + ylab(y_axis_label) + theme_SL2() + theme(legend.position=legend_position, legend.title = element_blank()) + geom_text(data=PDE_annotated_parsed_significant,aes(label=rownames(PDE_annotated_parsed_significant)),hjust=-0.1, vjust=-0.1, size=data_label_size, show.legend = FALSE)
+  return(ggp)
+}
+

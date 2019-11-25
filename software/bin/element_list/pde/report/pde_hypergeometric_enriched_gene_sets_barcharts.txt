@@ -1,0 +1,16 @@
+PLOT_ID=hypergeometric_enriched_gene_sets_barcharts
+TITLE=Enriched Gene Set Barcharts
+PLOTS_PER_ROW=2
+
+<*per_hypergeom_gene_set*>
+SUB_TITLE=Most Enriched Amongst All Significant Genes (<*hypergeom_type*>)
+PLOT_PATH=plots/hypergeometric_gene_set/<*hypergeom_type*>/enriched_amongst_all_significant_genes/enriched_gene_sets_barchart.png
+SUB_TITLE=Most Enriched Amongst Upregulated Genes (<*hypergeom_type*>)
+PLOT_PATH=plots/hypergeometric_gene_set/<*hypergeom_type*>/enriched_amongst_upregulated_genes/enriched_gene_sets_barchart.png
+SUB_TITLE=Most Enriched Amongst Downregulated Genes (<*hypergeom_type*>)
+PLOT_PATH=plots/hypergeometric_gene_set/<*hypergeom_type*>/enriched_amongst_downregulated_genes/enriched_gene_sets_barchart.png
+<*/per_hypergeom_gene_set*>
+
+R_CODE_PATH=plots/hypergeometric_gene_set/hypergeometric_enriched_gene_sets_barcharts.r
+PLOT_DESCRIPTION=/bin/report/plot_description/pde_hypergeometric_enriched_gene_sets_barcharts.txt
+PLOT_LEGEND=/bin/report/plot_legend/pde_hypergeometric_enriched_gene_sets_barcharts.txt

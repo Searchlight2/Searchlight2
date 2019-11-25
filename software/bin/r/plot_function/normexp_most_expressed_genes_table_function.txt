@@ -1,0 +1,19 @@
+##----- Most Expressed Genes Table Function  -----##
+make_most_expressed_genes_table <- function(top_10_genes,header_size,text_size,border_thickness)
+{
+  normexp_matrix_top_10 = normexp_matrix[top_10_genes,]
+  mean_matrix_top_10 = normexp_matrix_top_10[,0]
+  mean_matrix_top_10$Gene = rownames(mean_matrix_top_10)
+  for (index in 1:length(sample_groups))
+  { 
+    mean_matrix_top_10[[sample_groups[index]]] = round(rowMeans(normexp_matrix_top_10[,unlist(samples_by_sample_group[index])]),2)
+  }
+
+  table_theme <- gridExtra::ttheme_minimal(core = list(fg_params=list(cex = text_size)),colhead = list(fg_params=list(cex = header_size)))
+
+  gt <- tableGrob(mean_matrix_top_10, theme=table_theme, rows=NULL)
+  gt <- gtable_add_grob(gt,grobs = rectGrob(gp = gpar(fill = NA, lwd = border_thickness)),t = 2, b = nrow(gt), l = 1, r = ncol(gt))
+  gt <- gtable_add_grob(gt,grobs = rectGrob(gp = gpar(fill = NA, lwd = border_thickness)),t = 1, l = 1, r = ncol(gt))
+  gt <- gtable_add_grob(gt,grobs = rectGrob(gp = gpar(fill = NA, lwd = border_thickness)),t = 1, b = nrow(gt), l = 1, r = 1)
+}
+

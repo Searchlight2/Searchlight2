@@ -1,0 +1,10 @@
+##---- normexp sample and group names ----##
+samples = <*samples_list*>
+sample_groups = <*sample_group_list*>
+sample_groupings = <*sample_groupings_list*>
+sample_groupings = factor(sample_groupings, levels = sample_groups)
+samples_by_sample_group = <*samples_by_sample_group_list*>
+sample_groups_by_SS_column = <*sample_groups_by_SS_column_list*>
+sample_groupings_by_SS_column = <*sample_groupings_by_SS_column_list*>
+sample_sheet_column_names = <*sample_sheet_column_names_list*>
+

@@ -1,0 +1,16 @@
+##---- Spatial Enrichment Gene Distribution Function ----##
+make_spatial_enrichment_gene_distribution_plot <- function(current_chromosome,non_significant_colour,significant_colour,density_curve_transparency,density_curve_line_thickness,significant_name,non_significant_name,x_axis_label,y_axis_label,legend_position) 
+{
+  chromosome_data = subset(PDE_annotated,chromosome==current_chromosome & pde_valid=="True")
+  
+  if (nrow(chromosome_data) > 1)
+  {
+    ggp = ggplot(chromosome_data, aes(x=start+((stop-start)/2), colour=sig, group=sig,fill=sig)) + geom_density(alpha=density_curve_transparency,size=density_curve_line_thickness, adjust=0.25) + scale_color_manual(values=c(non_significant_colour,significant_colour),breaks=c("True","False"),labels=c(significant_name, non_significant_name)) + scale_fill_manual(values=c(non_significant_colour,significant_colour),breaks=c("True","False"),labels=c(significant_name, non_significant_name)) + xlab(x_axis_label) + ylab(y_axis_label) + ggtitle(paste("chromosome ",current_chromosome,sep="")) + theme_SL2() + theme(legend.position=legend_position)
+    return(ggp)
+  }
+  else
+  {
+    return(ggplot(data.frame()) + theme_SL2() + geom_blank() + ggtitle("There were too few valid genes to sensibly plot this."))
+  }
+}
+

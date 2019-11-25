@@ -1,0 +1,1 @@
+Violin and jitter plots of the ten most highly expressed genes per sample group, for the sample groups: <*sample_groups*>. Each dot is one sample, with sample groups given on the x-axis and gene expression on the y-axis. The mean and standard error for each sample group is given as a red dot and line.

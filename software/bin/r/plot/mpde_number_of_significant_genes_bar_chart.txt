@@ -1,0 +1,16 @@
+##----- Number of Significant Genes Barchart -----##
+
+plot_height = 500
+plot_width = 750
+x_axis_label = ""
+y_axis_label = "number of significant genes"
+comparison_labels = default_comparison_labels # note: changing this won't change the order the comparisons appear in the x axis. Merely what they are labelled as.
+direction_labels = c("up","down") # note: changing this won't change the order the bars appear in the x axis. Merely what they are labelled as.
+bar_colours = default_two_tone_greyscale # note: changing this won't change the order the bars appear in the x axis. Merely what they are coloured as.
+legend_position = "bottom"
+data_label_size = 5
+bar_outline_size = 1
+
+ggp = make_number_of_significant_genes_barchart(x_axis_label,y_axis_label,comparison_labels,direction_labels,bar_colours,legend_position,data_label_size,bar_outline_size)
+save_plot(ggp,plot_height,plot_width,"<*path*>plots/number_of_significant_genes/number_of_significant_genes_barchart.png<*/path*>")
+

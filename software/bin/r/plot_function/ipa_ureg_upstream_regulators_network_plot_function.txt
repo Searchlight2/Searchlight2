@@ -1,0 +1,33 @@
+##---- IPA UREG Network Plot Function ----##
+make_ipa_ureg_network_plot <- function(edges,nodes,activated_node_colours,inhibited_node_colours,node_outer_max_size,node_inner_max_size,node_label_size,edge_colour,edge_transparency,edge_width) 
+{
+  if (nrow(edges) > 0) {
+
+    # starts the network
+    net = 0
+    edges_source_target <- edges[c(1,2)]
+    net = network(edges_source_target, directed = FALSE)
+    
+    # scales the node colours from -1 to 1, diverging from 0
+    nodes = nodes[order(-nodes$activation_zscore),]
+    nodes$activation_zscore_scaled_0_to_1 = range_0_to_1_function(abs(nodes$activation_zscore))
+    colour_ramp_up = colorRamp(activated_node_colours)
+    nodes$colour_ramp_up = rgb(colour_ramp_up(nodes$activation_zscore_scaled_0_to_1),maxColorValue=256)
+    colour_ramp_down = colorRamp(inhibited_node_colours)
+    nodes$colour_ramp_down = rgb(colour_ramp_down(nodes$activation_zscore_scaled_0_to_1),maxColorValue=256)
+    nodes$node_colour = c(subset(nodes,activation_zscore > 0)$colour_ramp_up,subset(nodes,activation_zscore < 0)$colour_ramp_down)
+    x = data.frame(node = network.vertex.names(net))
+    x = merge(x, nodes, by = "node", sort = FALSE)$node_colour
+    net %v% "node_colour" = as.character(x)
+
+    # pass the node sizes to the network
+    x = data.frame(node = network.vertex.names(net))
+    x = merge(x, nodes, by = "node", sort = FALSE)$node_size
+    net %v% "node_size" = as.numeric(x)
+
+    plot = ggnet2(net, alpha = 1, color = 'node_colour', size = 0,edge.color = edge_colour, edge.size = edges$overlap_ratio*edge_width, edge.alpha = edge_transparency) + xlab("") + ylab("") + theme_SL2() + theme(legend.position="none") + geom_point(aes(color = color), size=(get.vertex.attribute(net,"node_size")*node_outer_max_size)/max(get.vertex.attribute(net,"node_size")), alpha = 0.5) + geom_point(aes(color = color), size=(get.vertex.attribute(net,"node_size")*node_inner_max_size)/max(get.vertex.attribute(net,"node_size")), alpha = 1) + geom_text(aes(label = network.vertex.names(net)), color = "black", size=node_label_size)
+    return(plot)
+  }
+  return(ggplot(data.frame()) + theme_SL2() + geom_blank() + ggtitle("There were too few nodes to sensibly plot this."))
+}
+

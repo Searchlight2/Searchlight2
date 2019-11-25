@@ -1,0 +1,6 @@
+##---- transpose and scale significant genes normexp matrix ----##
+normexp_matrix_sig_scaled = data.frame(t(scale(t(normexp_matrix_sig))))
+rownames(normexp_matrix_sig_scaled) = rownames(normexp_matrix_sig)
+normexp_matrix_sig_scaled[do.call(cbind, lapply(normexp_matrix_sig_scaled, is.nan))] <- 0
+normexp_matrix_sig_scaled = normexp_matrix_sig_scaled[is.finite(rowSums(normexp_matrix_sig_scaled)), ]
+

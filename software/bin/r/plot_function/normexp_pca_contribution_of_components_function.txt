@@ -1,0 +1,15 @@
+##----- PCA Contribution of Components Function -----##
+make_PCA_contribution_of_components_plot <- function(x_axis_label,y_axis_label,dot_size,dot_transparency,dot_colour,line_type,line_colour,line_size)
+{
+
+prcomp_data = prcomp(as.matrix(sapply(normexp_matrix_scaled_transposed, as.numeric)))
+vars = apply(prcomp_data$x, 2, var)
+prcomp_props = data.frame(round(vars / sum(vars),4) * 100)
+prcomp_props$PC = row.names(prcomp_props)
+colnames(prcomp_props) = c("prop","PC")
+prcomp_props$PC = factor(prcomp_props$PC, levels = row.names(prcomp_props))
+ggp = ggplot(data=prcomp_props,aes(x=PC,y=prop,group=1)) + geom_line(linetype=line_type,colour=line_colour,size=line_size) + geom_point(size=dot_size,alpha=dot_transparency,colour=dot_colour) + xlab(x_axis_label) + ylab(y_axis_label) + theme_SL2() + theme(legend.position="None", legend.title = element_blank())                                              
+
+return(ggp)
+}
+

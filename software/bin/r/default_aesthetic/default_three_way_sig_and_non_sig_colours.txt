@@ -1,0 +1,6 @@
+##---- Default Three Way Sig and Non-sig Colours  ----##
+default_significant_both_colour = "red"
+default_significant_a_colour = "dodgerblue3"
+default_significant_b_colour = "forestgreen"
+default_non_significant_colour = "black"
+

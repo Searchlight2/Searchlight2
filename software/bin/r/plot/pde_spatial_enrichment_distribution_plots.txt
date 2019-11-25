@@ -1,0 +1,38 @@
+##----- Spatial Enrichment Distribution Plots -----##
+
+plot_height = 300
+plot_width = 750
+non_significant_colour = default_non_significant_colour
+significant_colour = default_significant_colour
+dot_size = 1.5
+dot_transparency = 1
+significant_name = "significant"
+non_significant_name = "non-significant"
+x_axis_label = "gene location"
+y_axis_label = "log2 fold change"
+legend_position = "bottom"
+density_curve_transparency = 0.5
+density_curve_line_thickness = 0
+
+chromosomes = unique(factor(PDE_annotated$chromosome))
+
+for (chromosome in chromosomes) 
+{
+data_label_size = 4.5
+ggp = make_spatial_enrichment_fold_distribution_plot(chromosome,non_significant_colour,significant_colour,dot_size,dot_transparency,significant_name,non_significant_name,x_axis_label,y_axis_label,legend_position,data_label_size)
+save_plot(ggp,plot_height,plot_width,paste("<*path*>plots/spatial_enrichment/fold_distribution_chr_",chromosome,"_labelled.png<*/path*>",sep=""))
+
+data_label_size = 0
+ggp = make_spatial_enrichment_fold_distribution_plot(chromosome,non_significant_colour,significant_colour,dot_size,dot_transparency,significant_name,non_significant_name,x_axis_label,y_axis_label,legend_position,data_label_size)
+save_plot(ggp,plot_height,plot_width,paste("<*path*>plots/spatial_enrichment/fold_distribution_chr_",chromosome,"_unlabelled.png<*/path*>",sep=""))
+}
+
+x_axis_label = "gene location"
+y_axis_label = "gene density"
+
+for (chromosome in chromosomes) 
+{
+ggp = make_spatial_enrichment_gene_distribution_plot(chromosome,non_significant_colour,significant_colour,density_curve_transparency,density_curve_line_thickness,significant_name,non_significant_name,x_axis_label,y_axis_label,legend_position)
+save_plot(ggp,plot_height,plot_width,paste("<*path*>plots/spatial_enrichment/gene_distribution_chr_",chromosome,".png<*/path*>",sep=""))
+}
+

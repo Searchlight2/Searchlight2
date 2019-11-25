@@ -1,0 +1,3 @@
+##---- Default Two Tone Network Node Colours  ----##
+default_two_tone_network_node_colours = c("grey90","red")
+

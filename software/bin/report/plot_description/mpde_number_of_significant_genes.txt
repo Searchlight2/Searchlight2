@@ -1,0 +1,1 @@
+Here we provide a barchart showing the number of significantly up and downregulated genes for each differential comparison. Comparing the number and directionality of differentially expressed genes between separate differential expression analysis gives an indication as to how strong each comparison is relative to each other.

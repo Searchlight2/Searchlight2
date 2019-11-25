@@ -1,0 +1,3 @@
+##---- Default Sample Group Labels  ----##
+default_sample_group_labels = <*sample_group_list*> # note: changing this won't change the order the groups appear on the plots. Merely what they are labelled as.
+

@@ -1,0 +1,1 @@
+Bar chart showing the number of significantly differentially expressed genes (p.adj < <*PDE_padj*>, absolute log2 fold > <*PDE_log2fold*>), between <*PDE_numerator*> and <*PDE_denominator*>. Upregulated genes are higher in <*PDE_numerator*> than in <*PDE_denominator*>.

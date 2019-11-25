@@ -1,0 +1,13 @@
+##---- transpose and scale normexp matrix across all SS columns ----##
+normexp_matrix_all_SS_columns = normexp_matrix[,cbind(unlist(samples_by_sample_group))]
+normexp_matrix_all_SS_columns_transposed = data.frame(t(normexp_matrix_all_SS_columns))
+colnames(normexp_matrix_all_SS_columns_transposed) = rownames(normexp_matrix_all_SS_columns)
+
+normexp_matrix_all_SS_columns_scaled = data.frame(t(scale(t(normexp_matrix_all_SS_columns))))
+rownames(normexp_matrix_all_SS_columns_scaled) = rownames(normexp_matrix_all_SS_columns)
+normexp_matrix_all_SS_columns_scaled[do.call(cbind, lapply(normexp_matrix_all_SS_columns_scaled, is.nan))] <- 0
+normexp_matrix_all_SS_columns_scaled = normexp_matrix_all_SS_columns_scaled[is.finite(rowSums(normexp_matrix_all_SS_columns_scaled)), ]
+
+normexp_matrix_all_SS_columns_scaled_transposed = data.frame(t(normexp_matrix_all_SS_columns_scaled))
+colnames(normexp_matrix_all_SS_columns_scaled_transposed) = rownames(normexp_matrix_all_SS_columns_scaled)
+

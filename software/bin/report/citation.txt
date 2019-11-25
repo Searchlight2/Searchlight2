@@ -1,0 +1,1 @@
+Cole, J.J., Faydaci, B., Megalios, A., Shaw, R., Robertson, N., Goodyear, C.S. Searchlight 2: Comprehensive and rapid RNA-seq data exploration and communication for unlimited differential datasets. 2018-2019. https://github.com/Searchlight2/Searchlight2/

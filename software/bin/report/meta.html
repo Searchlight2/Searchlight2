@@ -1,0 +1,82 @@
+<html>
+<head>
+    <title>Searchlight 2</title>
+    <meta charset="UTF-8">
+    <style>
+    body {display:flex; height:100%; width: 100%; margin:0; background-color:white; font-family:"Segoe UI",Arial,sans-serif;}
+    #wrapper{display:flex; position: absolute; width: 100%; height: 100%; margin:0; min-height:0;}
+    #title_bar_container{position:fixed;height:15%;width:100%;background-color:black;color:white;opacity:0.3}
+    #side_bar_container{}
+        #side_bar_container > ul{list-style-type:none;padding:0; margin:0; border-right: solid 2px black}
+            ul > li:first-child {padding: 0 0 0 0; margin-bottom: -4px;}
+            ul > li:first-child:hover {filter: opacity(50%)}
+            ul > li.side_bar_header {background-color: #616161!important; color:white}
+            ul > li{background-color:  #cc0000; padding: 8px; 16px;}
+            ul > li:hover{background-color: #777777;}
+                li > a{color:white; text-decoration:none; display:block;}
+
+     h1 {margin: 0; font-weight:400;}
+     h3 {margin: 0; font-weight:400;}
+
+    .report_header{color:white; margin: 0 -1.5em; padding: 1em; background-color:#616161!important;}
+    #report_body_container{position: relative;}
+        .plot_sections{background-color:white; position: relative; margin-bottom:3em;}
+        #report_body_container > div:first-child {background-color:white; position: relative; margin-bottom: 0;}
+
+            .plots{background-color: white; margin-bottom:1.5em;}
+            .plot_legend{display:none; padding: 15px; color:black; border: solid black; border-width: 0 1px 1px 1px;}
+            .plot_description{display:none; padding: 15px; border: solid black; border-width: 0 1px 1px 1px;}
+            .r_code{display:none; position:relative; background-color:white;font-family: "Lucida Console", Monaco, monospace; font-size: 12px; max-height: 90%; overflow-y: scroll; overflow-x: scroll; white-space:nowrap; padding:15px; border: solid black; border-width: 0 1px 1px 1px;}
+                .r_code > span.r_comment {color: blue; display: inline;}
+            img {display: inline; width: 40%;}
+                p.plot_title {display: inline; position: absolute; padding: 4%; font-weight: bold;}
+             h3.sub_title {display: block}
+            .text:last-child{padding: 0 0 50px 0;}
+
+    .collapsible {color: white; background-color: #999999; cursor: pointer; padding: 5px; width: 100%; text-align: center; font-size: 15px; border: 1px solid black; margin-top: 5px;}
+
+    .collapsible:hover {background-color: #cccccc; color: black;}
+
+    .active.collapsible {background-color: #cccccc; color:black;}
+    .active.collapsible:hover {background-color: #cccccc; color:black;}
+
+    .plot_title {cursor: pointer;}
+    .plot_tite:hover {color: #999999}
+    .plot_title.active {color: #999999;}
+    </style>
+    <!-- move css to html head -->
+</head>
+<body>
+    <!-- start of report-->
+    <div id="wrapper">
+        <div id="side_bar_container" style="width:20%;overflow-y:auto;"><ul><*side_bar*></ul></div>
+        <div id="report_body_container" style="width:80%;padding:0 1.5em;overflow-y:auto;"><*report_header*><br><*report_body*></div>
+    </div>
+    <!-- end of report -->
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+$(".collapsible").on("click", function () {
+    var content = this.nextElementSibling;
+    this.classList.toggle("active");
+    if (content.style.display == "block") {
+        content.style.display = "none";
+    } else {
+        content.style.display = "block";
+    }
+    });
+
+$(".plot_title").on("click", function () {
+    var content = this.nextElementSibling;
+    this.classList.toggle("active");
+    if (content.style.display == "block") {
+        content.style.display = "none";
+    } else {
+        content.style.display = "block";
+    }
+    });
+
+
+</script>
+</body>
+</html>

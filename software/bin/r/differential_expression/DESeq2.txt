@@ -1,0 +1,47 @@
+## RNA-seq analysis with DESeq2
+
+#Multi-core settings:
+library("DESeq2")
+library("BiocParallel")
+register(MulticoreParam(25))
+
+# Import data from featureCounts
+countdata <- read.table("/read_counts.csv", header=TRUE, row.names=1)
+sample_sheet <- read.table("/sample_sheet.csv", header=TRUE, row.names=1)
+
+# Convert to matrix
+countdata <- as.matrix(countdata)
+
+# Filter for genes with a median >= 0 read
+countdata <- subset(countdata,apply(countdata, 1, mean) >= 1)
+
+# Assign condition
+condition <- factor(sample_sheet$SAMPLE_GROUP)
+
+## Analysis with DESeq2 ----------------------------------------------------
+
+# Create a coldata frame and instantiate the DESeqDataSet. See ?DESeqDataSetFromMatrix
+coldata <- data.frame(row.names=colnames(countdata), condition)
+dds <- DESeqDataSetFromMatrix(countData=countdata, colData=coldata, design=~condition)
+
+# Run the DESeq pipeline
+dds <- DESeq(dds, parallel=T)
+
+#Get the expression matrix:
+
+# Get the EM
+resdata <- round(as.data.frame(counts(dds, normalized=TRUE)),2)
+resdata_IDs <- resdata
+resdata_IDs$IDs <- row.names(resdata)
+resdata_IDs <- resdata_IDs[,ncol(resdata_IDs)]
+resdata <- cbind(resdata_IDs,resdata)
+colnames(resdata)[1] <- "ID"
+write.table(resdata, file="/DESeq2/EM.csv",row.names=FALSE, sep="\t", quote = FALSE)
+
+#Get the differential expression files:
+res <- results(dds, c("condition","A","B"))
+res <- res[order(res$padj), ]
+resdata <- as.data.frame(res)
+resdata$ID <- row.names("ID","log2fold","p","p.adj")
+resdata <- resdata[,c(7,2,5,6)]
+write.table(resdata, file="/DESeq2/A_vs_B.csv",row.names=FALSE, sep="\t", quote = FALSE)

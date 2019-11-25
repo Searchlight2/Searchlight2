@@ -1,0 +1,15 @@
+##----- Pairwise Overlap Table Function  -----##
+make_pairwise_overlap_table <- function(pairwise_overlap_summary,header_size,text_size,border_thickness)
+{
+  table_theme <- gridExtra::ttheme_minimal(core = list(fg_params=list(cex = text_size)),colhead = list(fg_params=list(cex = header_size)))
+  colnames(pairwise_overlap_summary) = c("set 1 name","set 2 name", "background genes","set 1 total genes","set 2 total genes","set 1 unique gene","set 2 unique genes","overlapping genes","fold enrichment","p value")
+
+  gt <- tableGrob(pairwise_overlap_summary, theme=table_theme, rows=NULL)
+  gt <- gtable_add_grob(gt,grobs = rectGrob(gp = gpar(fill = NA, lwd = border_thickness)),t = 2, b = nrow(gt), l = 1, r = ncol(gt))
+  gt <- gtable_add_grob(gt,grobs = rectGrob(gp = gpar(fill = NA, lwd = border_thickness)),t = 1, l = 1, r = ncol(gt))
+  return(gt)
+}
+
+
+
+

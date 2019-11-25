@@ -1,0 +1,5 @@
+##---- Default Sample and Sample Group Colours  ----##
+number_of_sample_groups = length(sample_groups)
+default_sample_group_colours = gg_color_hue(number_of_sample_groups)
+default_samples_colours = <*default_sample_colours_list*>
+

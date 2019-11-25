@@ -1,0 +1,1 @@
+Table showing the 10 most upregulated and downregulated genes by adjusted p-value and log2fold change. Upregulated genes are higher and downregulated genes lower in <*PDE_numerator*> than in <*PDE_denominator*>.

@@ -1,0 +1,13 @@
+##---- PDE hypergeometric gene set enrichment files ----##
+<*per_hypergeometric_gene_set*>
+<*type*>_all_gene_sets = read.table(file="<*path*>data/statistical_analysis/hypergeometric_gene_set/<*type*>/all_significant_genes/all_gene_sets_results.csv"<*/path*>, header=TRUE, sep='\t', quote='',check.names = TRUE)
+<*type*>_all_signficant_genes_enriched_gene_sets = read.table(file="<*path*>data/statistical_analysis/hypergeometric_gene_set/<*type*>/all_significant_genes/enriched_gene_sets_results.csv"<*/path*>, header=TRUE, sep='\t', quote='',check.names = TRUE)
+<*type*>_all_signficant_genes_underenriched_gene_sets = read.table(file="<*path*>data/statistical_analysis/hypergeometric_gene_set/<*type*>/all_significant_genes/underenriched_gene_sets_results.csv"<*/path*>, header=TRUE, sep='\t', quote='',check.names = TRUE)
+<*type*>_upregulated_gene_sets = read.table(file="<*path*>data/statistical_analysis/hypergeometric_gene_set/<*type*>/upregulated_genes/all_gene_sets_results.csv"<*/path*>, header=TRUE, sep='\t', quote='',check.names = TRUE)
+<*type*>_upregulated_enriched_gene_sets = read.table(file="<*path*>data/statistical_analysis/hypergeometric_gene_set/<*type*>/upregulated_genes/enriched_gene_sets_results.csv"<*/path*>, header=TRUE, sep='\t', quote='',check.names = TRUE)
+<*type*>_upregulated_underenriched_gene_sets = read.table(file="<*path*>data/statistical_analysis/hypergeometric_gene_set/<*type*>/upregulated_genes/underenriched_gene_sets_results.csv"<*/path*>, header=TRUE, sep='\t', quote='',check.names = TRUE)
+<*type*>_downregulated_gene_sets = read.table(file="<*path*>data/statistical_analysis/hypergeometric_gene_set/<*type*>/downregulated_genes/all_gene_sets_results.csv"<*/path*>, header=TRUE, sep='\t', quote='',check.names = TRUE)
+<*type*>_downregulated_enriched_gene_sets = read.table(file="<*path*>data/statistical_analysis/hypergeometric_gene_set/<*type*>/downregulated_genes/enriched_gene_sets_results.csv"<*/path*>, header=TRUE, sep='\t', quote='',check.names = TRUE)
+<*type*>_downregulated_underenriched_gene_sets = read.table(file="<*path*>data/statistical_analysis/hypergeometric_gene_set/<*type*>/downregulated_genes/underenriched_gene_sets_results.csv"<*/path*>, header=TRUE, sep='\t', quote='',check.names = TRUE)
+<*/per_hypergeometric_gene_set*>
+

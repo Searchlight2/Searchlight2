@@ -1,0 +1,4 @@
+##---- Default Four Tone Network Node Colours  ----##
+default_four_tone_network_node_colours_high = c("lightpink","red")
+default_four_tone_network_node_colours_low = c("lightskyblue1","blue")
+

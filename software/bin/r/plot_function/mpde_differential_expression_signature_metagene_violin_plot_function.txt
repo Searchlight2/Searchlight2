@@ -1,0 +1,7 @@
+##----- Meta-Gene Violin Plot Function  -----##
+make_meta_gene_violin_plot <- function(matrix,signature_name,violin_transparency,violin_width,violin_line_thickness,violin_colours,violin_labels,trim_violin,jitter_dot_size,jitter_dot_colour,jitter_dot_width,summary_colour,summary_size,x_axis_label,y_axis_label,legend_position)
+{
+  ggp = ggplot(matrix, aes(x=sample_groupings, y=matrix[[signature_name]], color=sample_groupings, group=sample_groupings, fill=sample_groupings)) + geom_violin(trim=trim_violin, scale="width", width=violin_width, alpha = violin_transparency, size=violin_line_thickness) + geom_jitter(size=jitter_dot_size, colour=jitter_dot_colour, width=jitter_dot_width, show.legend = FALSE) + stat_summary(position=position_dodge(0.75), colour = summary_colour, size = summary_size, geom="pointrange", show.legend = FALSE) + scale_color_manual(values=violin_colours,breaks=sample_groups,labels=violin_labels,limits=sample_groups) + scale_fill_manual(values=violin_colours,breaks=sample_groups,labels=violin_labels,limits=sample_groups) + scale_x_discrete(breaks=sample_groups,labels=violin_labels,limits=sample_groups) + ylim(min(matrix[[signature_name]] * 1.25), max(matrix[[signature_name]] * 1.25)) + xlab(x_axis_label) + ylab(y_axis_label) + theme_SL2() + theme(legend.position=legend_position,axis.text.x = element_text(angle = 45, hjust = 1))
+  return(ggp)
+}
+

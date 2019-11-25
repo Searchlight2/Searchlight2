@@ -1,0 +1,16 @@
+##----- Most Expressed Genes (Tables) -----##
+
+plot_height = 300
+plot_width = 750
+header_size = 1.25
+text_size = 1.25
+border_thickness = 2
+
+for(sample_group_index in 1:length(sample_groups))
+{
+  sample_group = sample_groups[sample_group_index]
+  top_10_genes = get_top_10_genes_by_mean_expression(sample_group_index)
+  gt = make_most_expressed_genes_table(top_10_genes,header_size,text_size,border_thickness)
+  save_table(gt,plot_height,plot_width,paste("<*path*>plots/most_expressed_genes/",sample_group,"_most_expressed_genes_table.png<*/path*>",sep=""))
+}
+

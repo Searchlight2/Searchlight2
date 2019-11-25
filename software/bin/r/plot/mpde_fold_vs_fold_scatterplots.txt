@@ -1,0 +1,31 @@
+##----- Fold vs Fold Scatterplot -----##
+
+colours = c(default_significant_both_colour,default_significant_a_colour,default_significant_b_colour,default_non_significant_colour)
+dot_size = 1.5
+plot_height = 600
+plot_width = 600
+dot_transparency = 1
+legend_position = "bottom"
+data_label_size = 4.5
+
+for(index1 in 1:length(comparisons))
+{  
+  for(index2 in index1:length(comparisons))
+  {
+    if(index1 != index2) 
+    {
+      comparison1 = comparisons[index1]
+      comparison2 = comparisons[index2]
+      data_label_size = 4.5
+      x_axis_label = paste(comparison1," log2fold",sep="")
+      y_axis_label = paste(comparison2," log2fold",sep="")
+      ggp = make_fold_vs_fold_scatterplot(comparison1,comparison2,colours,dot_size,dot_transparency,significant_name,non_significant_name,x_axis_label,y_axis_label,legend_position,data_label_size)
+      save_plot(ggp,plot_height,plot_width,paste("<*path*>plots/fold_vs_fold_scatterplots/",gsub(" vs ", "_vs_", comparison1),"_VS_",gsub(" vs ", "_vs_", comparison2),"_labelled.png<*/path*>",sep=""))
+      
+      data_label_size = 0
+      ggp = make_fold_vs_fold_scatterplot(comparison1,comparison2,colours,dot_size,dot_transparency,significant_name,non_significant_name,x_axis_label,y_axis_label,legend_position,data_label_size)
+      save_plot(ggp,plot_height,plot_width,paste("<*path*>plots/fold_vs_fold_scatterplots/",gsub(" vs ", "_vs_", comparison1),"_VS_",gsub(" vs ", "_vs_", comparison2),"_unlabelled.png<*/path*>",sep=""))
+    }
+  }
+}
+

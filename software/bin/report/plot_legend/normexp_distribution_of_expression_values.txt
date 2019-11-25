@@ -1,0 +1,1 @@
+Density plots showing the overall distribution of expression values for each sample. Expression values are given on x-axis and are on a log 10 scale. The gene density is given on the y-axis.

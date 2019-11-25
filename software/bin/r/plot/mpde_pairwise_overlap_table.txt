@@ -1,0 +1,13 @@
+##----- Pairwise Overlap (Table) -----##
+
+plot_height = 300
+plot_width = 1800
+header_size = 1.25
+text_size = 1.25
+border_thickness = 2
+
+gt = make_pairwise_overlap_table(pairwise_overlap_summary,header_size,text_size,border_thickness)
+png("<*path*>plots/pairwise_overlap/pairwise_overlap_table.png<*/path*>", height=300, width=1800, pointsize=5)
+grid.arrange(gt)
+dev.off()
+

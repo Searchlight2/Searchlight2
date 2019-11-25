@@ -1,0 +1,11 @@
+PLOT_ID=PCA_scatterplots
+TITLE=PCA Scatterplots
+PLOTS_PER_ROW=4
+PLOT_PATH=plots/PCA/PCA_1_vs_PCA_2_scatter_plot_labelled.png
+PLOT_PATH=plots/PCA/PCA_1_vs_PCA_2_scatter_plot_unlabelled.png
+PLOT_PATH=plots/PCA/PCA_3_vs_PCA_4_scatter_plot_labelled.png
+PLOT_PATH=plots/PCA/PCA_3_vs_PCA_4_scatter_plot_unlabelled.png
+
+R_CODE_PATH=plots/PCA/PCA_scatterplot.r
+PLOT_DESCRIPTION=/bin/report/plot_description/normexp_PCA_scatterplot.txt
+PLOT_LEGEND=/bin/report/plot_legend/normexp_PCA_scatterplot.txt

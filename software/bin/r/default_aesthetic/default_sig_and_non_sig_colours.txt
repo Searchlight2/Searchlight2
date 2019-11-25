@@ -1,0 +1,4 @@
+##---- Default Sig and Non-sig Colours  ----##
+default_significant_colour = "red"
+default_non_significant_colour = "black"
+

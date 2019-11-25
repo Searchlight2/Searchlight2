@@ -1,0 +1,25 @@
+##----- Differential Expression Signatures Hypergeometric Enriched Gene Sets (Bar Charts) -----##
+
+plot_height = 350
+plot_width = 1000
+x_axis_label = "-log10 p-value"
+y_axis_label = ""
+non_significant_colour = default_non_significant_colour
+significant_colour = default_significant_colour
+bar_outline_size = 1
+bar_transparency = 0.75
+legend_position = "bottom"
+significant_name = "significant"
+non_significant_name = "non-significant"
+data_label_size = 5
+
+<*per_de_signature_hyper_gs*>
+all_gene_sets = read.table(file="<*path*>data/statistical_analysis/differential_expression_signature/hypergeometric_gene_set/<*type*>/signature_<*de_signature*>/all_gene_sets_results.csv<*/path*>", header=TRUE, sep='\t', quote='',check.names = TRUE)
+enriched_gene_sets = read.table(file="<*path*>data/statistical_analysis/differential_expression_signature/hypergeometric_gene_set/<*type*>/signature_<*de_signature*>/enriched_gene_sets_results.csv<*/path*>", header=TRUE, sep='\t', quote='',check.names = TRUE)
+
+top_10_gene_sets = get_top10_hypergeometric_gene_sets_by_p_value(all_gene_sets,enriched_gene_sets,"enrichment")
+ggp = make_hypergeometric_gene_sets_bar_chart(top_10_gene_sets,x_axis_label,y_axis_label,non_significant_colour,significant_colour,bar_outline_size,bar_transparency,legend_position,significant_name,non_significant_name,data_label_size)
+save_plot(ggp,plot_height,plot_width,"<*path*>plots/differential_expression_signature/signature_hypergeometric_gene_sets_enrichment/<*type*>/signature_<*de_signature*>_enriched_gene_sets_barchart.png<*/path*>")
+
+<*/per_de_signature_hyper_gs*>
+

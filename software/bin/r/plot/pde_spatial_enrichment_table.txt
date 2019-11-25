@@ -1,0 +1,11 @@
+##----- Spatial Enrichement (Table) -----##
+
+plot_height = 700
+plot_width = 2100
+header_size = 1.25
+text_size = 1.25
+border_thickness = 2
+
+gt = make_spatial_enrichment_table(spatial_enrichment_summary,header_size,text_size,border_thickness)
+save_table(gt,plot_height,plot_width,"<*path*>plots/spatial_enrichment/spatial_enrichment_table.png<*/path*>")
+

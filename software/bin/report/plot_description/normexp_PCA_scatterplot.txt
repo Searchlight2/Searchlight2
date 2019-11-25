@@ -1,0 +1,4 @@
+In simple terms, Principal Components Analysis (PCA) is a technique that uses all expression values to find underlying variables (known as principal components) that best differentiate your samples. Principal components are dimensions along which your data points are most spread out. Each component will describe a proportion of the total underlying variation between genes and samples (i.e. the global variation in the dataset). Components are ordered by the % of the underlying variation that they describe, with PC1 explaining the most variation.
+<br />
+<br />
+Here we plot each sample based on its PC1 vs PC2 values (left and middle left) and its PC3 vs PC4 values (middle right and right). Generally we expect sample groups to separate and replicates to cluster together. Groups not separating suggests little difference between groups, and replicates not clustering suggests sample heterogeneity. 

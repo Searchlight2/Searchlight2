@@ -1,0 +1,8 @@
+##---- IPA upstream regulator activation and enrichment files ----##
+<*per_ipa_ureg*>
+<*type*>_all_gene_sets = read.table(file="<*path*>data/statistical_analysis/upstream_regulators/<*type*>/all_uregs_results.csv"<*/path*>, header=TRUE, sep='\t', quote='',check.names = TRUE)
+<*type*>_enriched_gene_sets = read.table(file="<*path*>data/statistical_analysis/upstream_regulators/<*type*>/enriched_uregs_results.csv"<*/path*>, header=TRUE, sep='\t', quote='',check.names = TRUE)
+<*type*>_activated_gene_sets = read.table(file="<*path*>data/statistical_analysis/upstream_regulators/<*type*>/activated_uregs_results.csv"<*/path*>, header=TRUE, sep='\t', quote='',check.names = TRUE)
+<*type*>_enriched_and_activated_gene_sets = read.table(file="<*path*>data/statistical_analysis/upstream_regulators/<*type*>/enriched_and_activated_uregs_results.csv"<*/path*>, header=TRUE, sep='\t', quote='',check.names = TRUE)
+<*/per_ipa_ureg*>
+

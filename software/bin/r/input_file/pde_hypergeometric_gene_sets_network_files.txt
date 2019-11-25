@@ -1,0 +1,10 @@
+##---- PDE hypergeometric gene set network files ----##
+<*per_hypergeometric_gene_set*>
+<*type*>_all_significant_gene_sets_nodes = read.table(file="<*path*>data/statistical_analysis/hypergeometric_gene_set/<*type*>/all_significant_genes/network_data/enriched_gene_sets_nodes.csv<*/path*>", header=TRUE, sep='\t', quote='',check.names = TRUE)
+<*type*>_all_significant_gene_sets_edges = read.table(file="<*path*>data/statistical_analysis/hypergeometric_gene_set/<*type*>/all_significant_genes/network_data/enriched_gene_sets_edges.csv<*/path*>", header=TRUE, sep='\t', quote='',check.names = TRUE)
+<*type*>_upregulated_gene_sets_nodes = read.table(file="<*path*>data/statistical_analysis/hypergeometric_gene_set/<*type*>/upregulated_genes/network_data/enriched_gene_sets_nodes.csv<*/path*>", header=TRUE, sep='\t', quote='',check.names = TRUE)
+<*type*>_upregulated_gene_sets_edges = read.table(file="<*path*>data/statistical_analysis/hypergeometric_gene_set/<*type*>/upregulated_genes/network_data/enriched_gene_sets_edges.csv<*/path*>", header=TRUE, sep='\t', quote='',check.names = TRUE)
+<*type*>_downregulated_gene_sets_nodes = read.table(file="<*path*>data/statistical_analysis/hypergeometric_gene_set/<*type*>/downregulated_genes/network_data/enriched_gene_sets_nodes.csv<*/path*>", header=TRUE, sep='\t', quote='',check.names = TRUE)
+<*type*>_downregulated_gene_sets_edges = read.table(file="<*path*>data/statistical_analysis/hypergeometric_gene_set/<*type*>/downregulated_genes/network_data/enriched_gene_sets_edges.csv<*/path*>", header=TRUE, sep='\t', quote='',check.names = TRUE)
+<*/per_hypergeometric_gene_set*>
+

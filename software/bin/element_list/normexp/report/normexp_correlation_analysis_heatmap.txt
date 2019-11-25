@@ -1,0 +1,10 @@
+PLOT_ID=correlation_analysis_heatmap
+TITLE=Correlation Analysis Heatmap
+PLOTS_PER_ROW=2
+
+PLOT_PATH=plots/correlation_analysis/correlation_analysis_heatmap.png
+PLOT_PATH=plots/correlation_analysis/correlation_analysis_heatmap_clustered.png
+
+R_CODE_PATH=plots/correlation_analysis/correlation_analysis_heatmap.r
+PLOT_DESCRIPTION=/bin/report/plot_description/normexp_correlation_analysis_heatmap.txt
+PLOT_LEGEND=/bin/report/plot_legend/normexp_correlation_analysis_heatmap.txt

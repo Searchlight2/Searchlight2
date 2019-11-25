@@ -1,0 +1,10 @@
+R_CODE_OUTPATH=plots/fold_vs_fold_scatterplots/fold_vs_fold_scatterplots.r
+library/general_libraries.txt
+core_parameter/MPDE_sample_and_sample_group_names.txt
+input_file/working_directory.txt
+input_file/mpde_input_files.txt
+default_aesthetic/SL2_theme.txt
+default_aesthetic/default_three_way_sig_and_non_sig_colours.txt
+helper_function/save_plot.txt
+plot_function/mpde_mpde_fold_vs_fold_scatterplot_function.txt
+plot/mpde_fold_vs_fold_scatterplots.txt

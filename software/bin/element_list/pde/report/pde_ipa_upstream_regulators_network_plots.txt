@@ -1,0 +1,16 @@
+PLOT_ID=ipa_upstream_regulators_network_plots
+TITLE=Upstream Regulator Network Plots
+PLOTS_PER_ROW=1
+
+<*per_ipa_ureg*>
+SUB_TITLE=Most Enriched Upstream Regulators (<*IPA_ureg_type*>)
+PLOT_PATH=plots/upstream_regulators/<*IPA_ureg_type*>/enriched_gene_sets_network_plot.png
+SUB_TITLE=Most Activated and Inhibited Upstream Regulators (<*IPA_ureg_type*>)
+PLOT_PATH=plots/upstream_regulators/<*IPA_ureg_type*>/activated_and_inhibited_gene_sets_network_plot.png
+
+<*/per_ipa_ureg*>
+
+
+R_CODE_PATH=plots/upstream_regulators/upstream_regulators_barcharts.r
+PLOT_DESCRIPTION=/bin/report/plot_description/pde_ipa_upstream_regulators_network_plots.txt
+PLOT_LEGEND=/bin/report/plot_legend/pde_ipa_upstream_regulators_network_plots.txt

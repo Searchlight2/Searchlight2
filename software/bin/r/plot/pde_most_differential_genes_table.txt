@@ -1,0 +1,24 @@
+##----- Most Differential Genes (Tables) -----##
+
+plot_height = 300
+plot_width = 400
+header_size = 1.25
+text_size = 1.25
+border_thickness = 2
+
+top_10_genes = get_top_10_differential_genes(TRUE,"p") # upregulated, by p
+gt = make_most_differential_genes_table(top_10_genes,header_size,text_size,border_thickness)
+save_table(gt,plot_height,plot_width,"<*path*>plots/most_differential_genes/most_upregulated_by_p_value/most_upregulated_genes_table.png<*/path*>")
+
+top_10_genes = get_top_10_differential_genes(FALSE,"p") # downregulated, by p
+gt = make_most_differential_genes_table(top_10_genes,header_size,text_size,border_thickness)
+save_table(gt,plot_height,plot_width,"<*path*>plots/most_differential_genes/most_downregulated_by_p_value/most_downregulated_genes_table.png<*/path*>")
+
+top_10_genes = get_top_10_differential_genes(TRUE,"log2fold") # upregulated, by log2fold
+gt = make_most_differential_genes_table(top_10_genes,header_size,text_size,border_thickness)
+save_table(gt,plot_height,plot_width,"<*path*>plots/most_differential_genes/most_upregulated_by_log2fold/most_upregulated_genes_table.png<*/path*>")
+
+top_10_genes = get_top_10_differential_genes(FALSE,"log2fold") # downregulated, by log2fold
+gt = make_most_differential_genes_table(top_10_genes,header_size,text_size,border_thickness)
+save_table(gt,plot_height,plot_width,"<*path*>plots/most_differential_genes/most_downregulated_by_log2fold/most_downregulated_genes_table.png<*/path*>")
+

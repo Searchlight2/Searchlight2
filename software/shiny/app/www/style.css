@@ -1,0 +1,78 @@
+label.control-label, .selectize-control.single {
+  display: table-cell; 
+  text-align: left; 
+  vertical-align: middle;
+}
+  
+.form-group { 
+  display: table-row;
+}
+
+label, .form-control.shiny-bound-input{ 
+  display: table-cell; 
+  text-align: left; 
+  vertical-align: middle; 
+}
+
+/* select/numeric/textInput labels */
+label {
+  width:150px;
+  height: 44.5px; /*to match label.control-label*/
+  font-weight: normal;
+}
+
+/* selectInput and numeric/textInput widges*/
+.selectize-input, .shiny-bound-input{ 
+  width: 250px;
+}
+
+/* dynamo data file selector */
+.action-button.shiny-bound-input{
+  width: inherit;
+}
+
+/**/
+#titlePanel > h2{
+  display:inline-block;
+  margin-top: 15px;
+}
+
+#download_png, #download_jpeg, #download_svg {
+  position: relative;
+  z-index: 3;;
+  top: 10px;
+  width: 70px;
+  float: right;
+  margin: 2px 2px;
+}
+
+#ggplotObject {
+ text-align: center;
+ position: absolute;
+}
+
+#titlePanel {
+  background-color: #cc0000;
+  position: sticky;
+  top: 0;
+  color: white;
+  z-index: 2;
+  margin: -20px -15px 35px -15px;
+  padding: 1px 15px 1px 15px;
+  height: 60px;
+  display: inline-block;
+  width: calc(100% + 30px);
+  outline: 5px solid #0000001a;
+}
+
+#plotPanel {
+  position: fixed; 
+  overflow-y: scroll;
+  overflow-x: scroll;
+  width: calc((100%*2/3) - 30px); /*-30 = 15+15 padding*/
+  height: 100vh;
+}
+
+.load-container > .loader-img {
+  height: 100px;
+}

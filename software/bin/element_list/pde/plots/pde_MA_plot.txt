@@ -1,0 +1,11 @@
+R_CODE_OUTPATH=plots/MA_plot/MA_plot.r
+library/general_libraries.txt
+core_parameter/PDE_sample_and_sample_group_names.txt
+input_file/working_directory.txt
+input_file/pde_input_files.txt
+parse_data/pde_parse_normexp_matrix.txt
+default_aesthetic/SL2_theme.txt
+default_aesthetic/default_sig_and_non_sig_colours.txt
+helper_function/save_plot.txt
+plot_function/pde_ma_plot_function.txt
+plot/pde_ma_plot.txt

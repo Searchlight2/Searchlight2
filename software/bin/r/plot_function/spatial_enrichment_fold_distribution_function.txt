@@ -1,0 +1,17 @@
+##---- Spatial Analysis Fold Distribution Function ----##
+make_spatial_enrichment_fold_distribution_plot <- function(current_chromosome,non_significant_colour,significant_colour,dot_size,dot_transparency,significant_name,non_significant_name,x_axis_label,y_axis_label,legend_position,data_label_size) 
+{
+  chromosome_data = subset(PDE_annotated,chromosome==current_chromosome & pde_valid=="True")
+  chromosome_data_sig = subset(PDE_annotated_sig,chromosome==current_chromosome & pde_valid=="True")
+  
+  if (nrow(chromosome_data) > 1)
+  {
+    ggp = ggplot(data=chromosome_data, aes(x=start+((stop-start)/2), y=log2fold, colour=sig, group=sig,fill=sig)) + geom_point(size=dot_size,alpha=dot_transparency) + scale_color_manual(values=c(non_significant_colour,significant_colour),breaks=c("True","False"),labels=c(significant_name, non_significant_name)) + scale_fill_manual(values=c(non_significant_colour,significant_colour),breaks=c("True","False"),labels=c(significant_name, non_significant_name)) + xlab(x_axis_label) + ylab(y_axis_label) + theme_SL2() + theme(legend.position=legend_position, legend.title = element_blank()) + geom_text(data=chromosome_data_sig,aes(label=rownames(chromosome_data_sig)),hjust=-0.1, vjust=-0.1, size=data_label_size, show.legend = FALSE) + ggtitle(paste("chromosome ",current_chromosome,sep="")) + ylim(c(-max(abs(chromosome_data$log2fold))*1.1,max(abs(chromosome_data$log2fold))*1.1))
+    return(ggp)
+  }
+  else
+  {
+    return(ggplot(data.frame()) + theme_SL2() + geom_blank() + ggtitle("There were too few valid genes to sensibly plot this."))
+  }
+}
+

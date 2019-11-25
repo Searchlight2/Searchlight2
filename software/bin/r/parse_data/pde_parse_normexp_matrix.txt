@@ -1,0 +1,4 @@
+##---- PDE parse normexp matrix ----##
+normexp_matrix = PDE_annotated[,samples]
+normexp_matrix_sig = PDE_annotated_sig[,samples]
+

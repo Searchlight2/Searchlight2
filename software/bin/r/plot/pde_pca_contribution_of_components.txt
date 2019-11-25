@@ -1,0 +1,16 @@
+##----- PCA (Contribution of Components) -----##
+
+plot_height = 300
+plot_width = 400
+x_axis_label = "component"
+y_axis_label = "proportion of variance (%)"
+dot_size = 4
+dot_transparency = 1
+dot_colour = "red"
+line_type = "solid"
+line_colour = "black"
+line_size = 1
+
+ggp = make_PCA_contribution_of_components_plot(x_axis_label,y_axis_label,dot_size,dot_transparency,dot_colour,line_type,line_colour,line_size)
+save_plot(ggp,plot_height,plot_width,"<*path*>plots/PCA/PCA_contribution_of_components.png<*/path*>")
+

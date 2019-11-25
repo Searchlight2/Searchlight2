@@ -1,0 +1,11 @@
+##---- Save Plot Function -----##
+save_plot <- function(ggp,plot_height,plot_width,plot_path)
+{
+  png(plot_path, height=plot_height, width=plot_width, pointsize=5)
+  print(ggp)
+  dev.off()
+
+  # clears all devices - as a safety measure
+  while (dev.cur()>1) dev.off()
+}
+

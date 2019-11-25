@@ -1,0 +1,10 @@
+PLOT_ID=significant_genes_heatmap
+TITLE=Significant Genes Heatmap
+PLOTS_PER_ROW=2
+
+PLOT_PATH=plots/significant_genes_heatmap/significant_genes_heatmap.png
+PLOT_PATH=plots/significant_genes_heatmap/significant_genes_heatmap_column_clustered.png
+
+R_CODE_PATH=plots/significant_genes_heatmap/significant_genes_heatmap.r
+PLOT_DESCRIPTION=/bin/report/plot_description/pde_significant_genes_heatmap.txt
+PLOT_LEGEND=/bin/report/plot_legend/pde_significant_genes_heatmap.txt

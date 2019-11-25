@@ -1,0 +1,19 @@
+##----- Correlation Analysis Heatmap -----##
+
+plot_height = 600
+plot_width = 750
+colours = default_three_tone_heatmap_colours
+sample_names = default_sample_labels
+distance_method = "spearman"
+clustering_method = "average"
+reorder_function = "average"
+cluster_x = FALSE
+cluster_y = FALSE
+
+ggp = make_correlation_analysis_heatmap(colours,sample_names,cluster_x,cluster_y,distance_method,clustering_method,reorder_function)
+save_plot(ggp,plot_height,plot_width,"<*path*>plots/correlation_analysis/correlation_analysis_heatmap.png<*/path*>")
+
+cluster_x = TRUE
+cluster_y = TRUE
+ggp = make_correlation_analysis_heatmap(colours,sample_names,cluster_x,cluster_y,distance_method,clustering_method,reorder_function)
+save_plot(ggp,plot_height,plot_width,"<*path*>plots/correlation_analysis/correlation_analysis_heatmap_clustered.png<*/path*>")

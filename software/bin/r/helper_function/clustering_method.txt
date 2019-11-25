@@ -1,0 +1,34 @@
+##----- Clustering Method -----##
+cluster_matrix <- function(mx,cluster_x,cluster_y,distance_method,clustering_method,reorder_function)
+{
+  x.cluster = hclust(Dist(t(mx), method=distance_method), method=clustering_method)
+  y.cluster = hclust(Dist(mx, method=distance_method), method=clustering_method)
+  
+  x.dd = as.dendrogram(x.cluster)
+  y.dd = as.dendrogram(y.cluster)
+  x.dd.reorder = reorder(x.dd,0,FUN=reorder_function)
+  y.dd.reorder = reorder(y.dd,0,FUN=reorder_function)
+  x.order = order.dendrogram(x.dd.reorder)
+  y.order = order.dendrogram(y.dd.reorder)
+
+  if(cluster_x == TRUE && cluster_y == TRUE) 
+  {
+      mx_clustered = mx[y.order,x.order]
+  }
+  
+  if(cluster_x == TRUE && cluster_y == FALSE)
+  {
+      mx_clustered = mx[,x.order]
+  }
+  
+  if(cluster_x == FALSE && cluster_y == TRUE)
+  {
+      mx_clustered = mx[y.order,]
+  }
+  if(cluster_x == FALSE && cluster_y == FALSE) 
+  {
+      mx_clustered = mx
+  }
+  return(mx_clustered)
+}
+

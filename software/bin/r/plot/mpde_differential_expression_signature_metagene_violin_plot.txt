@@ -1,0 +1,27 @@
+##----- Differential Expression Signature Metagene Boxplots  -----##
+
+plot_height = 350
+plot_width = 400
+violin_transparency = 0.5
+violin_width = 0.75
+violin_line_thickness = 1
+violin_colours = default_sample_group_colours 	# note: changing this won't change the order the groups appear in the x axis. Merely what they are coloured as.
+violin_labels = default_sample_group_labels	# note: changing this won't change the order the groups appear in the x axis. Merely what they are named as.
+trim_violin = FALSE
+jitter_dot_size = 2
+jitter_dot_colour = "black"
+jitter_dot_width = 0.2
+summary_colour = "red"
+summary_size = 0.25
+x_axis_label = "sample group"
+y_axis_label = "meta-gene expression\n(mean z-score)"
+legend_position = "none"
+
+for (signature_number in 1:nrow(signature_summary))
+{
+signature_name = paste("signature_",signature_number,sep="")
+signature_metagene = data.frame(t(signature_summary[,samples]))
+ggp = make_meta_gene_violin_plot(signature_metagene,signature_name,violin_transparency,violin_width,violin_line_thickness,violin_colours,violin_labels,trim_violin,jitter_dot_size,jitter_dot_colour,jitter_dot_width,summary_colour,summary_size,x_axis_label,y_axis_label,legend_position)
+save_plot(ggp,plot_height,plot_width,paste("<*path*>plots/differential_expression_signature/metagene_violin_plots/signature_",signature_number,"_violin.png<*/path*>",sep=""))
+}
+

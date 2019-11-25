@@ -1,0 +1,4 @@
+##---- spatial analysis input files ----##
+spatial_enrichment_summary = read.table(file="<*path*>data/statistical_analysis/spatial_enrichment/spatial_enrichment_summary.csv<*/path*>", header=TRUE, sep='\t', quote='',check.names = TRUE)
+spatial_enrichment_gene_data = read.table(file="<*path*>data/statistical_analysis/spatial_enrichment/spatial_enrichment_gene_data.csv<*/path*>", header=TRUE, sep='\t', quote='',check.names = TRUE)
+
