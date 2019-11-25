@@ -8,11 +8,7 @@
 
 ## Downloading and using Searchlight 2.
 
-To download the software please click the clone/download button above. A quick start guide alongide a detailed usage can be found in the user manual. Examples of Searchlight 2s outputs (including several reports) can be found here: https://github.com/Searchlight2/example-reports. 
-
-Searchlight accepts input files that are typical to RNA-seq (see the list of file formats for details). Namely a matrix of normalised expression values, a sample sheet, a transcriptome background file and tables of differential expression values (fold, p, adjusted p). 
-
-Typical Searchlight runcode looks like this:
+To download the software please click the clone/download button above. A quick start guide alongide a detailed usage can be found in the user manual. Searchlight accepts input files that are typical to RNA-seq (see the list of file formats for details). Namely a matrix of normalised expression values, a sample sheet, a transcriptome background file and tables of differential expression values (fold, p, adjusted p). Typical Searchlight runcode looks like this:
 
 ```
 python Searchlgiht2.py 
@@ -23,6 +19,7 @@ python Searchlgiht2.py
 --pde file=WT_vs_KO.tsv,numerator=KO,denominator=WT
 ```
 
+Examples of Searchlight 2s outputs (including several reports) can be found here: https://github.com/Searchlight2/example-reports. 
 
 <br>
 
