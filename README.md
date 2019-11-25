@@ -8,7 +8,7 @@
 
 ## Downloading and using Searchlight 2.
 
-To download the software please click the clone/download button above. A quick start guide alongide a detailed usage can be found in the user manual provided with the download. Searchlight accepts input files that are typical to RNA-seq. Namely a matrix of normalised expression values, a sample sheet, a transcriptome background file and tables of differential expression values (fold, p, adjusted p). Typical Searchlight runcode looks like this:
+To download the software please click the clone/download button above. A quick start guide alongide a detailed usage guide can be found in the user manual provided with the download. Searchlight accepts input files that are typical to RNA-seq. Namely a matrix of normalised expression values, a sample sheet, a transcriptome background file and tables of differential expression values (fold, p, adjusted p). Typical Searchlight runcode looks like this:
 
 ```
 python Searchlight2.py 
