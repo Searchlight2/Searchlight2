@@ -19,7 +19,7 @@ python Searchlight2.py
 --pde file=WT_vs_KO.tsv,numerator=KO,denominator=WT
 ```
 
-Examples of Searchlight 2s outputs (including several reports) can be found here: https://github.com/Searchlight2/example-reports. 
+Examples of Searchlight 2s outputs (including several reports) can be downkloaded from here: https://github.com/Searchlight2/example-reports. 
 
 <br>
 
