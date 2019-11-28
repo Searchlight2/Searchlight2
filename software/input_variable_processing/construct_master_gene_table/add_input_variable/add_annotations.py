@@ -2,7 +2,6 @@
 
 def add_annotations(global_variables, master_gene_table):
 
-
     annotation_by_gene = global_variables["annotation_by_gene"]
 
     for gene_ID in master_gene_table:
