@@ -1,4 +1,4 @@
-University Of Glasgow License
+University of Glasgow License
 
 Copyright (c) 2019 Searchlight2
 
