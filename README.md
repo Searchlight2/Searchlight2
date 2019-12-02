@@ -23,6 +23,13 @@ Examples of Searchlight 2s outputs (including several reports) can be downloaded
 
 <br>
 
+## PLEAE NOTE
+
+We have identified a bug in the UREG inhibited results:
+* We will fix this by Christmas.
+
+<br>
+
 ## Version 2.0.3
 
 Changes as of 25th November 2019:
