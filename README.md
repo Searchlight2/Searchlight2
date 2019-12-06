@@ -1,4 +1,4 @@
-## Searchlight 2: rapid and comprehensive RNA-seq exploration and communication for unlimited differential datasets.
+## Searchlight 2: rapid and comprehensive RNA-seq exploration and visualisation for unlimited differential datasets.
 
 <br>
 
