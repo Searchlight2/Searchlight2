@@ -93,10 +93,10 @@ def add_NORMEXP_specific_parameters(global_variables, pr_dictionary):
 
     # gets the various samples and sample group lists for NORMEXP:
     order_list = global_variables["sample_groups_default_order"]
-    samples_ordered = global_variables["sample_list"]
     sample_groups_by_column = global_variables["sample_groups_by_column"]
     samples_by_sample_groups = global_variables["samples_by_sample_groups"]
     sample_sheet_column_names = global_variables["sample_sheet_column_names"]
+    samples_ordered = get_samples_ordered_by_order_list(order_list[0:len(sample_groups_by_column[0])], samples_by_sample_groups)
 
     # gets the various R code strings:
     samples_r_string = "c(\"" + "\",\"".join(samples_ordered) + "\")"

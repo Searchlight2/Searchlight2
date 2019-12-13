@@ -1,0 +1,3 @@
+##---- parse normexp matrix ----##
+normexp_matrix = normexp_file[,samples]
+

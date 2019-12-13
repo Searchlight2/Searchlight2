@@ -4,6 +4,7 @@ library/table_libraries.txt
 core_parameter/normexp_sample_and_sample_group_names.txt
 input_file/working_directory.txt
 input_file/normexp_input_files.txt
+parse_data/normexp_parse_normexp_matrix.txt
 parse_data/normexp_transpose_and_scale_normexp_matrix.txt
 default_aesthetic/SL2_theme.txt
 helper_function/save_table.txt
