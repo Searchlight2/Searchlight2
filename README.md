@@ -391,14 +391,14 @@ We reconise that users might wish to modify the default beaviour of Searchlight2
 
 <br>
 
-If you wish to contact us regarding Searchlight2 please use the email address and header below:
+To contact us please use the email address and header line below:
 
 ```
 John.ColeATglasgow.ac.uk
 
 (replacing AT with @ to help us avoid screen scrapeing)
 
-Header: Searchlight2 query
+Header: Searchlight2 Query
 ```
 
 <br>
