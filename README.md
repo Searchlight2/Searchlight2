@@ -12,7 +12,8 @@
 5. [Basic input files](#Basic_input_files)
 6. [Quick start guide](#Quick_start_guide)
 7. [Advanced guide](#Advanced_guide)
-
+8. [Pathway analysis](#Pathway_analysis)
+9. [List of parameters](#List_of_parameters)
 
 <br>
 
@@ -171,8 +172,11 @@ python Searchlight2.py
 <br>
 
 
-# Advanced guide <a name="Advanced guide"></a>
+# Advanced guide <a name="Advanced_guide"></a>
 
+# Pathway analysis <a name="Pathway_analysis"></a>
+
+# List of parameters <a name="List_of_parameters"></a>
 
 
 
