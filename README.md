@@ -4,11 +4,19 @@
 
 <br>
 
-## Contents
+# Contents
 
 <br>
 
-## Description
+# Table of Contents
+1. [Description](Description)
+2. [Pipeline overview](Pipeline overview)
+3. [Example outputs](Example outputs)
+4. [Download and first time setup](Download and first time setup)
+
+<br>
+
+# Description
 
 <br>
 
@@ -23,7 +31,7 @@ Searchlight2 accepts typical RNA-seq downstream analysis inputs - such as a samp
 
 <br>
 
-## Pipeline Overview
+# Pipeline overview
 
 <br>
 
@@ -36,7 +44,7 @@ Searchlight2 is executed as a single command. Firstly, it validates the input fi
 
 <br>
 
-## Example outputs
+# Example outputs
 
 <br>
 
@@ -67,7 +75,7 @@ Searchlight2 is executed as a single command. Firstly, it validates the input fi
 
 <br>
 
-## Download and first time setup
+# Download and first time setup
 
 <br>
 
@@ -84,7 +92,7 @@ If you do not pre-install the R libraries Searchlight2 will run successfully and
 
 <br>
 
-## Basic input files
+# Basic input files
 
 
 <br>
@@ -102,7 +110,7 @@ Searchlight2 is strict about the format of its inputs (but not the source) to en
 
 <br>
 
-## Quick start guide
+# Quick start guide
 
 
 
