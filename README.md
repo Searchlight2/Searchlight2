@@ -13,7 +13,7 @@
 6. [Quick start guide](#Quick_start_guide)
 7. [Including pathway analysis](#Including_pathway_analysis)
 8. [Datasets with more than one differential comparison](#Datasets_with_more_than_one_differential_comparison)
-9. [Including signature analysis](#Including_signature_analysis)
+9. [Including a formal signature analysis](#Including_a_formal_signature_analysis)
 10. [Results](#Results)
 11. [Default R settings](#Default_R_settings)
 12. [Pathway database formats](#Pathway_database_formats)
@@ -236,22 +236,13 @@ The sub-parameters are analogous to those of the ORA parameter. Note that the up
 
 # Datasets with more than one differential comparison <a name="Datasets_with_more_than_one_differential_comparison"></a>
 
+<br>
 
-# Including signature analysis <a name="Including_signature_analysis"></a>
-
-
-
-
-
-# Advanced guide <a name="Advanced_guide"></a>
+**This section deals with what to do if your experiment has more than two types of sample, and so involves more than one differential expression comparison.** Searchlight2 fully supports these datasets, which we will refer to as "signature based" as they can include signatures beyond simply "up" or "down" regulated.
 
 <br>
 
-**The advanced guide deals with what to do if you experiment has more than two types of sample, and so involves more than one differential expression comparison.** Searchlight2 fully supports these datasets, which we will refer to as "signature based". 
-
-<br>
-
-If you have more than one differential expression file (e.g. WT vs KO and KO vs KO_rescue) you may run both comparisons simultaneously simply by adding a second --pde parameter. The broken down command for the sample dataset migh look like this:
+If you have more than one differential expression file (e.g. WT vs KO and KO vs KO_rescue) you may run all comparisons simultaneously simply by adding additional --pde parameter. The broken down command for the sample dataset might look like this:
 
 <br>
 
@@ -271,15 +262,56 @@ In this scenario Searchlight2 will run a seperate PDE workflow for each, and wil
 
 <br>
 
-So far, we have considered the sitation where we have several independant pairwise comparisons. E.g. n * (A vs B). However, often it is desirable to ask how several groups of samples compare to each other. For example knowing what changes between WT and KO or what changes between KO and KO + rescue is interesting, but it does not tell us the extent to which the rescue returns the KO phenotype to WT. For this we need to perform a (A vs B VS B vs C) comparison, known as a multiple differential expression comparsion (MDE). These are simple to perform using the --mde parameter, but provide an extremely powerful signature based analysis of whole experiments. The --mde parameter has the following format:
+
+# Including a formal signature analysis <a name="Including_a_formal_signature_analysis"></a>
+
+<br>
+
+So far, we have considered the sitation where we have several independant pairwise comparisons, which we have treated seperately (e.g. WT vs KO and KO vs KO_rescue). However, often it is desirable to ask how several groups of samples compare to each other in more a combinatorial or whole experiment sense. For example: what changes between WT and KO or what changes between KO and KO + rescue is interesting, but it does not tell us the extent to which the rescue returns the KO phenotype to WT. For this we would need to expore all three groups together. This can be achieved using the multiple differential expression (MDE) workflow, which is included via the --mde parameter. The --mde parameter has the following format:
 
 <br>
 
 ```
---mde name=my_name,numerator=DE_x_numerator*denominator=DE_x_denominator, numerator=DE_y_numerator*denominator=DE_y_denominator
+--mde name=my_name,[numerator=DE_x_numerator*denominator=DE_x_denominator, numerator=DE_y_numerator*denominator=DE_y_denominator, ...]
 ```
 
 <br>
+
+The first sub-parameter is straightforward. --name= is simply a name for the workflow output folder. This as usual cannot start with a number and must include only letters, numbers and underscore (\_). The second sub-parameter takes a moment to consider. The --mde parameter allows two or more differential comparisons to be compared to each other simultaneously. This second sub-parameter tells Searchlight2 exactly which differential comparisons to include in the MDE. It does so by listing the specific numerator=,denominator= combination of each DE to be included. This DE must also be included in a valid --de parameter. For the sample dataset the broken down command might look like this:
+
+<br>
+
+```
+python Searchlight2.py 
+--out path=/home/john/Downloads/results 
+--bg file=/home/john/Downloads/Searchlight2/backgrounds/mouse/Ensembl.GRCm38.p6.tsv 
+--em file=/home/john/Downloads/Searchlight2/sample_datasets/EM.tsv 
+--ss file=/home/john/Downloads/Searchlight2/sample_datasets/SS.tsv 
+--de file=/home/john/Downloads/Searchlight2/sample_datasets/DE_WT_vs_KO.tsv,numerator=KO,denominator=WT
+--de file=/home/john/Downloads/Searchlight2/sample_datasets/DE_KO_rescue_vs_KO.tsv,numerator=KO_rescue,denominator=KO
+--mde name=rescue_effect,numerator=KO*denominator=WT,numerator=KO_rescue*denominator=KO
+```
+
+<br>
+
+It is clear to see that to set-up the --mde all that we really needed to do was copy "numerator=,denominator=" from each --de parameters and substitute the , for a \*. This is Searchlight2 way of understanding that we wish to include these two DE comparisons in a MDE. In this example Searchlight2 will use both sets of differential data and all WT, KO and KO_rescue sample to generate signatures. It will additionally provide summaries and a formal overlap analysis between the two differential comparisons.
+
+<br>
+
+**It is very important to note** that there is no upper limit to either the number of DE's that can be included in a single MDE or the number of different MDE workflows that can be included in a single run of Searchlight2. Each different combination will ask a slightly different question of the data. Our previous example 
+
+
+
+For simplicity we firstly demonstrate an experiment with only two DEs. 
+
+. However in an experiment with e.g. 6 DEs we might only want to include e.g. 3 of them in the MDE. 
+
+
+
+
+
+
+
 
 The --mde parameter has two sub-parameters. The first (name=) is simply a name for the workflow output folder. This as usual cannot start with a number and must include only letters, numbers and underscore (\_). The second (numerator=DE_x_denominator\*denominator=DE_x_denominator) is more complicated. For each DE that you wish to include as part of the MDE analysis you must include a sub-parameter of this format. For the sample dataset the broken down command might look like this:
 
