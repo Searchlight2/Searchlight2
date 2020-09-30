@@ -13,7 +13,11 @@
 6. [Quick start guide](#Quick_start_guide)
 7. [Advanced guide](#Advanced_guide)
 8. [Pathway analysis](#Pathway_analysis)
-9. [List of parameters](#List_of_parameters)
+9. [Results](#Results)
+10. [Default R settings](#Default_R_settings)
+11. [FAQ](#FAQ)
+12. [List of parameters](#List_of_parameters)
+13. [Contact and citation](#Contact_and_citation)
 
 <br>
 
@@ -176,7 +180,13 @@ python Searchlight2.py
 
 # Pathway analysis <a name="Pathway_analysis"></a>
 
+# Results <a name="Results"></a>
+
+# Default R settings <a name="Default_R_settings"></a>
+
 # List of parameters <a name="List_of_parameters"></a>
 
+# FAQ <a name="FAQ"></a>
 
+# Contact and citation <a name="Contact_and_citation"></a>
 
