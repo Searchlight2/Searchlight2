@@ -5,7 +5,7 @@
 <br>
 
 # Table of Contents
-1. [Description](Description)
+1. [Description](#Description)
 2. [Pipeline overview](Pipeline overview)
 3. [Example outputs](Example outputs)
 4. [Download and first time setup](Download and first time setup)
