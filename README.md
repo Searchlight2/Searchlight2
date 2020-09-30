@@ -285,22 +285,16 @@ python Searchlight2.py
 ```
 <br>
 
-Note: effectively all that we have done for the --mde parameter is copy the numerator=,denominator= section of the two DE's and replcated , with \*. This tells Searchlgiht that we want to run two DE workflows and one MDE workflow which compares (WT vs KO) to (KO vs KO_rescue). 
+Note: effectively all that we have done for the --mde parameter is copy the numerator=,denominator= section of the two DE's and replaced , with \*. This tells Searchlight that we want to run two DE workflows and one MDE workflow which compares (WT vs KO) to (KO vs KO_rescue). **There are everal important rules to remember when using MDE:**
 
-
-**There are everal important rules to remember when using MDE:**
  * There must be at least two DE's
  * To include a DE in a MDE the DE must also be part of a --de parameter
- * The numerator=*denominator= sub-parameter must match the numerator 
- * There can be up to ten DE's in a single MDE
+ * The numerator=\*denominator= sub-parameter must match the numerator and denominator combination of a valied --de
+ * There is no upper limit to the number of DE's that can be included in a single MDE (i.e. it is not limited to just two).
+ * You may include several different --mde parameters in a single run of Searchlgiht2 so long as they have a novel combination of DE's
  
 
-
-
-
-
-
-The second sub-parameter should be included once for each differential comparison that you want to include in the MDE. In the above example there are two - numerator=KO*denominator=WT and numerator=KO_rescue*denominator=KO.
+ 
 
 
 
