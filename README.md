@@ -186,6 +186,10 @@ The default settings for deciding statistical significance are p.adj <= 0.05 and
 
 <br>
 
+# Including pathway analysis <a name="Including_pathway_analysis"></a>
+
+<br>
+
 In the results you may notice that it does not currently include a pathway analysis (over-representation analysis (ORA) or upstream regulator analysis (URA)). This is because we have yet to include an ORA or URA database (such as GEO or TRRUST). To include over-representation analysis add the --ora parameter to the command:
 
 <br>
@@ -229,7 +233,11 @@ The sub-parameters are analogous to those of the ORA parameter. Note that the up
 
 # Advanced guide <a name="Advanced_guide"></a>
 
-The advanced guide deals with 
+**The advanced guide deals with what to do if you experiment has more than two types of sample, and so involves more than one differential expression comparison.** Searchlight2 fully supports these datasets, which we will refer to as "signature based". 
+
+
+
+
 
 # Results <a name="Results"></a>
 
