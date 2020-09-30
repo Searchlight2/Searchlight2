@@ -12,13 +12,14 @@
 5. [Basic input files](#Basic_input_files)
 6. [Quick start guide](#Quick_start_guide)
 7. [Including pathway analysis](#Including_pathway_analysis)
-8. [Advanced guide](#Advanced_guide)
-9. [Results](#Results)
-10. [Default R settings](#Default_R_settings)
-11. [Pathway database formats](#Pathway_database_formats)
-12. [FAQ](#FAQ)
-13. [List of parameters](#List_of_parameters)
-14. [Contact and citation](#Contact_and_citation)
+8. [Datasets with more than one differential comparison](#Datasets_with_more_than_one_differential_comparison)
+9. [Including signature analysis](#Including_signature_analysis)
+10. [Results](#Results)
+11. [Default R settings](#Default_R_settings)
+12. [Pathway database formats](#Pathway_database_formats)
+13. [FAQ](#FAQ)
+14. [List of parameters](#List_of_parameters)
+15. [Contact and citation](#Contact_and_citation)
 
 <br>
 
@@ -231,6 +232,15 @@ The sub-parameters are analogous to those of the ORA parameter. Note that the up
 ```
 
 <br>
+
+
+# Datasets with more than one differential comparison <a name="Datasets_with_more_than_one_differential_comparison"></a>
+
+
+# Including signature analysis <a name="Including_signature_analysis"></a>
+
+
+
 
 
 # Advanced guide <a name="Advanced_guide"></a>
