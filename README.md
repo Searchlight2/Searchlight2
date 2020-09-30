@@ -1,12 +1,37 @@
-## Searchlight 2: rapid and comprehensive RNA-seq exploration and visualisation for unlimited differential datasets.
+## Searchlight2: rapid and comprehensive RNA-seq exploration and visualisation for unlimited differential datasets.
 
 <br>
 
-**Searchlight 2 aims to automate the data exploration and visualisation stage of RNA-seq differential analysis as far as its possible**, by assuming that most experiments can be simplified into a combination of pre-set workflows, based on the experimental design. In doing so it has the potential to save days, weeks and even months worth of labour and associated resources per RNA-seq experiment - at no loss to specificity. It provides a comprehensive, yet breadth and depth curated selection of results including intermediate and additional files, statistical analysis, extensive visualisation, simple and modifiable r-code, a Shiny app and fully realised reports. It is compatible with any annotated organism and any experimental design regardless of number of samples or complexity. Searchlight 2 is easy to setup and use, has minimal system requirements, and typically runs in under 5 minutes per workflow. We envisage Searchlight 2 to be of use to a wide range of RNA-seq users. Namely project bioinformaticians, RNA-seq service providers and to bench scientists with a cursory understanding of RNA-seq data analysis. Searchlight 2 is available at: https://github.com/Searchlight2/Searchlight2.
+## Description
+
+Once bulk RNA-seq differential data has been processed, i.e. aligned and then expression and differential tables generated, there remains the essential but lengthy process where the biology is explored, visualised and interpreted. Typically culminating in final manuscript figures. Remarkably, in both academia and industry the favoured method of bioinformaticians for completing this downstream step remains a semi-manually coded command line and R based (or similar) analysis which is laborious in the extreme, often taking weeks and months to complete.
+
+Searchlight2 is a bulk RNA-seq exploration, visualisation and interpretation pipeline, which aims to automate this downstream analysis stage in its entirety, which it does so exclusively. When used alongside any standard alignment and processing pipeline (e.g. Star2, Hisat2, Kallisto, DEseq2, EdgeR, etc.) bioinfromaticians can consistently complete new bulk RNA-seq projects using under three hours of labour only. I.e. from raw sequence data to final manuscript figures, including all steps in-between - such as analysis plan, statistical analysis, visualisation, interpretation, panel selection and plot tweaking. 
+
+Searchlight2 is suitable for use with any differential bulk RNA-seq experiment regardless of organism, experimental design, sample number or complexity. Results are indistinguishable from a manual analysis. The novelty of Searchlight2 is not complexity or that it is conceptually very challenging. It is brute force and user friendly. Its strength and novelty lie in: (1) recognising the need for independent but overlapping workflows allowing users to tailor analysis to meet specific questions; (2) providing a fully comprehensive statistical and visual analysis on the global, pathway and single gene levels; (3) providing means for comprehensive and familiar downstream user modification of all plots via user friendly R scripts and a Shiny graphical user interface; (4) allowing users to modify the default behaviour and visuals to their own taste, via the R-snippet database; (5) providing reports; (6) by being fully automated.
+
+Searchlight2 accepts typical RNA-seq downstream analysis inputs - such as a sample sheet, expression matrix and any number of differential expression tables.  Searchlight2 is designed to help bioinformaticians, RNA-seq service providers and bench scientists progress bulk RNA-seq research projects rapidly and with minimal effort, thus freeing up resources for further in-depth analysis or alternative analytical approaches
+
+Example outputs: https://github.com/Searchlight2/example-reports. 
 
 <br>
 
-## Downloading and using Searchlight 2.
+## Download and setup
+
+
+## Basic input files
+
+All input files for Searchlight2 must be tab delimited. 
+
+* Expression Matrix (EM). Any standard matrix of expression values (TPM, RPKM, Rlog, etc). With genes by row and samples by column. The first column should be the gene ID (Ensembl, Refseq, etc). There must be a header row with the first cell as "ID" and the rest the sample names. Sample names can't start with a number and can only include numbers, letters and underscore (_). 
+
+* Differential expression table(s) (DE). 
+
+
+
+
+
+## Quick start guide
 
 To download the software please click the clone/download button above. **A quick start guide alongide a detailed usage guide can be found in the user manual provided with the download.** Searchlight accepts input files that are typical to RNA-seq. Namely a matrix of normalised expression values, a sample sheet, a transcriptome background file and tables of differential expression values (fold, p, adjusted p). Typical Searchlight runcode looks like this:
 
@@ -19,39 +44,7 @@ python Searchlight2.py
 --pde file=WT_vs_KO.tsv,numerator=KO,denominator=WT
 ```
 
-Examples of Searchlight 2s outputs (including several reports) can be downloaded from here: https://github.com/Searchlight2/example-reports. 
 
-<br>
 
-## Version 2.0.3
-
-Changes as of 25th November 2019:
-* Shiny app implemented
-* minor fixes and tweaks to R code
-
-<br>
-
-## Version 2.0.2
-
-Changes as of 17th April 2019:
-* Revamped pairwise overlap and differential expression signautres algorithms.
-* Plot descriptions, legends and methods added to the reports.
-* User manual, example data and example reports included.
-* General parameter and element name streamlining.
-* Formal and rigorous testing applied. 
-
-<br>
-
-## Version 2.0.1
-
-Changes as of 30th January 2019:
-* Normexp, PDE and MPDE workflow types available with key functionality.
-* Includes plots and reports in HMTL. Reports missing descriptions, legends and methods.
-* Includes Intermediate files.
-* Includes R scripts generated via dynamic R code snippets, controlled via elements lists.
-* Hypergeometric gene set enrichement algorithm.
-* Upstream regulator algorithm.
-* Spatial analysis algorthim.
-* Pairwise overlap algorithm.
 
 
