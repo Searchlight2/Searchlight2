@@ -241,7 +241,7 @@ The sub-parameters are analogous to those of the ORA parameter. Note that the up
 
 <br>
 
-If you have more than one differential expression file (e.g. WT vs KO and KO vs KO_rescue) you may run both comparisons simultaneously simply by adding a second --pde parameter. The brkone down command for the sample dataset migh look like this:
+If you have more than one differential expression file (e.g. WT vs KO and KO vs KO_rescue) you may run both comparisons simultaneously simply by adding a second --pde parameter. The broken down command for the sample dataset migh look like this:
 
 <br>
 
@@ -261,9 +261,20 @@ In this scenario Searchlight2 will run a seperate PDE workflow for each, and wil
 
 <br>
 
-So far, we have considered the sitation where we have several independant pairwise comparisons (A vs B). However, often it is desirable to ask how several groups of samples compare to each other. For example knowing what changes between WT and KO or what changes between KO and KO + rescue is interesting, but it does not tell us the extent to which the rescue returns the KO phenotype to WT. For this we need to perform a (A vs B)n comparison, known as a multiple pairwise differential expression comparsion (MPDE). These are simple to perform using the --mpde parameter.
+So far, we have considered the sitation where we have several independant pairwise comparisons. E.g. n * (A vs B). However, often it is desirable to ask how several groups of samples compare to each other. For example knowing what changes between WT and KO or what changes between KO and KO + rescue is interesting, but it does not tell us the extent to which the rescue returns the KO phenotype to WT. For this we need to perform a (A vs B VS B vs C) comparison, known as a multiple pairwise differential expression comparsion (MPDE). These are simple to perform using the --mpde parameter, but provide an extremely powerful signature based analysis of whole experiments. 
 
 <br>
+
+To use the --mpde parameter we need to become familiar with the two sub-parameters. The first sub-parameter is name= which is simply a name for the output folder. This as usual cannot start with a number and must include only letters, numbers and underscore (_). 
+
+The second sub-parameter is 
+
+
+
+
+I.e. a single MPDE workflow can compare 2, 5, 10 or even a hundred different differential expression comparisons to each other simultaneously. Though we don't recommend going over 4 as the complexity becomes increasingly difficult to interpret. In situations where you have several 
+
+
 
 In some situations we might wish to add additional sample groups to the results of a PDE analysis. For example 
 
