@@ -115,7 +115,7 @@ Searchlight2 is strict about the format of its inputs (but not the source) to en
 
 <br>
 
-To run Searchlight2, firstly ensure that you have the correctly prepared your four basic input files as desribed [here](#Basic_input_files). The next (final) step is to set-up and run the command. Searchlight2 can be executed by navigating to the /Searchlight2/Software/ folder and running: 
+To run Searchlight2, firstly ensure that you have correctly prepared your four basic input files as desribed [here](#Basic_input_files). The next (final) step is to set-up and run the command. Searchlight2 can be executed by navigating to the /Searchlight2/Software/ folder and running: 
 
 <br>
 
