@@ -323,12 +323,14 @@ python Searchlight2.py
 --de file=/home/john/Downloads/complex_experiment/DE_tendon_KO_rescue_vs_skin_KO_rescue.tsv,numerator=tendon_KO_rescue,denominator=skin_KO_rescue
 --mde name=skin_rescue_effect,numerator=skin_KO*denominator=skin_WT,numerator=skin_KO_rescue*denominator=skin_KO
 --mde name=tendon_rescue_effect,numerator=tendon_KO*denominator=tendon_WT,numerator=tendon_KO_rescue*denominator=tendon_KO
---mde name=skin_vs_tendon,numerator=skin_KO*denominator=skin_WT,numerator=skin_KO_rescue*denominator=skin_KO,numerator=tendon_KO*denominator=tendon_WT,numerator=tendon_KO_rescue*denominator=tendon_KO
+--mde name=KO_comparison,numerator=skin_KO*denominator=skin_WT,numerator=tendon_KO*denominator=tendon_WT
+--mde name=rescue_comparison,numerator=skin_KO_rescue*denominator=skin_KO,numerator=tendon_KO_rescue*denominator=tendon_KO
+--mde name=all,numerator=skin_KO*denominator=skin_WT,numerator=skin_KO_rescue*denominator=skin_KO,numerator=tendon_KO*denominator=tendon_WT,numerator=tendon_KO_rescue*denominator=tendon_KO
 ```
 
 <br>
 
-This is obviously starting to appear unweildy. However - it is worth noting that this complexity originates with the experimental design. In fact, Searchlghit2 helps to simplify this by formally breaking the analysis down into useful components. That all of these reports will be generated does not mean that the user will wish to look them. Simply that they are there if they need to. 
+This is obviously starting to appear unweildy. However - it is worth noting that this complexity originates with the experimental design. In fact, Searchlghit2 helps to simplify this by formally breaking the analysis down into useful components. That all of these reports will be generated does not mean that the user will wish to look them. Simply that they are there if they need to. If we look at the --mde parameters we can see that many different, but speific research questions are being asked at once. Such as does rescue reverse the KO in skin or in tendon (skin_rescue_effect, tendon_rescue_effect). Does the KO influence the same genes in skin as it does tendon (KO_comparison). Is the rescue effect comparable between skin and tendon (rescue_comparison). Finally, if we look at all of the important genes across the whole experiment what do we see (all)? 
 
 <br>
 
