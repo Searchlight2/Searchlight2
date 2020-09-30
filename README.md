@@ -4,10 +4,6 @@
 
 <br>
 
-# Contents
-
-<br>
-
 # Table of Contents
 1. [Description](Description)
 2. [Pipeline overview](Pipeline overview)
@@ -16,7 +12,7 @@
 
 <br>
 
-# Description
+# Description <a name="Description"></a>
 
 <br>
 
