@@ -12,9 +12,9 @@
 5. [Basic input files](#Basic_input_files)
 6. [Quick start guide](#Quick_start_guide)
 7. [Advanced guide](#Advanced_guide)
-8. [Pathway analysis](#Pathway_analysis)
-9. [Results](#Results)
-10. [Default R settings](#Default_R_settings)
+8. [Results](#Results)
+9. [Default R settings](#Default_R_settings)
+10. [Pathway database formats](#Pathway_database_formats)
 11. [FAQ](#FAQ)
 12. [List of parameters](#List_of_parameters)
 13. [Contact and citation](#Contact_and_citation)
@@ -177,28 +177,68 @@ python Searchlight2.py
 
 The default settings for deciding statistical significance are p.adj <= 0.05 and an absolute log2 fold change of >= 1 (i.e. at least 2 fold). These can be altered by using the log2fold= and p.adj= sub-parameters of the --de parameter. For example, re-running the sample command with the following would use a p.adj cut-off of 0.01 and no log2 fold cut-off:
 
+<br>
+
 ```
 --de file=/home/john/Downloads/Searchlight2/sample_datasets/DE_WT_vs_KO.tsv,numerator=KO,denominator=WT,p.adj=0.01,log2fold=0
 ```
 
 <br>
 
-In the results you may notice that it does not currently include a pathway analysis (over-representation analysis (ORA) or upstream regulator analysis (URA). 
+In the results you may notice that it does not currently include a pathway analysis (over-representation analysis (ORA) or upstream regulator analysis (URA)). This is because we have yet to include an ORA or URA database (such as GEO or TRRUST). To include over-representation analysis add the --ora parameter to the command:
+
+<br>
+
+```
+--ora file=/home/john/Downloads/Searchlight2/gene_set_databases/GO_bp_mouse.tsv,type=GO_bp
+```
+
+<br>
+
+The file= sub-parameter should point to a valid gene-set database file (such as GO, string, KEGG, etc) in the GMT format. Several of these are included in the download (Searchlight2/gene_set_databases/). For details of the GMT format please see [pathway database formats](#Pathway_database_formats). The type= sub-parameter is simply the name that you wish the database to be known as in the results. This name cannot start with a number and must include only letters, numbers and underscore (_). 
+
+<br>
+
+To also include an upstream regulator analysis add the --ura parameter to the command:
+
+<br>
+
+```
+--ura file=/home/john/Downloads/Searchlight2/upstream_regulator_databases/TRRUST_mouse.tsv,type=TRRUST
+```
+
+<br>
+
+The sub-parameters are analogous to those of the ORA parameter. Note that the upstream regulator database must be in the TRRUST format - see [pathway database formats](#Pathway_database_formats).
+
+<br>
+
+**It is important to note** that you may include as many different ORA or URA databases in a single run of Searchlight2. TO do so simply include an extra ORA or URA parameter pointing to a different database file. E.g.
+
+
+```
+--ora file=/home/john/Downloads/Searchlight2/gene_set_databases/GO_bp_mouse.tsv,type=GO_bp
+--ora file=/home/john/Downloads/Searchlight2/gene_set_databases/GO_cc_mouse.tsv,type=GO_cc
+--ora file=/home/john/Downloads/Searchlight2/gene_set_databases/GO_mf_mouse.tsv,type=GO_mf
+--ura file=/home/john/Downloads/Searchlight2/upstream_regulator_databases/TRRUST_mouse.tsv,type=TRRUST
+--ura file=/home/john/Downloads/IPA/IPA_database.tsv,type=IPA
+
+```
 
 
 # Advanced guide <a name="Advanced_guide"></a>
 
 The advanced guide deals with 
 
-# Pathway analysis <a name="Pathway_analysis"></a>
-
 # Results <a name="Results"></a>
 
 # Default R settings <a name="Default_R_settings"></a>
 
-# List of parameters <a name="List_of_parameters"></a>
+# Pathway database formats <a name="Pathway_database_formats"></a>
 
 # FAQ <a name="FAQ"></a>
+
+# List of parameters <a name="List_of_parameters"></a>
 
 # Contact and citation <a name="Contact_and_citation"></a>
 
