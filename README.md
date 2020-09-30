@@ -220,6 +220,7 @@ The sub-parameters are analogous to those of the ORA parameter. Note that the up
 
 **It is important to note** that you may include as many different ORA or URA databases in a single run of Searchlight2. TO do so simply include an extra ORA or URA parameter pointing to a different database file. E.g.
 
+<br>
 
 ```
 --ora file=/home/john/Downloads/Searchlight2/gene_set_databases/GO_bp_mouse.tsv,type=GO_bp
@@ -227,13 +228,44 @@ The sub-parameters are analogous to those of the ORA parameter. Note that the up
 --ora file=/home/john/Downloads/Searchlight2/gene_set_databases/GO_mf_mouse.tsv,type=GO_mf
 --ura file=/home/john/Downloads/Searchlight2/upstream_regulator_databases/TRRUST_mouse.tsv,type=TRRUST
 --ura file=/home/john/Downloads/IPA/IPA_database.tsv,type=IPA
-
 ```
+
+<br>
 
 
 # Advanced guide <a name="Advanced_guide"></a>
 
+<br>
+
 **The advanced guide deals with what to do if you experiment has more than two types of sample, and so involves more than one differential expression comparison.** Searchlight2 fully supports these datasets, which we will refer to as "signature based". 
+
+<br>
+
+If you have more than one differential expression file (e.g. WT vs KO and KO vs KO_rescue) you may run both comparisons simultaneously simply by adding a second --pde parameter. The brkone down command for the sample dataset migh look like this:
+
+<br>
+
+```
+python Searchlight2.py 
+--out path=/home/john/Downloads/results 
+--bg file=/home/john/Downloads/Searchlight2/backgrounds/mouse/Ensembl.GRCm38.p6.tsv 
+--em file=/home/john/Downloads/Searchlight2/sample_datasets/EM.tsv 
+--ss file=/home/john/Downloads/Searchlight2/sample_datasets/SS.tsv 
+--de file=/home/john/Downloads/Searchlight2/sample_datasets/DE_WT_vs_KO.tsv,numerator=KO,denominator=WT
+--de file=/home/john/Downloads/Searchlight2/sample_datasets/DE_KO_rescue_vs_KO.tsv,numerator=KO_rescue,denominator=KO
+```
+
+<br>
+
+In this scenario Searchlight2 will run a seperate PDE workflow for each, and will provide a seperate set of results for each (including a seperate report). **There is no upper limit to the number of differential comparisons that can be supplied this way**. 
+
+<br>
+
+So far, we have considered the sitation where we have several independant pairwise comparisons (A vs B). However, often it is desirable to ask how several groups of samples compare to each other. For example knowing what changes between WT and KO or what changes between KO and KO + rescue is interesting, but it does not tell us the extent to which the rescue returns the KO phenotype to WT. For this we need to perform a (A vs B)n comparison, known as a multiple pairwise differential expression comparsion (MPDE). These are simple to perform using the --mpde parameter.
+
+<br>
+
+In some situations we might wish to add additional sample groups to the results of a PDE analysis. For example 
 
 
 
