@@ -113,19 +113,43 @@ Searchlight2 is strict about the format of its inputs (but not the source) to en
 
 # Quick start guide <a name="Quick_start_guide"></a>
 
+To run Searchlight2, firstly ensure that you have the correctly prepared your four basic input files as desribed [here](#Basic_input_files). The next (final) step is to set-up and run the command. 
 
-
-
-To download the software please click the clone/download button above. **A quick start guide alongide a detailed usage guide can be found in the user manual provided with the download.** Searchlight accepts input files that are typical to RNA-seq. Namely a matrix of normalised expression values, a sample sheet, a transcriptome background file and tables of differential expression values (fold, p, adjusted p). Typical Searchlight runcode looks like this:
+Searchlight2 can be executed by navigating to the /Searchlight2/Software/ folder and running: 
 
 ```
 python Searchlight2.py 
---out path=out/
---normexp file=expression_matrix.tsv
---bg file=GRCh38_background.tsv
---ss file=sample_sheet.csv
---pde file=WT_vs_KO.tsv,numerator=KO,denominator=WT
 ```
+
+This will throw an error as you have not yet added the input parameters. Searchlight2 parameters have the format --parameter,sub-parameter=value. The key parameters are: 
+
+```
+--out path=my_desired_output_path
+--bg file=path_to_my_background_file
+--em file=path_to_my_expression_matrix_file
+--ss file=path_to_my_sample_sheet_file
+--de file=path_to_my_differential_expression_file,numerator=sample_group_1,denominator=sample_group_2
+```
+
+Mostly this is straightforward, except for the --de parameter which requires the additional sub-parameters: "numerator=" and denomintor=". Here you are expected to enter the names of the two sample groups that are being compared differentially. For example: if the DE file was of a comparison between WT and KO samples, we would enter numerator=KO,denominator=WT. The numerator should always be the sample group where a positive fold change in the DE file means an increase in expression. **It is very important to note** that the values entered into numerator= and denominator= (in this case KO & WT) must also be in the sample_group column of the sample sheet. With the same spelling. **Furthermore all paths must be complete from "root"** and not abbreviated from the working directory.
+
+To execute Searchlight2 using the provided sample dataset we might run:
+
+```
+python Searchlight2.py --out path=/home/john/Downloads/results --bg file=/home/john/Downloads/Searchlight2/backgrounds/mouse/Ensembl.GRCm38.p6.tsv --em file=/home/john/Downloads/Searchlight2/sample_datasets/EM.tsv --ss file=/home/john/Downloads/Searchlight2/sample_datasets/SS.tsv --de file=/home/john/Downloads/Searchlight2/sample_datasets/DE_WT_vs_KO.tsv ,numerator=KO,denominator=WT
+```
+
+Broken down it looks like this. In this example I have simply placed Searchlight2 into my downloads folder:
+
+```
+python Searchlight2.py 
+--out path=/home/john/Downloads/results 
+--bg file=/home/john/Downloads/Searchlight2/backgrounds/mouse/Ensembl.GRCm38.p6.tsv 
+--em file=/home/john/Downloads/Searchlight2/sample_datasets/EM.tsv 
+--ss file=/home/john/Downloads/Searchlight2/sample_datasets/SS.tsv 
+--de file=/home/john/Downloads/Searchlight2/sample_datasets/DE_WT_vs_KO.tsv ,numerator=KO,denominator=WT
+```
+
 
 
 
