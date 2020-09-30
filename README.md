@@ -21,11 +21,11 @@ Searchlight2 accepts typical RNA-seq downstream analysis inputs - such as a samp
 From the outset it is important to note that Searchlight2 is not a processing pipeline as it does not perform alignment, count reads or calculate expression and
 differential expression values. These stages must be completed prior to the use of Searchlight2. Any processing pipeline is suitable (FastP, Hisat2, Star2, Kallisto, Deseq2, EdgeR, etc.), so long as you have a matrix of expression values (TPM, RPKM, Rlog, etc) and at least one differential expression table (DEseq2, EdgeR, etc) you may use Searchlight2. 
 
-https://github.com/Searchlight2/Searchlight2/blob/master/media/outline.png
+Searchlight2 is executed as a single command. Firstly, it validates the input files and combines them into a single “master gene table”, from which the downstream analysis is based. Next, it iterates through each workflow, generating: intermediate files; statistical analysis result files; per plot and per workflow R scripts, plots; a report in HMTL; and finally a Shiny app.
 
-Searchlight2 is executed as a single command. Firstly, it validates the input files (Figure 1a) and combines them into a single “master gene table”, from which the downstream analysis is based. Next, it iterates through each workflow, generating: intermediate files; statistical analysis result files; per plot and per workflow R scripts, plots; a report in HMTL (Figure 1b); and finally a Shiny app (Figure 1c).
+![link](/media/outline.png)
 
-![GitHub Logo](/images/logo.png)
+## Example outputs
 
 
 
