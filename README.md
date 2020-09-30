@@ -14,12 +14,14 @@
 7. [Including pathway analysis](#Including_pathway_analysis)
 8. [Datasets with more than one differential comparison](#Datasets_with_more_than_one_differential_comparison)
 9. [Including a formal signature analysis](#Including_a_formal_signature_analysis)
-10. [Results](#Results)
-11. [Default R settings](#Default_R_settings)
-12. [Pathway database formats](#Pathway_database_formats)
-13. [FAQ](#FAQ)
-14. [List of parameters](#List_of_parameters)
-15. [Contact and citation](#Contact_and_citation)
+10. [Using the order sub-parameter](#Using_the_order_sub_parameter)
+11. [Results](#Results)
+12. [Downstream modification of plots and visualisations](#Downstream_modification_of_plots_and_visualisations)
+13. [Default R settings](#Default_R_settings)
+14. [Pathway database formats](#Pathway_database_formats)
+15. [FAQ](#FAQ)
+16. [List of parameters](#List_of_parameters)
+17. [Contact and citation](#Contact_and_citation)
 
 <br>
 
@@ -334,17 +336,58 @@ This is obviously starting to appear unweildy. However - it is worth noting that
 
 <br>
 
+# Using the order sub-parameter <a name="Using_the_order_sub_parameter"></a>
 
+<br>
+
+<br>
 
 # Results <a name="Results"></a>
 
+<br>
+
+<br>
+
+# Downstream modification of plots and visualisations <a name="Downstream_modification_of_plots_and_visualisations"></a>
+
+<br>
+
+An absolutely fundemental and entirey non-trivial design aspect of Searchlight2 is convenient and familiar means for users to exhaustively modify all downstream plots and visualisations. Searchlight2 provides several means for users to do so. Firstly, all plots are generated from R-scripts which use ggplot2 and a gg theme. The R-script for each plot type is located in the plot folder beside the plot, and is standalon. Linking where necessary to intermediate files supplied in the data folder. These scripts are consistent, well commented, and user firendly, allowing anyone familiar with R to easily and quickly modify plot visuals. As well as scripts for each individual plot type a script is provided that re-generated every plot in an entire workflow. By modifiying single parameters (such as fonts, colours, etc) in this workflow r-script all plots can be modified simultaneously to meet users specific tastes.
+
+<br>
+
+For users who are not R literate, Searchlgiht2 also generates a Shiny app, which allows a comprehensive range of visual features to be modified downstream for all plots in  each workflow. To run the Shiny app please install R-studio ([see Download and first time setup](#Download_and_first_time_setup)). Next, goto the (base) results folder for your run and open the "shiny" folder. Open the server.r file in R-studio click the "Run App" button in the top right, next to the green arrow. 
+
+<br>
+
 # Default R settings <a name="Default_R_settings"></a>
+
+<br>
+
+We reconise that users might wish to modify the default beaviour of Searchlight2s' R-code, either for aesthetic or technical purposes. 
+
+
+<br>
 
 # Pathway database formats <a name="Pathway_database_formats"></a>
 
+<br>
+
+<br>
+
 # FAQ <a name="FAQ"></a>
+
+<br>
+
+<br>
 
 # List of parameters <a name="List_of_parameters"></a>
 
+<br>
+
+<br>
+
 # Contact and citation <a name="Contact_and_citation"></a>
+
+<br>
 
