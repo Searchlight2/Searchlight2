@@ -379,6 +379,34 @@ We reconise that users might wish to modify the default beaviour of Searchlight2
 
 <br>
 
+**Does Searchlight 2 check my input data?** Yes. Searchlight2 thoroughly checks the integrity and format of all input data. Files which are in the wrong format (for example don't include numbers where they should, or the correct headers) are reported. In addition, all input parameters are checked for format.
+
+<br>
+
+**I am interested in exploring coding genes separately from non-coding genes. Can I do this?** Yes, Searchlight2 includes biotypes in the background file, and automatically runs a separate analysis for each type. Simply supply a background file with the appropriate biotypes. See ([basic input files](#Basic_input_files) for more information).
+
+<br>
+
+**I have used linear modeling with interaction terms for my differential expression. Which workflow does this fall under?** Though the interaction terms have been included in your model it is still a differential expression analysis (DE). Such models simply consider a pairwise interaction taking into account the effect of the interaction terms. It can however be useful to visualise the interaction terms alongside the differential results. This can be achieved using the order= sub-parameter
+
+<br>
+
+**I ran Searchlight2 but I can't see any plots. What’s going on?** Most likely the root cause is missing R libraries or an unforeseen bug in one of the plots in the R script. This will have a knock-on effect. If you are missing plots please try running the R script for the plots in question (e.g. plots/workflow.r) in R and investigating the error directly. If you cannot fix this easily, please contact us.
+
+<br>
+
+**My computer is not connected to the web, does this matter?** No. Searchlight 2 does not connect to anything external whatsoever, at any point. This is a deliberate design feature.
+
+<br>
+
+**I want to use p values instead of adjusted p values. Can I do this?** Yes, Searchlight 2 does not reference the web in any way, nor genome or transcriptome files not specified by the user. This is a deliberate design feature to allow the user control. If you wish to use P values instead of adjusted P simply “munge” your file. I.e. replace the adjusted p values with the p values in the differential expression file. The format of each file is fixed – to make sure the user understands what they are doing, but its up to the user what they put in it.
+
+<br>
+
+**I am using a custom background file, and don’t have both gene IDs and gene symbols, nor gene biotypes what can I do?** As above though the format of each file is fixed it is up to the user what goes in. Try simply using the same values for IDs and symbols. Provided it matches the expression matrix and any differential expression files it doesn’t actually matter what is in these columns. So long as you are comfortable with what you are inputting. The same logic applies to biotypes, simply set them all to “gene”. 
+
+**I have an issue that is not covered by the manual or FAQ.** Don’t we all? Email us directly using the contact provided. Though we are a small team we will try to respond ASAP.
+
 <br>
 
 # List of parameters <a name="List_of_parameters"></a>
