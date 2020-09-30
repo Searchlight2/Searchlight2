@@ -306,7 +306,7 @@ It is clear to see that to set-up the --mde all that we really needed to do was 
 
 <br>
 
-**It is very important to note** that there is no upper limit to either the number of DE's that can be included in a single MDE or the number of different MDE workflows that can be included in a single run of Searchlight2. Each different combination will ask a slightly different set of questions of the data. Our previous example (WT, KO, KO_rescue) included only two DE's and so there was only one possible combination of MDE. However, let us now consider a more complicated example. In a dataset with WT, KO and KO_rescue in two different tissues - skin and tendon we will have six groups of samples. We could have between 4 and  pertinent comparisons depending on the questions we wish to ask. Our broken down command might look like this:
+**It is very important to note** that there is no upper limit to either the number of DE's that can be included in a single MDE or the number of different MDE workflows that can be included in a single run of Searchlight2. Each different combination will ask a slightly different set of questions of the data. Our previous example (WT, KO, KO_rescue) included only two DE's and so there was only one possible combination of MDE. However, let us now consider a more complicated example. In a dataset with WT, KO and KO_rescue in two different tissues - skin and tendon we will have six groups of samples. We could have between 4 and 9 pertinent comparisons depending on the questions we wish to ask. Our broken down command might look like this:
 
 <br>
 
