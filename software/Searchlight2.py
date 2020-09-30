@@ -4,6 +4,7 @@ import getopt
 import sys
 import timeit
 import os
+import shutil
 
 from global_variables_setup.global_variables_setup import global_variables_setup
 from input_variable_processing.input_variable_processing import input_variable_processing
@@ -15,7 +16,7 @@ from shiny.shiny import shiny
 if __name__ == '__main__':
 
     start_time = timeit.default_timer()
-    version = "v2.0.3"
+    version = "v2.0.0"
 
     print
     print "#####################################"
@@ -23,7 +24,7 @@ if __name__ == '__main__':
     print "#####################################"
     print
     print "Rapid and comprehensive RNA-seq data exploration and visualisation for unlimited differential datasets"
-    print "John J. Cole, Bekir Faydaci, Anargyros Megalios, Robin Shaw, Neil Robertson & Carl S. Goodyear"
+    print "John J. Cole, Bekir Faydaci, Robin Shaw, Neil Robertson & Carl S. Goodyear"
     print "University of Glasgow"
     print
     print version
@@ -87,6 +88,13 @@ if __name__ == '__main__':
     global_variables = input_variable_processing(global_variables, annotations_parameter, ipa_ureg_parameters, hypergeom_gs_parameters, ss_parameter, norm_exp_parameter, bg_parameter, pde_workflow_parameters, mpde_workflow_parameters, popex_workflow_parameters, out_path_parameter)
     workflows(global_variables)
     shiny(global_variables)
+
+
+    print
+    print "Zipping results"
+    print
+    shutil.make_archive(os.path.join(global_variables["out_path"], "results"), 'zip', global_variables["out_path"])
+
 
     stop_time = timeit.default_timer()
     print
