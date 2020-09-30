@@ -175,8 +175,20 @@ python Searchlight2.py
 
 <br>
 
+The default settings for deciding statistical significance are p.adj <= 0.05 and an absolute log2 fold change of >= 1 (i.e. at least 2 fold). These can be altered by using the log2fold= and p.adj= sub-parameters of the --de parameter. For example, re-running the sample command with the following would use a p.adj cut-off of 0.01 and no log2 fold cut-off:
+
+```
+--de file=/home/john/Downloads/Searchlight2/sample_datasets/DE_WT_vs_KO.tsv,numerator=KO,denominator=WT,p.adj=0.01,log2fold=0
+```
+
+<br>
+
+In the results you may notice that it does not currently include a pathway analysis (over-representation analysis (ORA) or upstream regulator analysis (URA). 
+
 
 # Advanced guide <a name="Advanced_guide"></a>
+
+The advanced guide deals with 
 
 # Pathway analysis <a name="Pathway_analysis"></a>
 
