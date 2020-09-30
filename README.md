@@ -405,7 +405,9 @@ We reconise that users might wish to modify the default beaviour of Searchlight2
 
 **I am using a custom background file, and don’t have both gene IDs and gene symbols, nor gene biotypes what can I do?** As above though the format of each file is fixed it is up to the user what goes in. Try simply using the same values for IDs and symbols. Provided it matches the expression matrix and any differential expression files it doesn’t actually matter what is in these columns. So long as you are comfortable with what you are inputting. The same logic applies to biotypes, simply set them all to “gene”. 
 
-**I have an issue that is not covered by the manual or FAQ.** Don’t we all? Email us directly using the contact provided. Though we are a small team we will try to respond ASAP.
+<br>
+
+**I have an issue that is not covered by the manual or FAQ.** Don’t we all! Email us directly using the contact provided. Though we are a small team we will try to respond ASAP.
 
 <br>
 
