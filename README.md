@@ -11,6 +11,8 @@
 4. [Download and first time setup](#Download_and_first_time_setup)
 5. [Basic input files](#Basic_input_files)
 6. [Quick start guide](#Quick_start_guide)
+7. [Experiments with more than one differential comparison](#Experiments_with_more_than_one_differential_comparison)
+
 
 <br>
 
@@ -169,7 +171,7 @@ python Searchlight2.py
 <br>
 
 
-# Experiments with more than on differential comparison <a name="Experiments_with_more_than_on_differential_comparison"></a>
+# Experiments with more than one differential comparison <a name="Experiments_with_more_than_one_differential_comparison"></a>
 
 
 
