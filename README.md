@@ -4,7 +4,7 @@
 
 <br>
 
-# Table of Contents
+# Table of contents
 1. [Description](#Description)
 2. [Pipeline overview](#Pipeline_overview)
 3. [Example outputs](#Example_outputs)
