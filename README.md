@@ -221,6 +221,21 @@ The sub-parameters are analogous to those of the ORA parameter. Note that the up
 
 <br>
 
+Using the sample dataset our full (broken down) command might look like this:
+
+```
+python Searchlight2.py 
+--out path=/home/john/Downloads/results 
+--bg file=/home/john/Downloads/Searchlight2/backgrounds/mouse/Ensembl.GRCm38.p6.tsv 
+--em file=/home/john/Downloads/Searchlight2/sample_datasets/EM.tsv 
+--ss file=/home/john/Downloads/Searchlight2/sample_datasets/SS.tsv 
+--de file=/home/john/Downloads/Searchlight2/sample_datasets/DE_WT_vs_KO.tsv,numerator=KO,denominator=WT
+--ora file=/home/john/Downloads/Searchlight2/gene_set_databases/GO_bp_mouse.tsv,type=GO_bp
+--ura file=/home/john/Downloads/Searchlight2/upstream_regulator_databases/TRRUST_mouse.tsv,type=TRRUST
+```
+
+<br>
+
 **It is important to note** that you may include as many different ORA or URA databases in a single run of Searchlight2. TO do so simply include an extra ORA or URA parameter pointing to a different database file. E.g.
 
 <br>
