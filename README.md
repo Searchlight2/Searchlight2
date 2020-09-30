@@ -1,7 +1,5 @@
 ![link](/software/bin/report/logo.png)
 
-<br>
-
 ### Rapid and comprehensive RNA-seq exploration and visualisation for unlimited differential datasets
 
 <br>
@@ -55,9 +53,13 @@ Searchlight2 is executed as a single command. Firstly, it validates the input fi
 
 <br>
 
-**Sample outputs from various workflows**. 
+**Example outputs from various workflows**. 
 
-![link](/media/NE.png)
+![link](/media/Ex1.png)
+
+![link](/media/Ex2.png)
+
+![link](/media/Ex3.png)
 
 <br>
 
