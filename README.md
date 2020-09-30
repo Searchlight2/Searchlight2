@@ -6,11 +6,11 @@
 
 # Table of Contents
 1. [Description](#Description)
-2. [Pipeline overview](Pipeline overview)
-3. [Example outputs](Example outputs)
-4. [Download and first time setup](Download and first time setup)
-5. [Basic input files](Basic input files)
-6. [Quick start guide](Quick start guide)
+2. [Pipeline overview](#Pipeline overview)
+3. [Example outputs](#Example outputs)
+4. [Download and first time setup](#Download and first time setup)
+5. [Basic input files](#Basic input files)
+6. [Quick start guide](#Quick start guide)
 
 <br>
 
