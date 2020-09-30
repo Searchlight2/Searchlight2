@@ -4,6 +4,8 @@
 
 ## Description
 
+<br>
+
 Once bulk RNA-seq differential data has been processed, i.e. aligned and then expression and differential tables generated, there remains the essential but lengthy process where the biology is explored, visualised and interpreted. Typically culminating in final manuscript figures. Remarkably, in both academia and industry the favoured method of bioinformaticians for completing this downstream step remains a semi-manually coded command line and R based (or similar) analysis which is laborious in the extreme, often taking weeks and months to complete.
 
 Searchlight2 is a bulk RNA-seq exploration, visualisation and interpretation pipeline, which aims to automate this downstream analysis stage in its entirety, which it does so exclusively. When used alongside any standard alignment and processing pipeline (e.g. Star2, Hisat2, Kallisto, DEseq2, EdgeR, etc.) bioinfromaticians can consistently complete new bulk RNA-seq projects using under three hours of labour only. I.e. from raw sequence data to final manuscript figures, including all steps in-between - such as analysis plan, statistical analysis, visualisation, interpretation, panel selection and plot tweaking. 
@@ -12,11 +14,12 @@ Searchlight2 is suitable for use with any differential bulk RNA-seq experiment r
 
 Searchlight2 accepts typical RNA-seq downstream analysis inputs - such as a sample sheet, expression matrix and any number of differential expression tables.  Searchlight2 is designed to help bioinformaticians, RNA-seq service providers and bench scientists progress bulk RNA-seq research projects rapidly and with minimal effort, thus freeing up resources for further in-depth analysis or alternative analytical approaches
 
-[Example outputs here.](https://github.com/Searchlight2/example-reports)
 
 <br>
 
 ## Pipeline Overview
+
+<br>
 
 From the outset it is important to note that Searchlight2 is not a processing pipeline as it does not perform alignment, count reads or calculate expression and
 differential expression values. These stages must be completed prior to the use of Searchlight2. Any processing pipeline is suitable (FastP, Hisat2, Star2, Kallisto, Deseq2, EdgeR, etc.), so long as you have a matrix of expression values (TPM, RPKM, Rlog, etc) and at least one differential expression table (DEseq2, EdgeR, etc) you may use Searchlight2. 
@@ -25,11 +28,34 @@ Searchlight2 is executed as a single command. Firstly, it validates the input fi
 
 ![link](/media/outline.png)
 
+<br>
+
 ## Example outputs
 
+<br>
 
+**A screenshot of the report format**. [An example of the report is given here](https://github.com/Searchlight2/example-reports).
+
+![link](/media/report.png)
+
+<br>
+
+**A screenshot of the Shiny app**. 
+
+![link](/media/shiny.png)
+
+
+<br>
+
+**Sample outputs from various workflows**. 
+
+![link](/media/NE.png)
+
+<br>
 
 ## Download and first time setup
+
+<br>
 
 Searchlight2 can be downloaded from this Github page. By clicking the green "Code" button near the top right of the page. Then selecting Download Zip. 
 
@@ -42,7 +68,12 @@ Searchlight2 can be downloaded from this Github page. By clicking the green "Cod
 
 If you do not pre-install the R libraries Searchlight2 will run successfully and produce plot R code and reports, however it won't be able to generate the actual images.
 
+<br>
+
 ## Basic input files
+
+
+<br>
 
 Searchlight2 is strict about the format of its inputs (but not the source) to ensure that analysis is correct. Setting up the input files is the most fiddly step but only takes a few minutes. **All input files for Searchlight2 must be tab delimited.**
 
@@ -55,6 +86,7 @@ Searchlight2 is strict about the format of its inputs (but not the source) to en
 
 * Background file (BG). A typical background annotation file for the organism and transcriptome build, listing all genes. We supply several of these with the software and they can easily be generated from Ensembls biomart. Genes should be in rows and specific annotation by column. The file must only have the annotations: Gene ID, Gene Symbol, Chromosome, Start position, Stop position and Biotype (type of gene). There must be a header row with the headers as exactly: "ID", "Symbol", "Chromosome", "Start", "Stop", "Biotype". Not case sensitive, ignoring the quotes. If you are unsure as to the gene symbol, just use the ID. If you are unsure at to the biotype simply put "gene" in every cell for that column. Please be aware, for every unique biotype (e.g. coding_gene, linc_RNA, etc) you enter Searchlgiht2 will perform and entire additional analysis (as well as asingle combined), which can be slow. For that reason we recommend simply to have all biotypes set as "gene" in you BG file, for your first few runs. [Here is an example BG file.](https://raw.githubusercontent.com/Searchlight2/Searchlight2/master/databases/background/human/Ensembl.GRCh37.p13.tsv)
 
+<br>
 
 ## Quick start guide
 
