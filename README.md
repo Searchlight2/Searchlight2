@@ -261,9 +261,24 @@ In this scenario Searchlight2 will run a seperate PDE workflow for each, and wil
 
 <br>
 
-So far, we have considered the sitation where we have several independant pairwise comparisons. E.g. n * (A vs B). However, often it is desirable to ask how several groups of samples compare to each other. For example knowing what changes between WT and KO or what changes between KO and KO + rescue is interesting, but it does not tell us the extent to which the rescue returns the KO phenotype to WT. For this we need to perform a (A vs B VS B vs C) comparison, known as a multiple pairwise differential expression comparsion (MPDE). These are simple to perform using the --mpde parameter, but provide an extremely powerful signature based analysis of whole experiments. 
+So far, we have considered the sitation where we have several independant pairwise comparisons. E.g. n * (A vs B). However, often it is desirable to ask how several groups of samples compare to each other. For example knowing what changes between WT and KO or what changes between KO and KO + rescue is interesting, but it does not tell us the extent to which the rescue returns the KO phenotype to WT. For this we need to perform a (A vs B VS B vs C) comparison, known as a multiple pairwise differential expression comparsion (MPDE). These are simple to perform using the --mpde parameter, but provide an extremely powerful signature based analysis of whole experiments. The --mpde parameter has the following format:
 
 <br>
+
+```
+python Searchlight2.py 
+--out path=/home/john/Downloads/results 
+--bg file=/home/john/Downloads/Searchlight2/backgrounds/mouse/Ensembl.GRCm38.p6.tsv 
+--em file=/home/john/Downloads/Searchlight2/sample_datasets/EM.tsv 
+--ss file=/home/john/Downloads/Searchlight2/sample_datasets/SS.tsv 
+--de file=/home/john/Downloads/Searchlight2/sample_datasets/DE_WT_vs_KO.tsv,numerator=KO,denominator=WT
+--de file=/home/john/Downloads/Searchlight2/sample_datasets/DE_KO_rescue_vs_KO.tsv,numerator=KO_rescue,denominator=KO
+--mpde name=all,numerator=KO*denominator=WT,numerator=KO_rescue*denominator=KO
+```
+
+<br>
+
+The --mpde parameter has two sub-parameters. The first (name=) is simply a name for the workflow output folder. This as usual cannot start with a number and must include only letters, numbers and underscore. The second (numerator=group_1*denominator=group_2) is more complicated. Put simply for each PDE you want to include in the MPDE you copy the 
 
 To use the --mpde parameter we need to become familiar with the two sub-parameters. The first sub-parameter is name= which is simply a name for the output folder. This as usual cannot start with a number and must include only letters, numbers and underscore (_). 
 
