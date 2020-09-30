@@ -261,9 +261,17 @@ In this scenario Searchlight2 will run a seperate PDE workflow for each, and wil
 
 <br>
 
-So far, we have considered the sitation where we have several independant pairwise comparisons. E.g. n * (A vs B). However, often it is desirable to ask how several groups of samples compare to each other. For example knowing what changes between WT and KO or what changes between KO and KO + rescue is interesting, but it does not tell us the extent to which the rescue returns the KO phenotype to WT. For this we need to perform a (A vs B VS B vs C) comparison, known as a multiple differential expression comparsion (MDE). These are simple to perform using the --mpde parameter, but provide an extremely powerful signature based analysis of whole experiments. The --mde parameter has the following format:
+So far, we have considered the sitation where we have several independant pairwise comparisons. E.g. n * (A vs B). However, often it is desirable to ask how several groups of samples compare to each other. For example knowing what changes between WT and KO or what changes between KO and KO + rescue is interesting, but it does not tell us the extent to which the rescue returns the KO phenotype to WT. For this we need to perform a (A vs B VS B vs C) comparison, known as a multiple differential expression comparsion (MDE). These are simple to perform using the --mde parameter, but provide an extremely powerful signature based analysis of whole experiments. The --mde parameter has the following format:
 
 <br>
+
+```
+--mde name=my_name,numerator=DE_x_numerator*denominator=DE_x_denominator, numerator=DE_y_numerator*denominator=DE_y_denominator
+```
+
+<br>
+
+The --mde parameter has two sub-parameters. The first (name=) is simply a name for the workflow output folder. This as usual cannot start with a number and must include only letters, numbers and underscore (\_). The second (numerator=DE_x_denominator\*denominator=DE_x_denominator) is more complicated. For each DE that you wish to include as part of the MDE analysis you must include a sub-parameter of this format. For the sample dataset the broken down command might look like this:
 
 ```
 python Searchlight2.py 
@@ -275,6 +283,27 @@ python Searchlight2.py
 --de file=/home/john/Downloads/Searchlight2/sample_datasets/DE_KO_rescue_vs_KO.tsv,numerator=KO_rescue,denominator=KO
 --mde name=rescue_effect,numerator=KO*denominator=WT,numerator=KO_rescue*denominator=KO
 ```
+<br>
+
+Note: effectively all that we have done for the --mde parameter is copy the numerator=,denominator= section of the two DE's and replcated , with \*. This tells Searchlgiht that we want to run two DE workflows and one MDE workflow which compares (WT vs KO) to (KO vs KO_rescue). 
+
+
+**There are everal important rules to remember when using MDE:**
+ * There must be at least two DE's
+ * To include a DE in a MDE the DE must also be part of a --de parameter
+ * The numerator=*denominator= sub-parameter must match the numerator 
+ * There can be up to ten DE's in a single MDE
+ 
+
+
+
+
+
+
+The second sub-parameter should be included once for each differential comparison that you want to include in the MDE. In the above example there are two - numerator=KO*denominator=WT and numerator=KO_rescue*denominator=KO.
+
+
+
 
 <br>
 
