@@ -147,7 +147,7 @@ Mostly this is straightforward, except for the --de parameter which requires the
 
 <br>
 
-To execute Searchlight2 using the provided sample dataset we might run:
+To execute Searchlight2 using the provided sample dataset we might run the following. In this example we have simply placed Searchlight2 into a downloads folder, where we will also store the results. This will execute a comprehensive Searchlight2 analysis, producing statistical analysis, intermediate files, plots, reports, r-code and a Shiny app.
 
 <br>
 
@@ -157,7 +157,7 @@ python Searchlight2.py --out path=/home/john/Downloads/results --bg file=/home/j
 
 <br>
 
-Broken down it looks like this. In this example we have simply placed Searchlight2 into a downloads folder, where we will also store the results:
+Broken down the command looks like this. 
 
 <br>
 
@@ -172,7 +172,6 @@ python Searchlight2.py
 
 <br>
 
-This will execute a comprehensive Searchlight2 analysis.
 
 
 
