@@ -30,7 +30,7 @@ if __name__ == '__main__':
     print version
 
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "", ["anno=", "out=", "ureg=", "hgsea=", "ss=", "normexp=", "bg=", "pde=", "mpde=", "popex=", "config=", "gl=", "ignore_normexp=", "ignore_pde=", "ignore_mpde="])
+        opts, args = getopt.getopt(sys.argv[1:], "", ["anno=", "out=", "ureg=", "ora=", "ss=", "em=", "bg=", "pde=", "mpde=", "popex=", "config=", "gl=", "ignore_normexp=", "ignore_pde=", "ignore_mpde="])
     except getopt.GetoptError, err:
         print str(err)
         sys.exit(2)
@@ -61,11 +61,11 @@ if __name__ == '__main__':
             out_path_parameter = a
         if o == "--ureg":
             ipa_ureg_parameters.append(a)
-        if o == "--hgsea":
+        if o == "--ora":
             hypergeom_gs_parameters.append(a)
         if o == "--ss":
             ss_parameter = a
-        if o == "--normexp":
+        if o == "--em":
             norm_exp_parameter = a
         if o == "--bg":
             bg_parameter = a
