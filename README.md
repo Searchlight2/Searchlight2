@@ -57,7 +57,7 @@ Searchlight2 is executed as a single command. Firstly, it validates the input fi
 
 <br>
 
-**A screenshot of the report format**. [An example of the report is given here](https://github.com/Searchlight2/example-reports).
+**A screenshot of the report format**.
 
 ![link](/media/report.png)
 
