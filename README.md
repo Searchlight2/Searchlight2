@@ -391,3 +391,19 @@ We reconise that users might wish to modify the default beaviour of Searchlight2
 
 <br>
 
+If you wish to contact us regarding Searchlight2, please use the below email address (replacing AT with @ to avoid screen scrapeing) and header:
+
+```
+John.ColeATglasgow.ac.uk
+
+Header: Searchlight2 query
+```
+
+<br>
+
+To cite Searchlight2 please use: 
+
+```
+Cole, J.J., Faydaci, B.,McGuinness, D. , Shaw, R., Maciewicz, R., Robertson, N. , Goodyear, C.S. Searchlight 2: Rapid and comprehensive RNA-seq data exploration and visualisation for unlimited differential datasets. 2020. https://github.com/Searchlight2/Searchlight2/ 
+```
+<br>
