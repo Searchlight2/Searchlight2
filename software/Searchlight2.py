@@ -24,7 +24,7 @@ if __name__ == '__main__':
     print "#####################################"
     print
     print "Rapid and comprehensive RNA-seq data exploration and visualisation for unlimited differential datasets"
-    print "John J. Cole, Bekir Faydaci, Robin Shaw, Neil Robertson & Carl S. Goodyear"
+    print "John J. Cole, Bekir Faydaci, David McGuinness, Robin Shaw, Rose Maciewicz, Neil Robertson & Carl S. Goodyear"
     print "University of Glasgow"
     print
     print version
