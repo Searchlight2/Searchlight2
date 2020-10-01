@@ -429,7 +429,7 @@ If we go back one level (away from plots) and enter the data folder, you will se
 
 <br>
 
-Once the results have been generated, and panels selected for report, thesis or manuscript figures it is usually necessary to perform plot "tweaking", such as resizing, or changeing dot colours to fit with other non-omic results. **As a deliberate design feature Searchlight2 plots are generated using R (ggplot2) and the R scripts used are supplied alongside the plot.** Each script is standalone, linking where necessary to the intermediate files located in the data folder. By modifying these scripts and re-running each plot can be quickly tweaked and regenerated. Scripts have a consistent, logical and well commented layout, with most visual features as named parameters, including a gg-theme.
+Once the results have been generated, and panels selected for report, thesis or manuscript figures it is usually necessary to perform plot "tweaking", such as resizing, or changeing dot colours to fit with other non-omic results. **As a deliberate design feature Searchlight2 plots are generated using R (ggplot2) and the R scripts used are supplied alongside the plot.** Each script is standalone, linking where necessary to the intermediate files located in the data folder. By modifying these scripts and re-running each plot can be quickly tweaked and regenerated. Scripts have a consistent, logical and well commented layout, with most visual features as named parameters, including a gg-theme. Below is an example of a folder with plot and r-script, and part of the contents of that script.
 
 <br>
 
