@@ -441,7 +441,11 @@ An absolutely fundemental and entirey non-trivial design aspect of Searchlight2 
 
 <br>
 
-We reconise that users might wish to modify the default beaviour of Searchlight2s' R-code, either for aesthetic or technical purposes. 
+We reconise that users might wish to modify the default beaviour of Searchlight2s' R-code, either for aesthetic or technical purposes. For example if you find that you are modifying the plot visuals in the same way every time that you run Searchlight2 it would be advantageous to modify the default behaviour. This can easily be achieved through Searchlight2s' R-snippet database. This is located here:
+
+```
+/Searchlight2/software/bin/r
+```
 
 
 <br>
