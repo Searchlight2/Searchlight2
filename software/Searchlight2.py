@@ -30,7 +30,7 @@ if __name__ == '__main__':
     print version
 
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "", ["anno=", "out=", "ureg=", "ora=", "ss=", "em=", "bg=", "pde=", "mpde=", "popex=", "config=", "gl=", "ignore_normexp=", "ignore_pde=", "ignore_mpde="])
+        opts, args = getopt.getopt(sys.argv[1:], "", ["anno=", "out=", "ura=", "ora=", "ss=", "em=", "bg=", "de=", "mde=", "popex=", "config=", "gl=", "ignore_ne=", "ignore_de=", "ignore_mde="])
     except getopt.GetoptError, err:
         print str(err)
         sys.exit(2)
@@ -59,7 +59,7 @@ if __name__ == '__main__':
             annotations_parameter = a
         if o == "--out":
             out_path_parameter = a
-        if o == "--ureg":
+        if o == "--ura":
             ipa_ureg_parameters.append(a)
         if o == "--ora":
             hypergeom_gs_parameters.append(a)
@@ -69,19 +69,19 @@ if __name__ == '__main__':
             norm_exp_parameter = a
         if o == "--bg":
             bg_parameter = a
-        if o == "--pde":
+        if o == "--de":
             pde_workflow_parameters.append(a)
-        if o == "--mpde":
+        if o == "--mde":
             mpde_workflow_parameters.append(a)
         if o == "--popex":
             popex_workflow_parameters.append(a)
         if o == "--gl":
             gl_workflow_parameters.append(a)
-        if o == "--ignore_normexp":
+        if o == "--ignore_ne":
             run_normexp_wf = False
-        if o == "--ignore_pde":
+        if o == "--ignore_de":
             run_pde_wf = False
-        if o == "--ignore_mpde":
+        if o == "--ignore_mde":
             run_mpde_wf = False
 
     global_variables = global_variables_setup(annotations_parameter, ipa_ureg_parameters, hypergeom_gs_parameters, ss_parameter, norm_exp_parameter, bg_parameter, pde_workflow_parameters, mpde_workflow_parameters, popex_workflow_parameters, config_file_parameter, out_path_parameter, SL_path, run_normexp_wf, run_pde_wf, run_mpde_wf, version)
