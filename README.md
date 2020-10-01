@@ -436,7 +436,7 @@ An absolutely fundemental and entirey non-trivial design aspect of Searchlight2 
 **For users who are not R literate, Searchlgiht2 also generates a Shiny app (graphical user interface)**, which allows a comprehensive range of visual features to be modified downstream for all plots in each workflow. To run the Shiny app please install R-studio ([see Download and first time setup](#Download_and_first_time_setup)). Next, goto the (base) results folder for your Searchlight2 run and open the "shiny" folder. Open the server.r file in R-studio click the "Run App" button in the top right, next to the green arrow. The app should open in your default web-browser. From there it is self explanatory. For example:
 
 ```
-/home/john/Downloads/Results/shiny/global.r
+/Results/shiny/global.r
 ```
 
 <br>
