@@ -385,6 +385,44 @@ This feature is particularly useful when using DE files generated from complex l
 
 <br>
 
+Searchlight2 produces comprehensive range of results. In this section we will outline what they are and where to find them. In the output folder you should see three items. If you used a sample sheet with multiple biotypes you will see these three items, plus a folder for each biotype.
+
+<br>
+
+![link](/media/results1.png)
+
+<br>
+
+The all_genes folder contains the results from the analysis using all genes supplied. Inside this folder you will see up to three folders - one for each type of workflow. If you didn't run a DE or MDE workflow these folders will not be present. The NE workflow is always generated. 
+
+<br>
+
+![link](/media/results2.png)
+
+<br>
+
+Each of these folders has a similar internal structure. We will therefore demonstrate via the DE folder. Inside the DE folder there will be one folder per DE workflow in your Searchlight2 run. By clicking on any of these it will bring us to the workflow results. These folders always contain three items only.
+
+<br>
+
+![link](/media/results3.png)
+
+<br>
+
+The report.html is usually the first item to look at in a new project. Double clicking will open a comrpehenisive report in your default web browser. This report hyperlinks the plots folder. Therefore if you move it away from this directory it will no longer show the images. The plots folder includes one folder for each type of analysis / plot used in the workflow (there will be many) alongside a workflow.r script and an r data / version dump. The workflow.r script is the script used by Searchlight2 to generate every plot in the workflow. This is further discussed in the [Downstream modification of plots and visualisations](#Downstream_modification_of_plots_and_visualisations) section. 
+
+<br>
+
+![link](/media/results4.png)
+
+<br>
+
+If we go back one level (away from plots) and enter the data folder, you will see a variety of intermediate data files for the workflow. Each of these can useful to further analysis in some way and are used by the R-scripts to generate the plots. There also be several sub-folders that are self explanatory. The statistical analysis folder includes resultant data files from statistical analysis modules such as: ORA, URA, signatures, overlap, etc.
+
+<br>
+
+![link](/media/results5.png)
+
 <br>
 
 # Downstream modification of plots and visualisations <a name="Downstream_modification_of_plots_and_visualisations"></a>
@@ -430,7 +468,12 @@ We reconise that users might wish to modify the default beaviour of Searchlight2
 
 <br>
 
-**I ran Searchlight2 but I can't see any plots. What’s going on?** Most likely the root cause is missing R libraries or an unforeseen bug in one of the plots in the R script. This will have a knock-on effect. If you are missing plots please try running the R script for the plots in question (e.g. plots/workflow.r) in R and investigating the error directly. If you cannot fix this easily, please contact us.
+**There are plots in the plot folder but they don't appear in the report. All I see is a blank space. What’s going on?** The typical issue in this case is that either you are looking at a zipped version of the entire results folder (it must be unzipped). Or the report.html file has been moved somehow from its original folder. It must be located in the same directory as the plots folder. If neither of these are the case, please contact us. 
+
+<br>
+
+
+**I ran Searchlight2 but I can't see any plots in the plots folder. What’s going on?** Most likely the root cause is missing R libraries or an unforeseen bug in one of the plots in the R script. This will have a knock-on effect as Searclight2 runs the workflow R-scripts. Firstly ensure that you have installed all of the libraries listed in [Download and first time setup](#Download_and_first_time_setup). Next, try running the R script for the plots in question (e.g. plots/workflow.r) in R and investigating the error directly. If you cannot fix this easily, please contact us.
 
 <br>
 
