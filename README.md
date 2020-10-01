@@ -429,12 +429,19 @@ If we go back one level (away from plots) and enter the data folder, you will se
 
 <br>
 
-In most projects a level of downstream plot "tweaking" is normal. A core and non-trivial design feature of Searchlight2 is provision of a convenient and familiar means for exhaustive downstream modification of all plots and images. **Each plot is generated using R from R-scripts located beside the plot in the plot folder**. Scripts are standalone linking where necessary to intermediate files located in the data folder. Scripts have a consistent, logical and well commented layout, with most visual features as named parameters. To plot the package ggplot is used and a gg-theme is employed. This aims to make it easy for R users to modify each plot visually, without the need for extensive re-coding. 
+Once the results have been generated, and panels selected for report, thesis or manuscript figures it is usually necessary to perform plot "tweaking", such as resizing, or changeing dot colours to fit with other non-omic results. **As a deliberate design feature Searchlight2 plots are generated using R (ggplot2) and the R scripts used are supplied alongside the plot.** Each script is standalone, linking where necessary to the intermediate files located in the data folder. By modifying these scripts and re-running each plot can be quickly tweaked and regenerated. Scripts have a consistent, logical and well commented layout, with most visual features as named parameters, including a gg-theme.
 
 <br>
 
-**In addition to scripts for each individual plot type a script is provided that re-generates every plot in an entire workflow simultaneously (workflow.r)**. By modifiying single parameters (such as fonts, colours, etc) in this workflow level r-script all plots can be modified simultaneously to meet users specific tastes.
+![link](/media/R1.png)
 
+<br>
+
+![link](/media/R2.png)
+
+<br>
+
+**In addition to individual scripts for each plot a "whole workflow" script is provided that will re-generate every plot in the workflow (workflow.r)**. By modifiying single parameters (such as fonts, colours, etc) in this workflow level r-script all plots can be modified simultaneously.
 
 <br>
 
@@ -443,6 +450,10 @@ In most projects a level of downstream plot "tweaking" is normal. A core and non
 ```
 /Results/shiny/global.r
 ```
+
+<br>
+
+![link](/media/R3.png)
 
 <br>
 
