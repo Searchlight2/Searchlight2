@@ -429,7 +429,11 @@ If we go back one level (away from plots) and enter the data folder, you will se
 
 <br>
 
-An absolutely fundemental and entirey non-trivial design aspect of Searchlight2 is convenient and familiar means for users to exhaustively modify all downstream plots and visualisations. Searchlight2 provides several means for users to do so. Firstly, all plots are generated from R-scripts which use ggplot2 and a gg theme. **The R-script for each plot type is located in the plot folder beside the plot**, and is standalone. Linking where necessary to intermediate files provided in the data folder. These scripts are consistent, well commented, and user friendly, allowing anyone familiar with R to easily and quickly modify plot visuals. **As well as scripts for each individual plot type a script is provided that re-generates every plot in an entire workflow simultaneously (workflow.r)**. By modifiying single parameters (such as fonts, colours, etc) in this workflow level r-script all plots can be modified simultaneously to meet users specific tastes.
+An absolutely fundemental and entirey non-trivial design aspect of Searchlight2 is convenient and familiar means for users to exhaustively modify all downstream plots and visualisations. Searchlight2 provides several means for users to do so. 
+
+<br>
+
+Firstly, all plots are generated from R-scripts which use ggplot2 and a gg theme. **The R-script for each plot type is located in the plot folder beside the plot**, and is standalone. Linking where necessary to intermediate files provided in the data folder. These scripts are consistent, well commented, and user friendly, allowing anyone familiar with R to easily and quickly modify plot visuals. **As well as scripts for each individual plot type a script is provided that re-generates every plot in an entire workflow simultaneously (workflow.r)**. By modifiying single parameters (such as fonts, colours, etc) in this workflow level r-script all plots can be modified simultaneously to meet users specific tastes.
 
 <br>
 
