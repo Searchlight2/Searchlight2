@@ -429,15 +429,16 @@ If we go back one level (away from plots) and enter the data folder, you will se
 
 <br>
 
-An absolutely fundemental and entirey non-trivial design aspect of Searchlight2 is convenient and familiar means for users to exhaustively modify all downstream plots and visualisations. Searchlight2 provides several means for users to do so. 
+In most projects a level of downstream plot "tweaking" is normal. A core and non-trivial design feature of Searchlight2 is provision of a convenient and familiar means for exhaustive downstream modification of all plots and images. **Each plot is generated using R from R-scripts located beside the plot in the plot folder**. Scripts are standalone linking where necessary to intermediate files located in the data folder. Scripts have a consistent, logical and well commented layout, with most visual features as named parameters. To plot the package ggplot is used and a gg-theme is employed. This aims to make it easy for R users to modify each plot visually, without the need for extensive re-coding. 
 
 <br>
 
-All plots and images are generated using the R package ggplot2 with a gg theme. **The R-script for each plot type is located beside the plot in the plot folder**, and is standalone. Linking where necessary to intermediate files provided in the data folder. These scripts are consistent, well commented, and user friendly, allowing anyone familiar with R to easily and quickly modify plot visuals. **As well as scripts for each individual plot type a script is provided that re-generates every plot in an entire workflow simultaneously (workflow.r)**. By modifiying single parameters (such as fonts, colours, etc) in this workflow level r-script all plots can be modified simultaneously to meet users specific tastes.
+**In addition to scripts for each individual plot type a script is provided that re-generates every plot in an entire workflow simultaneously (workflow.r)**. By modifiying single parameters (such as fonts, colours, etc) in this workflow level r-script all plots can be modified simultaneously to meet users specific tastes.
+
 
 <br>
 
-**For users who are not R literate, Searchlgiht2 also generates a Shiny app (graphical user interface)**, which allows a comprehensive range of visual features to be modified downstream for all plots in each workflow. To run the Shiny app please install R-studio ([see Download and first time setup](#Download_and_first_time_setup)). Next, goto the (base) results folder for your Searchlight2 run and open the "shiny" folder. Open the server.r file in R-studio click the "Run App" button in the top right, next to the green arrow. The app should open in your default web-browser. From there it is self explanatory. For example:
+**For users who are not R literate, Searchlight2 also generates a Shiny app (graphical user interface)**, which allows a comprehensive range of visual features to be modified downstream for all plots in each workflow. To run the Shiny app please install R-studio ([see Download and first time setup](#Download_and_first_time_setup)). Next, goto the (base) results folder for your Searchlight2 run and open the "shiny" folder. Open the server.r file in R-studio click the "Run App" button in the top right, next to the green arrow. The app should open in your default web-browser. From there it is self explanatory. For example:
 
 ```
 /Results/shiny/global.r
