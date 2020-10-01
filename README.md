@@ -11,7 +11,7 @@
 4. [Download and first time setup](#Download_and_first_time_setup)
 5. [Basic input files](#Basic_input_files)
 6. [Quick start guide](#Quick_start_guide)
-7. [Including pathway analysis](#Including_pathway_analysis)
+7. [Including a pathway analysis](#Including_a_pathway_analysis)
 8. [Datasets with more than one differential comparison](#Datasets_with_more_than_one_differential_comparison)
 9. [Including a formal signature analysis](#Including_a_formal_signature_analysis)
 10. [Using the order sub-parameter](#Using_the_order_sub_parameter)
@@ -189,7 +189,7 @@ The default settings for deciding statistical significance are p.adj <= 0.05 and
 
 <br>
 
-# Including pathway analysis <a name="Including_pathway_analysis"></a>
+# Including a pathway analysis <a name="Including_a_pathway_analysis"></a>
 
 <br>
 
@@ -354,6 +354,30 @@ This is obviously starting to appear unweildy. However, it is worth noting that 
 # Using the order sub-parameter <a name="Using_the_order_sub_parameter"></a>
 
 <br>
+
+With the order= sub-parameter the order that sample groups appear in resultant plots can be manually chosen. It can be used in as part of a --de or --mde parameter. For example, in a DE comparing WT to KO the default is for WT to appear first on the plots and KO second. However if we add ,order=KO+WT this order will be reversed. This is purely visual, and does not affect the results. 
+
+<br>
+
+```
+--de file=/home/john/Downloads/Searchlight2/sample_datasets/DE_WT_vs_KO.tsv,numerator=KO,denominator=WT,order=WT+KO
+--mde name=rescue_effect,numerator=KO*denominator=WT,numerator=KO_rescue*denominator=KO,order=WT,KO,KO_rescue
+```
+
+<br>
+
+**A further and highly useful feature of ,order=** is that it can be used to add sample groups that are not necessarily part of the DE or MDE - without actually affecting the result. For example, in a DE comparing WT to KO we might might want to know: at the genes that differ between WT and KO exclusively how do they behave in KO_rescue? To anser this we could use:
+
+<br>
+
+```
+--de file=/home/john/Downloads/Searchlight2/sample_datasets/DE_WT_vs_KO.tsv,numerator=KO,denominator=WT,order=WT+KO+KO_rescue
+```
+
+<br>
+
+This feature is particularly useful when using DE files generated from complex linear models, as it allows interaction terms (such as age, sex, etc) to be plotted alongside the differential terms. 
+
 
 <br>
 
