@@ -433,7 +433,7 @@ An absolutely fundemental and entirey non-trivial design aspect of Searchlight2 
 
 <br>
 
-Firstly, all plots are generated from R-scripts which use ggplot2 and a gg theme. **The R-script for each plot type is located in the plot folder beside the plot**, and is standalone. Linking where necessary to intermediate files provided in the data folder. These scripts are consistent, well commented, and user friendly, allowing anyone familiar with R to easily and quickly modify plot visuals. **As well as scripts for each individual plot type a script is provided that re-generates every plot in an entire workflow simultaneously (workflow.r)**. By modifiying single parameters (such as fonts, colours, etc) in this workflow level r-script all plots can be modified simultaneously to meet users specific tastes.
+All plots and images are generated using the R package ggplot2 with a gg theme. **The R-script for each plot type is located beside the plot in the plot folder**, and is standalone. Linking where necessary to intermediate files provided in the data folder. These scripts are consistent, well commented, and user friendly, allowing anyone familiar with R to easily and quickly modify plot visuals. **As well as scripts for each individual plot type a script is provided that re-generates every plot in an entire workflow simultaneously (workflow.r)**. By modifiying single parameters (such as fonts, colours, etc) in this workflow level r-script all plots can be modified simultaneously to meet users specific tastes.
 
 <br>
 
