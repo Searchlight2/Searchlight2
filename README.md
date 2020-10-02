@@ -378,7 +378,6 @@ With the order= sub-parameter the order that sample groups appear in resultant p
 
 This feature is particularly useful when using DE files generated from complex linear models, as it allows interaction terms (such as age, sex, etc) to be plotted alongside the differential terms. 
 
-
 <br>
 
 # Results <a name="Results"></a>
@@ -446,6 +445,8 @@ Once the results have been generated, and panels selected for report, thesis or 
 <br>
 
 **For users who are not R literate, Searchlight2 also generates a Shiny app (graphical user interface)**, which allows a comprehensive range of visual features to be modified downstream for all plots in each workflow. To run the Shiny app please install R-studio ([see Download and first time setup](#Download_and_first_time_setup)). Next, goto the (base) results folder for your Searchlight2 run and open the "shiny" folder. Open the server.r file in R-studio click the "Run App" button in the top right, next to the green arrow. The app should open in your default web-browser. From there it is self explanatory. For example:
+
+<br>
 
 ```
 /Results/shiny/global.r
