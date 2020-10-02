@@ -521,7 +521,7 @@ The R-scripts used to gernerate plots are assembles dynamically during run-time 
 
 <br>
 
-**I want to use p values instead of adjusted p values. Can I do this?** Yes, Searchlight 2 does not reference the web in any way, nor genome or transcriptome files not specified by the user. This is a deliberate design feature to allow the user control. If you wish to use P values instead of adjusted P simply “munge” your file. I.e. replace the adjusted p values with the p values in the differential expression file. The format of each file is fixed – to make sure the user understands what they are doing, but its up to the user what they put in it.
+**I want to use p values instead of adjusted p values. Can I do this?** Yes, If you wish to use P values instead of adjusted P simply “munge” your file. I.e. replace the adjusted p values with the p values in the differential expression file. The format of each file is fixed – to make sure the user understands what they are doing, but its up to the user what they put in it.
 
 <br>
 
