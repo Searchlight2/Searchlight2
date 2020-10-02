@@ -559,14 +559,24 @@ The R-scripts used to gernerate plots are assembles dynamically during run-time 
 --de file=DE_file_path.csv,numerator=group_1,denominator=group2,log2fold=1,p.adj=0.05,order=group_1+group_2
 ```
 
-| Sub-parameter | description |
-| file | Full path to the DE file |
-| numerator | Sample group that you wish to be the numerator. I.e. the sample group for which a positive fold change in the DE file indicates an increase in expression |
-| numerator | Sample group that you wish to be the denominator. I.e. the sample group for which a negative fold change in the DE file indicates an increase in expression |
-| log2fold | Log2 fold change cut-off for significance (absolute). A value of 0 indicates no cut-off. The default is 1 |
-| p.adj | Adjusted p-avlue cut-off for significance. A value of 1 indicates no cut-off. The default is 0.05 |
-| order | Manually specifcy the order for which sample groups appear in the results. Accepts sample groups separated by a +. Can inclide any sample groups in the sample sheet in any order. The default is numerator+denominator |
+ 	| Sub-parameter | description |
+ 	| file | Full path to the DE file |
+ 	| numerator | Sample group that you wish to be the numerator. I.e. the sample group for which a positive fold change in the DE file indicates an increase in  	expression |
+ 	| numerator | Sample group that you wish to be the denominator. I.e. the sample group for which a negative fold change in the DE file indicates an increase in expression |
+ 	| log2fold | Log2 fold change cut-off for significance (absolute). A value of 0 indicates no cut-off. The default is 1 |
+ 	| p.adj | Adjusted p-avlue cut-off for significance. A value of 1 indicates no cut-off. The default is 0.05 |
+ 	| order | Manually specifcy the order for which sample groups appear in the results. Accepts sample groups separated by a +. Can inclide any sample groups in the sample sheet in any order. The default is numerator+denominator |
 
+
+| Syntax | Description |
+| ----------- | ----------- |
+| Header | Title |
+| Paragraph | Text | 
+
+ 	| Syntax | Description |
+| ----------- | ----------- |
+| Header | Title |
+| Paragraph | Text | 
 
 # Contact and citation <a name="Contact_and_citation"></a>
 
