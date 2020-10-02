@@ -568,6 +568,29 @@ The R-scripts used to gernerate plots are assembles dynamically during run-time 
 | p.adj | Adjusted p-avlue cut-off for significance. A value of 1 indicates no cut-off. The default is 0.05 |
 | order | Manually specifcy the order for which sample groups appear in the results. Accepts sample groups separated by a +. Can inclide any sample groups in the sample sheet in any order. The default is numerator+denominator |
 
+<br>
+
+**Ignore normalised expression workflow.** Ignores the normalised expression workflow.
+
+```
+--ignore_ne T 
+```
+
+<br>
+
+**Ignore differential expression workflow.** Ignores the differential expression workflow.
+
+```
+--ignore_de T 
+```
+
+<br>
+
+**Ignore multiple differential expression workflow.** Ignores the multiple differential expression workflow.
+
+```
+--ignore_mde T 
+```
 
 <br>
 
