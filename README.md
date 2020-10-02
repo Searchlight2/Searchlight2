@@ -485,6 +485,11 @@ The R-scripts used to gernerate plots are assembles dynamically during run-time 
 
 <br>
 
+**Gene-set files** as used in the --ora parameter should be in the gmt format. I.e. one line per gene-set with the first cell as the gene-set name (such as cell cycle), the second cell as any notes (if there are none you can simply enter NA) and then one cell for each gene in the gene-set. [An example of a gene-set file can be found here.](https://raw.githubusercontent.com/Searchlight2/Searchlight2/master/example_data/normexp.tsv)
+
+<br>
+**Updtream regulator files** as used in the --ura parameter should be in the trrust format. I.e. One line per regulator / target combo, with the first cell as the regulator (e.g. TP53) the second cell as the gene being regulated (e.g. BBC3) and the third cell as the direction (either Activation, Repression or Unknown).[An example of an upstream regulator file can be found here.](https://raw.githubusercontent.com/Searchlight2/Searchlight2/master/example_data/normexp.tsv)
+
 <br>
 
 # FAQ <a name="FAQ"></a>
