@@ -461,12 +461,17 @@ Once the results have been generated, and panels selected for report, thesis or 
 
 <br>
 
-We reconise that users might wish to modify the default beaviour of Searchlight2s' R-code, either for aesthetic or technical purposes. For example if you find that you are modifying the plot visuals in the same way every time that you run Searchlight2 it would be advantageous to modify the default behaviour. This can easily be achieved through Searchlight2s' R-snippet database. This is located here:
+The default algorithms and visual style is suitable for publication, however it is possible to change. If you find that the style is not to your tastes, or you are changing e.g. font everytime that you run Searchlight2 it would be advantageous to modify the default behaviour. This can easily be achieved through Searchlight2s' R-snippet database. Which is located here:
+
+<br>
 
 ```
 /Searchlight2/software/bin/r
 ```
 
+<br>
+
+The R-scripts used to gernerate plots are assembles dynamically during run-time from a standard set of R-snippets. Each snippet contains code for one defined section of a script. For example, there is a snippet for the gg-theme and another for the default heatmap colours, and another for the clustering algorithm. Importantly these snippets are used to build the R-scripts for each plot that they are relevant. Thus, by modifying e.g. the default heatmap colouts R-snippet (to be a different colour) every plot that is a heatmap will have a new default, and this will be applied next time you run Searchlight2.
 
 <br>
 
