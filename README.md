@@ -473,6 +473,7 @@ The default algorithms and visual style is suitable for publication, however it 
 <br>
 
 The R-scripts used to gernerate plots are assembles dynamically during run-time from a standard set of R-snippets. Each snippet contains code for one defined section of a script. For example, there is a snippet for the gg-theme and another for the default heatmap colours, and another for the clustering algorithm. Importantly these snippets are used to build the R-scripts for each plot that they are relevant. Thus, by modifying e.g. the default heatmap colouts R-snippet (to be a different colour) every plot that is a heatmap will have a new default, and this will be applied next time you run Searchlight2.
+
 <br>
 
 ![link](/media/R4.png)
