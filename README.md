@@ -570,7 +570,7 @@ The R-scripts used to gernerate plots are assembles dynamically during run-time 
 
 <br>
 
-**Ignore normalised expression workflow.** Ignores the normalised expression workflow.
+**Ignore normalised expression workflow.** Ignores the normalised expression workflow. Useful for debugging or rerunning only some workflows.
 
 ```
 --ignore_ne T 
@@ -578,7 +578,7 @@ The R-scripts used to gernerate plots are assembles dynamically during run-time 
 
 <br>
 
-**Ignore differential expression workflow.** Ignores the differential expression workflow.
+**Ignore differential expression workflow.** Ignores the differential expression workflow. Useful for debugging or rerunning only some workflows.
 
 ```
 --ignore_de T 
@@ -586,7 +586,7 @@ The R-scripts used to gernerate plots are assembles dynamically during run-time 
 
 <br>
 
-**Ignore multiple differential expression workflow.** Ignores the multiple differential expression workflow.
+**Ignore multiple differential expression workflow.** Ignores the multiple differential expression workflow. Useful for debugging or rerunning only some workflows.
 
 ```
 --ignore_mde T 
