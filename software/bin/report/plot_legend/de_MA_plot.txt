@@ -1,0 +1,1 @@
+MA plot for the comparison between <*de_numerator*> and <*de_denominator*>. Significantly differential genes (p.adj < <*de_padj*>, absolute log2 fold > <*de_log2fold*>) are shown in red and non−significant genes in black. A positive fold change indicates higher expression in <*de_numerator*> than in <*de_denominator*>.

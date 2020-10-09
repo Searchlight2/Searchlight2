@@ -1,9 +1,0 @@
-PLOT_ID=pairwise_overlap_table
-TITLE=Pairwise Overlap Table
-PLOTS_PER_ROW=1
-
-PLOT_PATH=plots/pairwise_overlap/pairwise_overlap_table.png
-
-R_CODE_PATH=plots/pairwise_overlap/pairwise_overlap_table.r
-PLOT_DESCRIPTION=/bin/report/plot_description/mpde_pairwise_overlap_table.txt
-PLOT_LEGEND=/bin/report/plot_legend/mpde_pairwise_overlap_table.txt

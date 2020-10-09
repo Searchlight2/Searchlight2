@@ -28,41 +28,41 @@ def master_gene_table_report(global_variables):
             print
 
 
-    # reports on the normexp
-    if global_variables["normexp_flag"]:
+    # reports on the ne
+    if global_variables["ne_flag"]:
 
-        normexp_by_gene = global_variables["normexp_by_gene"]
+        ne_by_gene = global_variables["ne_by_gene"]
 
-        normexp_in_background_count = 0
+        ne_in_background_count = 0
         for gene_ID in master_gene_table:
 
             gene_dictionary = master_gene_table[gene_ID]
-            if gene_dictionary["normexp_flag"]:
-                normexp_in_background_count += 1
+            if gene_dictionary["ne_flag"]:
+                ne_in_background_count += 1
 
-        normexp_count = len(normexp_by_gene.keys())
+        ne_count = len(ne_by_gene.keys())
 
-        print "there are " + str(normexp_count) + " genes in the normexp file"
+        print "there are " + str(ne_count) + " genes in the ne file"
 
-        print str(normexp_in_background_count) + " / " + str(normexp_count) + " of the genes in the normexp file are also in the background file."
-        print "using " + str(normexp_in_background_count) + " genes as the expression set."
-        print str(normexp_in_background_count) + " / " + str(background_count) + " of the genes in the background file are also in the normexp file."
+        print str(ne_in_background_count) + " / " + str(ne_count) + " of the genes in the ne file are also in the background file."
+        print "using " + str(ne_in_background_count) + " genes as the expression set."
+        print str(ne_in_background_count) + " / " + str(background_count) + " of the genes in the background file are also in the ne file."
 
         # cautions
-        if normexp_count > normexp_in_background_count:
-            if normexp_count - normexp_in_background_count == 1:
-                print "caution: there is " + str(normexp_count - normexp_in_background_count) + " gene in the normexp file that is not in the background file."
+        if ne_count > ne_in_background_count:
+            if ne_count - ne_in_background_count == 1:
+                print "caution: there is " + str(ne_count - ne_in_background_count) + " gene in the ne file that is not in the background file."
             else:
-                print "caution: there are " + str(normexp_count - normexp_in_background_count) + " genes in the normexp file that are not in the background file."
-        if background_count > normexp_in_background_count:
-            if background_count - normexp_in_background_count == 1:
-                print "caution: there is " + str(background_count - normexp_in_background_count) + " gene in the background file that is not in the normexp file."
+                print "caution: there are " + str(ne_count - ne_in_background_count) + " genes in the ne file that are not in the background file."
+        if background_count > ne_in_background_count:
+            if background_count - ne_in_background_count == 1:
+                print "caution: there is " + str(background_count - ne_in_background_count) + " gene in the background file that is not in the ne file."
             else:
-                print "caution: there are " + str(background_count - normexp_in_background_count) + " genes in the background file that are not in the normexp file."
+                print "caution: there are " + str(background_count - ne_in_background_count) + " genes in the background file that are not in the ne file."
 
         # Tests whether there is at least one valid gene
-        if normexp_in_background_count == 0:
-            print >> sys.stderr, "Error: none of the genes in the normexp file match the background file (are you using the same IDs for both)."
+        if ne_in_background_count == 0:
+            print >> sys.stderr, "Error: none of the genes in the ne file match the background file (are you using the same IDs for both)."
             sys.exit(1)
 
         print
@@ -103,68 +103,68 @@ def master_gene_table_report(global_variables):
         print
 
 
-    # reports on the PDEs
-    if global_variables["pde_workflows_flag"]:
+    # reports on the des
+    if global_variables["de_workflows_flag"]:
 
-        parsed_pde_parameters = global_variables["pde_parameters"]
+        parsed_de_parameters = global_variables["de_parameters"]
 
-        for pde_parameter_dict in parsed_pde_parameters:
-            pde_dict = pde_parameter_dict["pde_dict"]
-            pde_ID = pde_parameter_dict["pde_ID"]
+        for de_parameter_dict in parsed_de_parameters:
+            de_dict = de_parameter_dict["de_dict"]
+            de_ID = de_parameter_dict["de_ID"]
 
-            genes_in_pde = len(pde_dict.keys())
-            pde_in_expression_set = 0
-            pde_in_expression_set_with_valid_format = 0
-            pde_in_expression_set_with_valid_format_in_gl = 0
+            genes_in_de = len(de_dict.keys())
+            de_in_expression_set = 0
+            de_in_expression_set_with_valid_format = 0
+            de_in_expression_set_with_valid_format_in_gl = 0
 
             for gene_ID in master_gene_table:
 
                 gene_dictionary = master_gene_table[gene_ID]
-                if pde_ID in gene_dictionary:
-                    if gene_dictionary["normexp_flag"]:
-                        pde_in_expression_set += 1
-                        if gene_dictionary[pde_ID]["valid"]:
-                            pde_in_expression_set_with_valid_format += 1
-                            if gene_dictionary[pde_ID]["in_gl"]:
-                                pde_in_expression_set_with_valid_format_in_gl += 1
+                if de_ID in gene_dictionary:
+                    if gene_dictionary["ne_flag"]:
+                        de_in_expression_set += 1
+                        if gene_dictionary[de_ID]["valid"]:
+                            de_in_expression_set_with_valid_format += 1
+                            if gene_dictionary[de_ID]["in_gl"]:
+                                de_in_expression_set_with_valid_format_in_gl += 1
 
 
-            print "there are " + str(genes_in_pde) + " genes in the pde " + pde_ID
-            print str(pde_in_expression_set) + " / " + str(genes_in_pde) + " of the genes in the pde " + pde_ID  + " are also in the expression set."
-            print str(pde_in_expression_set) + " / " + str(normexp_in_background_count) + " of the genes in the expression set are also in the " + pde_ID + "."
-            print str(pde_in_expression_set_with_valid_format) + " / " + str(pde_in_expression_set) + " of the genes in the pde " + pde_ID  + " that are also in the expression set are in a valid differential expression format."
+            print "there are " + str(genes_in_de) + " genes in the de " + de_ID
+            print str(de_in_expression_set) + " / " + str(genes_in_de) + " of the genes in the de " + de_ID  + " are also in the expression set."
+            print str(de_in_expression_set) + " / " + str(ne_in_background_count) + " of the genes in the expression set are also in the " + de_ID + "."
+            print str(de_in_expression_set_with_valid_format) + " / " + str(de_in_expression_set) + " of the genes in the de " + de_ID  + " that are also in the expression set are in a valid differential expression format."
 
-            if pde_parameter_dict["gl_dict"] != None:
-                print  str(pde_in_expression_set_with_valid_format_in_gl) + " / " + str(pde_in_expression_set_with_valid_format) + " of the genes in the pde " + pde_ID + " that are also in the expression set and are in a valid differential expression format are also in the supplied gene list."
-                print "using " + str(pde_in_expression_set_with_valid_format_in_gl) + " genes as the differential expression set."
-                pde_parameter_dict["differential_expression_set_size"] = pde_in_expression_set_with_valid_format_in_gl
+            if de_parameter_dict["gl_dict"] != None:
+                print  str(de_in_expression_set_with_valid_format_in_gl) + " / " + str(de_in_expression_set_with_valid_format) + " of the genes in the de " + de_ID + " that are also in the expression set and are in a valid differential expression format are also in the supplied gene list."
+                print "using " + str(de_in_expression_set_with_valid_format_in_gl) + " genes as the differential expression set."
+                de_parameter_dict["differential_expression_set_size"] = de_in_expression_set_with_valid_format_in_gl
             else:
-                print "using " + str(pde_in_expression_set_with_valid_format) + " genes as the differential expression set."
-                pde_parameter_dict["differential_expression_set_size"] = pde_in_expression_set_with_valid_format
+                print "using " + str(de_in_expression_set_with_valid_format) + " genes as the differential expression set."
+                de_parameter_dict["differential_expression_set_size"] = de_in_expression_set_with_valid_format
 
-            if genes_in_pde > pde_in_expression_set:
-                if genes_in_pde - pde_in_expression_set == 1:
-                    print "caution: there is " + str(genes_in_pde - pde_in_expression_set) + " gene in the pde " + pde_ID  + " that is not in the expression set."
+            if genes_in_de > de_in_expression_set:
+                if genes_in_de - de_in_expression_set == 1:
+                    print "caution: there is " + str(genes_in_de - de_in_expression_set) + " gene in the de " + de_ID  + " that is not in the expression set."
                 else:
-                    print "caution: there are " + str(genes_in_pde - pde_in_expression_set) + " genes in the pde " + pde_ID  + " that are not in the expression set."
+                    print "caution: there are " + str(genes_in_de - de_in_expression_set) + " genes in the de " + de_ID  + " that are not in the expression set."
 
-            if normexp_in_background_count > pde_in_expression_set:
-                if normexp_in_background_count - pde_in_expression_set == 1:
-                    print "caution: there is " + str(normexp_in_background_count - pde_in_expression_set) + " gene in the expression set that is not in the pde " + pde_ID + "."
+            if ne_in_background_count > de_in_expression_set:
+                if ne_in_background_count - de_in_expression_set == 1:
+                    print "caution: there is " + str(ne_in_background_count - de_in_expression_set) + " gene in the expression set that is not in the de " + de_ID + "."
                 else:
-                    print "caution: there are " + str(normexp_in_background_count - pde_in_expression_set) + " genes in the expression set that are not in the pde " + pde_ID + "."
+                    print "caution: there are " + str(ne_in_background_count - de_in_expression_set) + " genes in the expression set that are not in the de " + de_ID + "."
 
-            if pde_in_expression_set > pde_in_expression_set_with_valid_format:
-                if pde_in_expression_set - pde_in_expression_set_with_valid_format == 1:
-                    print "caution: there is " + str(pde_in_expression_set - pde_in_expression_set_with_valid_format) + " gene in the PDE " + pde_ID + " that is in expression set that is not in a valid differential expression format."
+            if de_in_expression_set > de_in_expression_set_with_valid_format:
+                if de_in_expression_set - de_in_expression_set_with_valid_format == 1:
+                    print "caution: there is " + str(de_in_expression_set - de_in_expression_set_with_valid_format) + " gene in the de " + de_ID + " that is in expression set that is not in a valid differential expression format."
                 else:
-                    print "caution: there are " + str(pde_in_expression_set - pde_in_expression_set_with_valid_format) + " genes in the PDE " + pde_ID + " that are in expression set that are not in a valid differential expression format."
+                    print "caution: there are " + str(de_in_expression_set - de_in_expression_set_with_valid_format) + " genes in the de " + de_ID + " that are in expression set that are not in a valid differential expression format."
 
             print
 
 
     # stores statistics for later use
-    global_variables["expression_set_size"] = normexp_in_background_count
+    global_variables["expression_set_size"] = ne_in_background_count
 
 
 

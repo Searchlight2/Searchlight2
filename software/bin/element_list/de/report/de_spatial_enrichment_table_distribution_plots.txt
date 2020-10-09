@@ -1,0 +1,11 @@
+PLOT_ID=spatial_enrichment_distribution_plots
+TITLE=Spatial Enrichment Distribution Plots
+PLOTS_PER_ROW=2
+
+<*per_chromosome*>
+PLOT_PATH=plots/spatial_enrichment/fold_distribution_chr_<*chromosome*>_unlabelled.png
+PLOT_PATH=plots/spatial_enrichment/gene_distribution_chr_<*chromosome*>.png
+<*/per_chromosome*>
+R_CODE_PATH=plots/spatial_enrichment/spatial_enrichment_distribution_plots.r
+PLOT_DESCRIPTION=/bin/report/plot_description/de_spatial_enrichment_distribution_plots.txt
+PLOT_LEGEND=/bin/report/plot_legend/de_spatial_enrichment_distribution_plots.txt

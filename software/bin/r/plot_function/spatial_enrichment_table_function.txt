@@ -1,8 +1,8 @@
 ##----- Spatial Enrichement Table Function  -----##
 make_spatial_enrichment_table <- function(spatial_enrichment_summary,header_size,text_size,border_thickness)
 {
-  spatial_enrichment_summary_table = spatial_enrichment_summary[,c("chromosome","total_genes","expressed_genes","pde_valid_genes","significant_genes","upregulated_genes","downregulated_genes","expressed_genes_bias_log2fold","expressed_genes_bias_p","significant_genes_bias_log2fold","significant_genes_bias_p","direction_bias_swing","direction_bias_p")]
-  colnames(spatial_enrichment_summary_table) = c("chromosome","total genes","expressed genes","pde valid genes","significant genes","upregulated genes","downregulated genes","expressed genes bias (log2fold)","expressed genes bias (p)","significant genes bias (log2fold)","significant genes bias (p)","direction bias (swing)","direction bias (p)")
+  spatial_enrichment_summary_table = spatial_enrichment_summary[,c("chromosome","total_genes","expressed_genes","de_valid_genes","significant_genes","upregulated_genes","downregulated_genes","expressed_genes_bias_log2fold","expressed_genes_bias_p","significant_genes_bias_log2fold","significant_genes_bias_p","direction_bias_swing","direction_bias_p")]
+  colnames(spatial_enrichment_summary_table) = c("chromosome","total genes","expressed genes","de valid genes","significant genes","upregulated genes","downregulated genes","expressed genes bias (log2fold)","expressed genes bias (p)","significant genes bias (log2fold)","significant genes bias (p)","direction bias (swing)","direction bias (p)")
   spatial_enrichment_summary_table = spatial_enrichment_summary_table[order(as.numeric(as.character(spatial_enrichment_summary_table$chromosome))),]
   table_theme <- gridExtra::ttheme_minimal(core = list(fg_params=list(cex = text_size)),colhead = list(fg_params=list(cex = header_size)))
 

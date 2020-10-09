@@ -1,0 +1,46 @@
+PLOT_ID=ura_boxplots
+TITLE=Upstream Regulator Boxplots
+PLOTS_PER_ROW=2
+
+<*per_ura*>
+SUB_TITLE=Most Enriched Upstream Regulators (<*ura_type*>)
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/enriched/no.1_most_enriched_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/enriched/no.2_most_enriched_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/enriched/no.3_most_enriched_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/enriched/no.4_most_enriched_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/enriched/no.5_most_enriched_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/enriched/no.6_most_enriched_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/enriched/no.7_most_enriched_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/enriched/no.8_most_enriched_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/enriched/no.9_most_enriched_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/enriched/no.10_most_enriched_upstream_regulator.png
+
+
+SUB_TITLE=Most Activated Upstream Regulators (<*ura_type*>)
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/activated/no.1_most_activated_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/activated/no.2_most_activated_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/activated/no.3_most_activated_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/activated/no.4_most_activated_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/activated/no.5_most_activated_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/activated/no.6_most_activated_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/activated/no.7_most_activated_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/activated/no.8_most_activated_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/activated/no.9_most_activated_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/activated/no.10_most_activated_upstream_regulator.png
+
+SUB_TITLE=Most Inhibited Upstream Regulators (<*ura_type*>)
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/inhibited/no.1_most_inhibited_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/inhibited/no.2_most_inhibited_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/inhibited/no.3_most_inhibited_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/inhibited/no.4_most_inhibited_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/inhibited/no.5_most_inhibited_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/inhibited/no.6_most_inhibited_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/inhibited/no.7_most_inhibited_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/inhibited/no.8_most_inhibited_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/inhibited/no.9_most_inhibited_upstream_regulator.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/inhibited/no.10_most_inhibited_upstream_regulator.png
+<*/per_ura*>
+
+R_CODE_PATH=plots/upstream_regulator_analysis/ura_boxplots.r
+PLOT_DESCRIPTION=/bin/report/plot_description/de_ura_boxplots.txt
+PLOT_LEGEND=/bin/report/plot_legend/de_ura_boxplots.txt

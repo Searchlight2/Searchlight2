@@ -1,0 +1,10 @@
+sample	sample_group
+WT_r1	WT
+WT_r2	WT
+WT_r3	WT
+KO_r1	KO
+KO_r2	KO
+KO_r3	KO
+KO_rescue_r1	KO_rescue
+KO_rescue_r2	KO_rescue
+KO_rescue_r3	KO_rescue

@@ -11,48 +11,48 @@ output$workflowTypeDropdown <- renderUI({
 
 output$workflowNameDropdown <- renderUI({
   if (!is.null(input$biotype) && !is.null(input$workflow_type)) {
-    if (input$workflow_type == "pde_workflows"){selectInput("workflow_name", "workflow name", choices = c("SELECT A WORKFLOW" = "", pde_workflow_names))}
-    else if (input$workflow_type == "mpde_workflows"){selectInput("workflow_name", "workflow name", choices = c("SELECT A WORKFLOW" = "", mpde_workflow_names))}
+    if (input$workflow_type == "de_workflows"){selectInput("workflow_name", "workflow name", choices = c("SELECT A WORKFLOW" = "", de_workflow_names))}
+    else if (input$workflow_type == "mde_workflows"){selectInput("workflow_name", "workflow name", choices = c("SELECT A WORKFLOW" = "", mde_workflow_names))}
   }
 })
 
 output$plotDropdown <- renderUI({
   if (!is.null(input$biotype) && !is.null(input$workflow_type)) {
     
-    # for a normexp workflow - which has a single fixed name
-    if (input$workflow_type == "normexp_workflow") {
+    # for a ne workflow - which has a single fixed name
+    if (input$workflow_type == "ne_workflow") {
       
       # loads the R data
-      rData_path = paste(getwd(),"rdata",input$biotype,"normexp_workflow","workflow.rdata",sep=.Platform$file.sep)
+      rData_path = paste(getwd(),"rdata",input$biotype,"ne_workflow","workflow.rdata",sep=.Platform$file.sep)
       env <- reactiveFileReader(intervalMillis = 1000, session = session, filePath = rData_path, readFunc = LoadEnv)
       env()[[names(env())[1]]]
       
       # creates the plot selection box
-      selectInput("plot_type", "plot", choices = c("SELECT A PLOT" = "", normexp_plots))
+      selectInput("plot_type", "plot", choices = c("SELECT A PLOT" = "", ne_plots))
     }
     
-    # for PDE and MPDE workflows - which can have a choice of names
+    # for de and Mde workflows - which can have a choice of names
     else if (!is.null(input$workflow_name) && input$workflow_name != "") {
       print(input$workflow_name)
-      if (input$workflow_type == "pde_workflows") {
+      if (input$workflow_type == "de_workflows") {
         
         # loads the R data
-        rData_path = paste(getwd(),"rdata",input$biotype,"pde_workflows",input$workflow_name,"workflow.rdata",sep=.Platform$file.sep)
+        rData_path = paste(getwd(),"rdata",input$biotype,"de_workflows",input$workflow_name,"workflow.rdata",sep=.Platform$file.sep)
         env <- reactiveFileReader(intervalMillis = 1000, session = session, filePath = rData_path, readFunc = LoadEnv)
         env()[[names(env())[1]]]
         
         # creates the plot selection box
-        selectInput("plot_type", "plot", choices = c("SELECT A PLOT" = "", pde_plots))
+        selectInput("plot_type", "plot", choices = c("SELECT A PLOT" = "", de_plots))
       }
-      else if (input$workflow_type == "mpde_workflows") {
+      else if (input$workflow_type == "mde_workflows") {
         
         # loads the R data
-        rData_path = paste(getwd(),"rdata",input$biotype,"mpde_workflows",input$workflow_name,"workflow.rdata",sep=.Platform$file.sep)
+        rData_path = paste(getwd(),"rdata",input$biotype,"mde_workflows",input$workflow_name,"workflow.rdata",sep=.Platform$file.sep)
         env <- reactiveFileReader(intervalMillis = 1000, session = session, filePath = rData_path, readFunc = LoadEnv)
         env()[[names(env())[1]]]
         
         # creates the plot selection box
-        selectInput("plot_type", "plot", choices = c("SELECT A PLOT" = "", mpde_plots))
+        selectInput("plot_type", "plot", choices = c("SELECT A PLOT" = "", mde_plots))
       }
     }
   }
@@ -69,7 +69,7 @@ output$ui <- renderUI({
   
   # renders each plot
   switch(input$plot_type,
-         "normexp_distribution_of_expression_values" = tagList(
+         "ne_distribution_of_expression_values" = tagList(
            selectInput("sample","sample",samples, samples[1]),
            numericInput("line_thickness","line thickness",1),
            ###selectInput("legend_position","legend position",c("top" = "top", "right" = "right", "bottom" = "bottom", "left" = "left", "none" = "n"), "n"),
@@ -79,7 +79,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",250),
            numericInput("plot_width","plot width",250)),
          
-         "normexp_pca_contribution_of_components" = tagList(
+         "ne_pca_contribution_of_components" = tagList(
            selectInput("line_type","line type",c("blank", "solid", "dashed", "dotted", "dotdash", "longdash", "twodash", "1F", "F1", "4C88C488", "12345678"), "solid"),
            textInput("line_colour","line colour","black"),
            textInput("dot_colour","dot colour","red"),
@@ -91,7 +91,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",300),
            numericInput("plot_width","plot width",400)),
          
-         "normexp_pca_scatter_plot" = tagList(
+         "ne_pca_scatter_plot" = tagList(
            selectInput("ss_column","sample sheet column",sample_sheet_column_names,sample_sheet_column_names[1]),
            selectInput("component_x","component x",c("1"="PC1", "2"="PC2", "3"="PC3", "4"="PC4"), "PC1"),
            selectInput("component_y","component y",c("1"="PC1", "2"="PC2", "3"="PC3", "4"="PC4"), "PC2"),
@@ -103,7 +103,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",400),
            numericInput("plot_width","plot width",400)),
          
-         "normexp_correlation_analysis_heatmap" = tagList(
+         "ne_correlation_analysis_heatmap" = tagList(
            textInput("distance_method","distance method","spearman"),
            textInput("reorder_function","reorder function","average"),
            textInput("clustering_method","clustering method","average"),
@@ -112,7 +112,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",600),
            numericInput("plot_width","plot width",750)),
          
-         "normexp_most_expressed_genes_violin_plots" = tagList(
+         "ne_most_expressed_genes_violin_plots" = tagList(
            selectInput("sample_group","sample_group",sample_groups, sample_groups[1]),
            selectInput("plot_number","plot_number",c(1:10), 1),
            numericInput("jitter_dot_size","jitter dot size",2),
@@ -132,7 +132,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",350),
            numericInput("plot_width","plot width",350)),
          
-         "pde_distribution_of_expression_values" = tagList(
+         "de_distribution_of_expression_values" = tagList(
            selectInput("sample","sample",samples, samples[1]),
            numericInput("line_thickness","line thickness",1),
            ###selectInput("legend_position","legend position",c("top" = "top", "right" = "right", "bottom" = "bottom", "left" = "left", "none" = "n"), "n"),
@@ -142,7 +142,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",250),
            numericInput("plot_width","plot width",250)),
          
-         "pde_pca_contribution_of_components" = tagList(
+         "de_pca_contribution_of_components" = tagList(
            selectInput("line_type","line type",c("blank", "solid", "dashed", "dotted", "dotdash", "longdash", "twodash", "1F", "F1", "4C88C488", "12345678"), "solid"),
            textInput("line_colour","line colour","black"),
            textInput("dot_colour","dot colour","red"),
@@ -154,7 +154,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",300),
            numericInput("plot_width","plot width",400)),
          
-         "pde_pca_scatter_plot" = tagList(
+         "de_pca_scatter_plot" = tagList(
            selectInput("component_x","component x",c("1"="PC1", "2"="PC2", "3"="PC3", "4"="PC4"), "PC1"),
            selectInput("component_y","component y",c("1"="PC1", "2"="PC2", "3"="PC3", "4"="PC4"), "PC2"),
            selectInput("show_proportion_of_variance","show proportion of variance",c("yes" = TRUE, "no" = FALSE), "yes"),
@@ -167,7 +167,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",300),
            numericInput("plot_width","plot width",300)),
          
-         "pde_correlation_analysis_heatmap" = tagList(
+         "de_correlation_analysis_heatmap" = tagList(
            textInput("distance_method","distance method","spearman"),
            textInput("reorder_function","reorder function","average"),
            textInput("clustering_method","clustering method","average"),
@@ -176,7 +176,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",600),
            numericInput("plot_width","plot width",750)),
          
-         "pde_most_expressed_genes_violin_plots" = tagList(
+         "de_most_expressed_genes_violin_plots" = tagList(
            selectInput("sample_group","sample_group",sample_groups, sample_groups[1]),
            selectInput("plot_number","plot_number",c(1:10), 1),
            numericInput("jitter_dot_size","jitter dot size",2),
@@ -196,7 +196,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",350),
            numericInput("plot_width","plot width",350)),
          
-         "pde_volcano_plot" = tagList(
+         "de_volcano_plot" = tagList(
            numericInput("dot_size","dot size",1.5),
            numericInput("dot_transparency","dot transparency",1),
            textInput("significant_name","significant name","significant"),
@@ -210,7 +210,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",500),
            numericInput("plot_width","plot width",600)),
          
-         "pde_ma_plot" = tagList(
+         "de_ma_plot" = tagList(
            textInput("non_significant_name","non significant name","non-significant"),
            textInput("significant_name","significant name","significant"),
            textInput("non_significant_colour","non significant colour",default_non_significant_colour),
@@ -224,7 +224,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",500),
            numericInput("plot_width","plot width",600)),
          
-         "pde_number_of_significant_genes_bar_chart" = tagList(
+         "de_number_of_significant_genes_bar_chart" = tagList(
            ##textInput("bar_colours","bar colours",default_two_tone_greyscale),
            numericInput("bar_outline_size","bar outline size",1),
            numericInput("data_label_size","data label size",5),
@@ -236,7 +236,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",350),
            numericInput("plot_width","plot width",350)),
          
-         "pde_significant_genes_heatmap" = tagList(
+         "de_significant_genes_heatmap" = tagList(
            selectInput("cluster","cluster",c("yes" = TRUE, "no" = FALSE), "no"),
            ###textInput("colours","colours",default_three_tone_heatmap_colours),
            textInput("distance_method","distance method","spearman"),
@@ -247,7 +247,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",750),
            numericInput("plot_width","plot width",500)),
          
-         "pde_most_differential_genes_violin_plots" = tagList(
+         "de_most_differential_genes_violin_plots" = tagList(
            selectInput("direction_type","direction type", c("most upregulated by p value" = "most_upregulated_by_p_value", "most upregulated by log2fold" = "most_upregulated_by_log2fold", "most downregulated by p value" = "most_downregulated_by_p_value" ,"most downregulated by log2fold" = "most_downregulated_by_log2fold"), "most_upregulated_by_p_value"),
            selectInput("plot_number","plot number",c(1:10), 1),
            numericInput("jitter_dot_size","jitter dot size",2),
@@ -267,8 +267,8 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",300),
            numericInput("plot_width","plot width",300)),
          
-         "pde_spatial_enrichment_distribution_plots" = tagList(
-           selectInput("chromosome","select chromosome", sort(unique(PDE_annotated$chromosome)), sort(unique(PDE_annotated$chromosome))[1]),
+         "de_spatial_enrichment_distribution_plots" = tagList(
+           selectInput("chromosome","select chromosome", sort(unique(de_annotated$chromosome)), sort(unique(de_annotated$chromosome))[1]),
            selectInput("spatial_enrichment_type","plot type",c("fold" = "FOLD", "density" = "DENSITY"), "FOLD"),
            numericInput("dot_size","dot size",1.5),
            numericInput("dot_transparency","dot transparency",1),
@@ -285,7 +285,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",300),
            numericInput("plot_width","plot width",750)),
          
-         "pde_hypergeometric_enriched_gene_sets_barcharts" = tagList(
+         "de_hypergeometric_enriched_gene_sets_barcharts" = tagList(
            selectInput("hgsea_database","select database",hgsea_databases, hgsea_databases[1]),
            selectInput("direction_type","choose gene list",c("all significant genes" = "all","upregulated genes" = "up","downregulated genes" = "down"), "all"),
            numericInput("bar_transparency","bar transparency",0.75),
@@ -301,7 +301,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",350),
            numericInput("plot_width","plot width",1000)),
          
-         "pde_hypergeometric_enriched_gene_sets_boxplot" = tagList(
+         "de_hypergeometric_enriched_gene_sets_boxplot" = tagList(
            selectInput("hgsea_database","select database",hgsea_databases, hgsea_databases[1]),
            selectInput("direction_type","choose gene list",c("all significant genes" = "all","upregulated genes" = "up","downregulated genes" = "down"), "all"),
            selectInput("plot_number","plot number",c(1:10), 1),
@@ -315,7 +315,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",250),
            numericInput("plot_width","plot width",1000)),
          
-         "pde_hypergeometric_enriched_gene_sets_network_plots" = tagList(
+         "de_hypergeometric_enriched_gene_sets_network_plots" = tagList(
            selectInput("hgsea_database","select database",hgsea_databases, hgsea_databases[1]),
            selectInput("direction_type","choose gene list",c("all significant genes" = "all","upregulated genes" = "up","downregulated genes" = "down"), "all"),
            numericInput("node_inner_max_size","node inner max size",20),
@@ -328,7 +328,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",1000),
            numericInput("plot_width","plot width",1500)),
          
-         "pde_hypergeometric_underenriched_gene_sets_barcharts" = tagList(
+         "de_hypergeometric_underenriched_gene_sets_barcharts" = tagList(
            selectInput("hgsea_database","select database",hgsea_databases, hgsea_databases[1]),
            selectInput("direction_type","choose gene list",c("all significant genes" = "all","upregulated genes" = "up","downregulated genes" = "down"), "all"),
            numericInput("bar_transparency","bar transparency",0.75),
@@ -344,7 +344,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",350),
            numericInput("plot_width","plot width",1000)),
          
-         "pde_IPA_upstream_regulators_bar_charts" = tagList(
+         "de_ura_bar_charts" = tagList(
            selectInput("ureg_database","select database",ureg_databases, ureg_databases[1]),
            selectInput("direction_type","choose test",c("activation" = "activated","inhibition" = "inhibited","enrichment" = "enriched"), "activated"),
            numericInput("bar_transparency","bar transparency",0.75),
@@ -360,7 +360,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",350),
            numericInput("plot_width","plot width",500)),
          
-         "pde_IPA_upstream_regulators_boxplots" = tagList(
+         "de_ura_boxplots" = tagList(
            selectInput("ureg_database","select database",ureg_databases, ureg_databases[1]),
            selectInput("direction_type","choose test",c("activation" = "activated","inhibition" = "inhibited","enrichment" = "enriched"), "activated"),
            selectInput("plot_number","plot number",c(1:10), 1),
@@ -374,7 +374,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",250),
            numericInput("plot_width","plot width",1000)),
          
-         "pde_IPA_upstream_regulators_network_plots" = tagList(
+         "de_ura_network_plots" = tagList(
            selectInput("ureg_database","select database",ureg_databases, ureg_databases[1]),
            selectInput("direction_type","choose test",c("activation / inhibition" = FALSE,"enrichment" = TRUE), FALSE),
            numericInput("node_inner_max_size","node inner max size",40),
@@ -389,7 +389,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",1000),
            numericInput("plot_width","plot width",1500)),
          
-         "mpde_distribution_of_expression_values" = tagList(
+         "mde_distribution_of_expression_values" = tagList(
            selectInput("sample","sample",samples, samples[1]),
            numericInput("line_thickness","line thickness",1),
            selectInput("legend_position","legend position",c("top" = "top", "right" = "right", "bottom" = "bottom", "left" = "left", "none" = "n"), "n"),
@@ -399,7 +399,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",250),
            numericInput("plot_width","plot width",250)),
          
-         "mpde_pca_contribution_of_components" = tagList(
+         "mde_pca_contribution_of_components" = tagList(
            selectInput("line_type","line type",c("blank", "solid", "dashed", "dotted", "dotdash", "longdash", "twodash", "1F", "F1", "4C88C488", "12345678"), "solid"),
            textInput("line_colour","line colour","black"),
            textInput("dot_colour","dot colour","red"),
@@ -411,7 +411,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",300),
            numericInput("plot_width","plot width",400)),
          
-         "mpde_pca_scatter_plot" = tagList(
+         "mde_pca_scatter_plot" = tagList(
            selectInput("component_x","component x",c("1"="PC1", "2"="PC2", "3"="PC3", "4"="PC4"), "PC1"),
            selectInput("component_y","component y",c("1"="PC1", "2"="PC2", "3"="PC3", "4"="PC4"), "PC2"),
            selectInput("show_proportion_of_variance","show proportion of variance",c("yes" = TRUE, "no" = FALSE), "yes"),
@@ -424,7 +424,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",400),
            numericInput("plot_width","plot width",400)),
          
-         "mpde_correlation_analysis_heatmap" = tagList(
+         "mde_correlation_analysis_heatmap" = tagList(
            textInput("distance_method","distance method","spearman"),
            textInput("reorder_function","reorder function","average"),
            textInput("clustering_method","clustering method","average"),
@@ -433,7 +433,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",600),
            numericInput("plot_width","plot width",750)),
          
-         "mpde_most_expressed_genes_violin_plots" = tagList(
+         "mde_most_expressed_genes_violin_plots" = tagList(
            selectInput("sample_group","sample_group",sample_groups, sample_groups[1]),
            selectInput("plot_number","plot_number",c(1:10), 1),
            numericInput("jitter_dot_size","jitter dot size",2),
@@ -453,7 +453,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",350),
            numericInput("plot_width","plot width",350)),
          
-         "mpde_number_of_significant_genes_bar_chart" = tagList(
+         "mde_number_of_significant_genes_bar_chart" = tagList(
            ###textInput("bar_colours","bar colours",default_two_tone_greyscale),
            numericInput("bar_outline_size","bar outline size",1),
            numericInput("data_label_size","data label size",5),
@@ -465,7 +465,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",500),
            numericInput("plot_width","plot width",750)),
          
-         "mpde_significant_genes_heatmap" = tagList(
+         "mde_significant_genes_heatmap" = tagList(
            selectInput("sig_any_all","significance",c("must be sig in all comparisons" = "all", "can be sig in any one comparison" = "any"), "any"),
            ##textInput("colours","colours",default_three_tone_heatmap_colours),
            textInput("distance_method","distance method","spearman"),
@@ -476,7 +476,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",750),
            numericInput("plot_width","plot width",500)),
          
-         "mpde_fold_vs_fold_scatterplots" = tagList(
+         "mde_fold_vs_fold_scatterplots" = tagList(
            selectInput("comparison_1","comparison 1",comparisons, comparisons[1]),
            selectInput("comparison_2","comparison 2",comparisons, comparisons[2]),
            ##textInput("colours","colours",c(default_significant_both_colour,default_significant_a_colour,default_significant_b_colour,default_non_significant_colour)),
@@ -487,7 +487,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",600),
            numericInput("plot_width","plot width",600)),
          
-         "mpde_differential_expression_signature_metagene_violin_plot" = tagList(
+         "mde_differential_expression_signature_metagene_violin_plot" = tagList(
            selectInput("signature_number","select signature",c(1:nrow(signature_summary)), 1),
            numericInput("jitter_dot_size","jitter dot size",2),
            numericInput("jitter_dot_width","jitter dot width",0.2),
@@ -506,7 +506,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",350),
            numericInput("plot_width","plot width",350)),
          
-         "mpde_differential_expression_signatures_heatmap" = tagList(
+         "mde_differential_expression_signatures_heatmap" = tagList(
            selectInput("signature_number","select signature",c(1:nrow(signature_summary)), 1),
            ##textInput("colours","colours",default_three_tone_heatmap_colours),
            textInput("distance_method","distance method","spearman"),
@@ -517,7 +517,7 @@ output$ui <- renderUI({
            numericInput("plot_height","plot height",750),
            numericInput("plot_width","plot width",500)),
          
-         "mpde_differential_expression_signature_hypergeometric_gene_sets_barchart" = tagList(
+         "mde_differential_expression_signature_oras_barchart" = tagList(
            selectInput("hgsea_database","select database",hgsea_databases, hgsea_databases[1]),
            selectInput("signature_number","select signature",c(1:nrow(signature_summary)), 1),
            numericInput("bar_transparency","bar transparency",0.75),
@@ -565,7 +565,7 @@ plotInput <- reactive({
   }
   
   
-  if (input$plot_type == "normexp_distribution_of_expression_values") 
+  if (input$plot_type == "ne_distribution_of_expression_values")
   {
     sample_index = match(input$sample,samples)
     plot_sample = samples[plot_sample_index]
@@ -574,13 +574,13 @@ plotInput <- reactive({
     print(ggp)
   }
   
-  else if (input$plot_type == "normexp_pca_contribution_of_components") 
+  else if (input$plot_type == "ne_pca_contribution_of_components")
   {
     ggp = make_PCA_contribution_of_components_plot(input$x_axis_label,input$y_axis_label,input$dot_size,input$dot_transparency,input$dot_colour,input$line_type,input$line_colour,input$line_size)
     print(ggp)
   }
   
-  else if (input$plot_type == "normexp_pca_scatter_plot") 
+  else if (input$plot_type == "ne_pca_scatter_plot")
   {
     column_index = match(input$ss_column,sample_sheet_column_names)
     print(column_index)
@@ -600,7 +600,7 @@ plotInput <- reactive({
     print(ggp)
   }
   
-  else if (input$plot_type == "normexp_correlation_analysis_heatmap") 
+  else if (input$plot_type == "ne_correlation_analysis_heatmap")
   {
     colours = default_three_tone_heatmap_colours
     sample_names = default_sample_labels
@@ -609,18 +609,18 @@ plotInput <- reactive({
     print(ggp)
   }
   
-  else if (input$plot_type == "normexp_most_expressed_genes_violin_plots") 
+  else if (input$plot_type == "ne_most_expressed_genes_violin_plots")
   {
     violin_colours = default_sample_group_colours 
     violin_labels = default_sample_group_labels
     top_10_genes = get_top_10_genes_by_mean_expression(match(input$sample_group,sample_groups))
     gene = top_10_genes[as.numeric(input$plot_number)]
     
-    ggp = make_gene_expression_violin_plot(normexp_matrix_transposed,gene,input$violin_transparency,input$violin_width,input$violin_line_thickness,violin_colours,violin_labels,input$trim_violin,input$jitter_dot_size,input$jitter_dot_colour,input$jitter_dot_width,input$summary_colour,input$summary_size,input$x_axis_label,input$y_axis_label,input$legend_position)
+    ggp = make_gene_expression_violin_plot(ne_matrix_transposed,gene,input$violin_transparency,input$violin_width,input$violin_line_thickness,violin_colours,violin_labels,input$trim_violin,input$jitter_dot_size,input$jitter_dot_colour,input$jitter_dot_width,input$summary_colour,input$summary_size,input$x_axis_label,input$y_axis_label,input$legend_position)
     print(ggp)
   }
   
-  else if (input$plot_type == "pde_distribution_of_expression_values") 
+  else if (input$plot_type == "de_distribution_of_expression_values")
   {
     sample_index = match(input$sample,samples)
     plot_colour = default_samples_colours[sample_index]
@@ -630,13 +630,13 @@ plotInput <- reactive({
     print(ggp)
   }
   
-  else if (input$plot_type == "pde_pca_contribution_of_components") 
+  else if (input$plot_type == "de_pca_contribution_of_components")
   {
     ggp = make_PCA_contribution_of_components_plot(input$x_axis_label,input$y_axis_label,input$dot_size,input$dot_transparency,input$dot_colour,input$line_type,input$line_colour,input$line_size)
     print(ggp)
   }
   
-  else if (input$plot_type == "pde_pca_scatter_plot") 
+  else if (input$plot_type == "de_pca_scatter_plot")
   {
     plot_sample_group_colours = default_sample_group_colours
     plot_sample_group_labels = default_sample_group_labels
@@ -650,7 +650,7 @@ plotInput <- reactive({
     print(ggp)
   }
   
-  else if (input$plot_type == "pde_correlation_analysis_heatmap") 
+  else if (input$plot_type == "de_correlation_analysis_heatmap")
   {
     colours = default_three_tone_heatmap_colours
     sample_names = default_sample_labels
@@ -659,30 +659,30 @@ plotInput <- reactive({
     print(ggp)
   }
   
-  else if (input$plot_type == "pde_most_expressed_genes_violin_plots") 
+  else if (input$plot_type == "de_most_expressed_genes_violin_plots")
   {
     violin_colours = default_sample_group_colours 
     violin_labels = default_sample_group_labels
     top_10_genes = get_top_10_genes_by_mean_expression(match(input$sample_group,sample_groups))
     gene = top_10_genes[as.numeric(input$plot_number)]
     
-    ggp = make_gene_expression_violin_plot(normexp_matrix_transposed,gene,input$violin_transparency,input$violin_width,input$violin_line_thickness,violin_colours,violin_labels,input$trim_violin,input$jitter_dot_size,input$jitter_dot_colour,input$jitter_dot_width,input$summary_colour,input$summary_size,input$x_axis_label,input$y_axis_label,input$legend_position)
+    ggp = make_gene_expression_violin_plot(ne_matrix_transposed,gene,input$violin_transparency,input$violin_width,input$violin_line_thickness,violin_colours,violin_labels,input$trim_violin,input$jitter_dot_size,input$jitter_dot_colour,input$jitter_dot_width,input$summary_colour,input$summary_size,input$x_axis_label,input$y_axis_label,input$legend_position)
     print(ggp)
   }
   
-  else if (input$plot_type == "pde_volcano_plot") 
+  else if (input$plot_type == "de_volcano_plot")
   {
     ggp = make_volcano_plot(input$non_significant_colour,input$significant_colour,input$dot_size,input$dot_transparency,input$significant_name,input$non_significant_name,input$x_axis_label,input$y_axis_label,input$legend_position,input$data_label_size)
     print(ggp)
   }
   
-  else if (input$plot_type == "pde_ma_plot") 
+  else if (input$plot_type == "de_ma_plot")
   {
     ggp = make_MA_plot(input$non_significant_colour,input$significant_colour,input$dot_size,input$dot_transparency,input$significant_name,input$non_significant_name,input$x_axis_label,input$y_axis_label,input$legend_position,input$data_label_size)
     print(ggp)
   }
   
-  else if (input$plot_type == "pde_number_of_significant_genes_bar_chart") 
+  else if (input$plot_type == "de_number_of_significant_genes_bar_chart")
   {
     comparison_labels = default_comparison_labels
     direction_labels = c("up","down")
@@ -692,16 +692,16 @@ plotInput <- reactive({
     print(ggp)
   }
   
-  else if (input$plot_type == "pde_significant_genes_heatmap") 
+  else if (input$plot_type == "de_significant_genes_heatmap")
   {
     colours = default_three_tone_heatmap_colours
     sample_names = default_sample_labels
     
-    ggp = make_significant_genes_heatmap(normexp_matrix_sig_scaled,colours,sample_names,input$cluster_x,input$cluster_y,input$distance_method,input$clustering_method,input$reorder_function)
+    ggp = make_significant_genes_heatmap(ne_matrix_sig_scaled,colours,sample_names,input$cluster_x,input$cluster_y,input$distance_method,input$clustering_method,input$reorder_function)
     print(ggp)
   }
   
-  else if (input$plot_type == "pde_most_differential_genes_violin_plots") 
+  else if (input$plot_type == "de_most_differential_genes_violin_plots")
   {
     violin_colours = default_sample_group_colours
     violin_labels = default_sample_group_labels
@@ -725,11 +725,11 @@ plotInput <- reactive({
     
     gene = top_10_genes[as.numeric(input$plot_number)]
     
-    ggp = make_gene_expression_violin_plot(normexp_matrix_transposed,gene,input$violin_transparency,input$violin_width,input$violin_line_thickness,violin_colours,violin_labels,input$trim_violin,input$jitter_dot_size,input$jitter_dot_colour,input$jitter_dot_width,input$summary_colour,input$summary_size,input$x_axis_label,input$y_axis_label,input$legend_position)
+    ggp = make_gene_expression_violin_plot(ne_matrix_transposed,gene,input$violin_transparency,input$violin_width,input$violin_line_thickness,violin_colours,violin_labels,input$trim_violin,input$jitter_dot_size,input$jitter_dot_colour,input$jitter_dot_width,input$summary_colour,input$summary_size,input$x_axis_label,input$y_axis_label,input$legend_position)
     print(ggp)
   }
   
-  else if (input$plot_type == "pde_spatial_enrichment_distribution_plots") 
+  else if (input$plot_type == "de_spatial_enrichment_distribution_plots")
   { 
     if (input$spatial_enrichment_type == "FOLD")
     {
@@ -742,7 +742,7 @@ plotInput <- reactive({
     print(ggp)
   }
   
-  else if (input$plot_type == "pde_hypergeometric_enriched_gene_sets_barcharts") 
+  else if (input$plot_type == "de_hypergeometric_enriched_gene_sets_barcharts")
   {
     if (input$direction_type == "all")
     {
@@ -760,12 +760,12 @@ plotInput <- reactive({
       temp2 = paste(input$hgsea_database,"_downregulated_enriched_gene_sets",sep="")   
     }  
     
-    top_10_gene_sets = get_top10_hypergeometric_gene_sets_by_p_value(get(temp1),get(temp2),"enrichment")  
-    ggp <- make_hypergeometric_gene_sets_bar_chart(top_10_gene_sets,input$x_axis_label,input$y_axis_label,input$non_significant_colour,input$significant_colour,input$bar_outline_size,input$bar_transparency,input$legend_position,input$significant_name,input$non_significant_name,input$data_label_size)
+    top_10_gene_sets = get_top10_oras_by_p_value(get(temp1),get(temp2),"enrichment")
+    ggp <- make_oras_bar_chart(top_10_gene_sets,input$x_axis_label,input$y_axis_label,input$non_significant_colour,input$significant_colour,input$bar_outline_size,input$bar_transparency,input$legend_position,input$significant_name,input$non_significant_name,input$data_label_size)
     print(ggp)
   }
   
-  else if (input$plot_type == "pde_hypergeometric_enriched_gene_sets_boxplot") 
+  else if (input$plot_type == "de_hypergeometric_enriched_gene_sets_boxplot")
   {
     if (input$direction_type == "all")
     {
@@ -783,18 +783,18 @@ plotInput <- reactive({
       temp2 = paste(input$hgsea_database,"_downregulated_enriched_gene_sets",sep="")   
     }  
     
-    top_10_gene_sets = get_top10_hypergeometric_gene_sets_by_p_value(get(temp1),get(temp2),"enrichment")  
+    top_10_gene_sets = get_top10_oras_by_p_value(get(temp1),get(temp2),"enrichment")
     gene_set = top_10_gene_sets[as.numeric(input$plot_number),]
     plot_title = gene_set[["gene_set"]]
     
     box_colours = default_sample_group_colours 	
     box_labels = default_sample_group_labels
     
-    ggp = make_hypergeometric_gene_set_boxplot(gene_set,plot_title,input$box_transparency,input$box_line_thickness,box_colours,box_labels,input$x_axis_label,input$y_axis_label,input$legend_position)
+    ggp = make_ora_boxplot(gene_set,plot_title,input$box_transparency,input$box_line_thickness,box_colours,box_labels,input$x_axis_label,input$y_axis_label,input$legend_position)
     print(ggp)
   }
   
-  else if (input$plot_type == "pde_hypergeometric_enriched_gene_sets_network_plots") 
+  else if (input$plot_type == "de_hypergeometric_enriched_gene_sets_network_plots")
   {
     if (input$direction_type == "all")
     {
@@ -814,11 +814,11 @@ plotInput <- reactive({
     
     node_colours = default_two_tone_network_node_colours
     
-    ggp = make_hypergeometric_gene_set_network_plot(get(temp1),get(temp2),node_colours,input$node_outer_max_size,input$node_inner_max_size,input$node_label_size,input$edge_colour,input$edge_transparency,input$edge_width)
+    ggp = make_ora_network_plot(get(temp1),get(temp2),node_colours,input$node_outer_max_size,input$node_inner_max_size,input$node_label_size,input$edge_colour,input$edge_transparency,input$edge_width)
     print(ggp)
   }
   
-  else if (input$plot_type == "pde_hypergeometric_underenriched_gene_sets_barcharts") 
+  else if (input$plot_type == "de_hypergeometric_underenriched_gene_sets_barcharts")
   {
     if (input$direction_type == "all")
     {
@@ -836,46 +836,46 @@ plotInput <- reactive({
       temp2 = paste(input$hgsea_database,"_downregulated_enriched_gene_sets",sep="")   
     }  
     
-    top_10_gene_sets = get_top10_hypergeometric_gene_sets_by_p_value(get(temp1),get(temp2),"underenrichment")  
-    ggp <- make_hypergeometric_gene_sets_bar_chart(top_10_gene_sets,input$x_axis_label,input$y_axis_label,input$non_significant_colour,input$significant_colour,input$bar_outline_size,input$bar_transparency,input$legend_position,input$significant_name,input$non_significant_name,input$data_label_size)
+    top_10_gene_sets = get_top10_oras_by_p_value(get(temp1),get(temp2),"underenrichment")
+    ggp <- make_oras_bar_chart(top_10_gene_sets,input$x_axis_label,input$y_axis_label,input$non_significant_colour,input$significant_colour,input$bar_outline_size,input$bar_transparency,input$legend_position,input$significant_name,input$non_significant_name,input$data_label_size)
     print(ggp)
   }
   
-  else if (input$plot_type == "pde_IPA_upstream_regulators_bar_charts") 
+  else if (input$plot_type == "de_ura_bar_charts")
   {
     if (input$direction_type == "enriched")
     {
-      top_10_upstream_regulators = get_top10_IPA_upstream_regulators_function(get(paste(input$ureg_database,"_all_gene_sets",sep="")),get(paste(input$ureg_database,"_enriched_gene_sets",sep="")),"enriched")
-      ggp = make_hypergeometric_gene_sets_bar_chart(top_10_upstream_regulators,input$x_axis_label,input$y_axis_label,input$non_significant_colour,input$significant_colour,input$bar_outline_size,input$bar_transparency,input$legend_position,input$significant_name,input$non_significant_name,input$data_label_size)
+      top_10_upstream_regulators = get_top10_ura_function(get(paste(input$ureg_database,"_all_gene_sets",sep="")),get(paste(input$ureg_database,"_enriched_gene_sets",sep="")),"enriched")
+      ggp = make_oras_bar_chart(top_10_upstream_regulators,input$x_axis_label,input$y_axis_label,input$non_significant_colour,input$significant_colour,input$bar_outline_size,input$bar_transparency,input$legend_position,input$significant_name,input$non_significant_name,input$data_label_size)
       
     }
     if (input$direction_type == "activated")
     {
-      top_10_upstream_regulators = get_top10_IPA_upstream_regulators_function(get(paste(input$ureg_database,"_all_gene_sets",sep="")),get(paste(input$ureg_database,"_enriched_gene_sets",sep="")),"activated")
-      ggp = make_IPA_upstream_regulators_bar_chart(top_10_upstream_regulators,input$x_axis_label,input$y_axis_label,input$non_significant_colour,input$significant_colour,input$bar_outline_size,input$bar_transparency,input$legend_position,input$significant_name,input$non_significant_name,input$data_label_size, "activated")
+      top_10_upstream_regulators = get_top10_ura_function(get(paste(input$ureg_database,"_all_gene_sets",sep="")),get(paste(input$ureg_database,"_enriched_gene_sets",sep="")),"activated")
+      ggp = make_ura_bar_chart(top_10_upstream_regulators,input$x_axis_label,input$y_axis_label,input$non_significant_colour,input$significant_colour,input$bar_outline_size,input$bar_transparency,input$legend_position,input$significant_name,input$non_significant_name,input$data_label_size, "activated")
     }
     if (input$direction_type == "inhibited")
     {
-      top_10_upstream_regulators = get_top10_IPA_upstream_regulators_function(get(paste(input$ureg_database,"_all_gene_sets",sep="")),get(paste(input$ureg_database,"_enriched_gene_sets",sep="")),"inhibited")
-      ggp = make_IPA_upstream_regulators_bar_chart(top_10_upstream_regulators,input$x_axis_label,input$y_axis_label,input$non_significant_colour,input$significant_colour,input$bar_outline_size,input$bar_transparency,input$legend_position,input$significant_name,input$non_significant_name,input$data_label_size, "inhibited")
+      top_10_upstream_regulators = get_top10_ura_function(get(paste(input$ureg_database,"_all_gene_sets",sep="")),get(paste(input$ureg_database,"_enriched_gene_sets",sep="")),"inhibited")
+      ggp = make_ura_bar_chart(top_10_upstream_regulators,input$x_axis_label,input$y_axis_label,input$non_significant_colour,input$significant_colour,input$bar_outline_size,input$bar_transparency,input$legend_position,input$significant_name,input$non_significant_name,input$data_label_size, "inhibited")
       
     }
     print(ggp)
   }
   
-  else if (input$plot_type == "pde_IPA_upstream_regulators_boxplots") 
+  else if (input$plot_type == "de_ura_boxplots")
   {
     if (input$direction_type == "enriched")
     {
-      top_10_upstream_regulators = get_top10_IPA_upstream_regulators_function(get(paste(input$ureg_database,"_all_gene_sets",sep="")),get(paste(input$ureg_database,"_enriched_gene_sets",sep="")),"enriched")
+      top_10_upstream_regulators = get_top10_ura_function(get(paste(input$ureg_database,"_all_gene_sets",sep="")),get(paste(input$ureg_database,"_enriched_gene_sets",sep="")),"enriched")
     }
     if (input$direction_type == "activated")
     {
-      top_10_upstream_regulators = get_top10_IPA_upstream_regulators_function(get(paste(input$ureg_database,"_all_gene_sets",sep="")),get(paste(input$ureg_database,"_enriched_gene_sets",sep="")),"activated")
+      top_10_upstream_regulators = get_top10_ura_function(get(paste(input$ureg_database,"_all_gene_sets",sep="")),get(paste(input$ureg_database,"_enriched_gene_sets",sep="")),"activated")
     }
     if (input$direction_type == "inhibited")
     {
-      top_10_upstream_regulators = get_top10_IPA_upstream_regulators_function(get(paste(input$ureg_database,"_all_gene_sets",sep="")),get(paste(input$ureg_database,"_enriched_gene_sets",sep="")),"inhibited")
+      top_10_upstream_regulators = get_top10_ura_function(get(paste(input$ureg_database,"_all_gene_sets",sep="")),get(paste(input$ureg_database,"_enriched_gene_sets",sep="")),"inhibited")
     }
     
     upstream_regulator = top_10_upstream_regulators[as.numeric(input$plot_number),]
@@ -885,7 +885,7 @@ plotInput <- reactive({
     
     if (input$direction_type == "enriched")
     {
-      ggp = make_hypergeometric_gene_set_boxplot(upstream_regulator,plot_title,input$box_transparency,input$box_line_thickness,box_colours,box_labels,input$x_axis_label,input$y_axis_label,input$legend_position)
+      ggp = make_ora_boxplot(upstream_regulator,plot_title,input$box_transparency,input$box_line_thickness,box_colours,box_labels,input$x_axis_label,input$y_axis_label,input$legend_position)
     }
     else
     {
@@ -894,7 +894,7 @@ plotInput <- reactive({
     print(ggp)
   }
   
-  else if (input$plot_type == "mpde_distribution_of_expression_values") 
+  else if (input$plot_type == "mde_distribution_of_expression_values")
   {
     sample_index = match(input$sample,samples)
     plot_colour = default_samples_colours[sample_index]
@@ -904,13 +904,13 @@ plotInput <- reactive({
     print(ggp)
   }
   
-  else if (input$plot_type == "mpde_pca_contribution_of_components") 
+  else if (input$plot_type == "mde_pca_contribution_of_components")
   {
     ggp = make_PCA_contribution_of_components_plot(input$x_axis_label,input$y_axis_label,input$dot_size,input$dot_transparency,input$dot_colour,input$line_type,input$line_colour,input$line_size)
     print(ggp)
   }
   
-  else if (input$plot_type == "mpde_pca_scatter_plot") 
+  else if (input$plot_type == "mde_pca_scatter_plot")
   {
     
     plot_sample_group_colours = default_sample_group_colours
@@ -925,7 +925,7 @@ plotInput <- reactive({
     print(ggp)
   }
   
-  else if (input$plot_type == "mpde_correlation_analysis_heatmap") 
+  else if (input$plot_type == "mde_correlation_analysis_heatmap")
   {
     colours = default_three_tone_heatmap_colours
     sample_names = default_sample_labels
@@ -934,18 +934,18 @@ plotInput <- reactive({
     print(ggp)
   }
   
-  else if (input$plot_type == "mpde_most_expressed_genes_violin_plots") 
+  else if (input$plot_type == "mde_most_expressed_genes_violin_plots")
   {
     violin_colours = default_sample_group_colours 
     violin_labels = default_sample_group_labels
     top_10_genes = get_top_10_genes_by_mean_expression(match(input$sample_group,sample_groups))
     gene = top_10_genes[as.numeric(input$plot_number)]
     
-    ggp = make_gene_expression_violin_plot(normexp_matrix_transposed,gene,input$violin_transparency,input$violin_width,input$violin_line_thickness,violin_colours,violin_labels,input$trim_violin,input$jitter_dot_size,input$jitter_dot_colour,input$jitter_dot_width,input$summary_colour,input$summary_size,input$x_axis_label,input$y_axis_label,input$legend_position)
+    ggp = make_gene_expression_violin_plot(ne_matrix_transposed,gene,input$violin_transparency,input$violin_width,input$violin_line_thickness,violin_colours,violin_labels,input$trim_violin,input$jitter_dot_size,input$jitter_dot_colour,input$jitter_dot_width,input$summary_colour,input$summary_size,input$x_axis_label,input$y_axis_label,input$legend_position)
     print(ggp)
   }
   
-  else if (input$plot_type == "mpde_number_of_significant_genes_bar_chart") 
+  else if (input$plot_type == "mde_number_of_significant_genes_bar_chart")
   {
     comparison_labels = default_comparison_labels 
     direction_labels = c("up","down")
@@ -955,23 +955,23 @@ plotInput <- reactive({
     print(ggp)
   }
   
-  else if (input$plot_type == "mpde_significant_genes_heatmap") 
+  else if (input$plot_type == "mde_significant_genes_heatmap")
   {
     colours = default_three_tone_heatmap_colours
     sample_names = default_sample_labels
     
     if (input$sig_any_all == "any") 
     {
-      ggp = make_significant_genes_heatmap(normexp_matrix_sig_any_scaled,colours,sample_names,input$cluster_x,input$cluster_y,input$distance_method,input$clustering_method,input$reorder_function)
+      ggp = make_significant_genes_heatmap(ne_matrix_sig_any_scaled,colours,sample_names,input$cluster_x,input$cluster_y,input$distance_method,input$clustering_method,input$reorder_function)
     }
     else if (input$sig_any_all == "all") 
     {
-      ggp = make_significant_genes_heatmap(normexp_matrix_sig_all_scaled,colours,sample_names,input$cluster_x,input$cluster_y,input$distance_method,input$clustering_method,input$reorder_function)
+      ggp = make_significant_genes_heatmap(ne_matrix_sig_all_scaled,colours,sample_names,input$cluster_x,input$cluster_y,input$distance_method,input$clustering_method,input$reorder_function)
     }
     print(ggp)
   }
   
-  else if (input$plot_type == "mpde_fold_vs_fold_scatterplots") 
+  else if (input$plot_type == "mde_fold_vs_fold_scatterplots")
   {
     colours = c(default_significant_both_colour,default_significant_a_colour,default_significant_b_colour,default_non_significant_colour)
     x_axis_label = paste(input$comparison_1," log2fold",sep="")
@@ -980,7 +980,7 @@ plotInput <- reactive({
     print(ggp)
   }
   
-  else if (input$plot_type == "mpde_differential_expression_signature_metagene_violin_plot") 
+  else if (input$plot_type == "mde_differential_expression_signature_metagene_violin_plot")
   {
     violin_colours = default_sample_group_colours
     violin_labels = default_sample_group_labels
@@ -992,16 +992,16 @@ plotInput <- reactive({
     print(ggp)
   }
   
-  else if (input$plot_type == "mpde_differential_expression_signatures_heatmap") 
+  else if (input$plot_type == "mde_differential_expression_signatures_heatmap")
   {
     colours = default_three_tone_heatmap_colours
     sample_names = default_sample_labels
     print(ggp)
   }
   
-  else if (input$plot_type == "mpde_differential_expression_signature_hypergeometric_gene_sets_barchart") 
+  else if (input$plot_type == "mde_differential_expression_signature_oras_barchart")
   {
-    ##load(paste(project_path,input$biotype,"/mpde_workflows/",input$workflow_name,"/plots/differential_expression_signature/signature_hypergeometric_gene_sets_enrichment/",input$hgsea_database,"/Rdata/signature_",input$signature_number,"_enriched_gene_sets_barchart.Rdata",sep=""))
+    ##load(paste(project_path,input$biotype,"/mde_workflows/",input$workflow_name,"/plots/differential_expression_signature/signature_oras_enrichment/",input$hgsea_database,"/Rdata/signature_",input$signature_number,"_enriched_gene_sets_barchart.Rdata",sep=""))
     print(ggp)
   }
   

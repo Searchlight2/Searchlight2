@@ -1,0 +1,12 @@
+##---- transpose and scale ne matrix ----##
+ne_matrix_transposed = data.frame(t(ne_matrix))
+colnames(ne_matrix_transposed) = rownames(ne_matrix)
+
+ne_matrix_scaled = data.frame(t(scale(t(ne_matrix))))
+rownames(ne_matrix_scaled) = rownames(ne_matrix)
+ne_matrix_scaled[do.call(cbind, lapply(ne_matrix_scaled, is.nan))] <- 0
+ne_matrix_scaled = ne_matrix_scaled[is.finite(rowSums(ne_matrix_scaled)), ]
+
+ne_matrix_scaled_transposed = data.frame(t(ne_matrix_scaled))
+colnames(ne_matrix_scaled_transposed) = rownames(ne_matrix_scaled)
+

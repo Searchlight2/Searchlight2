@@ -1,8 +1,0 @@
-##---- PDE IPA UREG network files ----##
-<*per_ipa_ureg*>
-<*type*>_enriched_ipa_ureg_nodes = read.table(file="<*path*>data/statistical_analysis/upstream_regulators/<*type*>/network_data/enriched_uregs_nodes.csv<*/path*>", header=TRUE, sep='\t', quote='',check.names = TRUE)
-<*type*>_enriched_ipa_ureg_edges = read.table(file="<*path*>data/statistical_analysis/upstream_regulators/<*type*>/network_data/enriched_uregs_edges.csv<*/path*>", header=TRUE, sep='\t', quote='',check.names = TRUE)
-<*type*>_activated_ipa_ureg_nodes = read.table(file="<*path*>data/statistical_analysis/upstream_regulators/<*type*>/network_data/activated_uregs_nodes.csv<*/path*>", header=TRUE, sep='\t', quote='',check.names = TRUE)
-<*type*>_activated_ipa_ureg_edges = read.table(file="<*path*>data/statistical_analysis/upstream_regulators/<*type*>/network_data/activated_uregs_edges.csv<*/path*>", header=TRUE, sep='\t', quote='',check.names = TRUE)
-<*/per_ipa_ureg*>
-

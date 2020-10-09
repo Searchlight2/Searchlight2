@@ -1,0 +1,1 @@
+Bar chart showing the number of significantly differentially expressed genes for the comparisons: <*mde_comparisons*>. The comparison is given in the x-axis and the number of significant genes on the y-axis.

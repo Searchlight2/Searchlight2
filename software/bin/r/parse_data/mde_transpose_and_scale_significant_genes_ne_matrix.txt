@@ -1,0 +1,11 @@
+##---- transpose and scale significant genes ne matrix ----##
+ne_matrix_sig_any_scaled = data.frame(t(scale(t(ne_matrix_sig_any))))
+rownames(ne_matrix_sig_any_scaled) = rownames(ne_matrix_sig_any)
+ne_matrix_sig_any_scaled[do.call(cbind, lapply(ne_matrix_sig_any_scaled, is.nan))] <- 0
+ne_matrix_sig_any_scaled = ne_matrix_sig_any_scaled[is.finite(rowSums(ne_matrix_sig_any_scaled)), ]
+
+ne_matrix_sig_all_scaled = data.frame(t(scale(t(ne_matrix_sig_all))))
+rownames(ne_matrix_sig_all_scaled) = rownames(ne_matrix_sig_all)
+ne_matrix_sig_all_scaled[do.call(cbind, lapply(ne_matrix_sig_all_scaled, is.nan))] <- 0
+ne_matrix_sig_all_scaled = ne_matrix_sig_all_scaled[is.finite(rowSums(ne_matrix_sig_all_scaled)), ]
+

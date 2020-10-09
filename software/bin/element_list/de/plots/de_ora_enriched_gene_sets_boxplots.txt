@@ -1,0 +1,17 @@
+R_CODE_OUTPATH=plots/over_representation_analysis/ora_enriched_gene_sets_boxplots.r
+
+library/general_libraries.txt
+core_parameter/de_sample_and_sample_group_names.txt
+input_file/working_directory.txt
+input_file/de_input_files.txt
+input_file/de_ora_enrichment_files.txt
+parse_data/de_parse_ne_matrix.txt
+parse_data/ne_transpose_and_scale_ne_matrix.txt
+default_aesthetic/SL2_theme.txt
+default_aesthetic/default_GGplot_colours_function.txt
+default_aesthetic/default_sample_and_sample_group_colours.txt
+default_aesthetic/default_sample_group_labels.txt
+helper_function/save_plot.txt
+helper_function/ora_top10_gene_sets_function.txt
+plot_function/ora_boxplot_function.txt
+plot/de_ora_enriched_gene_sets_boxplot.txt

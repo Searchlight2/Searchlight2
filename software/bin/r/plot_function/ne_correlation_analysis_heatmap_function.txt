@@ -1,0 +1,16 @@
+##----- Correlation Analysis Heatmap Function  -----##
+make_correlation_analysis_heatmap <- function(colours,sample_names,cluster_x,cluster_y,distance_method,clustering_method,reorder_function)
+{
+  ne_matrix_scaled_correlated = cor(ne_matrix_scaled,method="spearman")
+  row.names(ne_matrix_scaled_correlated) = sample_names
+  colnames(ne_matrix_scaled_correlated) = sample_names
+  
+  ne_matrix_scaled_correlated_clustered = cluster_matrix(ne_matrix_scaled_correlated,cluster_x,cluster_y,distance_method,clustering_method,reorder_function)
+  ne_matrix_scaled_correlated_clustered_melted <- melt(ne_matrix_scaled_correlated_clustered)
+  ne_matrix_scaled_correlated_clustered_melted$X1 = factor(ne_matrix_scaled_correlated_clustered_melted$X1, levels=colnames(ne_matrix_scaled_correlated_clustered))
+  ne_matrix_scaled_correlated_clustered_melted$X2 = factor(ne_matrix_scaled_correlated_clustered_melted$X2, levels=row.names(ne_matrix_scaled_correlated_clustered))
+
+  ggp = ggplot(ne_matrix_scaled_correlated_clustered_melted, aes(x = X1, y = X2, fill = value)) + geom_tile() + scale_fill_gradientn(limits=c(-1, 1),colours = colorRampPalette(colours)(100)) + ylab('') + xlab('') + theme_SL2() + theme(legend.position="right", legend.title = element_blank(), legend.spacing.x = unit(0.25, 'cm'),axis.text.x = element_text(angle = 90, hjust = 1), axis.ticks=element_blank()) + scale_x_discrete(expand=c(0,0)) + scale_y_discrete(expand=c(0,0))
+  return(ggp)
+}
+

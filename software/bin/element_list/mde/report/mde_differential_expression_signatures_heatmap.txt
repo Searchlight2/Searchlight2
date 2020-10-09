@@ -1,0 +1,14 @@
+PLOT_ID=differential_expression_signatures_heatmap
+TITLE=Signature Heatmaps
+PLOTS_PER_ROW=4
+
+<*per_de_signature*>
+SUB_TITLE=Signature <*de_signature*>
+PLOT_PATH=plots/differential_expression_signature/signature_heatmaps/signature_<*de_signature*>_heatmap.png
+<*/per_de_signature*>
+
+R_CODE_PATH=plots/differential_expression_signature/signature_heatmaps.r
+PLOT_DESCRIPTION=/bin/report/plot_description/mde_differential_expression_signatures_heatmap.txt
+PLOT_LEGEND=/bin/report/plot_legend/mde_differential_expression_signatures_heatmap.txt
+
+

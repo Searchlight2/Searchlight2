@@ -38,19 +38,19 @@ if __name__ == '__main__':
     SL_path = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
     annotations_parameter = None
     out_path_parameter = None
-    ipa_ureg_parameters = []
-    hypergeom_gs_parameters = []
+    ura_parameters = []
+    ora_parameters = []
     ss_parameter = None
     norm_exp_parameter = None
     bg_parameter = None
-    pde_workflow_parameters = []
-    mpde_workflow_parameters = []
+    de_workflow_parameters = []
+    mde_workflow_parameters = []
     popex_workflow_parameters = []
     gl_workflow_parameters = []
     config_file_parameter = None
-    run_normexp_wf = True
-    run_pde_wf = True
-    run_mpde_wf = True
+    run_ne_wf = True
+    run_de_wf = True
+    run_mde_wf = True
 
     for o, a in opts:
         if o == "--config":
@@ -60,9 +60,9 @@ if __name__ == '__main__':
         if o == "--out":
             out_path_parameter = a
         if o == "--ura":
-            ipa_ureg_parameters.append(a)
+            ura_parameters.append(a)
         if o == "--ora":
-            hypergeom_gs_parameters.append(a)
+            ora_parameters.append(a)
         if o == "--ss":
             ss_parameter = a
         if o == "--em":
@@ -70,22 +70,22 @@ if __name__ == '__main__':
         if o == "--bg":
             bg_parameter = a
         if o == "--de":
-            pde_workflow_parameters.append(a)
+            de_workflow_parameters.append(a)
         if o == "--mde":
-            mpde_workflow_parameters.append(a)
+            mde_workflow_parameters.append(a)
         if o == "--popex":
             popex_workflow_parameters.append(a)
         if o == "--gl":
             gl_workflow_parameters.append(a)
         if o == "--ignore_ne":
-            run_normexp_wf = False
+            run_ne_wf = False
         if o == "--ignore_de":
-            run_pde_wf = False
+            run_de_wf = False
         if o == "--ignore_mde":
-            run_mpde_wf = False
+            run_mde_wf = False
 
-    global_variables = global_variables_setup(annotations_parameter, ipa_ureg_parameters, hypergeom_gs_parameters, ss_parameter, norm_exp_parameter, bg_parameter, pde_workflow_parameters, mpde_workflow_parameters, popex_workflow_parameters, config_file_parameter, out_path_parameter, SL_path, run_normexp_wf, run_pde_wf, run_mpde_wf, version)
-    global_variables = input_variable_processing(global_variables, annotations_parameter, ipa_ureg_parameters, hypergeom_gs_parameters, ss_parameter, norm_exp_parameter, bg_parameter, pde_workflow_parameters, mpde_workflow_parameters, popex_workflow_parameters, out_path_parameter)
+    global_variables = global_variables_setup(annotations_parameter, ura_parameters, ora_parameters, ss_parameter, norm_exp_parameter, bg_parameter, de_workflow_parameters, mde_workflow_parameters, popex_workflow_parameters, config_file_parameter, out_path_parameter, SL_path, run_ne_wf, run_de_wf, run_mde_wf, version)
+    global_variables = input_variable_processing(global_variables, annotations_parameter, ura_parameters, ora_parameters, ss_parameter, norm_exp_parameter, bg_parameter, de_workflow_parameters, mde_workflow_parameters, popex_workflow_parameters, out_path_parameter)
     workflows(global_variables)
     shiny(global_variables)
 

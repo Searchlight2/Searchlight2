@@ -1,9 +1,0 @@
-PLOT_ID=PCA_contribution_of_components
-TITLE=PCA Contribution of Components
-PLOTS_PER_ROW=4
-
-PLOT_PATH=plots/PCA/PCA_contribution_of_components.png
-
-R_CODE_PATH=plots/PCA/PCA_contribution_of_components.r
-PLOT_DESCRIPTION=/bin/report/plot_description/normexp_PCA_contributions_of_components.txt
-PLOT_LEGEND=/bin/report/plot_legend/normexp_PCA_contributions_of_components.txt

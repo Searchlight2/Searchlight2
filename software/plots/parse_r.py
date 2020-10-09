@@ -22,28 +22,28 @@ def parse_r(r_script_path,pr_dictionary):
 
 
         # detects a hypergeom gene set iteration tag
-        if "<*per_hypergeometric_gene_set*>" in line:
+        if "<*per_ora*>" in line:
             iteration_tag_active = True
             iteration_lines_list = []
 
-        elif "<*/per_hypergeometric_gene_set*>" in line:
+        elif "<*/per_ora*>" in line:
             iteration_tag_active = False
-            for hypergeometric_gene_set_type in pr_dictionary["hypergeom_gene_set_types"]:
+            for ora_type in pr_dictionary["hypergeom_gene_set_types"]:
                 for line in iteration_lines_list:
-                    parsed_r_script += parse_line(line.replace("<*type*>", hypergeometric_gene_set_type), pr_dictionary)
+                    parsed_r_script += parse_line(line.replace("<*type*>", ora_type), pr_dictionary)
             continue
 
 
         #detects an IPA ureg iteration tag
-        if "<*per_ipa_ureg*>" in line:
+        if "<*per_ura*>" in line:
             iteration_tag_active = True
             iteration_lines_list = []
 
-        elif "<*/per_ipa_ureg*>" in line:
+        elif "<*/per_ura*>" in line:
             iteration_tag_active = False
-            for ipa_ureg_type in pr_dictionary["ipa_ureg_types"]:
+            for ura_type in pr_dictionary["ura_types"]:
                 for line in iteration_lines_list:
-                    parsed_r_script += parse_line(line.replace("<*type*>", ipa_ureg_type), pr_dictionary)
+                    parsed_r_script += parse_line(line.replace("<*type*>", ura_type), pr_dictionary)
             continue
 
 
@@ -55,9 +55,9 @@ def parse_r(r_script_path,pr_dictionary):
         elif "<*/per_de_signature_hyper_gs*>" in line:
             iteration_tag_active = False
             for de_signature in pr_dictionary["de_signatures"]:
-                for hypergeometric_gene_set_type in pr_dictionary["hypergeom_gene_set_types"]:
+                for ora_type in pr_dictionary["hypergeom_gene_set_types"]:
                     for line in iteration_lines_list:
-                        parsed_r_script += parse_line(line.replace("<*type*>", hypergeometric_gene_set_type).replace("<*de_signature*>", str(de_signature)),pr_dictionary)
+                        parsed_r_script += parse_line(line.replace("<*type*>", ora_type).replace("<*de_signature*>", str(de_signature)),pr_dictionary)
             continue
 
 
@@ -101,13 +101,13 @@ def parse_line(line,pr_dictionary):
         line = line.replace("<*default_sample_group_colours_by_SS_column_list*>", pr_dictionary["default_sample_group_colours_by_SS_column_r_string"])
     if "<*working_directory*>" in line:
         line = line.replace("<*working_directory*>", pr_dictionary["workflow_outpath"])
-    if "<*per_hypergeometric_gene_set*>" in line:
+    if "<*per_ora*>" in line:
         line = ""
-    if "<*/per_hypergeometric_gene_set*>" in line:
+    if "<*/per_ora*>" in line:
         line = ""
-    if "<*per_ipa_ureg*>" in line:
+    if "<*per_ura*>" in line:
         line = ""
-    if "<*/per_ipa_ureg*>" in line:
+    if "<*/per_ura*>" in line:
         line = ""
     if "<*per_de_signature_hyper_gs*>" in line:
         line = ""

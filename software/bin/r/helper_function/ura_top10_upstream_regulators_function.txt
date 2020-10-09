@@ -1,0 +1,27 @@
+##---- Top 10 IPA Upstream Regulators Function ----##
+get_top10_ura_function <- function(upstream_regulators,significant_upstream_regulators,type) {
+
+  if(type=="enriched")
+  {
+    top_10_upstream_regulators = head(upstream_regulators[order(upstream_regulators$enrichment_p_value,decreasing=FALSE),],10)
+    top_10_upstream_regulators = top_10_upstream_regulators[,c("upstream_regulator","enrichment_p_value","overlapping_genes","log2_fold_enrichment","overlapping_gene_names")]
+    top_10_upstream_regulators$significant = top_10_upstream_regulators$upstream_regulator %in% significant_upstream_regulators$upstream_regulator
+    top_10_upstream_regulators$significant = as.character(top_10_upstream_regulators$significant)
+    colnames(top_10_upstream_regulators) = c("gene_set","p","overlapping_genes","log2_fold_enrichment","overlapping_gene_names","significant")
+    return(top_10_upstream_regulators)
+  }
+  if (type=="activated") 
+  {
+    top_10_upstream_regulators = head(upstream_regulators[order(upstream_regulators$activation_zscore,decreasing=TRUE),],10)
+  }
+  if (type=="inhibited") 
+  {
+    top_10_upstream_regulators = head(upstream_regulators[order(upstream_regulators$activation_zscore,decreasing=FALSE),],10)
+  }
+  top_10_upstream_regulators = top_10_upstream_regulators[,c("upstream_regulator","activation_zscore","genes_activated","genes_inhibited","activated_gene_names","inhibited_gene_names")]
+  top_10_upstream_regulators$significant = top_10_upstream_regulators$upstream_regulator %in% significant_upstream_regulators$upstream_regulator
+  top_10_upstream_regulators$significant = as.character(top_10_upstream_regulators$significant)
+  colnames(top_10_upstream_regulators) = c("upstream_regulator","activation_zscore","genes_activated","genes_inhibited","activated_gene_names","inhibited_gene_names","significant")
+  return(top_10_upstream_regulators)
+}
+

@@ -66,47 +66,47 @@ def copy_rdata(biotype, global_variables):
     out_path = global_variables["out_path"]
     new_directory(os.path.join(out_path, "shiny", "rdata", biotype))
 
-    if global_variables["normexp_flag"]:
+    if global_variables["ne_flag"]:
 
-        new_directory(os.path.join(out_path, "shiny", "rdata", biotype, "normexp_workflow"))
-        rdata_in_path = os.path.join(out_path, biotype, "normexp_workflow", "plots", "workflow.rdata")
-        rdata_out_path = os.path.join(out_path, "shiny", "rdata", biotype, "normexp_workflow", "workflow.rdata")
+        new_directory(os.path.join(out_path, "shiny", "rdata", biotype, "ne_workflow"))
+        rdata_in_path = os.path.join(out_path, biotype, "ne_workflow", "plots", "workflow.rdata")
+        rdata_out_path = os.path.join(out_path, "shiny", "rdata", biotype, "ne_workflow", "workflow.rdata")
 
         try:
             copyfile(rdata_in_path, rdata_out_path)
         except:
-            print "Warning: the normexp workflow Rdata file is missing. It will be omitted from Shiny."
+            print "Warning: the ne workflow Rdata file is missing. It will be omitted from Shiny."
 
 
-    if global_variables["pde_workflows_flag"]:
+    if global_variables["de_workflows_flag"]:
 
-        parsed_pde_parameters = global_variables["pde_parameters"]
-        for pde_parameter_dict in parsed_pde_parameters:
+        parsed_de_parameters = global_variables["de_parameters"]
+        for de_parameter_dict in parsed_de_parameters:
 
-            pde_ID = pde_parameter_dict["pde_ID"]
-            pde_ID_no_spaces = pde_ID.replace(" ", "_")
-            new_directory(os.path.join(out_path, "shiny", "rdata", biotype, "pde_workflows", pde_ID_no_spaces))
-            rdata_in_path = os.path.join(out_path, biotype, "pde_workflows", pde_ID_no_spaces, "plots", "workflow.rdata")
-            rdata_out_path = os.path.join(out_path, "shiny", "rdata", biotype, "pde_workflows", pde_ID_no_spaces, "workflow.rdata")
+            de_ID = de_parameter_dict["de_ID"]
+            de_ID_no_spaces = de_ID.replace(" ", "_")
+            new_directory(os.path.join(out_path, "shiny", "rdata", biotype, "de_workflows", de_ID_no_spaces))
+            rdata_in_path = os.path.join(out_path, biotype, "de_workflows", de_ID_no_spaces, "plots", "workflow.rdata")
+            rdata_out_path = os.path.join(out_path, "shiny", "rdata", biotype, "de_workflows", de_ID_no_spaces, "workflow.rdata")
 
             try:
                 copyfile(rdata_in_path, rdata_out_path)
             except:
-                print "Warning: the PDE workflow " + pde_ID + " Rdata file is missing. It will be omitted from Shiny."
+                print "Warning: the de workflow " + de_ID + " Rdata file is missing. It will be omitted from Shiny."
 
-    if global_variables["mpde_workflows_flag"]:
-        parsed_mpde_parameters = global_variables["mpde_parameters"]
-        for mpde_dict in parsed_mpde_parameters:
+    if global_variables["mde_workflows_flag"]:
+        parsed_mde_parameters = global_variables["mde_parameters"]
+        for mde_dict in parsed_mde_parameters:
             
-            mpde_ID = mpde_dict["mpde_ID"]
-            new_directory(os.path.join(out_path, "shiny","rdata", biotype, "mpde_workflows", mpde_ID))
-            rdata_in_path = os.path.join(out_path, biotype, "mpde_workflows", mpde_ID, "plots", "workflow.rdata")
-            rdata_out_path = os.path.join(out_path, "shiny","rdata", biotype, "mpde_workflows", mpde_ID, "workflow.rdata")
+            mde_ID = mde_dict["mde_ID"]
+            new_directory(os.path.join(out_path, "shiny","rdata", biotype, "mde_workflows", mde_ID))
+            rdata_in_path = os.path.join(out_path, biotype, "mde_workflows", mde_ID, "plots", "workflow.rdata")
+            rdata_out_path = os.path.join(out_path, "shiny","rdata", biotype, "mde_workflows", mde_ID, "workflow.rdata")
 
             try:
                 copyfile(rdata_in_path, rdata_out_path)
             except:
-                print "Warning: the MPDE workflow " + mpde_ID + " Rdata file is missing. It will be omitted from Shiny."
+                print "Warning: the Mde workflow " + mde_ID + " Rdata file is missing. It will be omitted from Shiny."
 
 
 # gets the rdata

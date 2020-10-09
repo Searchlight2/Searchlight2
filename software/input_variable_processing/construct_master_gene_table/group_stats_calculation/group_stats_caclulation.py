@@ -8,19 +8,19 @@ def group_stats_calculation(global_variables, master_gene_table):
     for gene_ID in master_gene_table:
         gene_dictionary = master_gene_table[gene_ID]
 
-        if gene_dictionary["normexp_flag"]:
+        if gene_dictionary["ne_flag"]:
 
             for sample_group in samples_by_sample_groups:
-                normexp_list = []
+                ne_list = []
                 sample_group_samples = samples_by_sample_groups[sample_group]
 
                 for sample in sample_group_samples:
-                    normexp_list.append(gene_dictionary[sample])
+                    ne_list.append(gene_dictionary[sample])
 
-                normexp_list = numpy.array(normexp_list)
-                mean = numpy.mean(normexp_list)
-                median = numpy.median(normexp_list)
-                stdev = numpy.std(normexp_list)
+                ne_list = numpy.array(ne_list)
+                mean = numpy.mean(ne_list)
+                median = numpy.median(ne_list)
+                stdev = numpy.std(ne_list)
 
                 gene_dictionary["mean_" + sample_group] = mean
                 gene_dictionary["median_" + sample_group] = median

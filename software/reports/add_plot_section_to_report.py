@@ -60,16 +60,16 @@ def add_plot_section_to_report(config_element_path, pr_dictionary, global_variab
             continue
 
         # detects an ipa ureg iteration tag
-        if "<*per_ipa_ureg*>" in line:
+        if "<*per_ura*>" in line:
             iteration_tag_active = True
             iteration_lines_list = []
 
-        elif "<*/per_ipa_ureg*>" in line:
+        elif "<*/per_ura*>" in line:
             iteration_tag_active = False
-            for ipa_ureg in pr_dictionary["ipa_ureg_types"]:
+            for ura in pr_dictionary["ura_types"]:
                 for line in iteration_lines_list:
                     parsed_elements_list += str(
-                        parse_lines(line.replace("<*IPA_ureg_type*>", ipa_ureg), default_html, pr_dictionary, global_variables))
+                        parse_lines(line.replace("<*ura_type*>", ura), default_html, pr_dictionary, global_variables))
             continue
 
         # detects a hypergeom gene set iteration tag
@@ -79,10 +79,10 @@ def add_plot_section_to_report(config_element_path, pr_dictionary, global_variab
 
         elif "<*/per_hypergeom_gene_set*>" in line:
             iteration_tag_active = False
-            for hypergeometric_gene_set_type in pr_dictionary["hypergeom_gene_set_types"]:
+            for ora_type in pr_dictionary["hypergeom_gene_set_types"]:
                 for line in iteration_lines_list:
                     parsed_elements_list += str(
-                        parse_lines(line.replace("<*hypergeom_type*>", hypergeometric_gene_set_type), default_html, pr_dictionary, global_variables))
+                        parse_lines(line.replace("<*hypergeom_type*>", ora_type), default_html, pr_dictionary, global_variables))
             continue
 
         # detects a sample sheet column iteration tag
@@ -99,20 +99,20 @@ def add_plot_section_to_report(config_element_path, pr_dictionary, global_variab
             continue
 
         # detects a comparison iteration tag
-        if "<*per_mpde_comparison*>" in line:
+        if "<*per_mde_comparison*>" in line:
             iteration_tag_active = True
             iteration_lines_list = []
 
-        elif "<*/per_mpde_comparison*>" in line:
+        elif "<*/per_mde_comparison*>" in line:
             iteration_tag_active = False
             comparisons = pr_dictionary["comparisons"]
 
             for index1 in range(0, len(comparisons)-1):
                 for index2 in range(index1+1, len(comparisons)):
-                    mpde_comparison = (comparisons[index1] + "_VS_" + comparisons[index2]).replace(" vs ", "_vs_")
-                    mpde_comparison_text = mpde_comparison.replace("_VS_", "  VS  ").replace("_vs_", " vs ")
+                    mde_comparison = (comparisons[index1] + "_VS_" + comparisons[index2]).replace(" vs ", "_vs_")
+                    mde_comparison_text = mde_comparison.replace("_VS_", "  VS  ").replace("_vs_", " vs ")
                     for line in iteration_lines_list:
-                        parsed_elements_list += str(parse_lines(line.replace("<*mpde_comparison*>", mpde_comparison).replace("<*mpde_comparison_text*>", mpde_comparison_text), default_html,pr_dictionary, global_variables))
+                        parsed_elements_list += str(parse_lines(line.replace("<*mde_comparison*>", mde_comparison).replace("<*mde_comparison_text*>", mde_comparison_text), default_html,pr_dictionary, global_variables))
             continue
 
         # detects a chromosome iteration tag
@@ -147,9 +147,9 @@ def add_plot_section_to_report(config_element_path, pr_dictionary, global_variab
         elif "<*/per_de_signature_hypergeom_gene_set*>" in line:
             iteration_tag_active = False
             for de_signature in pr_dictionary["de_signatures"]:
-                for hypergeometric_gene_set_type in pr_dictionary["hypergeom_gene_set_types"]:
+                for ora_type in pr_dictionary["hypergeom_gene_set_types"]:
                     for line in iteration_lines_list:
-                        parsed_elements_list += str(parse_lines(line.replace("<*de_signature*>", str(de_signature)).replace("<*type*>", hypergeometric_gene_set_type), default_html, pr_dictionary, global_variables))
+                        parsed_elements_list += str(parse_lines(line.replace("<*de_signature*>", str(de_signature)).replace("<*type*>", ora_type), default_html, pr_dictionary, global_variables))
             continue
 
         # tests for an active iteration tag
@@ -172,10 +172,10 @@ def parse_lines(line, html_default, pr_dictionary, global_variables):
         line = line.replace("<*per_hypergeom_gene_set*>", "")
     if "<*/per_hypergeom_gene_set*>" in line:
         line = line.replace("<*/per_hypergeom_gene_set*>", "")
-    if "<*per_ipa_ureg*>" in line:
-        line = line.replace("<*per_ipa_ureg*>", "")
-    if "<*/per_ipa_ureg*>" in line:
-        line = line.replace("<*/per_ipa_ureg*>", "")
+    if "<*per_ura*>" in line:
+        line = line.replace("<*per_ura*>", "")
+    if "<*/per_ura*>" in line:
+        line = line.replace("<*/per_ura*>", "")
 
     if line.split("=")[0] == "TITLE":
         plot_id = line.split("=")[1].replace(" ", "_").replace("\n", "")

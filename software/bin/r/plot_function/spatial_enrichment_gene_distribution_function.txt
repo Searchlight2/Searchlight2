@@ -1,7 +1,7 @@
 ##---- Spatial Enrichment Gene Distribution Function ----##
 make_spatial_enrichment_gene_distribution_plot <- function(current_chromosome,non_significant_colour,significant_colour,density_curve_transparency,density_curve_line_thickness,significant_name,non_significant_name,x_axis_label,y_axis_label,legend_position) 
 {
-  chromosome_data = subset(PDE_annotated,chromosome==current_chromosome & pde_valid=="True")
+  chromosome_data = subset(de_annotated,chromosome==current_chromosome & de_valid=="True")
   
   if (nrow(chromosome_data) > 1)
   {

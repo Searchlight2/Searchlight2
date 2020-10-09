@@ -1,4 +1,0 @@
-##---- PDE input files ----##
-PDE_annotated = read.table(file="<*path*>data/PDE_annotated.csv<*/path*>", header=TRUE,row.names = 2, sep='\t', quote='',check.names = TRUE)
-PDE_annotated_sig = read.table(file="<*path*>data/PDE_annotated_significant.csv<*/path*>", header=TRUE,row.names = 2, sep='\t', quote='',check.names = TRUE)
-

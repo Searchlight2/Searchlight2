@@ -1,0 +1,15 @@
+R_CODE_OUTPATH=plots/most_expressed_genes/most_expressed_genes_violin_plots.r
+library/general_libraries.txt
+core_parameter/de_sample_and_sample_group_names.txt
+input_file/working_directory.txt
+input_file/de_input_files.txt
+parse_data/de_parse_ne_matrix.txt
+parse_data/ne_transpose_and_scale_ne_matrix.txt
+default_aesthetic/SL2_theme.txt
+default_aesthetic/default_GGplot_colours_function.txt
+default_aesthetic/default_sample_and_sample_group_colours.txt
+default_aesthetic/default_sample_group_labels.txt
+helper_function/save_plot.txt
+helper_function/ne_top10_genes_expression_function.txt
+plot_function/ne_gene_expression_violin_plot_function.txt
+plot/de_most_expressed_genes_violin_plots.txt

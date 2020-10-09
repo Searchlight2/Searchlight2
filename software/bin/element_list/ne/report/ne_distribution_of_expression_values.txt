@@ -1,0 +1,11 @@
+PLOT_ID=distribution_of_expression_values
+TITLE=Distribution of Expression Values
+PLOTS_PER_ROW=6
+
+<*per_sample*>
+PLOT_PATH=plots/distribution_of_expression_values/<*sample*>_distribution_of_expression_values.png
+<*/per_sample*>
+
+PLOT_DESCRIPTION=/bin/report/plot_description/ne_distribution_of_expression_values.txt
+PLOT_LEGEND=/bin/report/plot_legend/ne_distribution_of_expression_values.txt
+R_CODE_PATH=plots/distribution_of_expression_values/distribution_of_expression_values.r

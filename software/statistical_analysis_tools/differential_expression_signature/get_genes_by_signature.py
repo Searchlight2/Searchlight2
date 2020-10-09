@@ -1,4 +1,4 @@
-def get_genes_by_signature(data, pde_IDs):
+def get_genes_by_signature(data, de_IDs):
 
     signature_coord_sig = []
     signature_coord_log2fold = []
@@ -6,17 +6,17 @@ def get_genes_by_signature(data, pde_IDs):
     signatures_by_gene = {}
 
 
-    # get column index of each PDE sig and log2fold
+    # get column index of each de sig and log2fold
     header_split = data[0].rstrip().split("\t")
     for column_index in range(0, len(header_split)):
-        for i in range(0, len(pde_IDs)):
-            if header_split[column_index] == pde_IDs[i] + "_sig":
+        for i in range(0, len(de_IDs)):
+            if header_split[column_index] == de_IDs[i] + "_sig":
                 signature_coord_sig.append(int(column_index))
-            if header_split[column_index] == pde_IDs[i] + "_log2fold":
+            if header_split[column_index] == de_IDs[i] + "_log2fold":
                 signature_coord_log2fold.append(int(column_index))
 
 
-    # fetch the signature of current row based on pde coordinates
+    # fetch the signature of current row based on de coordinates
     header = True
     for line in data:
 
@@ -28,12 +28,12 @@ def get_genes_by_signature(data, pde_IDs):
             signature = ""
 
             # gets the signature for the current gene
-            for pde_index in range(0,len(signature_coord_sig)):
-                if line_split[signature_coord_sig[pde_index]] == "False":
+            for de_index in range(0,len(signature_coord_sig)):
+                if line_split[signature_coord_sig[de_index]] == "False":
                     signature += "False"
-                elif float(line_split[signature_coord_log2fold[pde_index]]) > 0:
+                elif float(line_split[signature_coord_log2fold[de_index]]) > 0:
                     signature += "Up"
-                elif float(line_split[signature_coord_log2fold[pde_index]]) < 0:
+                elif float(line_split[signature_coord_log2fold[de_index]]) < 0:
                     signature += "Down"
 
             # updates the list of genes for the signature

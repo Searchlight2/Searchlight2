@@ -1,0 +1,3 @@
+##---- parse ne matrix ----##
+ne_matrix = ne_file[,samples]
+

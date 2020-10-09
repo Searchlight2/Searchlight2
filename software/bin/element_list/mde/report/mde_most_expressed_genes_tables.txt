@@ -1,0 +1,12 @@
+PLOT_ID=most_expressed_genes_tables
+TITLE=Most Expressed Genes Tables
+PLOTS_PER_ROW=2
+
+<*per_sample_group*>
+SUB_TITLE=Most Expressed Genes <*sample*>
+PLOT_PATH=plots/most_expressed_genes/<*sample*>_most_expressed_genes_table.png
+<*/per_sample_group*>
+
+R_CODE_PATH=plots/most_expressed_genes/most_expressed_genes_tables.r
+PLOT_DESCRIPTION=/bin/report/plot_description/ne_most_expressed_genes_tables.txt
+PLOT_LEGEND=/bin/report/plot_legend/ne_most_expressed_genes_tables.txt

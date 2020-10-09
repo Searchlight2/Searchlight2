@@ -1,10 +1,10 @@
 from statistical_analysis_tools.differential_expression_signature.get_meta_gene import get_meta_gene
 from statistical_analysis_tools.differential_expression_signature.spearman_correlation import spearman_correlation
 
-def merge_signatures(genes_by_signature, mpde_dict, sample_list):
+def merge_signatures(genes_by_signature, mde_dict, sample_list):
 
     # user defined threshold for merging
-    scc_threshold = mpde_dict["signatures_scc"]
+    scc_threshold = mde_dict["signatures_scc"]
 
     # for each signature, gets the mean z-score per sample
     meta_genes = get_meta_gene(genes_by_signature, sample_list)

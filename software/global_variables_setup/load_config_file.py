@@ -83,22 +83,22 @@ def parse_config(config_file):
 # checks that the config has all of the correct headers:
 def check_config(config_dict):
 
-    normexp = False
-    pde = False
-    mpde = False
+    ne = False
+    de = False
+    mde = False
     popex = False
 
     for workflow_name in config_dict:
 
-        if workflow_name.upper() == "NORMEXP":
-            normexp = True
-        elif workflow_name.upper() == "PDE":
-            pde = True
-        elif workflow_name.upper() == "MPDE":
-            mpde = True
+        if workflow_name.upper() == "NE":
+            ne = True
+        elif workflow_name.upper() == "DE":
+            de = True
+        elif workflow_name.upper() == "MDE":
+            mde = True
 
 
-    if normexp == False or pde == False or mpde == False:
+    if ne == False or de == False or mde == False:
         print >> sys.stderr, "Error: the config file does not have all of the required headers."
         sys.exit(1)
 

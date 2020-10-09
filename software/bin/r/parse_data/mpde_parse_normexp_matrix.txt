@@ -1,5 +1,0 @@
-##---- MPDE parse normexp matrix ----##
-normexp_matrix = MPDE_annotated[,samples]
-normexp_matrix_sig_any = MPDE_annotated_sig_any[,samples]
-normexp_matrix_sig_all = MPDE_annotated_sig_all[,samples]
-

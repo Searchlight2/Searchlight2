@@ -1,0 +1,14 @@
+R_CODE_OUTPATH=plots/most_differential_genes/most_differential_genes_tables.r
+
+library/general_libraries.txt
+library/table_libraries.txt
+core_parameter/de_sample_and_sample_group_names.txt
+input_file/working_directory.txt
+input_file/de_input_files.txt
+parse_data/de_parse_ne_matrix.txt
+parse_data/ne_transpose_and_scale_ne_matrix.txt
+default_aesthetic/SL2_theme.txt
+helper_function/save_table.txt
+helper_function/de_top10_most_differential_genes_function.txt
+plot_function/de_most_differential_genes_table_function.txt
+plot/de_most_differential_genes_table.txt

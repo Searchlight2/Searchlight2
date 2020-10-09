@@ -1,0 +1,3 @@
+##---- ne input files ----##
+ne_file = read.table(file="<*path*>data/ne_matrix_symbols.csv<*/path*>", header=TRUE,row.names = 1, sep='\t', quote='',check.names = TRUE)
+

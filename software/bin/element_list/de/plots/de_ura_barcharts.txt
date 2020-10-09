@@ -1,0 +1,13 @@
+R_CODE_OUTPATH=plots/upstream_regulator_analysis/ura_barcharts.r
+
+library/general_libraries.txt
+core_parameter/de_sample_and_sample_group_names.txt
+input_file/working_directory.txt
+input_file/de_ura_activation_and_enrichment_files.txt
+default_aesthetic/SL2_theme.txt
+default_aesthetic/default_sig_and_non_sig_colours.txt
+helper_function/save_plot.txt
+helper_function/ura_top10_upstream_regulators_function.txt
+plot_function/ora_barchart_function.txt
+plot_function/ura_barchart_function.txt
+plot/de_ura_bar_charts.txt

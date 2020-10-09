@@ -1,0 +1,38 @@
+##----- Fold vs Fold Scatterplot Function -----##
+make_fold_vs_fold_scatterplot <- function(comparison1,comparison2,colours,dot_size,dot_transparency,significant_name,non_significant_name,x_axis_label,y_axis_label,legend_position,data_label_size) 
+{
+
+  # gets the names of the columns that indicate significance
+  sig_genes_rownames = data.frame(matrix(ncol=2, nrow=0), check.names=TRUE)
+  colnames(sig_genes_rownames) = paste(c(comparison1,comparison2),"_sig",sep="")
+  sig_genes_rownames = colnames(data.frame(sig_genes_rownames, check.names=TRUE))
+  
+  # gets the names of the columns that indicate fold change
+  fold_change_rownames = data.frame(matrix(ncol=2, nrow=0), check.names=TRUE)
+  colnames(fold_change_rownames) = paste(c(comparison1,comparison2),"_log2fold",sep="")
+  fold_change_rownames = colnames(data.frame(fold_change_rownames, check.names=TRUE))
+  
+  # gets the sig flags
+  sig_flags = character(nrow(Mde_annotated))
+  
+  for(index in 1:nrow(Mde_annotated))
+  {
+    if(Mde_annotated[[sig_genes_rownames[1]]][index] == "True" & Mde_annotated[[sig_genes_rownames[2]]][index] == "True") {sig_flags[index] = "sig both"}
+    else if(Mde_annotated[[sig_genes_rownames[1]]][index] == "True" & Mde_annotated[[sig_genes_rownames[2]]][index] == "False") {sig_flags[index] = paste("sig ",comparison1, " only",sep="")}
+    else if(Mde_annotated[[sig_genes_rownames[1]]][index] == "False" & Mde_annotated[[sig_genes_rownames[2]]][index] == "True") {sig_flags[index] = paste("sig ",comparison2, " only",sep="")}
+    else {sig_flags[index] = "not sig"}
+  }
+  breaks = c("sig both",paste("sig ",comparison1, " only",sep=""),paste("sig ",comparison2, " only",sep=""),"not sig")
+  sig_flags = factor(sig_flags, levels = breaks)
+  
+  # gets the correlation
+  correlation <- cor.test(x=Mde_annotated[[fold_change_rownames[1]]], y=Mde_annotated[[fold_change_rownames[2]]], method = 'spearman')
+  rr <- correlation$estimate
+  formated_rr <- format(rr,digits = 2)
+  title <- paste0("Spearman correlation coefficient = ",as.character(formated_rr))
+
+  ggp = ggplot(data=Mde_annotated, aes(x=Mde_annotated[[fold_change_rownames[1]]], y=Mde_annotated[[fold_change_rownames[2]]], group=sig_flags,colour=sig_flags,fill=sig_flags)) + geom_point(size=dot_size,alpha=dot_transparency) + ggtitle(title) + xlab(x_axis_label) + ylab(y_axis_label) + theme_SL2() + theme(legend.position=legend_position, legend.title = element_blank()) + scale_color_manual(values=colours,breaks=breaks,labels=breaks) + scale_fill_manual(values=colours,breaks=breaks,labels=breaks) + geom_text(data=Mde_annotated,aes(label=rownames(Mde_annotated)),hjust=-0.1, vjust=-0.1, size=data_label_size, show.legend = FALSE)
+  
+  return(ggp)
+}
+

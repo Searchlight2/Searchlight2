@@ -1,0 +1,21 @@
+##----- PCA Scatter Plot Function -----##
+make_PCA_scatterplot <- function(plot_sample_groupings,component_x,component_y,x_axis_label,y_axis_label,plot_sample_group_colours,plot_sample_group_labels,plot_sample_labels,dot_size,dot_transparency,legend_position,sample_label_size,show_proportion_of_variance)
+{
+
+  prcomp_data = prcomp(as.matrix(sapply(ne_matrix_scaled_transposed, as.numeric)))
+  prcomp_coordinates = data.frame(prcomp_data$x)
+    
+  if (show_proportion_of_variance == TRUE) 
+  {
+    vars = apply(prcomp_data$x, 2, var)
+    prop_x = round(vars[component_x] / sum(vars),4) * 100
+    prop_y = round(vars[component_y] / sum(vars),4) * 100
+    
+    x_axis_label = paste(x_axis_label, " (",prop_x,"%)",sep="")
+    y_axis_label = paste(y_axis_label, " (",prop_y,"%)",sep="")
+  }
+  
+  ggp = ggplot(data=prcomp_coordinates, aes(x=prcomp_coordinates[,component_x], y=prcomp_coordinates[,component_y], colour=plot_sample_groupings, group=plot_sample_groupings,fill=plot_sample_groupings)) + geom_point(size=dot_size,alpha=dot_transparency) + scale_color_manual(values=plot_sample_group_colours,labels=plot_sample_group_labels, breaks=sample_groups) + scale_fill_manual(values=plot_sample_group_colours,labels=plot_sample_group_labels, breaks=sample_groups) + xlab(x_axis_label) + ylab(y_axis_label) + theme_SL2() + theme(legend.position=legend_position, legend.title = element_blank(), legend.spacing.x = unit(0.25, 'cm')) + geom_text(data=prcomp_coordinates,aes(label=plot_sample_labels),hjust=0.5, vjust=-1, size=sample_label_size, show.legend = FALSE) + xlim(c(min(prcomp_coordinates[,component_x])*1.25,max(prcomp_coordinates[,component_x])*1.25)) + ylim(c(min(prcomp_coordinates[,component_y])*1.25,max(prcomp_coordinates[,component_y])*1.25))                                                 
+  return(ggp) 
+}
+

@@ -1,0 +1,13 @@
+##---- transpose and scale ne matrix across all SS columns ----##
+ne_matrix_all_SS_columns = ne_matrix[,cbind(unlist(samples_by_sample_group))]
+ne_matrix_all_SS_columns_transposed = data.frame(t(ne_matrix_all_SS_columns))
+colnames(ne_matrix_all_SS_columns_transposed) = rownames(ne_matrix_all_SS_columns)
+
+ne_matrix_all_SS_columns_scaled = data.frame(t(scale(t(ne_matrix_all_SS_columns))))
+rownames(ne_matrix_all_SS_columns_scaled) = rownames(ne_matrix_all_SS_columns)
+ne_matrix_all_SS_columns_scaled[do.call(cbind, lapply(ne_matrix_all_SS_columns_scaled, is.nan))] <- 0
+ne_matrix_all_SS_columns_scaled = ne_matrix_all_SS_columns_scaled[is.finite(rowSums(ne_matrix_all_SS_columns_scaled)), ]
+
+ne_matrix_all_SS_columns_scaled_transposed = data.frame(t(ne_matrix_all_SS_columns_scaled))
+colnames(ne_matrix_all_SS_columns_scaled_transposed) = rownames(ne_matrix_all_SS_columns_scaled)
+

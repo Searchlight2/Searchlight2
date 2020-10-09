@@ -1,5 +1,0 @@
-##---- MPDE input files ----##
-MPDE_annotated = read.table(file="<*path*>data/all_genes_annotated.csv<*/path*>", header=TRUE,row.names = 2, sep='\t', quote='',check.names = TRUE)
-MPDE_annotated_sig_any = read.table(file="<*path*>data/genes_significant_in_any_PDEs_annotated.csv<*/path*>", header=TRUE,row.names = 2, sep='\t', quote='',check.names = TRUE)
-MPDE_annotated_sig_all = read.table(file="<*path*>data/genes_significant_in_all_PDEs_annotated.csv<*/path*>", header=TRUE,row.names = 2, sep='\t', quote='',check.names = TRUE)
-

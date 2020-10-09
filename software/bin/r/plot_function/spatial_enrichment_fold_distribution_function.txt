@@ -1,8 +1,8 @@
 ##---- Spatial Analysis Fold Distribution Function ----##
 make_spatial_enrichment_fold_distribution_plot <- function(current_chromosome,non_significant_colour,significant_colour,dot_size,dot_transparency,significant_name,non_significant_name,x_axis_label,y_axis_label,legend_position,data_label_size) 
 {
-  chromosome_data = subset(PDE_annotated,chromosome==current_chromosome & pde_valid=="True")
-  chromosome_data_sig = subset(PDE_annotated_sig,chromosome==current_chromosome & pde_valid=="True")
+  chromosome_data = subset(de_annotated,chromosome==current_chromosome & de_valid=="True")
+  chromosome_data_sig = subset(de_annotated_sig,chromosome==current_chromosome & de_valid=="True")
   
   if (nrow(chromosome_data) > 1)
   {

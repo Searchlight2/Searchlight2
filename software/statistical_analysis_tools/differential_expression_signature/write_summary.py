@@ -2,7 +2,7 @@ import os
 from misc.get_samples_ordered_by_order_list import get_samples_ordered_by_order_list
 
 
-def write_summary(out_path, genes_by_merged_signature, meta_genes, global_variables, mpde_dict):
+def write_summary(out_path, genes_by_merged_signature, meta_genes, global_variables, mde_dict):
 
     # append total genes and z scores to data
     summary_data = {}
@@ -21,7 +21,7 @@ def write_summary(out_path, genes_by_merged_signature, meta_genes, global_variab
         summary_data_sorted[i+1] = sig_id + summary_data[summary_data_sorted_on_number_of_genes[i]]
 
     # create header
-    sample_names = get_samples_ordered_by_order_list(mpde_dict["order_list"], global_variables["samples_by_sample_groups"])
+    sample_names = get_samples_ordered_by_order_list(mde_dict["order_list"], global_variables["samples_by_sample_groups"])
     summary_data_sorted[0] = "signature\tsignature_size\t" + "\t".join(sample_names) + "\n"
 
     # writes the summary

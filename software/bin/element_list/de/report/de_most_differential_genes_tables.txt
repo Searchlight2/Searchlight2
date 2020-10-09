@@ -1,0 +1,16 @@
+PLOT_ID=most_differential_genes_tables
+TITLE=Most Differential Genes Tables
+PLOTS_PER_ROW=3
+
+SUB_TITLE=Upregulated By P-value
+PLOT_PATH=plots/most_differential_genes/most_upregulated_by_p_value/most_upregulated_genes_table.png
+SUB_TITLE=Upregulated By Log2 Fold
+PLOT_PATH=plots/most_differential_genes/most_upregulated_by_log2fold/most_upregulated_genes_table.png
+SUB_TITLE=Downregulated By P-value
+PLOT_PATH=plots/most_differential_genes/most_downregulated_by_p_value/most_downregulated_genes_table.png
+SUB_TITLE=Downregulated By Log2 Fold
+PLOT_PATH=plots/most_differential_genes/most_downregulated_by_log2fold/most_downregulated_genes_table.png
+
+R_CODE_PATH=plots/most_differential_genes/most_differential_genes_tables.r
+PLOT_DESCRIPTION=/bin/report/plot_description/de_most_differential_genes_tables.txt
+PLOT_LEGEND=/bin/report/plot_legend/de_most_differential_genes_tables.txt

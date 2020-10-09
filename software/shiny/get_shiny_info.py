@@ -4,13 +4,13 @@ def get_shiny_info(global_variables):
 
     biotypes = ["\"all genes\" = \"all_genes\""]
     workflow_types = []
-    pde_workflow_names = []
-    mpde_workflows_names = []
-    normexp_plots = []
-    pde_plots = []
-    mpde_plots = []
+    de_workflow_names = []
+    mde_workflows_names = []
+    ne_plots = []
+    de_plots = []
+    mde_plots = []
     hgsea_types = []
-    ipa_ureg_types = []
+    ura_types = []
 
     # parses the biotypes
     if global_variables["biotypes_flag"] and len(global_variables["biotypes_dict"].keys()) > 1:
@@ -20,53 +20,53 @@ def get_shiny_info(global_variables):
             biotypes.append("\"" + biotype.replace("_", " ") + "\" = \"" + biotype + "\"")
 
 
-    # parses the normexp workflow info
-    if global_variables["normexp_flag"] and global_variables["ss_flag"] and global_variables["background_flag"] and len(global_variables["sample_groups"].keys()) > 0:
+    # parses the ne workflow info
+    if global_variables["ne_flag"] and global_variables["ss_flag"] and global_variables["background_flag"] and len(global_variables["sample_groups"].keys()) > 0:
 
-        # normexp workflow type
-        workflow_types.append("\"normexp\" = \"normexp_workflow\"")
+        # ne workflow type
+        workflow_types.append("\"ne\" = \"ne_workflow\"")
 
-        # normexp workflow plots
-        normexp_plots = add_plots(global_variables["config"]["NORMEXP"], global_variables)
-
-
-    # parses the pde workflow info
-    if global_variables["pde_workflows_flag"] and global_variables["ss_flag"] and global_variables["background_flag"] and global_variables["normexp_flag"]:
-
-        # pde workflow type
-        workflow_types.append("\"pde\" = \"pde_workflows\"")
-
-        # pde workflow names
-        parsed_pde_parameters = global_variables["pde_parameters"]
-        for pde_parameter_dict in parsed_pde_parameters:
-            pde_workflow_names.append("\"" + pde_parameter_dict["pde_ID"] + "\" = \"" + pde_parameter_dict["pde_ID"].replace(" ", "_") + "\"")
-
-        # pde workflow plots
-        pde_plots = add_plots(global_variables["config"]["PDE"], global_variables)
+        # ne workflow plots
+        ne_plots = add_plots(global_variables["config"]["NE"], global_variables)
 
 
-    if global_variables["mpde_workflows_flag"] and global_variables["ss_flag"] and global_variables["background_flag"] and global_variables["normexp_flag"] and global_variables["pde_workflows_flag"]:
+    # parses the de workflow info
+    if global_variables["de_workflows_flag"] and global_variables["ss_flag"] and global_variables["background_flag"] and global_variables["ne_flag"]:
 
-        # mpde workflow type
-        workflow_types.append("\"mpde\" = \"mpde_workflows\"")
+        # de workflow type
+        workflow_types.append("\"de\" = \"de_workflows\"")
 
-        # mpde workflow names
-        parsed_mpde_parameters = global_variables["mpde_parameters"]
-        for mpde_dict in parsed_mpde_parameters:
-            mpde_workflows_names.append("\"" + mpde_dict["mpde_ID"].replace("_", " ") + "\" = \"" + mpde_dict["mpde_ID"] + "\"")
+        # de workflow names
+        parsed_de_parameters = global_variables["de_parameters"]
+        for de_parameter_dict in parsed_de_parameters:
+            de_workflow_names.append("\"" + de_parameter_dict["de_ID"] + "\" = \"" + de_parameter_dict["de_ID"].replace(" ", "_") + "\"")
 
-        # mpde workflow plots
-        mpde_plots = add_plots(global_variables["config"]["MPDE"], global_variables)
+        # de workflow plots
+        de_plots = add_plots(global_variables["config"]["DE"], global_variables)
 
-    if global_variables["hypergeom_gs_flag"]:
-        parsed_hypergeom_gene_sets_parameters = global_variables["hypergeom_gs_parameters"]
+
+    if global_variables["mde_workflows_flag"] and global_variables["ss_flag"] and global_variables["background_flag"] and global_variables["ne_flag"] and global_variables["de_workflows_flag"]:
+
+        # mde workflow type
+        workflow_types.append("\"mde\" = \"mde_workflows\"")
+
+        # mde workflow names
+        parsed_mde_parameters = global_variables["mde_parameters"]
+        for mde_dict in parsed_mde_parameters:
+            mde_workflows_names.append("\"" + mde_dict["mde_ID"].replace("_", " ") + "\" = \"" + mde_dict["mde_ID"] + "\"")
+
+        # mde workflow plots
+        mde_plots = add_plots(global_variables["config"]["MDE"], global_variables)
+
+    if global_variables["ora_flag"]:
+        parsed_hypergeom_gene_sets_parameters = global_variables["ora_parameters"]
         for hypergeom_gene_set_parameter_dict in parsed_hypergeom_gene_sets_parameters:
             hgsea_types.append("\"" + hypergeom_gene_set_parameter_dict["type"] + "\"")
 
-    if global_variables["ipa_ureg_flag"]:
-        parsed_ipa_ureg_parameters = global_variables["ipa_ureg_parameters"]
-        for ipa_ureg_parameters_dict in parsed_ipa_ureg_parameters:
-            ipa_ureg_types.append("\"" + ipa_ureg_parameters_dict["type"] + "\"")
+    if global_variables["ura_flag"]:
+        parsed_ura_parameters = global_variables["ura_parameters"]
+        for ura_parameters_dict in parsed_ura_parameters:
+            ura_types.append("\"" + ura_parameters_dict["type"] + "\"")
 
 
 
@@ -75,13 +75,13 @@ def get_shiny_info(global_variables):
     shiny_info = "\n"
     shiny_info += "\tbiotypes = c(" + ",".join(biotypes) + ")\n"
     shiny_info += "\tworkflow_types = c(" + ",".join(workflow_types) + ")\n"
-    shiny_info += "\tpde_workflow_names = c(" + ",".join(pde_workflow_names) + ")\n"
-    shiny_info += "\tmpde_workflow_names = c(" + ",".join(mpde_workflows_names) + ")\n"
-    shiny_info += "\tnormexp_plots = c(" + ",".join(normexp_plots) + ")\n"
-    shiny_info += "\tpde_plots = c(" + ",".join(pde_plots) + ")\n"
-    shiny_info += "\tmpde_plots = c(" + ",".join(mpde_plots) + ")\n"
+    shiny_info += "\tde_workflow_names = c(" + ",".join(de_workflow_names) + ")\n"
+    shiny_info += "\tmde_workflow_names = c(" + ",".join(mde_workflows_names) + ")\n"
+    shiny_info += "\tne_plots = c(" + ",".join(ne_plots) + ")\n"
+    shiny_info += "\tde_plots = c(" + ",".join(de_plots) + ")\n"
+    shiny_info += "\tmde_plots = c(" + ",".join(mde_plots) + ")\n"
     shiny_info += "\thgsea_databases = c(" + ",".join(hgsea_types) + ")\n"
-    shiny_info += "\tureg_databases = c(" + ",".join(ipa_ureg_types) + ")\n"
+    shiny_info += "\tureg_databases = c(" + ",".join(ura_types) + ")\n"
     return shiny_info
 
 
@@ -108,7 +108,7 @@ def add_plots(config, global_variables):
                 for line in element_file:
                     if line.startswith("plot/"):
                         plot_name = line.rstrip().replace("plot/","").replace(".txt","")
-                        plot_names.append("\"" + plot_name.replace("mpde_","").replace("pde_","").replace("normexp_","").replace("_"," ") + "\" = \"" + plot_name+ "\"")
+                        plot_names.append("\"" + plot_name.replace("mde_","").replace("de_","").replace("ne_","").replace("_"," ") + "\" = \"" + plot_name+ "\"")
 
     return plot_names
 
@@ -119,9 +119,9 @@ def check_element_prerequisites(element_active, element_type, element_subtype, e
 
     if element_active == "FALSE":
         return False
-    elif element_subtype == "hypergeometric_gene_set" and global_variables["hypergeom_gs_flag"] == False:
+    elif element_subtype == "ora" and global_variables["ora_flag"] == False:
         return False
-    elif element_subtype == "ipa_ureg" and global_variables["ipa_ureg_flag"] == False:
+    elif element_subtype == "ura" and global_variables["ura_flag"] == False:
         return False
     elif element_type == "plot" and element_path.upper() == "NONE":
         return False

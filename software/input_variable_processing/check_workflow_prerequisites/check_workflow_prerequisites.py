@@ -17,7 +17,7 @@ def check_workflow_prerequisites(global_variables):
         print >> sys.stderr, "Error: no background gene list has been supplied. How will we know what genes there are?"
         sys.exit(1)
 
-    # checks if a normexp file has been supplied.
-    if not global_variables["normexp_flag"]:
-        print >> sys.stderr, "Error: no normexp file has been supplied. How will we know whats being expressed?"
+    # checks if a ne file has been supplied.
+    if not global_variables["ne_flag"]:
+        print >> sys.stderr, "Error: no ne file has been supplied. How will we know whats being expressed?"
         sys.exit(1)

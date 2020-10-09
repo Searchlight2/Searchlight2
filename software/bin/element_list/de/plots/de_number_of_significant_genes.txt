@@ -1,0 +1,11 @@
+R_CODE_OUTPATH=plots/number_of_significant_genes/number_of_significant_genes_barchart.r
+library/general_libraries.txt
+core_parameter/de_sample_and_sample_group_names.txt
+input_file/working_directory.txt
+input_file/de_input_files.txt
+default_aesthetic/SL2_theme.txt
+default_aesthetic/default_two_tone_greyscale.txt
+default_aesthetic/default_comparison_labels.txt
+helper_function/save_plot.txt
+plot_function/de_number_of_significant_genes_barchart_function.txt
+plot/de_number_of_significant_genes_bar_chart.txt

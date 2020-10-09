@@ -1,5 +1,5 @@
 # sets up flags for which input variables have been supplied
-def set_input_flags(global_variables, annotations_parameter, ipa_ureg_parameters, hypergeom_gs_parameters, ss_parameter, norm_exp_parameter, bg_parameter, pde_workflow_parameters, mpde_workflow_parameters, popex_workflow_parameters, config_file_parameter, out_path_parameter,run_normexp_wf,run_pde_wf,run_mpde_wf):
+def set_input_flags(global_variables, annotations_parameter, ura_parameters, ora_parameters, ss_parameter, norm_exp_parameter, bg_parameter, de_workflow_parameters, mde_workflow_parameters, popex_workflow_parameters, config_file_parameter, out_path_parameter,run_ne_wf,run_de_wf,run_mde_wf):
 
 
 
@@ -13,15 +13,15 @@ def set_input_flags(global_variables, annotations_parameter, ipa_ureg_parameters
     else:
         global_variables["annotations_flag"] = False
 
-    if len(ipa_ureg_parameters) > 0:
-        global_variables["ipa_ureg_flag"] = True
+    if len(ura_parameters) > 0:
+        global_variables["ura_flag"] = True
     else:
-        global_variables["ipa_ureg_flag"] = False
+        global_variables["ura_flag"] = False
 
-    if len(hypergeom_gs_parameters) > 0:
-        global_variables["hypergeom_gs_flag"] = True
+    if len(ora_parameters) > 0:
+        global_variables["ora_flag"] = True
     else:
-        global_variables["hypergeom_gs_flag"] = False
+        global_variables["ora_flag"] = False
 
     if ss_parameter != None:
         global_variables["ss_flag"] = True
@@ -29,9 +29,9 @@ def set_input_flags(global_variables, annotations_parameter, ipa_ureg_parameters
         global_variables["ss_flag"] = False
 
     if norm_exp_parameter != None:
-        global_variables["normexp_flag"] = True
+        global_variables["ne_flag"] = True
     else:
-        global_variables["normexp_flag"] = False
+        global_variables["ne_flag"] = False
 
     if bg_parameter != None:
         global_variables["background_flag"] = True
@@ -43,29 +43,29 @@ def set_input_flags(global_variables, annotations_parameter, ipa_ureg_parameters
     else:
         global_variables["config_file_flag"] = False
 
-    if len(pde_workflow_parameters) > 0:
-        global_variables["pde_workflows_flag"] = True
+    if len(de_workflow_parameters) > 0:
+        global_variables["de_workflows_flag"] = True
     else:
-        global_variables["pde_workflows_flag"] = False
+        global_variables["de_workflows_flag"] = False
 
-    if len(mpde_workflow_parameters) > 0:
-        global_variables["mpde_workflows_flag"] = True
+    if len(mde_workflow_parameters) > 0:
+        global_variables["mde_workflows_flag"] = True
     else:
-        global_variables["mpde_workflows_flag"] = False
-
-    if len(popex_workflow_parameters) > 0:
-        global_variables["popex_workflows_flag"] = True
-    else:
-        global_variables["popex_workflows_flag"] = False
+        global_variables["mde_workflows_flag"] = False
 
     if len(popex_workflow_parameters) > 0:
         global_variables["popex_workflows_flag"] = True
     else:
         global_variables["popex_workflows_flag"] = False
 
-    global_variables["run_normexp_wf_flag"] = run_normexp_wf
-    global_variables["run_pde_wf_flag"] = run_pde_wf
-    global_variables["run_mpde_wf_flag"] = run_mpde_wf
+    if len(popex_workflow_parameters) > 0:
+        global_variables["popex_workflows_flag"] = True
+    else:
+        global_variables["popex_workflows_flag"] = False
+
+    global_variables["run_ne_wf_flag"] = run_ne_wf
+    global_variables["run_de_wf_flag"] = run_de_wf
+    global_variables["run_mde_wf_flag"] = run_mde_wf
 
 
 

@@ -1,3 +1,0 @@
-##---- normexp input files ----##
-normexp_file = read.table(file="<*path*>data/normexp_matrix_symbols.csv<*/path*>", header=TRUE,row.names = 1, sep='\t', quote='',check.names = TRUE)
-

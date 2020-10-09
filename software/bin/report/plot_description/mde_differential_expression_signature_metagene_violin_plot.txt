@@ -1,0 +1,7 @@
+The differential expression signatures analysis attempts to group the significant genes from two or more differential comparisons into groups of genes with similar expression profiles across all relevant samples. These are called expression signatures. These signatures can then be explored individually, under the assumption that genes in the same differential expression signatures should have shared biology.
+<br />
+<br />
+To generate differential expression signatures firstly genes are separated into groups based on their differential expression profile. E.g. A vs B sig up, B vs C sig down might be one profile whereas A vs B sig up, B vs C sig up might be another. The number of starting profiles will therefore depend on the number of de comparisons included in the Mde analysis. Next the per sample mean expression is calculated for each profile (metagene). The profiles are then repeatedly merged using Spearman distance and mean agglomeration, until either only one merged profile remains or there are no correlations above the given Spearman Correlation Coefficient threshold. The final profiles are reported as signatures.
+<br />
+<br />
+For a given signature the metagene violin plot shows: the mean expression (as a z-score) across all genes in the signature, for each sample. It therefore summarises the pattern of expression for each signature. These can be used to identify which signatures are present in the data or to find signatures with a specific pattern.

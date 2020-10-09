@@ -1,0 +1,9 @@
+PLOT_ID=spatial_enrichment_table
+TITLE=Spatial Enrichment Table
+PLOTS_PER_ROW=1
+
+PLOT_PATH=plots/spatial_enrichment/spatial_enrichment_table.png
+
+R_CODE_PATH=plots/spatial_enrichment/spatial_enrichment_table.r
+PLOT_DESCRIPTION=/bin/report/plot_description/de_spatial_enrichment_table.txt
+PLOT_LEGEND=/bin/report/plot_legend/de_spatial_enrichment_table.txt

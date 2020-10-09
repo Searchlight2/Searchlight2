@@ -111,7 +111,7 @@ If you do not pre-install the R libraries Searchlight2 will run successfully and
 
 Searchlight2 is strict about the format of its inputs (but not the source) to ensure that analysis is correct. Setting up the input files is the most fiddly step but only takes a few minutes. **All input files for Searchlight2 must be tab delimited.**
 
-* Expression Matrix (EM). Any standard matrix of expression values (TPM, RPKM, Rlog, etc). With genes by row and samples by column. The first column should be the gene ID (Ensembl, Refseq, etc). There must be a header row with the first cell as "ID" and the rest the sample names. Sample names can't start with a number and can only include numbers, letters and underscore (_). [Here is an example EM file.](https://raw.githubusercontent.com/Searchlight2/Searchlight2/master/example_data/normexp.tsv)
+* Expression Matrix (EM). Any standard matrix of expression values (TPM, RPKM, Rlog, etc). With genes by row and samples by column. The first column should be the gene ID (Ensembl, Refseq, etc). There must be a header row with the first cell as "ID" and the rest the sample names. Sample names can't start with a number and can only include numbers, letters and underscore (_). [Here is an example EM file.](https://raw.githubusercontent.com/Searchlight2/Searchlight2/master/example_data/ne.tsv)
 
 
 * Differential expression table(s) (DE). Any standard differential expression table (DESeq2, EdgeR, etc). With the genes by row and the columns trimmed down to include only: gene ID, log2 fold change, p-value and adjusted p-value (in this order). There must be a header row with the headers as exactly: "ID", "Log2Fold", "P", "P.Adj". Not case sensitive, ignoring the quotes. The ID type must be the same as the expression matrix. I.e you can't use ensembl IDs for the expression matrix and Refseq for the differential expression tables. Please supply one differential expression table per comparison. [Here is an example DE file.](https://raw.githubusercontent.com/Searchlight2/Searchlight2/master/example_data/ML_vs_LP.tsv)
@@ -259,7 +259,7 @@ python Searchlight2.py
 
 <br>
 
-If you have more than one differential expression file (e.g. WT vs KO and KO vs KO_rescue) you may run all comparisons simultaneously simply by adding additional --pde parameter. The broken down command for the sample dataset might look like this:
+If you have more than one differential expression file (e.g. WT vs KO and KO vs KO_rescue) you may run all comparisons simultaneously simply by adding additional --de parameter. The broken down command for the sample dataset might look like this:
 
 <br>
 
@@ -275,7 +275,7 @@ python Searchlight2.py
 
 <br>
 
-In this scenario Searchlight2 will run a seperate PDE workflow for each, and will provide a seperate set of results for each (including a seperate report). **There is no upper limit to the number of differential comparisons that can be supplied this way**. 
+In this scenario Searchlight2 will run a seperate de workflow for each, and will provide a seperate set of results for each (including a seperate report). **There is no upper limit to the number of differential comparisons that can be supplied this way**. 
 
 <br>
 
@@ -485,10 +485,10 @@ The R-scripts used to gernerate plots are assembles dynamically during run-time 
 
 <br>
 
-**Gene-set files** as used in the --ora parameter should be in the gmt format. I.e. one line per gene-set with the first cell as the gene-set name (such as cell cycle), the second cell as any notes (if there are none you can simply enter NA) and then one cell for each gene in the gene-set. [An example of a gene-set file can be found here.](https://raw.githubusercontent.com/Searchlight2/Searchlight2/master/example_data/normexp.tsv)
+**Gene-set files** as used in the --ora parameter should be in the gmt format. I.e. one line per gene-set with the first cell as the gene-set name (such as cell cycle), the second cell as any notes (if there are none you can simply enter NA) and then one cell for each gene in the gene-set. [An example of a gene-set file can be found here.](https://raw.githubusercontent.com/Searchlight2/Searchlight2/master/example_data/ne.tsv)
 
 <br>
-**Updtream regulator files** as used in the --ura parameter should be in the trrust format. I.e. One line per regulator / target combo, with the first cell as the regulator (e.g. TP53) the second cell as the gene being regulated (e.g. BBC3) and the third cell as the direction (either Activation, Repression or Unknown).[An example of an upstream regulator file can be found here.](https://raw.githubusercontent.com/Searchlight2/Searchlight2/master/example_data/normexp.tsv)
+**Updtream regulator files** as used in the --ura parameter should be in the trrust format. I.e. One line per regulator / target combo, with the first cell as the regulator (e.g. TP53) the second cell as the gene being regulated (e.g. BBC3) and the third cell as the direction (either Activation, Repression or Unknown).[An example of an upstream regulator file can be found here.](https://raw.githubusercontent.com/Searchlight2/Searchlight2/master/example_data/ne.tsv)
 
 <br>
 

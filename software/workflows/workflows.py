@@ -1,6 +1,6 @@
-from normexp.normexp_workflow import normexp_workflow
-from pde.pde_workflow import pde_workflow
-from mpde.mpde_workflow import mpde_workflow
+from ne.ne_workflow import ne_workflow
+from de.de_workflow import de_workflow
+from mde.mde_workflow import mde_workflow
 
 from biotypes.biotype_folders import biotype_folders
 
@@ -13,11 +13,11 @@ def workflows(global_variables):
 
     biotype_folders(global_variables)
 
-    if global_variables["normexp_flag"] and global_variables["ss_flag"] and global_variables["background_flag"] and global_variables["run_normexp_wf_flag"] and len(global_variables["sample_groups"].keys()) > 0:
-        normexp_workflow(global_variables)
+    if global_variables["ne_flag"] and global_variables["ss_flag"] and global_variables["background_flag"] and global_variables["run_ne_wf_flag"] and len(global_variables["sample_groups"].keys()) > 0:
+        ne_workflow(global_variables)
 
-    if global_variables["pde_workflows_flag"] and global_variables["ss_flag"] and global_variables["background_flag"] and global_variables["normexp_flag"] and global_variables["run_pde_wf_flag"]:
-        pde_workflow(global_variables)
+    if global_variables["de_workflows_flag"] and global_variables["ss_flag"] and global_variables["background_flag"] and global_variables["ne_flag"] and global_variables["run_de_wf_flag"]:
+        de_workflow(global_variables)
 
-    if global_variables["mpde_workflows_flag"] and global_variables["ss_flag"] and global_variables["background_flag"] and global_variables["normexp_flag"] and global_variables["pde_workflows_flag"] and global_variables["run_mpde_wf_flag"]:
-        mpde_workflow(global_variables)
+    if global_variables["mde_workflows_flag"] and global_variables["ss_flag"] and global_variables["background_flag"] and global_variables["ne_flag"] and global_variables["de_workflows_flag"] and global_variables["run_mde_wf_flag"]:
+        mde_workflow(global_variables)

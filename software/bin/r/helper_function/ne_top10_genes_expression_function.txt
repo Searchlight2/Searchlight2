@@ -1,0 +1,7 @@
+##---- Top 10 Genes by Mean Expression Function ----##
+get_top_10_genes_by_mean_expression <- function(index) {
+  samples_in_sample_group = unlist(samples_by_sample_group[index])
+  top_10_genes = row.names(head(ne_matrix[order(rowMeans(ne_matrix[,samples_in_sample_group]),decreasing=TRUE),],10))
+  return(top_10_genes)
+}
+

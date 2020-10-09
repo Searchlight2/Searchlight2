@@ -1,0 +1,17 @@
+PLOT_ID=ura_barcharts
+TITLE=Upstream Regulator Barcharts
+PLOTS_PER_ROW=2
+
+<*per_ura*>
+SUB_TITLE=Most Enriched Upstream Regulators (<*ura_type*>)
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/enriched/enriched_upstream_regulators_bar_chart.png
+SUB_TITLE=Most Activated Upstream Regulators (<*ura_type*>)
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/activated/activated_upstream_regulators_bar_chart.png
+SUB_TITLE=Most Inhibited Upstream Regulators (<*ura_type*>)
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/inhibited/inhibited_upstream_regulators_bar_chart.png
+<*/per_ura*>
+
+
+R_CODE_PATH=plots/upstream_regulator_analysis/ura_barcharts.r
+PLOT_DESCRIPTION=/bin/report/plot_description/de_ura_barcharts.txt
+PLOT_LEGEND=/bin/report/plot_legend/de_ura_barcharts.txt

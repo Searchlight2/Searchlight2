@@ -1,0 +1,4 @@
+##---- de input files ----##
+de_annotated = read.table(file="<*path*>data/de_annotated.csv<*/path*>", header=TRUE,row.names = 2, sep='\t', quote='',check.names = TRUE)
+de_annotated_sig = read.table(file="<*path*>data/de_annotated_significant.csv<*/path*>", header=TRUE,row.names = 2, sep='\t', quote='',check.names = TRUE)
+

@@ -8,23 +8,23 @@ from ss_processing.ss_validation import ss_validation
 from ss_processing.ss_parsing import ss_parsing
 
 # Optional parameters imports
-from normexp_processing.normexp_validation import normexp_validation
-from normexp_processing.normexp_parsing import normexp_parsing
+from ne_processing.ne_validation import ne_validation
+from ne_processing.ne_parsing import ne_parsing
 from background_processing.background_validation import background_validation
 from background_processing.background_parsing import background_parsing
 from annotations_processing.annotations_validation import annotations_validation
 from annotations_processing.annotations_parsing import annotations_parsing
-from hypergeom_gs_processing.hypergeom_gs_validation import hypergeom_gs_validation
-from hypergeom_gs_processing.hypergeom_gs_parsing import hypergeom_gs_parsing
-from ipa_ureg_processing.ipa_ureg_validation import ipa_ureg_validation
-from ipa_ureg_processing.ipa_ureg_parsing import ipa_ureg_parsing
+from ora_processing.ora_validation import ora_validation
+from ora_processing.ora_parsing import ora_parsing
+from ura_processing.ura_validation import ura_validation
+from ura_processing.ura_parsing import ura_parsing
 
 
 # Workflow imports
-from pde_processing.pde_validation import pde_validation
-from pde_processing.pde_parsing import pde_parsing
-from mpde_processing.mpde_validation import mpde_validation
-from mpde_processing.mpde_parsing import mpde_parsing
+from de_processing.de_validation import de_validation
+from de_processing.de_parsing import de_parsing
+from mde_processing.mde_validation import mde_validation
+from mde_processing.mde_parsing import mde_parsing
 
 # Master table imports
 from construct_master_gene_table.construct_master_gene_table import construct_master_gene_table
@@ -35,7 +35,7 @@ from processing_report.processing_report import processing_report
 
 
 # Parses the various input variables into a usable form, and checks that they are in the correct format
-def input_variable_processing(global_variables, annotations_parameter,ipa_ureg_parameters,hypergeom_gs_parameters,ss_parameter,norm_exp_parameter,bg_parameter,pde_workflow_parameters, mpde_workflow_parameters, popex_workflow_parameters, out_path_parameter):
+def input_variable_processing(global_variables, annotations_parameter,ura_parameters,ora_parameters,ss_parameter,norm_exp_parameter,bg_parameter,de_workflow_parameters, mde_workflow_parameters, popex_workflow_parameters, out_path_parameter):
 
     print
     print "====================================="
@@ -54,10 +54,10 @@ def input_variable_processing(global_variables, annotations_parameter,ipa_ureg_p
         ss_validation(ss_parameter)
         global_variables = ss_parsing(ss_parameter, global_variables)
 
-    # Parses normexp
-    if global_variables["normexp_flag"] == True:
-        normexp_validation(norm_exp_parameter, global_variables["sample_list"])
-        global_variables = normexp_parsing(norm_exp_parameter, global_variables)
+    # Parses ne
+    if global_variables["ne_flag"] == True:
+        ne_validation(norm_exp_parameter, global_variables["sample_list"])
+        global_variables = ne_parsing(norm_exp_parameter, global_variables)
 
     # Parses background
     if global_variables["background_flag"] == True:
@@ -74,27 +74,27 @@ def input_variable_processing(global_variables, annotations_parameter,ipa_ureg_p
 
     print
 
-    # Parses pde workflows
-    if global_variables["pde_workflows_flag"] == True:
-        pde_validation(pde_workflow_parameters,global_variables["sample_groups"])
-        global_variables = pde_parsing(pde_workflow_parameters, global_variables)
+    # Parses de workflows
+    if global_variables["de_workflows_flag"] == True:
+        de_validation(de_workflow_parameters,global_variables["sample_groups"])
+        global_variables = de_parsing(de_workflow_parameters, global_variables)
 
-    # Parses mpde workflows
-    if global_variables["mpde_workflows_flag"] == True:
-        mpde_validation(mpde_workflow_parameters, global_variables["sample_groups"], global_variables["pde_parameters"])
-        global_variables = mpde_parsing(mpde_workflow_parameters, global_variables)
+    # Parses mde workflows
+    if global_variables["mde_workflows_flag"] == True:
+        mde_validation(mde_workflow_parameters, global_variables["sample_groups"], global_variables["de_parameters"])
+        global_variables = mde_parsing(mde_workflow_parameters, global_variables)
 
     print
 
     # Parses the gene sets
-    if global_variables["hypergeom_gs_flag"] == True:
-        hypergeom_gs_validation(hypergeom_gs_parameters)
-        global_variables = hypergeom_gs_parsing(hypergeom_gs_parameters,global_variables)
+    if global_variables["ora_flag"] == True:
+        ora_validation(ora_parameters)
+        global_variables = ora_parsing(ora_parameters,global_variables)
 
     # Parses the ureg files
-    if global_variables["ipa_ureg_flag"] == True:
-        ipa_ureg_validation(ipa_ureg_parameters)
-        global_variables = ipa_ureg_parsing(ipa_ureg_parameters, global_variables)
+    if global_variables["ura_flag"] == True:
+        ura_validation(ura_parameters)
+        global_variables = ura_parsing(ura_parameters, global_variables)
 
     print
 

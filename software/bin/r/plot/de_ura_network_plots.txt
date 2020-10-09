@@ -1,0 +1,24 @@
+##---- IPA UREG (Network Plots) ----##
+
+plot_height = 1000
+plot_width = 1500
+
+node_colours = default_two_tone_network_node_colours
+activated_node_colours = default_four_tone_network_node_colours_high
+inhibited_node_colours = default_four_tone_network_node_colours_low
+node_outer_max_size = 50
+node_inner_max_size = 40
+node_label_size = 3
+edge_colour = default_network_edge_colour
+edge_transparency = 0.5
+edge_width = 4
+
+<*per_ura*>
+ggp = make_ora_network_plot(<*type*>_enriched_ura_edges,<*type*>_enriched_ura_nodes,node_colours,node_outer_max_size,node_inner_max_size,node_label_size,edge_colour,edge_transparency,edge_width)
+save_plot(ggp,plot_height,plot_width,"<*path*>plots/upstream_regulator_analysis/<*type*>/enriched_gene_sets_network_plot.png<*/path*>")
+
+ggp = make_ura_network_plot(<*type*>_activated_ura_edges,<*type*>_activated_ura_nodes,activated_node_colours,inhibited_node_colours,node_outer_max_size,node_inner_max_size,node_label_size,edge_colour,edge_transparency,edge_width)
+save_plot(ggp,plot_height,plot_width,"<*path*>plots/upstream_regulator_analysis/<*type*>/activated_and_inhibited_gene_sets_network_plot.png<*/path*>")
+
+<*/per_ura*>
+

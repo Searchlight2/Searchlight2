@@ -1,7 +1,0 @@
-##----- Distribution of Expression Values Function -----##
-make_distribution_of_expression_values_plot <- function(plot_sample,plot_colour,transparency,line_thickness,x_axis_label,y_axis_label,legend_position) 
-{
-  ggp = ggplot(normexp_matrix, aes(log(x=normexp_matrix[[plot_sample]]+0.001,10))) + geom_density(colour=plot_colour,fill=plot_colour, alpha=transparency,size=line_thickness) + xlab(x_axis_label) + ylab(y_axis_label) + ggtitle(plot_sample) + theme_SL2() + theme(legend.position=legend_position) + scale_x_continuous(expand=c(0,0)) + scale_y_continuous(expand=c(0,0))
-  return(ggp)
-}
-
