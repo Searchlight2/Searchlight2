@@ -159,7 +159,7 @@ To execute Searchlight2 using the provided sample dataset we might run the follo
 <br>
 
 ```
-python Searchlight2.py --out path=/home/john/Downloads/results --bg file=/home/john/Downloads/Searchlight2/backgrounds/mouse/Ensembl.GRCm38.p6.tsv --em file=/home/john/Downloads/Searchlight2/sample_datasets/EM.tsv --ss file=/home/john/Downloads/Searchlight2/sample_datasets/SS.tsv --de file=/home/john/Downloads/Searchlight2/sample_datasets/DE_WT_vs_KO.tsv ,numerator=KO,denominator=WT
+python Searchlight2.py --out path=/home/john/Downloads/results --bg file=/home/john/Downloads/Searchlight2/backgrounds/mouse_GRCm38.p6.tsv --em file=/home/john/Downloads/Searchlight2/sample_datasets/EM.tsv --ss file=/home/john/Downloads/Searchlight2/sample_datasets/SS.tsv --de file=/home/john/Downloads/Searchlight2/sample_datasets/DE_WT_vs_KO.tsv ,numerator=KO,denominator=WT
 ```
 
 <br>
@@ -171,7 +171,7 @@ Broken down the command looks like this.
 ```
 python Searchlight2.py 
 --out path=/home/john/Downloads/results 
---bg file=/home/john/Downloads/Searchlight2/backgrounds/mouse/Ensembl.GRCm38.p6.tsv 
+--bg file=/home/john/Downloads/Searchlight2/backgrounds/mouse_GRCm38.p6.tsv 
 --em file=/home/john/Downloads/Searchlight2/sample_datasets/EM.tsv 
 --ss file=/home/john/Downloads/Searchlight2/sample_datasets/SS.tsv 
 --de file=/home/john/Downloads/Searchlight2/sample_datasets/DE_WT_vs_KO.tsv,numerator=KO,denominator=WT
@@ -226,7 +226,7 @@ Using the sample dataset our full (broken down) command might look like this:
 ```
 python Searchlight2.py 
 --out path=/home/john/Downloads/results 
---bg file=/home/john/Downloads/Searchlight2/backgrounds/mouse/Ensembl.GRCm38.p6.tsv 
+--bg file=/home/john/Downloads/Searchlight2/backgrounds/mouse_GRCm38.p6.tsv 
 --em file=/home/john/Downloads/Searchlight2/sample_datasets/EM.tsv 
 --ss file=/home/john/Downloads/Searchlight2/sample_datasets/SS.tsv 
 --de file=/home/john/Downloads/Searchlight2/sample_datasets/DE_WT_vs_KO.tsv,numerator=KO,denominator=WT
@@ -266,7 +266,7 @@ If you have more than one differential expression file (e.g. WT vs KO and KO vs 
 ```
 python Searchlight2.py 
 --out path=/home/john/Downloads/results 
---bg file=/home/john/Downloads/Searchlight2/backgrounds/mouse/Ensembl.GRCm38.p6.tsv 
+--bg file=/home/john/Downloads/Searchlight2/backgrounds/mouse_GRCm38.p6.tsv 
 --em file=/home/john/Downloads/Searchlight2/sample_datasets/EM.tsv 
 --ss file=/home/john/Downloads/Searchlight2/sample_datasets/SS.tsv 
 --de file=/home/john/Downloads/Searchlight2/sample_datasets/DE_WT_vs_KO.tsv,numerator=KO,denominator=WT
@@ -301,7 +301,7 @@ The first sub-parameter is straightforward. --name= is simply a name for the wor
 ```
 python Searchlight2.py 
 --out path=/home/john/Downloads/results 
---bg file=/home/john/Downloads/Searchlight2/backgrounds/mouse/Ensembl.GRCm38.p6.tsv 
+--bg file=/home/john/Downloads/Searchlight2/backgrounds/mouse_GRCm38.p6.tsv 
 --em file=/home/john/Downloads/Searchlight2/sample_datasets/EM.tsv 
 --ss file=/home/john/Downloads/Searchlight2/sample_datasets/SS.tsv 
 --de file=/home/john/Downloads/Searchlight2/sample_datasets/DE_WT_vs_KO.tsv,numerator=KO,denominator=WT
@@ -328,7 +328,7 @@ It is clear to see that to set-up the --mde all that we really needed to do was 
 ```
 python Searchlight2.py 
 --out path=/home/john/Downloads/results 
---bg file=/home/john/Downloads/Searchlight2/backgrounds/mouse/Ensembl.GRCm38.p6.tsv 
+--bg file=/home/john/Downloads/Searchlight2/backgrounds/mouse_GRCm38.p6.tsv 
 --em file=/home/john/Downloads/complex_experiment/EM.tsv 
 --ss file=/home/john/Downloads/complex_experiment/SS.tsv 
 --de file=/home/john/Downloads/complex_experiment/DE_skin_WT_vs_skin_KO.tsv,numerator=skin_KO,denominator=skin_WT
