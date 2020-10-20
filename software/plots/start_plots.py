@@ -124,6 +124,7 @@ def add_ne_specific_parameters(global_variables, pr_dictionary):
     pr_dictionary["default_sample_group_colours_by_SS_column_r_string"] = default_sample_group_colours_by_SS_column_r_string
     pr_dictionary["sample_sheet_column_names_r_string"] = sample_sheet_column_names_r_string
 
+
     return pr_dictionary
 
 
@@ -243,8 +244,6 @@ def add_Mde_specific_parameters(global_variables, pr_dictionary, workflow_parame
 
     # gets the number of signatures
     de_signatures =  workflow_parameter_dict["de_signatures"]
-
-
 
     # gets the various R code strings:
     samples_r_string = get_r_string_samples(samples_ordered)
