@@ -1,6 +1,6 @@
 import os
 from misc.multi_sample_correction import msCorrect
-from misc.hypergeometric_test import hypergeometric_test
+from misc.ora_test import hypergeometric_test
 
 def hypergeometric_analysis(background_dict,candidate_dict,gene_sets_parsed,p_threshold,fold_threshold,out_path,type,out_path_tag):
 

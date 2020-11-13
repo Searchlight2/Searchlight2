@@ -1,6 +1,6 @@
 from sub_directories import sub_directories
 from parse_gmt_file import parse_gmt_file
-from hypergeometric_analysis import hypergeometric_analysis
+from ora_analysis import hypergeometric_analysis
 from generate_network_data import generate_network_data
 
 def ora(candidate_list_path,background_list_path, global_variables, out_path, out_path_tag):
