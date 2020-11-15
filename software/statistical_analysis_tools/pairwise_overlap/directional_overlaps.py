@@ -1,7 +1,7 @@
 import os
 from misc.new_directory import new_directory
 from misc.get_Mde_columns_from_file import get_Mde_columns_from_file
-from misc.hypergeometric_test import hypergeometric_test
+from misc.ora_test import hypergeometric_test
 
 def directional_overlaps(mde_file_path, out_path, de_IDs, overlap_statistics_list):
 
