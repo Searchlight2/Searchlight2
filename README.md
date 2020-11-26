@@ -69,19 +69,19 @@ Searchlight2 is executed as a single command. Firstly, it validates the input fi
 
 <br>
 
-**Example outputs from a dataset exploring the effect of TGFB1 on primary cardiac fibroblasts.** This dataset has two sample groups, control and cells treated with TGFB1. The analysis, interpretation and figure generation was completed by a bioinformatician using 44 minutes and 30 seconds of work from a starting point of raw counts. 
+**Example outputs from a dataset exploring the effect of TGFB1 on primary cardiac fibroblasts.** This dataset has two sample groups, control and cells treated with TGFB1. The analysis, interpretation and figure generation was completed by a bioinformatician using 44 minutes and 30 seconds of work from a starting point of raw counts. Using DESeq2 and Searchlight2.
 
 ![link](/media/Ex1.png)
 
 <br>
 
-**Example outputs from a dataset exploring the effect of parkin mediated mitochondrial depletion in senescent MRC5 fibroblasts.** This dataset has three sample groups, proliferating (Prolif), senescent(Senes) and mitochondria depleted senescent (Senes MtD). The analysis, interpretation and figure generation was completed by a bioinformatician using 2 hours, 2 minutes and 43 seconds of work from a starting point of fastQ files. 
+**Example outputs from a dataset exploring the effect of parkin mediated mitochondrial depletion in senescent MRC5 fibroblasts.** This dataset has three sample groups, proliferating (Prolif), senescent(Senes) and mitochondria depleted senescent (Senes MtD). The analysis, interpretation and figure generation was completed by a bioinformatician using 2 hours, 2 minutes and 43 seconds of work from a starting point of fastQ files. Using Star2, DESeq2 and Searchlight2.
 
 ![link](/media/Ex2.png)
 
 <br>
 
-**Example outputs from a dataset exploring the synergistic effects of using a combination of RITA and CPI-203 on Chronic myeloid leukaemia (CML) haemopoietic stem cell (HSC) survival.** This dataset has four sample groups, Control, RITA, CPI and RITA plus CPI (Combo). The analysis, interpretation and figure generation was completed by a bioinformatician using 2 hours, 37 minutes and 11 seconds of work from a starting point of fastQ files. 
+**Example outputs from a dataset exploring the synergistic effects of using a combination of RITA and CPI-203 on Chronic myeloid leukaemia (CML) haemopoietic stem cell (HSC) survival.** This dataset has four sample groups, Control, RITA, CPI and RITA plus CPI (Combo). The analysis, interpretation and figure generation was completed by a bioinformatician using 2 hours, 37 minutes and 11 seconds of work from a starting point of fastQ files. Using Star2, DESeq2 and Searchlight2.
 
 ![link](/media/Ex3.png)
 
@@ -361,7 +361,7 @@ With the order= sub-parameter the order that sample groups appear in resultant p
 
 ```
 --de file=/home/john/Downloads/Searchlight2/sample_datasets/DE_WT_vs_KO.tsv,numerator=KO,denominator=WT,order=WT+KO
---mde name=rescue_effect,numerator=KO*denominator=WT,numerator=KO_rescue*denominator=KO,order=WT,KO,KO_rescue
+--mde name=rescue_effect,numerator=KO*denominator=WT,numerator=KO_rescue*denominator=KO,order=WT+KO+KO_rescue
 ```
 
 <br>
