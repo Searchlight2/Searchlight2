@@ -619,6 +619,25 @@ The R-scripts used to gernerate plots are assembles dynamically during run-time 
 
 <br>
 
+**Over Representation Analysis.** Specifies the gene_set file and settings for an overrepresentation analysis. This will be performed for each relevant workflow. This is parameter is optional, and can be included several times each with a different gene_set file (e.g. GO, KEGG, STRING), if desired.
+
+```
+--ora file=gene_set_file.csv,type=GO,p.adj=0.05,log2fold=1,min_set_size=5,max_set_size=250,network_overlap_ratio=0.5,network_overlap_size=5
+```
+
+| Sub-parameter | description |
+| ----------- | ----------- |
+| file= | Full path to gene set file |
+| type= | Descriptive name for gene set file. Must be a single word. |
+| p.adj= | Adjusted p value threshold for gene set significance. The default is 0.05. |
+| log2fold= | Absolute log2fold enrichment threshold for gene set significance. The default is 1. |
+| min_set_size= | To be included in the ORA a gene set must have at least this many genes in it. The default is 5 genes. |
+| max_set_size= | To be included in the ORA a gene set must have less than this many genes in it. The default is 250 genes.  |
+| network_overlap_ratio= | All network edges must have at least this overlap ratio. Using the Szymkiewicz-Simpson coefficient. The default is 0.5 |
+| network_overlap_size= | All network edges must have at least this overlap size (number of genes). The default is 5 genes. |
+
+<br>
+
 **Output Folder Path.** Specifies the folder where results should be saved to. This parameter is required.
 
 ```
