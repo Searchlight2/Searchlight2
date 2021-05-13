@@ -23,9 +23,9 @@ if __name__ == '__main__':
     print "#####       Searchlight 2       #####"
     print "#####################################"
     print
-    print "Rapid and comprehensive RNA-seq data exploration and visualisation for unlimited differential datasets"
-    print "John J. Cole, Bekir Faydaci, David McGuinness, Robin Shaw, Rose Maciewicz, Neil Robertson & Carl S. Goodyear"
-    print "University of Glasgow 2020"
+    print "Automated bulk RNA-seq data exploration and visualisation using dynamically generated R-scripts"
+    print "John J. Cole & Carl S. Goodyear, et al."
+    print "University of Glasgow (Scotland) 2021"
     print
     print version
 
