@@ -604,7 +604,7 @@ The R-scripts used to gernerate plots are assembles dynamically during run-time 
 
 <br>
 
-**Multiple Differential Expression Workflow.** Runs a multiple differential expression workflow (MDE) for a supplied DE files and sub-parameters. This option can be supplied more than once so long as it used a different MDE combination and name each time.
+**Multiple Differential Expression Workflow.** Runs a multiple differential expression workflow (MDE) for a given combinaition of DE workflows. This option can be supplied more than once so long as it uses a different combination of DE workflows and name each time.
 
 ```
 --mde file=DE_file_path.csv,numerator=group_1,denominator=group2,log2fold=1,p.adj=0.05,order=group_1+group_2
