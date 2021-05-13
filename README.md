@@ -572,7 +572,15 @@ The R-scripts used to gernerate plots are assembles dynamically during run-time 
 
 <br>
 
-**Ignore normalised expression workflow.** Ignores the normalised expression workflow. Useful for debugging or rerunning only some workflows.
+**Expression Matrix File.** Specifies the normalised expression matrix file to be used. This parameter is required.
+
+```
+--em file=EM_file_path.csv
+```
+
+<br>
+
+**Ignore Normalised Expression Workflow.** Ignores the normalised expression workflow. Useful for debugging or rerunning only some workflows.
 
 ```
 --ignore_ne T 
@@ -580,7 +588,7 @@ The R-scripts used to gernerate plots are assembles dynamically during run-time 
 
 <br>
 
-**Ignore differential expression workflow.** Ignores the differential expression workflow. Useful for debugging or rerunning only some workflows.
+**Ignore Differential Expression Workflow.** Ignores the differential expression workflow. Useful for debugging or rerunning only some workflows.
 
 ```
 --ignore_de T 
@@ -588,11 +596,47 @@ The R-scripts used to gernerate plots are assembles dynamically during run-time 
 
 <br>
 
-**Ignore multiple differential expression workflow.** Ignores the multiple differential expression workflow. Useful for debugging or rerunning only some workflows.
+**Ignore Multiple Differential Expression Workflow.** Ignores the multiple differential expression workflow. Useful for debugging or rerunning only some workflows.
 
 ```
 --ignore_mde T 
 ```
+
+<br>
+
+**Multiple Differential Expression Workflow.** Runs a multiple differential expression workflow (MDE) for a supplied DE files and sub-parameters. This option can be supplied more than once so long as it used a different MDE combination and name each time.
+
+```
+--mde file=DE_file_path.csv,numerator=group_1,denominator=group2,log2fold=1,p.adj=0.05,order=group_1+group_2
+```
+
+| Sub-parameter | description |
+| ----------- | ----------- |
+| name= | Name tag to give this MPDE. Can be any single word and is used only for identification. |
+| numerator=*denominator= | Comma separated list of the DEs to be included in the MDE. Each DE in this list must also be supplied as a separate DE workflow. Each DE is referenced in this list by stating the numerator and denominator in the following format: numerator=sample_group1*denominator=sample_group2. E.g. the list might look like: numerator=sample_group1*denominator=sample_group2,numerator=sample_group3*denominator=sample_group4. There is no limit to the number of DEs that can be supplied to a MDE. |
+| order | Manually specifcy the order for which sample groups appear in the results. Accepts sample groups separated by a +. Can include any sample groups in the sample sheet in any order. The default is all unique sample groups included within the MDE, in the order they appear in the sample sheet |
+| scc | Threshold used for merging the various differential expression profiles into differential expression signatures. Two profiles that have a Spearman Correlation Coefficient above this value will be merged. The default is 0.75 |
+
+<br>
+
+**Output Folder Path.** Specifies the folder where results should be saved to. This parameter is required.
+
+```
+--out path=full_path_to_output_folder
+```
+
+<br>
+
+**Sample Sheet File.** Specifies the sample sheet to be used. This parameter is required.
+
+```
+--ss file=SS_file_path.csv
+```
+
+
+
+
+
 
 <br>
 
