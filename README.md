@@ -2,7 +2,7 @@
 
 ![link](/software/bin/report/logo.png)
 
-### Rapid and comprehensive RNA-seq exploration and visualisation for unlimited differential datasets
+### Rapid and comprehensive bulk RNA-seq exploration and visualisation using dynamically generated R-scripts
 
 <br>
 
