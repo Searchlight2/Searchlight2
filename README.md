@@ -40,8 +40,6 @@ Searchlight2 is suitable for use with any differential bulk RNA-seq experiment r
 Searchlight2 accepts typical RNA-seq downstream analysis inputs - such as a sample sheet, expression matrix and any number of differential expression tables.  Searchlight2 is designed to help bioinformaticians, RNA-seq service providers and bench scientists progress bulk RNA-seq research projects rapidly and with minimal effort, thus freeing up resources for further in-depth analysis or alternative analytical approaches
 
 **A sample analysis with reports can be found in the software download at sample_datasets/results.zip**
-<span style="color:red">A sample analysis with reports can be found in the software download at sample_datasets/results.zip</span>.
-
 
 <br>
 
