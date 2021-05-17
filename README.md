@@ -60,7 +60,8 @@ Searchlight2 is executed as a single command. Firstly, it validates the input fi
 
 <br>
 
-**A screenshot of the report format**.
+**A screenshot of the report format.  A sample analysis with reports can be found in the software download at sample_datasets/results.zip
+**
 
 ![link](/media/report.png)
 
