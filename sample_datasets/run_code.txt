@@ -1,0 +1,11 @@
+# note: this should be run as a single line via the console. Or as is within pycharm.
+python /home/john/Documents/workspace/Searchlight2/Searchlight2.py
+--out path=/home/john/Documents/workspace/Searchlight2/sample_datasets/results/
+--ss file=/home/john/Documents/workspace/Searchlight2/sample_datasets/SS.tsv
+--bg file=/home/john/Documents/workspace/Searchlight2/backgrounds/mouse_GRCm38.p6.tsv
+--em file=/home/john/Documents/workspace/Searchlight2/sample_datasets/EM.tsv
+--ora file=/home/john/Documents/workspace/Searchlight2/gene_set_databases/GO_bp_mouse.tsv,type=GO_BP
+--ura file=/home/john/Documents/workspace/Searchlight2/upstream_regulator_databases/trrust.mouse.tsv,type=TRUSST
+--de file=/home/john/Documents/workspace/Searchlight2/sample_datasets/WT_vs_KO.tsv,numerator=KO,denominator=WT
+--de file=/home/john/Documents/workspace/Searchlight2/sample_datasets/KO_KO_rescue.tsv,numerator=KO_rescue,denominator=KO
+--mde name=all,numerator=KO*denominator=WT,numerator=KO_rescue*denominator=KO
