@@ -35,14 +35,7 @@ Once bulk RNA-seq differential data has been processed, i.e. aligned and then ex
 
 Searchlight2 is a bulk RNA-seq exploration, visualisation and interpretation pipeline, which aims to automate the downstream analysis stage. When used alongside any standard alignment and processing pipeline (e.g. Star2, Hisat2, Kallisto, DEseq2, EdgeR, etc.) investigators can complete bulk RNA-seq projects rapidly and with minimal work. 
 
-Searchlight2 is not a complicated pipeline. Its strength are:
-
-(1) A wide range of powerful and widely used analysis and visualization methods that allow deep exploration
-(2) The use of three independent workflows - covering expression, differential expression and signature analysis, that together provide compatibility with any of experimental design - regardless of biology, complexity or organism), whilst also simplifying the analysis
-(3) The use of R and R Shiny for all plots, as a deliberate attempt to both make it easy to modify visualizations, and appeal to the large number of bioinformaticians who use R.
-(4) Allowing users to modify the default behaviour and visuals to their own taste, via the R-snippet database
-(5) Providing reports
-(6) Being fully automated.
+Searchlight2 is not a complicated pipeline. Its strength are: (1) A wide range of powerful and widely used analysis and visualization methods that allow deep exploration. (2) The use of three independent workflows - covering expression, differential expression and signature analysis, that together provide compatibility with any of experimental design - regardless of biology, complexity or organism), whilst also simplifying the analysis. (3) The use of R and R Shiny for all plots, as a deliberate attempt to both make it easy to modify visualizations, and appeal to the large number of bioinformaticians who use R. (4) Allowing users to modify the default behaviour and visuals to their own taste, via the R-snippet database. (5) Providing reports. (6) Being fully automated.
 
 Searchlight2 accepts typical RNA-seq downstream analysis inputs - such as a sample sheet, expression matrix and any number of differential expression tables.  Searchlight2 is designed to help bioinformaticians, RNA-seq service providers and bench scientists progress bulk RNA-seq research projects rapidly and with minimal effort, thus freeing up resources for further in-depth analysis or alternative analytical approaches
 
