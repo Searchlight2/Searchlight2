@@ -1,7 +1,23 @@
 ##----- Volcano Plot Function -----##
-make_volcano_plot <- function(non_significant_colour,significant_colour,dot_size,dot_transparency,significant_name,non_significant_name,x_axis_label,y_axis_label,legend_position,data_label_size) 
+make_volcano_plot <- function(non_significant_colour,significant_colour,dot_size,dot_transparency,significant_name,non_significant_name,x_axis_label,y_axis_label,legend_position,data_label_size, topn) 
 {
-  ggp = ggplot(data=de_annotated, aes(x=log2fold, y=-log10(p), colour=sig, group=sig,fill=sig)) + geom_point(size=dot_size,alpha=dot_transparency) + scale_color_manual(values=c(non_significant_colour,significant_colour),breaks=c("True","False"),labels=c(significant_name, non_significant_name)) + scale_fill_manual(values=c(non_significant_colour,significant_colour),breaks=c("True","False"),labels=c(significant_name, non_significant_name)) + xlab(x_axis_label) + ylab(y_axis_label) + theme_SL2() + theme(legend.position=legend_position, legend.title = element_blank()) + geom_text(data=de_annotated_sig,aes(label=rownames(de_annotated_sig)),hjust=-0.1, vjust=-0.1, size=data_label_size, show.legend = FALSE)
+  if (topn == "sig") {
+    de_annotated_sig_volcano = de_annotated_sig
+  }
+  else
+  {
+    de_annotated_sig_volcano = de_annotated_sig[order(de_annotated_sig$p)[1:topn],]
+  }
+  
+  ggp = ggplot(data=de_annotated, aes(x=log2fold, y=-log10(p), colour=sig, group=sig,fill=sig)) + 
+    geom_point(size=dot_size,alpha=dot_transparency) + 
+    scale_color_manual(values=c(non_significant_colour,significant_colour),breaks=c("True","False"),labels=c(significant_name, non_significant_name)) + 
+    scale_fill_manual(values=c(non_significant_colour,significant_colour),breaks=c("True","False"),labels=c(significant_name, non_significant_name)) + 
+    xlab(x_axis_label) + 
+    ylab(y_axis_label) + 
+    theme_SL2() + 
+    theme(legend.position=legend_position, legend.title = element_blank()) + 
+    geom_text(data=de_annotated_sig_volcano,aes(label=rownames(de_annotated_sig_volcano)),hjust=-0.1, vjust=-0.1, size=data_label_size, show.legend = FALSE)
   return(ggp)
 }
 

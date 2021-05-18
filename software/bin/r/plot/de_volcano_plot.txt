@@ -11,13 +11,14 @@ non_significant_name = "non-significant"
 x_axis_label = "log2 fold change"
 y_axis_label = "-log10 p-value"
 legend_position = "bottom"
+plot_topn_labels = "sig" # options are sig or a number
 data_label_size = 4.5
 
-ggp = make_volcano_plot(non_significant_colour,significant_colour,dot_size,dot_transparency,significant_name,non_significant_name,x_axis_label,y_axis_label,legend_position,data_label_size)
+ggp = make_volcano_plot(non_significant_colour,significant_colour,dot_size,dot_transparency,significant_name,non_significant_name,x_axis_label,y_axis_label,legend_position,data_label_size, plot_topn_labels)
 save_plot(ggp,plot_height,plot_width,"<*path*>plots/volcano_plot/volcano_plot_labelled.png<*/path*>")
 
 data_label_size = 0
-ggp = make_volcano_plot(non_significant_colour,significant_colour,dot_size,dot_transparency,significant_name,non_significant_name,x_axis_label,y_axis_label,legend_position,data_label_size)
+ggp = make_volcano_plot(non_significant_colour,significant_colour,dot_size,dot_transparency,significant_name,non_significant_name,x_axis_label,y_axis_label,legend_position,data_label_size, plot_topn_labels)
 save_plot(ggp,plot_height,plot_width,"<*path*>plots/volcano_plot/volcano_plot_unlabelled.png<*/path*>")
 
 

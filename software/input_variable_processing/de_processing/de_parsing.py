@@ -11,7 +11,7 @@ def de_parsing(de_workflow_parameters, global_variables):
         numerator_group = None
         denominator_group = None
         p_threshold = 0.05
-        fold_threshold = 1
+        fold_threshold = 0.5
         order_list = None
         gl_file_path = None
 
