@@ -182,7 +182,7 @@ python Searchlight2.py
 
 <br>
 
-The default settings for deciding statistical significance are p.adj <= 0.05 and an absolute log2 fold change of >= 1 (i.e. at least 2 fold). These can be altered by using the log2fold= and p.adj= sub-parameters of the --de parameter. For example, re-running the sample command with the following would use a p.adj cut-off of 0.01 and no log2 fold cut-off:
+The default settings for deciding statistical significance are p.adj <= 0.05 and an absolute log2 fold change of >= 0.5 (i.e. at least 1.58 fold). These can be altered by using the log2fold= and p.adj= sub-parameters of the --de parameter. For example, re-running the sample command with the following would use a p.adj cut-off of 0.01 and no log2 fold cut-off:
 
 <br>
 
@@ -567,7 +567,7 @@ The R-scripts used to gernerate plots are assembles dynamically during run-time 
 | file | Full path to the DE file |
 | numerator | Sample group that you wish to be the numerator. I.e. the sample group for which a positive fold change in the DE file indicates an increase in  	expression |
 | numerator | Sample group that you wish to be the denominator. I.e. the sample group for which a negative fold change in the DE file indicates an increase in expression |
-| log2fold | Log2 fold change cut-off for significance (absolute). A value of 0 indicates no cut-off. The default is 1 |
+| log2fold | Log2 fold change cut-off for significance (absolute). A value of 0 indicates no cut-off. The default is 0.5 |
 | p.adj | Adjusted p-avlue cut-off for significance. A value of 1 indicates no cut-off. The default is 0.05 |
 | order | Manually specifcy the order for which sample groups appear in the results. Accepts sample groups separated by a +. Can inclide any sample groups in the sample sheet in any order. The default is numerator+denominator |
 
