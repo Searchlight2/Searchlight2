@@ -677,9 +677,7 @@ The R-scripts used to gernerate plots are assembles dynamically during run-time 
 To contact us please use the email address and header line below:
 
 ```
-John.ColeATglasgow.ac.uk
-
-(replacing AT with @ to help us avoid screen scrapeing)
+John[DOT]Cole[AT]glasgow[DOT]ac[DOT]uk
 
 Header: Searchlight2 Query
 ```
