@@ -78,12 +78,6 @@ Searchlight2 is executed as a single command. Firstly, it validates the input fi
 
 <br>
 
-**Example outputs from a dataset exploring the effect of parkin mediated mitochondrial depletion in senescent MRC5 fibroblasts.** This dataset has three sample groups, proliferating (Prolif), senescent(Senes) and mitochondria depleted senescent (Senes MtD). The analysis, interpretation and figure generation was completed by a bioinformatician using 2 hours, 2 minutes and 43 seconds of work from a starting point of fastQ files. Using Star2, DESeq2 and Searchlight2.
-
-![link](/media/Ex2.png)
-
-<br>
-
 **Example outputs from a dataset exploring the synergistic effects of using a combination of RITA and CPI-203 on Chronic myeloid leukaemia (CML) haemopoietic stem cell (HSC) survival.** This dataset has four sample groups, Control, RITA, CPI and RITA plus CPI (Combo). The analysis, interpretation and figure generation was completed by a bioinformatician using 2 hours, 37 minutes and 11 seconds of work from a starting point of fastQ files. Using Star2, DESeq2 and Searchlight2.
 
 ![link](/media/Ex3.png)
