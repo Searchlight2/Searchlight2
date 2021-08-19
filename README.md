@@ -39,10 +39,10 @@ It is not a complicated pipeline to use or understand. It's strength are:
 
 1. A wide range of powerful and widely used analysis and visualization methods. 
 2. The use of independent workflows covering expression, differential expression and signature analyssis. These provide compatibility with and experiment, regardless of  design, complexity, biology or organism. Whilst also simplifying the analysis. 
-3. The use of R and R Shiny for all plots, as a deliberate attempt to both make it easy to modify visualizations, and appeal to the large number of bioinformaticians who use R. 
-4. Allowing users to modify the default behaviour and visuals to their own taste, via the R-snippet database. 
-5. Generating comprehensive reports. 
-6. Being 100% automated.
+3. Generating comprehensive reports. 
+4. Its use of R and R Shiny for all plots, making it easy for bioinformaticians and wet-lab scientists to modify all plots visually.
+5. Its R-snippet database which allows users to modify the default appearance of all plots, to their own taste.
+6. Searchlight2 is 100% automated.
 
 Searchlight2 accepts typical RNA-seq downstream analysis inputs - such as a sample sheet, expression matrix and any number of differential expression tables.  It is designed to help bioinformaticians, RNA-seq service providers and bench scientists progress bulk RNA-seq research projects rapidly and with minimal effort, thus freeing up resources for further in-depth analysis or alternative analytical approaches.
 
