@@ -694,6 +694,6 @@ Header: Searchlight2 Query
 To cite Searchlight2 please use: 
 
 ```
-Cole, J.J., Faydaci, B.,McGuinness, D. , Shaw, R., Maciewicz, R., Robertson, N. , Goodyear, C.S. Searchlight 2: Rapid and comprehensive RNA-seq data exploration and visualisation for unlimited differential datasets. 2020. https://github.com/Searchlight2/Searchlight2/ 
+Cole, J.J., Faydaci, B.A., McGuinness, D. et al. Searchlight: automated bulk RNA-seq exploration and visualisation using dynamically generated R scripts. BMC Bioinformatics 22, 411 (2021). https://doi.org/10.1186/s12859-021-04321-2
 ```
 <br>
