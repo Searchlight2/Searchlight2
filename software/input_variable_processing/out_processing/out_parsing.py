@@ -13,6 +13,6 @@ def out_parsing(out_path_parameter, global_variables):
 
     global_variables["out_path"] = out_path
 
-    print "parsed the out parameter"
+    print("parsed the out parameter")
 
     return global_variables

@@ -3,13 +3,13 @@ def get_meta_gene(genes_by_signature, sample_list):
     meta_genes = {}
 
     # iterates through the signatures, creates the meta-gene
-    for signature in genes_by_signature.keys():
+    for signature in list(genes_by_signature.keys()):
 
         meta_gene = [0.0]*len(sample_list)
         signature_genes = genes_by_signature[signature]
 
         # iterates through the genes in the signature
-        for gene in signature_genes.keys():
+        for gene in list(signature_genes.keys()):
             gene_information = signature_genes[gene]
             z_transformed = gene_information["zscore_data"]
 
@@ -19,7 +19,7 @@ def get_meta_gene(genes_by_signature, sample_list):
 
         # gets the mean z-score per sample, for the signature (i.e. the metagene)
         for index in range(0,len(meta_gene)):
-            meta_gene[index] = float(meta_gene[index]) / float(len(signature_genes.keys()))
+            meta_gene[index] = float(meta_gene[index]) / float(len(list(signature_genes.keys())))
 
         meta_genes[signature] = meta_gene
 

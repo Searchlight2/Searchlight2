@@ -23,7 +23,7 @@ def ura_validation(ura_parameters):
 
             # Tests if there are two parts to the sub-parameter
             if len(sub_param.split("=")) != 2:
-                print >> sys.stderr, "Error: the ura parameter: " + ureg_parameter + " is not in the correct format (missing =)."
+                print("Error: the ura parameter: " + ureg_parameter + " is not in the correct format (missing =).", file=sys.stderr)
                 sys.exit(1)
 
 
@@ -35,7 +35,7 @@ def ura_validation(ura_parameters):
                 try:
                     ureg_file = open(ureg_file_path).readlines()
                 except:
-                    print >> sys.stderr, "Error: the ureg file: " + ureg_file_path + " cannot be opened."
+                    print("Error: the ureg file: " + ureg_file_path + " cannot be opened.", file=sys.stderr)
                     sys.exit(1)
 
                 # Tests if the gene set file is in the correct format:
@@ -44,7 +44,7 @@ def ura_validation(ura_parameters):
                     line_split = line.rstrip().split("\t")
 
                     if len(line_split) != 3:
-                        print >> sys.stderr, "Error: the ureg file: " + ureg_file_path + " line " + str(line_counter) + "does not have exactly 3 columns."
+                        print("Error: the ureg file: " + ureg_file_path + " line " + str(line_counter) + "does not have exactly 3 columns.", file=sys.stderr)
                         sys.exit(1)
 
 
@@ -55,57 +55,57 @@ def ura_validation(ura_parameters):
             # Tests the zscore sub-parameter
             if sub_param.upper().startswith("zscore=".upper()):
                 if not is_number(sub_param.split("=")[1]):
-                    print >> sys.stderr, "Error: the ora parameter: " + ureg_parameter + " is not in the correct format (zscore)."
+                    print("Error: the ora parameter: " + ureg_parameter + " is not in the correct format (zscore).", file=sys.stderr)
                     sys.exit(1)
 
             # Tests the p.adj sub-parameter
             if sub_param.upper().startswith("p.adj=".upper()):
                 if not is_number(sub_param.split("=")[1]):
-                    print >> sys.stderr, "Error: the ora parameter: " + ureg_parameter + " is not in the correct format (p.adj)."
+                    print("Error: the ora parameter: " + ureg_parameter + " is not in the correct format (p.adj).", file=sys.stderr)
                     sys.exit(1)
 
             # Tests the log2fold sub-parameter
             if sub_param.upper().startswith("log2fold=".upper()):
                 if not is_number(sub_param.split("=")[1]):
-                    print >> sys.stderr, "Error: the ora parameter: " + ureg_parameter + " is not in the correct format (log2fold)."
+                    print("Error: the ora parameter: " + ureg_parameter + " is not in the correct format (log2fold).", file=sys.stderr)
                     sys.exit(1)
 
             # Tests the min set size sub-parameter
             if sub_param.upper().startswith("min_set_size=".upper()):
                 if not is_number(sub_param.split("=")[1]):
-                    print >> sys.stderr, "Error: the ora parameter: " + ureg_parameter + " is not in the correct format (min_set_size)."
+                    print("Error: the ora parameter: " + ureg_parameter + " is not in the correct format (min_set_size).", file=sys.stderr)
                     sys.exit(1)
 
             # Tests the max set size sub-parameter
             if sub_param.upper().startswith("max_set_size=".upper()):
                 if not is_number(sub_param.split("=")[1]):
-                    print >> sys.stderr, "Error: the ora parameter: " + ureg_parameter + " is not in the correct format (max_set_size)."
+                    print("Error: the ora parameter: " + ureg_parameter + " is not in the correct format (max_set_size).", file=sys.stderr)
                     sys.exit(1)
 
             # Tests the overlap ratio sub-parameter
             if sub_param.upper().startswith("network_overlap_ratio=".upper()):
                 if not is_number(sub_param.split("=")[1]):
-                    print >> sys.stderr, "Error: the ora parameter: " + ureg_parameter + " is not in the correct format (network_overlap_ratio)."
+                    print("Error: the ora parameter: " + ureg_parameter + " is not in the correct format (network_overlap_ratio).", file=sys.stderr)
                     sys.exit(1)
 
             # Tests the overlap size sub-parameter
             if sub_param.upper().startswith("network_overlap_size=".upper()):
                 if not is_number(sub_param.split("=")[1]):
-                    print >> sys.stderr, "Error: the ora parameter: " + ureg_parameter + " is not in the correct format (network_overlap_size)."
+                    print("Error: the ora parameter: " + ureg_parameter + " is not in the correct format (network_overlap_size).", file=sys.stderr)
                     sys.exit(1)
 
 
         # Checks for a unique gene sets type:
         if type in ureg_types_dict:
-            print >> sys.stderr, "Error: the ura parameter: " + ureg_parameter + " has does not have a unique type."
+            print("Error: the ura parameter: " + ureg_parameter + " has does not have a unique type.", file=sys.stderr)
             sys.exit(1)
         else:
             ureg_types_dict[type] = True
 
         # tests if the required inputs have been supplied
         if ureg_file_path == None or type == None:
-            print >> sys.stderr, "Error: the ora parameter: " + ureg_parameter + " is not in the correct format (missing essential sub-parameters)."
+            print("Error: the ora parameter: " + ureg_parameter + " is not in the correct format (missing essential sub-parameters).", file=sys.stderr)
             sys.exit(1)
 
 
-        print "validated the ura parameter: " + ureg_parameter
+        print("validated the ura parameter: " + ureg_parameter)

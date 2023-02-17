@@ -8,8 +8,8 @@ def hypergeometric_analysis(background_dict,candidate_dict,gene_sets_parsed,p_th
     p_neg_list = []
     result_list = []
 
-    background_size = len(background_dict.keys())
-    candidate_size = len(candidate_dict.keys())
+    background_size = len(list(background_dict.keys()))
+    candidate_size = len(list(candidate_dict.keys()))
 
     # iterates through the gene sets
     for gene_set in gene_sets_parsed:

@@ -16,7 +16,7 @@ def add_annotations(global_variables, master_gene_table):
 
         master_gene_table[gene_ID] = gene_dictionary
 
-    print "annotations added to master gene table"
+    print("annotations added to master gene table")
 
     return master_gene_table
 

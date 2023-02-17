@@ -4,7 +4,7 @@ def get_all_samples(global_variables):
     order_list = global_variables["order_list"]
     all_samples = []
 
-    for key, value in samples_by_sample_groups.iteritems():
+    for key, value in samples_by_sample_groups.items():
         if key in order_list:
             for v in value:
                 all_samples.append(v)

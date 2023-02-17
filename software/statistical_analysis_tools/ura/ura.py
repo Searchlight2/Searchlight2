@@ -1,7 +1,7 @@
-from sub_directories import sub_directories
-from parse_ureg_file import parse_ureg_file
-from ura_analysis import ura_analysis
-from generate_network_data import generate_network_data
+from .sub_directories import sub_directories
+from .parse_ureg_file import parse_ureg_file
+from .ura_analysis import ura_analysis
+from .generate_network_data import generate_network_data
 
 
 def ura(ipa_candidate_list_path,hypergeometric_candidate_list_path,background_list_path, global_variables, out_path,out_path_tag):

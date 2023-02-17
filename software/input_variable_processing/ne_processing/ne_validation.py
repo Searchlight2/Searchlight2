@@ -18,13 +18,13 @@ def ne_validation(norm_exp_parameter,sample_list):
 
         # Tests if there are two parts to the sub-parameter
         if len(sub_param.split("=")) != 2:
-            print >> sys.stderr, "Error: the ne parameter is not in a valid format."
+            print("Error: the ne parameter is not in a valid format.", file=sys.stderr)
             sys.exit(1)
 
         # Tests if the expression threshold is in the correct format
         if sub_param.upper().startswith("expressed=".upper()):
             if not is_number(sub_param.split("=")[1]):
-                print >> sys.stderr, "Error: the ne parameter is not in a valid format."
+                print("Error: the ne parameter is not in a valid format.", file=sys.stderr)
                 sys.exit(1)
 
         # Tests the file sub-parameter
@@ -35,7 +35,7 @@ def ne_validation(norm_exp_parameter,sample_list):
             try:
                 norm_exp_file = open(norm_exp_file_path).readlines()
             except:
-                print >> sys.stderr, "Error: the ne file: \"" + str(norm_exp_file_path) + "\" cannot be opened."
+                print("Error: the ne file: \"" + str(norm_exp_file_path) + "\" cannot be opened.", file=sys.stderr)
                 sys.exit(1)
 
             # checks the ne file contents
@@ -48,7 +48,7 @@ def ne_validation(norm_exp_parameter,sample_list):
                 if line_counter == 1:
 
                     if line_split[0].upper() != "ID":
-                        print >> sys.stderr, "Error: the first column in ne file is not called \"ID\"."
+                        print("Error: the first column in ne file is not called \"ID\".", file=sys.stderr)
                         sys.exit(1)
 
 
@@ -56,16 +56,16 @@ def ne_validation(norm_exp_parameter,sample_list):
 
                     # Checks the diffexp and ss have the same number of samples:
                     if len(samples) > len(sample_list):
-                        print >> sys.stderr, "Error: there are more samples in the ne file than in the sample sheet."
+                        print("Error: there are more samples in the ne file than in the sample sheet.", file=sys.stderr)
                         sys.exit(1)
                     if len(samples) < len(sample_list):
-                        print >> sys.stderr, "Error: there are fewer samples in the ne file than in the sample sheet."
+                        print("Error: there are fewer samples in the ne file than in the sample sheet.", file=sys.stderr)
                         sys.exit(1)
 
                     # Checks the samples in the ne are also in the ss
                     for sample in samples:
                         if not is_sample(sample.upper(), sample_list):
-                            print >> sys.stderr, "Error: in the ne file the sample " + sample.upper() + " is not in the sample sheet."
+                            print("Error: in the ne file the sample " + sample.upper() + " is not in the sample sheet.", file=sys.stderr)
                             sys.exit(1)
 
                 else:
@@ -73,7 +73,7 @@ def ne_validation(norm_exp_parameter,sample_list):
 
                     for cell in cells:
                         if not is_number(cell):
-                            print >> sys.stderr, "Error: the ne file has a cell that is not a number at line " + str(line_counter) + "."
+                            print("Error: the ne file has a cell that is not a number at line " + str(line_counter) + ".", file=sys.stderr)
                             sys.exit(1)
 
                 line_counter += 1
@@ -81,11 +81,11 @@ def ne_validation(norm_exp_parameter,sample_list):
 
     # tests if the required inputs have been supplied
     if norm_exp_file_path == None:
-        print >> sys.stderr, "Error: the ne parameter is not in a valid format."
+        print("Error: the ne parameter is not in a valid format.", file=sys.stderr)
         sys.exit(1)
 
 
-    print "validated the ne parameter"
+    print("validated the ne parameter")
 
 
 

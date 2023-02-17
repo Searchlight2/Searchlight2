@@ -18,7 +18,7 @@ def add_de(global_variables, master_gene_table):
                 gene_dictionary[de_ID] = de_dict[gene_ID]
                 master_gene_table[gene_ID] = gene_dictionary
 
-        print "de " + de_ID  + " added to master gene table"
+        print("de " + de_ID  + " added to master gene table")
 
 
     return master_gene_table

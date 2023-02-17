@@ -1,5 +1,5 @@
 import sys, os
-from parse_text_section import parse_text_section
+from .parse_text_section import parse_text_section
 
 def string_to_title(line):
     parsed_line = []
@@ -20,7 +20,7 @@ def add_text_section_to_report(config_element_path, pr_dictionary, global_variab
         text = open(text_path).read()
 
     except:
-        print >> sys.stderr, "Error: the html elements list: " + config_element_path + " cannot be opened."
+        print("Error: the html elements list: " + config_element_path + " cannot be opened.", file=sys.stderr)
         sys.exit(1)
 
     # parses the text

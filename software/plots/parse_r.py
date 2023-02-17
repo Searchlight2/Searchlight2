@@ -11,7 +11,7 @@ def parse_r(r_script_path,pr_dictionary):
     try:
         r_script_file = open(r_script_path).readlines()
     except:
-        print >> sys.stderr, "Error: the r-script file: " + r_script_path + " cannot be opened."
+        print("Error: the r-script file: " + r_script_path + " cannot be opened.", file=sys.stderr)
         sys.exit(1)
 
     parsed_r_script = ""

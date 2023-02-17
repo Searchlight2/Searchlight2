@@ -60,7 +60,7 @@ def ora_parsing(ora_parameters,global_variables):
         gene_set_parameter_dict["network_overlap_size"] = network_overlap_size
 
         parsed_gene_sets_parameters.append(gene_set_parameter_dict)
-        print "parsed the hypergeom gs parameter: " + gene_sets_parameter
+        print("parsed the hypergeom gs parameter: " + gene_sets_parameter)
 
     global_variables["ora_parameters"] = parsed_gene_sets_parameters
 

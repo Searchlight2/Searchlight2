@@ -23,7 +23,7 @@ def parse_ureg_file(ureg_dict, background_dict, min_set_size, max_set_size, out_
                 ureg_dict_parsed[ureg_name] = ureg_targets_dict_parsed
 
                 # updates the gene sets dict
-                gene_sets_dict_parsed[ureg_name] = ureg_targets_dict_parsed.keys()
+                gene_sets_dict_parsed[ureg_name] = list(ureg_targets_dict_parsed.keys())
 
 
     # prints the outputs

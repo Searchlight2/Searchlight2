@@ -19,7 +19,7 @@ def add_plot(config_element_path,pr_dictionary):
     try:
         plot_element_list = open(plot_element_list_path).readlines()
     except:
-        print >> sys.stderr, "Error: the element list at: " + plot_element_list_path + " cannot be opened."
+        print("Error: the element list at: " + plot_element_list_path + " cannot be opened.", file=sys.stderr)
         sys.exit(1)
 
 
@@ -37,7 +37,7 @@ def add_plot(config_element_path,pr_dictionary):
             # gets the subsection key and tests that its valid:
             subsection_key = "subsection_r_" + plot_element.split("/")[0]
             if subsection_key not in pr_dictionary:
-                print >> sys.stderr, "Error: The element list at: " + plot_element_list_path + " contains an element (" + plot_element + ") with an invalid path."
+                print("Error: The element list at: " + plot_element_list_path + " contains an element (" + plot_element + ") with an invalid path.", file=sys.stderr)
                 sys.exit(1)
 
             # retrieves the existing subsection information

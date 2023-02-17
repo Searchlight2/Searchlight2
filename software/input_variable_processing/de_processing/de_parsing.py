@@ -112,7 +112,7 @@ def de_parsing(de_workflow_parameters, global_variables):
         de_parameter_dict["de_file_path"] = de_file_path
 
         parsed_de_parameters.append(de_parameter_dict)
-        print "parsed the de parameter: " + de_parameter
+        print("parsed the de parameter: " + de_parameter)
 
 
     global_variables["de_parameters"] = parsed_de_parameters

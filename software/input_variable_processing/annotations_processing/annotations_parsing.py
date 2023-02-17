@@ -32,7 +32,7 @@ def annotations_parsing(annotations_parameter, global_variables):
             global_variables["annotation_headers"] = annotations_headers
             global_variables["annotation_by_gene"] = annotations_by_gene
 
-    print "parsed the annotations paremeter"
+    print("parsed the annotations paremeter")
 
     return global_variables
 

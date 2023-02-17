@@ -1,5 +1,5 @@
-from get_shiny_info import get_shiny_info
-from build_shiny import build_shiny
+from .get_shiny_info import get_shiny_info
+from .build_shiny import build_shiny
 
 def shiny(global_variables):
 
