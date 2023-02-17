@@ -1,12 +1,12 @@
 import os
 
 # core workflow imports
-from sub_directories.core_sub_directories import core_sub_directories
-from output_files.ne_matrix_IDs import ne_matrix_IDs
-from output_files.ne_matrix_annotated import ne_matrix_annotated
-from output_files.ne_matrix_symbols import ne_matrix_symbols
-from output_files.ne_gene_IDs import ne_gene_IDs
-from output_files.ne_gene_symbols import ne_gene_symbols
+from .sub_directories.core_sub_directories import core_sub_directories
+from .output_files.ne_matrix_IDs import ne_matrix_IDs
+from .output_files.ne_matrix_annotated import ne_matrix_annotated
+from .output_files.ne_matrix_symbols import ne_matrix_symbols
+from .output_files.ne_gene_IDs import ne_gene_IDs
+from .output_files.ne_gene_symbols import ne_gene_symbols
 
 # plot imports
 from plots.start_plots import start_plots
@@ -25,10 +25,10 @@ from reports.end_report import end_report
 # runs the workflow
 def run_ne_workflow(global_variables, biotype):
 
-    print "-" * len(list(biotype))
-    print biotype
-    print "-" * len(list(biotype))
-    print
+    print("-" * len(list(biotype)))
+    print(biotype)
+    print("-" * len(list(biotype)))
+    print()
 
     # gets the config for the workflow
     config = global_variables["config"]["NE"]
@@ -79,9 +79,9 @@ def run_ne_workflow(global_variables, biotype):
                 add_plot_section_to_report(element_path, pr_dictionary, global_variables)
             elif element_name == "ne_end_report" and element_type == "report_core":
                 end_report(pr_dictionary)
-            print "done with: " + element_name.replace("_", " ")
+            print("done with: " + element_name.replace("_", " "))
 
-    print
+    print()
 
 
 # checks that prerequisites have been met for running an elements command

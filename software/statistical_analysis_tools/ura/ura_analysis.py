@@ -82,8 +82,8 @@ def hypergeometric_processing(background_dict, hypergeometric_candidate_dict, ge
     p_neg_list = []
     result_list = []
 
-    background_size = len(background_dict.keys())
-    candidate_size = len(hypergeometric_candidate_dict.keys())
+    background_size = len(list(background_dict.keys()))
+    candidate_size = len(list(hypergeometric_candidate_dict.keys()))
 
     # iterates through the gene sets
     for gene_set in gene_sets_parsed:
@@ -205,7 +205,7 @@ def ura_processing(ureg_dict, ipa_candidate_dict):
             bias_term = float(u_data) * float(u_tr)
             zscore = (x - alpha_x) / alpha_x
 
-            ureg_results_dict[ureg_name] = [zscore,bias_term,n_activated,n_inhibited,genes_activated,genes_inhibited, ureg_targets_dict.keys()]
+            ureg_results_dict[ureg_name] = [zscore,bias_term,n_activated,n_inhibited,genes_activated,genes_inhibited, list(ureg_targets_dict.keys())]
 
         else:
             ureg_results_dict[ureg_name] = [0.0, 0.0, 0.0, 0.0, [], [],[]]

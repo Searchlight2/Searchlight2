@@ -8,7 +8,7 @@ def load_config_file(global_variables, config_file_parameter):
         try:
             config_file = open(config_file_parameter.split("=")[1]).readlines()
         except:
-            print >> sys.stderr, "Error: the config file path supplied is not valid: " + config_file_parameter
+            print("Error: the config file path supplied is not valid: " + config_file_parameter, file=sys.stderr)
             sys.exit(1)
     else:
         SL_path = global_variables["SL_path"]
@@ -22,9 +22,9 @@ def load_config_file(global_variables, config_file_parameter):
 
 
     if global_variables["config_file_flag"]:
-        print "config loaded"
+        print("config loaded")
     else:
-        print "default config loaded"
+        print("default config loaded")
 
     return global_variables
 
@@ -62,10 +62,10 @@ def parse_config(config_file):
             else:
                 #validates the element:
                 if len(line.rstrip().split("\t")) != 3:
-                    print >> sys.stderr, "Error: the config file entry: " + line.rstrip() + " is not in a valid format."
+                    print("Error: the config file entry: " + line.rstrip() + " is not in a valid format.", file=sys.stderr)
                     sys.exit(1)
                 if len(line.rstrip().split("\t")[1].split(":")) != 3:
-                    print >> sys.stderr, "Error: the config file entry: " + line.rstrip() + " is not in a valid format."
+                    print("Error: the config file entry: " + line.rstrip() + " is not in a valid format.", file=sys.stderr)
                     sys.exit(1)
 
                 # parses the element and adds it to the workflow config list
@@ -99,7 +99,7 @@ def check_config(config_dict):
 
 
     if ne == False or de == False or mde == False:
-        print >> sys.stderr, "Error: the config file does not have all of the required headers."
+        print("Error: the config file does not have all of the required headers.", file=sys.stderr)
         sys.exit(1)
 
 

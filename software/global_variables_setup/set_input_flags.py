@@ -72,7 +72,7 @@ def set_input_flags(global_variables, annotations_parameter, ura_parameters, ora
 
 
 
-    print "input variables logged"
+    print("input variables logged")
 
 
     return global_variables

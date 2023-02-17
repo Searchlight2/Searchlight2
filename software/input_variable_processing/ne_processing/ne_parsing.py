@@ -33,7 +33,7 @@ def ne_parsing(norm_exp_parameter, global_variables):
         # Gets the header info
         if line_counter == 1:
             sample_order = line_split[1:]
-            sample_order = map(str.upper, sample_order)
+            sample_order = list(map(str.upper, sample_order))
 
         # Gets the expression info for each gene
         else:
@@ -50,6 +50,6 @@ def ne_parsing(norm_exp_parameter, global_variables):
     global_variables["ne_by_gene"] = ne_by_gene
     global_variables["ne_file_path"] = norm_exp_file_path
 
-    print "parsed the ne parameter"
+    print("parsed the ne parameter")
 
     return global_variables

@@ -22,7 +22,7 @@ def differential_expression_signature(global_variables, infile, out_path, de_IDs
     genes_by_merged_signature, meta_genes = merge_signatures(genes_by_signature, mde_dict, sample_list)
 
     # gets the number of signatures (for the report)
-    mde_dict["de_signatures"] = range(1,len(genes_by_merged_signature)+1)
+    mde_dict["de_signatures"] = list(range(1,len(genes_by_merged_signature)+1))
 
     # write data out
     write_data(out_path, genes_by_merged_signature)

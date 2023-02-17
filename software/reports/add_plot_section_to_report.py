@@ -1,5 +1,5 @@
 import os, sys
-from parse_text_section import parse_text_section
+from .parse_text_section import parse_text_section
 
 
 def add_plot_section_to_report(config_element_path, pr_dictionary, global_variables):
@@ -13,14 +13,14 @@ def add_plot_section_to_report(config_element_path, pr_dictionary, global_variab
     try:
         html_elements_list = open(html_elements_list_path).readlines()
     except:
-        print >> sys.stderr, "Error: the html elements list: " + html_elements_list_path + " cannot be opened."
+        print("Error: the html elements list: " + html_elements_list_path + " cannot be opened.", file=sys.stderr)
         sys.exit(1)
 
     # get the default html structure, this file will be parsed and appended to the report body
     try:
         default_html = open(pr_dictionary["html_bin_path"] + "/default_section.html").read()
     except:
-        print >> sys.stderr, "Error: the default html section cannot be open"
+        print("Error: the default html section cannot be open", file=sys.stderr)
         sys.exit(1)
 
 

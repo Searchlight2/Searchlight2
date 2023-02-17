@@ -18,21 +18,21 @@ if __name__ == '__main__':
     start_time = timeit.default_timer()
     version = "v2.0.0"
 
-    print
-    print "#####################################"
-    print "#####       Searchlight 2       #####"
-    print "#####################################"
-    print
-    print "Automated bulk RNA-seq data exploration and visualisation using dynamically generated R-scripts"
-    print "John J. Cole & Carl S. Goodyear, et al."
-    print "University of Glasgow (Scotland) 2021"
-    print
-    print version
+    print()
+    print("#####################################")
+    print("#####       Searchlight 2       #####")
+    print("#####################################")
+    print()
+    print("Automated bulk RNA-seq data exploration and visualisation using dynamically generated R-scripts")
+    print("John J. Cole & Carl S. Goodyear, et al.")
+    print("University of Glasgow (Scotland) 2021")
+    print()
+    print(version)
 
     try:
         opts, args = getopt.getopt(sys.argv[1:], "", ["anno=", "out=", "ura=", "ora=", "ss=", "em=", "bg=", "de=", "mde=", "popex=", "config=", "gl=", "ignore_ne=", "ignore_de=", "ignore_mde="])
-    except getopt.GetoptError, err:
-        print str(err)
+    except getopt.GetoptError as err:
+        print(str(err))
         sys.exit(2)
 
     SL_path = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
@@ -90,12 +90,12 @@ if __name__ == '__main__':
     shiny(global_variables)
 
 
-    print
-    print "Zipping results"
-    print
+    print()
+    print("Zipping results")
+    print()
     shutil.make_archive(os.path.join(global_variables["out_path"], "results"), 'zip', global_variables["out_path"])
 
 
     stop_time = timeit.default_timer()
-    print
-    print "Searchlight2 runtime: " + str(round((stop_time - start_time) / 60, 2)) + " minutes"
+    print()
+    print("Searchlight2 runtime: " + str(round((stop_time - start_time) / 60, 2)) + " minutes")

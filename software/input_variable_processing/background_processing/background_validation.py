@@ -18,7 +18,7 @@ def background_validation(bg_parameter, global_variables):
 
         # Tests if there are two parts to the sub-parameter
         if len(sub_param.split("=")) != 2:
-            print >> sys.stderr, "Error: the background parameter is not in a valid format."
+            print("Error: the background parameter is not in a valid format.", file=sys.stderr)
             sys.exit(1)
 
         # Tests the file sub-parameter
@@ -29,7 +29,7 @@ def background_validation(bg_parameter, global_variables):
             try:
                 background_file = open(background_file_path).readlines()
             except:
-                print >> sys.stderr, "Error: the background file: \"" + str(background_file_path) + "\" cannot be opened."
+                print("Error: the background file: \"" + str(background_file_path) + "\" cannot be opened.", file=sys.stderr)
                 sys.exit(1)
 
             line_counter = 1
@@ -48,11 +48,11 @@ def background_validation(bg_parameter, global_variables):
                         header_dict[line_split[index].upper()] = index
 
                         if line_split[index].upper() not in accepted_col_headers:
-                            print >> sys.stderr, "Error: the background file column header: " + line_split[index].upper() + " is not an accepted column header, e.g. " + "\t\t".join(accepted_col_headers.keys())
+                            print("Error: the background file column header: " + line_split[index].upper() + " is not an accepted column header, e.g. " + "\t\t".join(list(accepted_col_headers.keys())), file=sys.stderr)
                             sys.exit(1)
 
                     if "ID" not in header_dict:
-                        print >> sys.stderr, "Error: there must be a column called \"ID\" in the background file."
+                        print("Error: there must be a column called \"ID\" in the background file.", file=sys.stderr)
                         sys.exit(1)
 
 
@@ -74,23 +74,23 @@ def background_validation(bg_parameter, global_variables):
                 # Validates the genes
                 else:
                     if line_split[header_dict["ID"]] in gene_IDs_dict:
-                        print >> sys.stderr, "Error: line " + str(line_counter) + " of the background file has a duplicate gene ID. Gene IDs MUST be unique."
+                        print("Error: line " + str(line_counter) + " of the background file has a duplicate gene ID. Gene IDs MUST be unique.", file=sys.stderr)
                         sys.exit(1)
 
                     gene_IDs_dict[line_split[header_dict["ID"]]] =True
 
                     if len(line_split) != len(header_dict):
-                        print >> sys.stderr, "Error: line " + str(line_counter) + " of the background file has more columns than the header line."
+                        print("Error: line " + str(line_counter) + " of the background file has more columns than the header line.", file=sys.stderr)
                         sys.exit(1)
 
                     if global_variables["GENE_START_FLAG"]:
                         if not is_number(line_split[header_dict["START"]]):
-                            print >> sys.stderr, "Error: line " + str(line_counter) + " of the background file has a start coordinate that is not a number."
+                            print("Error: line " + str(line_counter) + " of the background file has a start coordinate that is not a number.", file=sys.stderr)
                             sys.exit(1)
 
                     if global_variables["GENE_STOP_FLAG"]:
                         if not is_number(line_split[header_dict["STOP"]]):
-                            print >> sys.stderr, "Error: line " + str(line_counter) + " of the background file has a stop coordinate that is not a number."
+                            print("Error: line " + str(line_counter) + " of the background file has a stop coordinate that is not a number.", file=sys.stderr)
                             sys.exit(1)
 
 
@@ -99,11 +99,11 @@ def background_validation(bg_parameter, global_variables):
 
     # tests if the required inputs have been supplied
     if background_file_path == None:
-        print >> sys.stderr, "Error: the background parameter is not in a valid format."
+        print("Error: the background parameter is not in a valid format.", file=sys.stderr)
         sys.exit(1)
 
 
-    print "validated the background parameter"
+    print("validated the background parameter")
 
     return global_variables
 

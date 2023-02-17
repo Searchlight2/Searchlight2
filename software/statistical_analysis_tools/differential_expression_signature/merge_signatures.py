@@ -20,9 +20,9 @@ def merge_signatures(genes_by_signature, mde_dict, sample_list):
         signature2_genes = genes_by_signature[signature2]
         merged_signature_genes = {}
 
-        for gene in signature1_genes.keys():
+        for gene in list(signature1_genes.keys()):
             merged_signature_genes[gene] = signature1_genes[gene]
-        for gene in signature2_genes.keys():
+        for gene in list(signature2_genes.keys()):
             merged_signature_genes[gene] = signature2_genes[gene]
 
         merged_signature_id =  "(" + signature1 + "\t" + signature2 + ")"

@@ -13,7 +13,7 @@ def get_shiny_info(global_variables):
     ura_types = []
 
     # parses the biotypes
-    if global_variables["biotypes_flag"] and len(global_variables["biotypes_dict"].keys()) > 1:
+    if global_variables["biotypes_flag"] and len(list(global_variables["biotypes_dict"].keys())) > 1:
         biotypes_dict = global_variables["biotypes_dict"]
         biotype_names = sorted(biotypes_dict.keys())
         for biotype in biotype_names:
@@ -21,7 +21,7 @@ def get_shiny_info(global_variables):
 
 
     # parses the ne workflow info
-    if global_variables["ne_flag"] and global_variables["ss_flag"] and global_variables["background_flag"] and len(global_variables["sample_groups"].keys()) > 0:
+    if global_variables["ne_flag"] and global_variables["ss_flag"] and global_variables["background_flag"] and len(list(global_variables["sample_groups"].keys())) > 0:
 
         # ne workflow type
         workflow_types.append("\"ne\" = \"ne_workflow\"")

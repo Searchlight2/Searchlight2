@@ -29,7 +29,7 @@ def group_stats_calculation(global_variables, master_gene_table):
         master_gene_table[gene_ID] = gene_dictionary
 
 
-    print "sample group summary stats calculated"
+    print("sample group summary stats calculated")
 
 
 

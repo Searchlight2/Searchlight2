@@ -1,34 +1,34 @@
 import os
 
 # directory imports
-from sub_directories.core_sub_directories import core_sub_directories
+from .sub_directories.core_sub_directories import core_sub_directories
 
 # output file imports
-from output_files.gene_IDs import gene_IDs
-from output_files.gene_IDs_upregulated import gene_IDs_upregulated
-from output_files.gene_IDs_downregulated import gene_IDs_downregulated
-from output_files.gene_IDs_significant import gene_IDs_significant
-from output_files.gene_IDs_significant_upregulated import gene_IDs_significant_upregulated
-from output_files.gene_IDs_significant_downregulated import gene_IDs_significant_downregulated
+from .output_files.gene_IDs import gene_IDs
+from .output_files.gene_IDs_upregulated import gene_IDs_upregulated
+from .output_files.gene_IDs_downregulated import gene_IDs_downregulated
+from .output_files.gene_IDs_significant import gene_IDs_significant
+from .output_files.gene_IDs_significant_upregulated import gene_IDs_significant_upregulated
+from .output_files.gene_IDs_significant_downregulated import gene_IDs_significant_downregulated
 
-from output_files.gene_symbols import gene_symbols
-from output_files.gene_symbols_upregulated import gene_symbols_upregulated
-from output_files.gene_symbols_downregulated import gene_symbols_downregulated
-from output_files.gene_symbols_significant import gene_symbols_significant
-from output_files.gene_symbols_significant_upregulated import gene_symbols_significant_upregulated
-from output_files.gene_symbols_significant_downregulated import gene_symbols_significant_downregulated
+from .output_files.gene_symbols import gene_symbols
+from .output_files.gene_symbols_upregulated import gene_symbols_upregulated
+from .output_files.gene_symbols_downregulated import gene_symbols_downregulated
+from .output_files.gene_symbols_significant import gene_symbols_significant
+from .output_files.gene_symbols_significant_upregulated import gene_symbols_significant_upregulated
+from .output_files.gene_symbols_significant_downregulated import gene_symbols_significant_downregulated
 
-from output_files.de_annotated import de_annotated
-from output_files.de_annotated_downregulated import de_annotated_downregulated
-from output_files.de_annotated_significant import de_annotated_significant
-from output_files.de_annotated_significant_downregulated import de_annotated_significant_downregulated
-from output_files.de_annotated_significant_upregulated import de_annotated_significant_upregulated
-from output_files.de_annotated_upregulated import de_annotated_upregulated
+from .output_files.de_annotated import de_annotated
+from .output_files.de_annotated_downregulated import de_annotated_downregulated
+from .output_files.de_annotated_significant import de_annotated_significant
+from .output_files.de_annotated_significant_downregulated import de_annotated_significant_downregulated
+from .output_files.de_annotated_significant_upregulated import de_annotated_significant_upregulated
+from .output_files.de_annotated_upregulated import de_annotated_upregulated
 
 # statistical analysis imports
-from statistical_analysis_helpers.hyerpgeometric_gene_set_helper import ora_helper
-from statistical_analysis_helpers.ura_helper import ura_helper
-from statistical_analysis_helpers.spatial_enrichment_helper import spatial_enrichment_helper
+from .statistical_analysis_helpers.hyerpgeometric_gene_set_helper import ora_helper
+from .statistical_analysis_helpers.ura_helper import ura_helper
+from .statistical_analysis_helpers.spatial_enrichment_helper import spatial_enrichment_helper
 
 # plot imports
 from plots.start_plots import start_plots
@@ -47,10 +47,10 @@ from reports.end_report import end_report
 # runs the workflow
 def run_de_workflow(global_variables, biotype):
 
-    print "-" * len(list(biotype))
-    print biotype
-    print "-" * len(list(biotype))
-    print
+    print("-" * len(list(biotype)))
+    print(biotype)
+    print("-" * len(list(biotype)))
+    print()
 
     # gets the config for the workflow
     config = global_variables["config"]["DE"]
@@ -59,7 +59,7 @@ def run_de_workflow(global_variables, biotype):
     parsed_de_parameters = global_variables["de_parameters"]
     for de_parameter_dict in parsed_de_parameters:
         de_ID = de_parameter_dict["de_ID"]
-        print de_ID
+        print(de_ID)
         de_ID_no_spaces = de_ID.replace(" ", "_")
 
         # gets the outpath for the workflow - as we use this a lot
@@ -146,9 +146,9 @@ def run_de_workflow(global_variables, biotype):
                 elif element_name == "de_end_report" and element_type == "report_core":
                     end_report(pr_dictionary)
 
-                print "done with: " + element_name.replace("_", " ")
+                print("done with: " + element_name.replace("_", " "))
 
-        print
+        print()
 
 
 # checks that prerequisites have been met for running an elements command

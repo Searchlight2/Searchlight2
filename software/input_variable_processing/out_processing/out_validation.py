@@ -16,7 +16,7 @@ def out_validation(out_path_parameter, global_variables):
 
         # Tests if there are two parts to the sub-parameter
         if len(sub_param.split("=")) != 2:
-            print >> sys.stderr, "Error: the out parameter is not in a valid format."
+            print("Error: the out parameter is not in a valid format.", file=sys.stderr)
             sys.exit(1)
 
         # Tests the path sub-parameter
@@ -27,14 +27,14 @@ def out_validation(out_path_parameter, global_variables):
             try:
                 new_directory(out_path)
             except:
-                print >> sys.stderr, "Error: the outpath is not valid. Does it look right to you?"
+                print("Error: the outpath is not valid. Does it look right to you?", file=sys.stderr)
                 sys.exit(1)
 
     # tests if the required inputs have been supplied
     if out_path == None:
-        print >> sys.stderr, "Error: the out parameter is not in a valid format."
+        print("Error: the out parameter is not in a valid format.", file=sys.stderr)
         sys.exit(1)
 
 
-    print "validated the out parameter"
+    print("validated the out parameter")
 

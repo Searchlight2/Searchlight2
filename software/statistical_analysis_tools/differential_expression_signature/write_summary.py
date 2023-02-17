@@ -26,5 +26,5 @@ def write_summary(out_path, genes_by_merged_signature, meta_genes, global_variab
 
     # writes the summary
     with open(os.path.join(out_path, "Signature_summary.csv"), "w+") as f:
-        for k, v in summary_data_sorted.iteritems():
+        for k, v in summary_data_sorted.items():
             f.write(v)

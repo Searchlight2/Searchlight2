@@ -102,7 +102,7 @@ def ss_parsing(ss_parameter, global_variables):
     global_variables["sample_sheet_column_names"] = sample_sheet_column_names
 
 
-    print "parsed the ss parameter"
+    print("parsed the ss parameter")
 
     return global_variables
 

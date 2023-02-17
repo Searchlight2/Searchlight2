@@ -53,14 +53,14 @@ def background_parsing(bg_parameter, global_variables):
             global_variables["background_file_path"] = background_file_path
 
 
-            if len(biotypes_dict.keys()) > 1:
+            if len(list(biotypes_dict.keys())) > 1:
                 global_variables["biotypes_dict"] = biotypes_dict
                 global_variables["biotypes_flag"] = True
             else:
                 global_variables["biotypes_flag"] = False
 
 
-            print "parsed the background parameter"
+            print("parsed the background parameter")
 
     return global_variables
 

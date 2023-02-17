@@ -24,7 +24,7 @@ def add_ne(global_variables, master_gene_table):
         master_gene_table[gene_ID] = gene_dictionary
 
 
-    print "ne added to master gene table"
+    print("ne added to master gene table")
 
 
     return master_gene_table
