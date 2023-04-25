@@ -1,13 +1,16 @@
-##---- Hypergeometric Gene Set Network Plot Function ----##
-make_ora_network_plot <- function(edges,nodes,node_colours,node_outer_max_size,node_inner_max_size,node_label_size,edge_colour,edge_transparency, edge_width)
+####---- ORA Gene Set Network Plot Function ----####
+
+make_ora_network_plot <- function(edges,nodes,node_colours,node_outer_max_size,node_inner_max_size,node_label_size,edge_colour,edge_transparency, edge_width, label_nodes)
 {
+  set.seed(1)
+
   if (nrow(edges) > 0) {
-  
-    edges_source_target <- edges[c(1,2)]
+
+    edges_source_target = edges[c(1,2)]
 
     net = 0
     net = network(edges_source_target, directed = FALSE)
- 
+
     # gets the node sizes
     x = data.frame(node = network.vertex.names(net))
     x = merge(x, nodes, by = "node", sort = FALSE)$node_size
@@ -26,9 +29,32 @@ make_ora_network_plot <- function(edges,nodes,node_colours,node_outer_max_size,n
     x = merge(x, nodes, by = "node", sort = FALSE)$node_colour
     net %v% "node_colour" = as.character(x)
 
-    ggp = ggnet2(net, alpha = 1, color = 'node_colour', size = 0,edge.color = edge_colour, edge.size = edges$overlap_ratio*edge_width, edge.alpha = edge_transparency) + xlab("") + ylab("") + theme_SL2() + theme(legend.position="none") + geom_point(aes(color = color), size=(get.vertex.attribute(net,"node_size")*node_outer_max_size)/max(get.vertex.attribute(net,"node_size")), alpha = 0.5) + geom_point(aes(color = color), size=(get.vertex.attribute(net,"node_size")*node_inner_max_size)/max(get.vertex.attribute(net,"node_size")), alpha = 1) + geom_text(aes(label = network.vertex.names(net)), color = "black", size=node_label_size)
+
+    # make the plot
+    if (label_nodes)
+    {
+      ggp = ggnet2(net, alpha = 1, color = 'node_colour', size = 0,edge.color = edge_colour, edge.size = edges$overlap_ratio*edge_width, edge.alpha = edge_transparency) +
+        xlab("") +
+        ylab("") +
+        theme_SL2() +
+        theme(legend.position="none") +
+        geom_point(aes(color = color), size=(get.vertex.attribute(net,"node_size")*node_outer_max_size)/max(get.vertex.attribute(net,"node_size")), alpha = 0.5) +
+        geom_point(aes(color = color), size=(get.vertex.attribute(net,"node_size")*node_inner_max_size)/max(get.vertex.attribute(net,"node_size")), alpha = 1) +
+        geom_text(aes(label = network.vertex.names(net)), color = "black", size=node_label_size)
+    }
+    else
+    {
+      ggp = ggnet2(net, alpha = 1, color = 'node_colour', size = 0,edge.color = edge_colour, edge.size = edges$overlap_ratio*edge_width, edge.alpha = edge_transparency) +
+        xlab("") +
+        ylab("") +
+        theme_SL2() +
+        theme(legend.position="none") +
+        geom_point(aes(color = color), size=(get.vertex.attribute(net,"node_size")*node_outer_max_size)/max(get.vertex.attribute(net,"node_size")), alpha = 0.5) +
+        geom_point(aes(color = color), size=(get.vertex.attribute(net,"node_size")*node_inner_max_size)/max(get.vertex.attribute(net,"node_size")), alpha = 1)
+    }
     return(ggp)
   }
-  return(ggplot(data.frame()) + theme_SL2() + geom_blank() + ggtitle("There were too few nodes to sensibly plot this."))
+
+  return(ggplot(data.frame()) + theme_SL2() + geom_blank() + ggtitle("There were too few significant nodes to plot this."))
 }
 

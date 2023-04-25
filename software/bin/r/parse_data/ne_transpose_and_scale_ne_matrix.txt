@@ -1,4 +1,5 @@
-##---- transpose and scale ne matrix ----##
+####---- transpose and scale ne matrix ----####
+
 ne_matrix_transposed = data.frame(t(ne_matrix))
 colnames(ne_matrix_transposed) = rownames(ne_matrix)
 

@@ -1,6 +1,8 @@
-##---- de sample and group names ----##
+####---- DE sample and group names ----####
+
 samples = <*samples_list*>
 sample_groups = <*sample_group_list*>
+sample_groups = factor(sample_groups, levels = sample_groups)
 sample_groupings = <*sample_groupings_list*>
 sample_groupings = factor(sample_groupings, levels = sample_groups)
 samples_by_sample_group = <*samples_by_sample_group_list*>

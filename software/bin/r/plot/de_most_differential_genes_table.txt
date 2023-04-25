@@ -1,4 +1,4 @@
-##----- Most Differential Genes (Tables) -----##
+####---- Most Differential Genes (Tables) ----####
 
 plot_height = 300
 plot_width = 400

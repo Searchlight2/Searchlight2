@@ -1,18 +1,54 @@
-##----- MA Plot Function -----##
-make_MA_plot <- function(non_significant_colour,significant_colour,dot_size,dot_transparency,significant_name,non_significant_name,x_axis_label,y_axis_label,legend_position,data_label_size) 
+make_MA_plot <- function(de_annotated, sig_up_colour,sig_down_colour, non_sig_colour, dot_size, dot_transparency, sig_up_name, sig_down_name, non_sig_name, x_axis_label, y_axis_label,legend_position, topn, label_size)
 {
-  de_annotated_parsed = de_annotated
-  de_annotated_parsed$row_means = rowMeans(ne_matrix)
-  de_annotated_parsed_significant = subset(de_annotated_parsed,sig == "True")
-  
-  ggp = ggplot(data=de_annotated_parsed, aes(x=log(row_means+0.001,10), y=log2fold, colour=sig, group=sig,fill=sig)) + 
-    geom_point(size=dot_size,alpha=dot_transparency) + 
-    scale_color_manual(values=c(non_significant_colour,significant_colour),breaks=c("True","False"),labels=c(significant_name, non_significant_name)) + 
-    scale_fill_manual(values=c(non_significant_colour,significant_colour),breaks=c("True","False"),labels=c(significant_name, non_significant_name)) + 
-    xlab(x_axis_label) + 
-    ylab(y_axis_label) + 
-    theme_SL2() + 
-    theme(legend.position=legend_position, legend.title = element_blank()) + 
-    geom_text(data=de_annotated_parsed_significant,aes(label=rownames(de_annotated_parsed_significant)),hjust=-0.1, vjust=-0.1, size=data_label_size, show.legend = FALSE)
+
+  # create a direction column
+  de_ma = de_annotated
+  de_ma$direction = "c"
+
+  de_sig_up = subset(de_ma, log2fold > 0 & sig == "True")
+  de_sig_down = subset(de_ma, log2fold < 0 & sig == "True")
+  de_non_sig = subset(de_ma, sig == "False")
+
+  if (nrow(de_sig_up) > 0)
+  {
+    de_sig_up$direction = "a"
+  }
+  if (nrow(de_sig_down) > 0)
+  {
+    de_sig_down$direction = "b"
+  }
+
+  de_ma = rbind(de_non_sig, de_sig_down, de_sig_up)
+
+  # create row means column
+  de_ma$mean = rowMeans(de_ma[,samples])
+
+
+  # get genes to label
+  if (topn == "ALL_SIG")
+  {
+    de_topn = subset(de_ma, sig = "True")
+  }
+  else if (topn == 0)
+  {
+    de_topn = de_ma[0,]
+  }
+  else
+  {
+    de_topn = de_ma[order(de_ma$p),]
+    de_topn = de_topn[1:topn,]
+  }
+
+
+  # make the plot
+  ggp = ggplot(data=de_ma, aes(x=log10(mean+0.01), y=log2fold, colour=direction)) +
+    geom_point(size=dot_size,alpha=dot_transparency) +
+    geom_label_repel(data=de_topn, aes(label=rownames(de_topn)), size=label_size, force = 1,box.padding = 1, show.legend = FALSE) +
+    scale_color_manual(breaks=c("a","b","c"), values=c(sig_up_colour ,sig_down_colour, non_sig_colour), labels=c(sig_up_name, sig_down_name, non_sig_name)) +
+    labs(x=x_axis_label, y=y_axis_label) +
+    theme_SL2() +
+    theme(legend.position=legend_position, legend.title = element_blank())
+
   return(ggp)
 }
+

@@ -1,4 +1,4 @@
-##----- PCA (Contribution of Components) -----##
+####---- PCA (Contribution of Components) ----####
 
 plot_height = 300
 plot_width = 400

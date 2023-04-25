@@ -51,7 +51,7 @@ def mde_parsing(mde_workflow_parameters, global_variables):
         mde_parameter_parsed["signatures_scc"] = signatures_scc
         mde_parameters_parsed.append(mde_parameter_parsed)
 
-        print "parsed the mde parameter: " + mde_parameter
+        print("parsed the mde parameter: " + mde_parameter)
 
 
     global_variables["mde_parameters"] = mde_parameters_parsed

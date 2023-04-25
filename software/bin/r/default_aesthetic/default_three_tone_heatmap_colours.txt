@@ -1,3 +1,4 @@
-##---- Default Three Tone Heatmap Colours  ----##
-default_three_tone_heatmap_colours = c("blue","pink","red")
+####---- Default Three Tone Heatmap Colours  ----####
+
+default_three_tone_heatmap_colours = c("purple","black","yellow")
 

@@ -3,9 +3,8 @@ library/general_libraries.txt
 core_parameter/de_sample_and_sample_group_names.txt
 input_file/working_directory.txt
 input_file/de_input_files.txt
-parse_data/de_parse_ne_matrix.txt
 default_aesthetic/SL2_theme.txt
-default_aesthetic/default_sig_and_non_sig_colours.txt
+default_aesthetic/default_3way_significance_colours.txt
 helper_function/save_plot.txt
 plot_function/de_ma_plot_function.txt
 plot/de_ma_plot.txt

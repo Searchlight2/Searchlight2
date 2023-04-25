@@ -1,7 +1,7 @@
-from sub_directories import sub_directories
-from parse_gmt_file import parse_gmt_file
-from ora_analysis import hypergeometric_analysis
-from generate_network_data import generate_network_data
+from statistical_analysis_tools.ora.sub_directories import sub_directories
+from statistical_analysis_tools.ora.parse_gmt_file import parse_gmt_file
+from statistical_analysis_tools.ora.ora_analysis import hypergeometric_analysis
+from statistical_analysis_tools.ora.generate_network_data import generate_network_data
 
 def ora(candidate_list_path,background_list_path, global_variables, out_path, out_path_tag):
 

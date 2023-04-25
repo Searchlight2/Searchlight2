@@ -60,7 +60,7 @@ def background_parsing(bg_parameter, global_variables):
                 global_variables["biotypes_flag"] = False
 
 
-            print "parsed the background parameter"
+            print("parsed the background parameter")
 
     return global_variables
 

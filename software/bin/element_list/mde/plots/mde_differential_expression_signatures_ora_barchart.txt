@@ -3,7 +3,7 @@ library/general_libraries.txt
 input_file/working_directory.txt
 input_file/mde_differential_expression_signature_input_files.txt
 default_aesthetic/SL2_theme.txt
-default_aesthetic/default_sig_and_non_sig_colours.txt
+default_aesthetic/default_2way_significance_colours.txt
 helper_function/save_plot.txt
 helper_function/ora_top10_gene_sets_function.txt
 plot_function/ora_barchart_function.txt

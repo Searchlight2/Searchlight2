@@ -1,20 +1,20 @@
 import os
 
 # core workflow imports
-from sub_directories.core_sub_directories import core_sub_directories
-from output_files.MDPE_IDs import Mde_IDs
-from output_files.Mde_symbols import Mde_symbols
-from output_files.Mde_annotated import Mde_annotated
-from output_files.MDPE_all_significant_IDs import Mde_all_significant_IDs
-from output_files.MDPE_all_significant_symbols import Mde_all_significant_symbols
-from output_files.MDPE_all_significant_annotated import Mde_all_significant_annotated
-from output_files.MDPE_any_significant_IDs import Mde_any_significant_IDs
-from output_files.MDPE_any_significant_symbols import Mde_any_significant_symbols
-from output_files.MDPE_any_significant_annotated import Mde_any_significant_annotated
+from workflows.mde.sub_directories.core_sub_directories import core_sub_directories
+from workflows.mde.output_files.MDPE_IDs import Mde_IDs
+from workflows.mde.output_files.Mde_symbols import Mde_symbols
+from workflows.mde.output_files.Mde_annotated import Mde_annotated
+from workflows.mde.output_files.MDPE_all_significant_IDs import Mde_all_significant_IDs
+from workflows.mde.output_files.MDPE_all_significant_symbols import Mde_all_significant_symbols
+from workflows.mde.output_files.MDPE_all_significant_annotated import Mde_all_significant_annotated
+from workflows.mde.output_files.MDPE_any_significant_IDs import Mde_any_significant_IDs
+from workflows.mde.output_files.MDPE_any_significant_symbols import Mde_any_significant_symbols
+from workflows.mde.output_files.MDPE_any_significant_annotated import Mde_any_significant_annotated
 
 # statistical analysis imports
-from statistical_analysis_helpers.pairwise_overlap_helper import pairwise_overlap_helper
-from statistical_analysis_helpers.differential_expression_signature_helper import differential_expression_signature_helper
+from workflows.mde.statistical_analysis_helpers.pairwise_overlap_helper import pairwise_overlap_helper
+from workflows.mde.statistical_analysis_helpers.differential_expression_signature_helper import differential_expression_signature_helper
 
 # plot imports
 from plots.start_plots import start_plots
@@ -33,10 +33,10 @@ from reports.end_report import end_report
 # runs the workflow
 def run_mde_workflow(global_variables, biotype):
 
-    print "-" * len(list(biotype))
-    print biotype
-    print "-" * len(list(biotype))
-    print
+    print("-" * len(list(biotype)))
+    print(biotype)
+    print("-" * len(list(biotype)))
+    print()
 
     # gets the config for the workflow
     config = global_variables["config"]["MDE"]
@@ -47,7 +47,7 @@ def run_mde_workflow(global_variables, biotype):
         mde_ID = mde_dict["mde_ID"]
         de_IDs = mde_dict["de_IDs"]
 
-        print mde_ID
+        print(mde_ID)
 
         # gets the outpath for the workflow - as we use this a lot
         out_path = os.path.join(global_variables["out_path"], biotype, "mde_workflows", mde_ID)
@@ -98,7 +98,7 @@ def run_mde_workflow(global_variables, biotype):
                 elif element_name == "mde_end_plots" and element_type == "plot_core":
                     end_plots(pr_dictionary)
                 elif element_name == "mde_run_r" and element_type == "plot_core":
-                    run_r(pr_dictionary)
+                    run_r(pr_dictionary, global_variables)
 
                 # methods for the report
                 elif element_name == "mde_start_report" and element_type == "report_core":
@@ -112,9 +112,9 @@ def run_mde_workflow(global_variables, biotype):
                 elif element_name == "mde_end_report" and element_type == "report_core":
                     end_report(pr_dictionary)
 
-                print "done with: " + element_name.replace("_", " ")
+                print("done with: " + element_name.replace("_", " "))
 
-        print
+        print()
 
 
 # checks that prerequisites have been met for running an elements command

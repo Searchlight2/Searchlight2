@@ -1,0 +1,29 @@
+####---- Most Expressed Genes (Boxplots) ----####
+
+plot_height = 350
+plot_width = 300
+box_transparency = 0.25
+box_width = 0.75
+box_line_thickness = 0.5
+box_colours = default_sample_group_colours 	# note: changing this won't change the order the groups appear in the x axis. Merely what they are coloured as.
+sample_labels = default_sample_group_labels	# note: changing this won't change the order the groups appear in the x axis. Merely what they are named as.
+jitter_dot_size = 2
+jitter_dot_colour = "black"
+jitter_dot_width = 0.2
+x_axis_label = ""
+y_axis_label = "expression"
+legend_position = "none"
+
+for(sample_group_index in 1:length(sample_groups))
+{
+  sample_group = sample_groups[sample_group_index]
+  top_10_genes = get_top_10_genes_by_mean_expression(sample_group_index)
+  
+  for (gene_index in 1:10)
+  {
+    gene = top_10_genes[gene_index]
+    ggp = make_gene_expression_boxplot(ne_matrix, gene, box_transparency, box_width, box_line_thickness, box_colours, sample_labels, jitter_dot_size, jitter_dot_colour, jitter_dot_width,x_axis_label, y_axis_label, legend_position)
+    save_plot(ggp,plot_height,plot_width,paste("<*path*>plots/most_expressed_genes/",sample_group,"_no.",gene_index,"_most_expressed_gene.png<*/path*>",sep=""))
+  }
+}
+

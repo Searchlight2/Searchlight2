@@ -1,3 +1,4 @@
-##---- Default Two Tone Heatmap Colours  ----##
-default_two_tone_heamtap_colours = c("white","red")
+####---- Default Two Tone Heatmap Colours  ----####
+
+default_two_tone_heatmap_colours = c("white","red")
 

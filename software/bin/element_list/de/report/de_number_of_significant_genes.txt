@@ -1,9 +1,9 @@
 PLOT_ID=number_of_significant_genes
 TITLE=Number of Significant Genes
-PLOTS_PER_ROW=4
+PLOTS_PER_ROW=3
 
-PLOT_PATH=plots/number_of_significant_genes/number_of_significant_genes_barchart.png
+PLOT_PATH=plots/number_of_significant_genes/number_of_significant_genes_lollipop.png
 
-R_CODE_PATH=plots/number_of_significant_genes/number_of_significant_genes_barchart.r
+R_CODE_PATH=plots/number_of_significant_genes/number_of_significant_genes_lollipop.r
 PLOT_DESCRIPTION=/bin/report/plot_description/de_number_of_significant_genes.txt
 PLOT_LEGEND=/bin/report/plot_legend/de_number_of_significant_genes.txt

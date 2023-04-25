@@ -1,13 +1,13 @@
-from run_de_workflows import run_de_workflow
+from workflows.de.run_de_workflows import run_de_workflow
 
 # iterates through biotypes
 def de_workflow(global_variables):
 
-    print
-    print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-    print "~~~~~         de         ~~~~~"
-    print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-    print
+    print()
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    print("~~~~~         de        ~~~~~")
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    print()
 
     run_de_workflow(global_variables, "all_genes")
 

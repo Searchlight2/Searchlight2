@@ -1,4 +1,5 @@
-##---- de parse ne matrix ----##
+####---- de parse ne matrix ----####
+
 ne_matrix = de_annotated[,samples]
 ne_matrix_sig = de_annotated_sig[,samples]
 

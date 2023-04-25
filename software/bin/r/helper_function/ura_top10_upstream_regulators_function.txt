@@ -1,4 +1,5 @@
-##---- Top 10 IPA Upstream Regulators Function ----##
+####---- Top 10 IPA Upstream Regulators Function ----####
+
 get_top10_ura_function <- function(upstream_regulators,significant_upstream_regulators,type) {
 
   if(type=="enriched")

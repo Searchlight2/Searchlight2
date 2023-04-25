@@ -1,4 +1,5 @@
-##----- Hypergeometric Gene Set Boxplot Function -----##
+####---- ORA Gene Set Boxplot Function ----####
+
 make_ora_boxplot <- function(gene_set,plot_title,box_transparency,box_line_thickness,box_colours,box_labels,x_axis_label,y_axis_label,legend_position)
 {
   genes_in_gene_set = unlist(lapply(gene_set$overlapping_gene_names, function(x) unlist(strsplit(as.character(x),","))))
@@ -7,7 +8,17 @@ make_ora_boxplot <- function(gene_set,plot_title,box_transparency,box_line_thick
     ne_matrix_scaled_transposed_genes_in_gene_set = ne_matrix_scaled_transposed[,genes_in_gene_set]
     ne_matrix_scaled_transposed_genes_in_gene_set$sample_groupings = sample_groupings
     ne_matrix_scaled_transposed_genes_in_gene_set_melted = melt(ne_matrix_scaled_transposed_genes_in_gene_set,id.vars = "sample_groupings")
-    ggp = ggplot(ne_matrix_scaled_transposed_genes_in_gene_set_melted, aes(x=variable, y=value, fill=sample_groupings)) + geom_boxplot(position=position_dodge(0.75),outlier.shape = NA, alpha=box_transparency,size=box_line_thickness) + theme_SL2() + theme(axis.text.x = element_text(angle = 90, hjust=1, vjust=0.5),legend.position=legend_position) + ggtitle(plot_title) + scale_color_manual(values=box_colours,breaks=sample_groups,labels=box_labels) + scale_fill_manual(values=box_colours,breaks=sample_groups,labels=box_labels) + xlab(x_axis_label) + ylab(y_axis_label)
+    
+    ggp = ggplot(ne_matrix_scaled_transposed_genes_in_gene_set_melted, aes(x=variable, y=value, fill=sample_groupings)) + 
+      geom_boxplot(position=position_dodge(0.75),outlier.shape = NA, alpha=box_transparency,size=box_line_thickness) + 
+      theme_SL2() + 
+      theme(axis.text.x = element_text(angle = 90, hjust=1, vjust=0.5),legend.position=legend_position) + 
+      ggtitle(plot_title) + 
+      scale_color_manual(values=box_colours,breaks=sample_groups,labels=box_labels) + 
+      scale_fill_manual(values=box_colours,breaks=sample_groups,labels=box_labels) + 
+      xlab(x_axis_label) + 
+      ylab(y_axis_label)
+    
     return(ggp)
   }
   return(ggplot(data.frame()) + theme_SL2() + geom_blank() + ggtitle("There were too few genes to sensibly plot this."))

@@ -1,0 +1,33 @@
+####---- Number of Significant Genes Lollipop Plot Function ----####
+
+make_number_of_significant_genes_lollipop <- function(x_axis_label, y_axis_label, comparison_labels, direction_labels, up_lollipop_colour, down_lollipop_colour, stick_colour, stick_size, lollipop_size, legend_position, data_label_size)
+{
+  # Parse the plot data
+  upregulated = nrow(subset(de_annotated_sig,log2fold > 0))
+  downregulated = -nrow(subset(de_annotated_sig,log2fold < 0))
+  table_data = data.frame(comparison = factor(comparisons, levels=comparisons), up = upregulated, down = downregulated)
+
+  table_data = melt(table_data, id.vars = "comparison")
+  table_data_up = subset(table_data, variable == "up")
+  table_data_down = subset(table_data, variable == "down")
+
+  # limits
+  max = max(abs(table_data$value)) *1.5
+  limits = c(-max,max)
+
+  # make the plot
+  ggp = ggplot(table_data, aes(x=value, y=comparison, colour = variable)) +
+    geom_segment(aes(xend = 0, yend = comparison), size = stick_size, show.legend = FALSE, colour=stick_colour) +
+    geom_point(size = lollipop_size) +
+    geom_label(data=table_data_up, aes(label=value),label.padding = unit(0.75, "lines"), show.legend = FALSE, size=data_label_size, nudge_x = max*0.2, vjust = 0.5) +
+    geom_label(data=table_data_down, aes(label=value),label.padding = unit(0.75, "lines"), show.legend = FALSE, size=data_label_size, nudge_x = -max*0.2, vjust = 0.5) +
+    geom_vline(xintercept = 0, colour = "black", size = 1) +
+    scale_color_manual(values=c(up_lollipop_colour,down_lollipop_colour),labels=direction_labels) +
+    xlim(limits) +
+    labs(y=y_axis_label, x=x_axis_label) +
+    theme_SL2() +
+    theme(legend.position=legend_position, legend.spacing.x = unit(0.25, 'cm'))
+
+  return(ggp)
+}
+

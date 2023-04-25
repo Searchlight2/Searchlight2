@@ -1,4 +1,5 @@
-##----- Pairwise Overlap Table Function  -----##
+####---- Pairwise Overlap Table Function  ----####
+
 make_pairwise_overlap_table <- function(pairwise_overlap_summary,header_size,text_size,border_thickness)
 {
   table_theme <- gridExtra::ttheme_minimal(core = list(fg_params=list(cex = text_size)),colhead = list(fg_params=list(cex = header_size)))
@@ -9,7 +10,4 @@ make_pairwise_overlap_table <- function(pairwise_overlap_summary,header_size,tex
   gt <- gtable_add_grob(gt,grobs = rectGrob(gp = gpar(fill = NA, lwd = border_thickness)),t = 1, l = 1, r = ncol(gt))
   return(gt)
 }
-
-
-
 

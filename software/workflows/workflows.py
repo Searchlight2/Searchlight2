@@ -1,15 +1,15 @@
-from ne.ne_workflow import ne_workflow
-from de.de_workflow import de_workflow
-from mde.mde_workflow import mde_workflow
+from workflows.ne.ne_workflow import ne_workflow
+from workflows.de.de_workflow import de_workflow
+from workflows.mde.mde_workflow import mde_workflow
 
-from biotypes.biotype_folders import biotype_folders
+from workflows.biotypes.biotype_folders import biotype_folders
 
 def workflows(global_variables):
 
 
-    print "====================================="
-    print "=====         workflows         ====="
-    print "====================================="
+    print("=====================================")
+    print("=====         workflows         =====")
+    print("=====================================")
 
     biotype_folders(global_variables)
 

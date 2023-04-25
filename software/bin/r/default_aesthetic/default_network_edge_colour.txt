@@ -1,3 +1,4 @@
-##---- Default Network Edge Colour  ----##
+####---- Default Network Edge Colour  ----####
+
 default_network_edge_colour = "grey50"
 

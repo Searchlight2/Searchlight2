@@ -1,5 +1,5 @@
 # sets up flags for which input variables have been supplied
-def set_input_flags(global_variables, annotations_parameter, ura_parameters, ora_parameters, ss_parameter, norm_exp_parameter, bg_parameter, de_workflow_parameters, mde_workflow_parameters, popex_workflow_parameters, config_file_parameter, out_path_parameter,run_ne_wf,run_de_wf,run_mde_wf):
+def set_input_flags(global_variables, rpath_parameter, annotations_parameter, ura_parameters, ora_parameters, ss_parameter, norm_exp_parameter, bg_parameter, de_workflow_parameters, mde_workflow_parameters, popex_workflow_parameters, config_file_parameter, out_path_parameter,run_ne_wf,run_de_wf,run_mde_wf):
 
 
 
@@ -12,6 +12,11 @@ def set_input_flags(global_variables, annotations_parameter, ura_parameters, ora
         global_variables["annotations_flag"] = True
     else:
         global_variables["annotations_flag"] = False
+
+    if rpath_parameter != None:
+        global_variables["r_path_flag"] = True
+    else:
+        global_variables["r_path_flag"] = False
 
     if len(ura_parameters) > 0:
         global_variables["ura_flag"] = True
@@ -72,7 +77,7 @@ def set_input_flags(global_variables, annotations_parameter, ura_parameters, ora
 
 
 
-    print "input variables logged"
+    print("input variables logged")
 
 
     return global_variables

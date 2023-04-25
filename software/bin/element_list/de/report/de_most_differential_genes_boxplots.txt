@@ -1,5 +1,5 @@
-PLOT_ID=most_differential_genes_violin_plots
-TITLE=Most Differential Genes Violin Plots
+PLOT_ID=most_differential_genes_boxplots
+TITLE=Most Differential Genes Boxplots
 PLOTS_PER_ROW=5
 
 SUB_TITLE=Upregulated By P-value
@@ -50,6 +50,6 @@ PLOT_PATH=plots/most_differential_genes/most_downregulated_by_log2fold/no.8_most
 PLOT_PATH=plots/most_differential_genes/most_downregulated_by_log2fold/no.9_most_downregulated_gene.png
 PLOT_PATH=plots/most_differential_genes/most_downregulated_by_log2fold/no.10_most_downregulated_gene.png
 
-R_CODE_PATH=plots/most_differential_genes/most_differential_genes_violin_plots.r
-PLOT_DESCRIPTION=/bin/report/plot_description/de_most_differential_genes_violin_plots.txt
-PLOT_LEGEND=/bin/report/plot_legend/de_most_differential_genes_violin_plots.txt
+R_CODE_PATH=plots/most_differential_genes/most_differential_genes_boxplots.r
+PLOT_DESCRIPTION=/bin/report/plot_description/de_most_differential_genes_boxplots.txt
+PLOT_LEGEND=/bin/report/plot_legend/de_most_differential_genes_boxplots.txt

@@ -1,8 +1,8 @@
-##----- IPA Upstream Regulators (Boxplots) -----##
+####---- Upstream Regulators (Boxplots) ----####
 
 plot_height = 250
 plot_width = 1000
-box_transparency = 0.75
+box_transparency = 0.5
 box_line_thickness = 0.75
 box_colours = default_sample_group_colours 	# note: changing this won't change the order the groups appear in the x axis. Merely what they are coloured as.
 box_labels = default_sample_group_labels	# note: changing this won't change the order the groups appear in the x axis. Merely what they are named as.
@@ -37,6 +37,5 @@ for(upstream_regulator_index in 1:10)
   ggp = make_IPA_upstream_regulator_boxplot(upstream_regulator,plot_title,box_transparency,box_line_thickness,box_colours,box_labels,x_axis_label,y_axis_label,legend_position)
   save_plot(ggp,plot_height,plot_width,paste("<*path*>plots/upstream_regulator_analysis/<*type*>/inhibited/no.",upstream_regulator_index,"_most_inhibited_upstream_regulator.png<*/path*>",sep=""))
 }
-
 <*/per_ura*>
 

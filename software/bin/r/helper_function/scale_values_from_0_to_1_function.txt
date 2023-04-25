@@ -1,3 +1,4 @@
-##---- scale values from 0 to 1 function ----##
+####---- scale values from 0 to 1 function ----####
+
 range_0_to_1_function <- function(x){(x-min(x))/(max(x)-min(x))}
 

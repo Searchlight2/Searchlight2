@@ -1,4 +1,5 @@
 ##---- ne ----##
+
 ne_sub_directories_core	true:core:directory	none
 
 ne_file_matrix_annotated	true:core:file	none
@@ -15,7 +16,7 @@ ne_plot_PCA_contribution_of_components	true:plot:optional	ne/plots/ne_PCA_contri
 ne_plot_PCA_scatterplot	true:plot:optional	ne/plots/ne_PCA_scatterplot.txt
 ne_plot_correlation_analysis_heatmap	true:plot:optional	ne/plots/ne_correlation_analysis_heatmap.txt
 ne_plot_most_expressed_genes_tables	true:plot:optional	ne/plots/ne_most_expressed_genes_tables.txt
-ne_plot_most_expressed_genes_violin_plots	true:plot:optional	ne/plots/ne_most_expressed_genes_violin_plots.txt
+ne_plot_most_expressed_genes_boxplots	true:plot:optional	ne/plots/ne_most_expressed_genes_boxplots.txt
 ne_end_plots	true:plot_core:core	none
 ne_run_r	true:plot_core:core	none
 
@@ -26,7 +27,7 @@ ne_report_PCA_contribution_of_components	true:report_plot:optional	ne/report/ne_
 ne_report_PCA_scatterplot	true:report_plot:optional	ne/report/ne_PCA_scatterplot.txt
 ne_report_correlation_analysis_heatmap	true:report_plot:optional	ne/report/ne_correlation_analysis_heatmap.txt
 ne_report_most_expressed_genes_tables	true:report_plot:optional	ne/report/ne_most_expressed_genes_tables.txt
-ne_report_most_expressed_genes_violin_plots	true:report_plot:optional	ne/report/ne_most_expressed_genes_violin_plots.txt
+ne_report_most_expressed_genes_boxplots	true:report_plot:optional	ne/report/ne_most_expressed_genes_boxplots.txt
 ne_report_methodology	true:report_title:optional	Methodology
 ne_report_core_workflow_methods	true:report_text:optional	methods/ne/core_workflow.txt
 ne_report_extras	true:report_title:optional	Extras
@@ -35,6 +36,7 @@ ne_end_report	true:report_core:core	none
 
 
 ##---- de ----##
+
 de_sub_directories_core	true:core:directory	none
 
 de_file_gene_IDs	true:core:file	none
@@ -66,13 +68,13 @@ de_plot_PCA_contribution_of_components	true:plot:optional	de/plots/de_PCA_contri
 de_plot_PCA_scatterplot	true:plot:optional	de/plots/de_PCA_scatterplot.txt
 de_plot_correlation_analysis_heatmap	true:plot:optional	de/plots/de_correlation_analysis_heatmap.txt
 de_plot_most_expressed_genes_tables	true:plot:optional	de/plots/de_most_expressed_genes_tables.txt
-de_plot_most_expressed_genes_violin_plots	true:plot:optional	de/plots/de_most_expressed_genes_violin_plots.txt
+de_plot_most_expressed_genes_boxplots	true:plot:optional	de/plots/de_most_expressed_genes_boxplots.txt
 de_plot_volcano_plot	true:plot:optional	de/plots/de_volcano_plot.txt
 de_plot_MA_plot	true:plot:optional	de/plots/de_MA_plot.txt
 de_plot_number_of_significant_genes	true:plot:optional	de/plots/de_number_of_significant_genes.txt
 de_plot_significant_genes_heatmap	true:plot:optional	de/plots/de_significant_genes_heatmap.txt
 de_plot_most_differential_genes_tables	true:plot:optional	de/plots/de_most_differential_genes_tables.txt
-de_plot_most_differential_genes_violin_plots	true:plot:optional	de/plots/de_most_differential_genes_violin_plots.txt
+de_plot_most_differential_genes_boxplots	true:plot:optional	de/plots/de_most_differential_genes_boxplots.txt
 de_plot_spatial_enrichment_table	true:plot:spatial	de/plots/de_spatial_enrichment_table.txt
 de_plot_spatial_enrichment_distribution_plots	true:plot:spatial	de/plots/de_spatial_enrichment_distribution_plots.txt
 de_plot_ora_enriched_gene_sets_barchart	true:plot:ora	de/plots/de_ora_enriched_gene_sets_barcharts.txt
@@ -92,14 +94,14 @@ de_report_PCA_contribution_of_components	true:report_plot:optional	de/report/de_
 de_report_PCA_scatterplot	true:report_plot:optional	de/report/de_PCA_scatterplot.txt
 de_report_correlation_analysis_heatmap	true:report_plot:optional	de/report/de_correlation_analysis_heatmap.txt
 de_report_most_expressed_genes_tables	true:report_plot:optional	de/report/de_most_expressed_genes_tables.txt
-de_report_most_expressed_genes_violin_plots	true:report_plot:optional	de/report/de_most_expressed_genes_violin_plots.txt
+de_report_most_expressed_genes_boxplots	true:report_plot:optional	de/report/de_most_expressed_genes_boxplots.txt
 de_report_differential_expression	true:report_title:optional	Differential Expression
 de_report_volcano_plot	true:report_plot:optional	de/report/de_volcano_plot.txt
 de_report_MA_plot	true:report_plot:optional	de/report/de_MA_plot.txt
 de_report_number_of_significant_genes	true:report_plot:optional	de/report/de_number_of_significant_genes.txt
 de_report_significant_genes_heatmap	true:report_plot:optional	de/report/de_significant_genes_heatmap.txt
 de_report_most_differential_genes_tables	true:report_plot:optional	de/report/de_most_differential_genes_tables.txt
-de_report_most_differential_genes_violin_plots	true:report_plot:optional	de/report/de_most_differential_genes_violin_plots.txt
+de_report_most_differential_genes_boxplots	true:report_plot:optional	de/report/de_most_differential_genes_boxplots.txt
 de_report_spatial_enrichment	true:report_title:spatial	Spatial Analysis
 de_report_spatial_enrichment_table	true:report_plot:spatial	de/report/de_spatial_enrichment_table.txt
 de_report_spatial_enrichment_distribution_plots	true:report_plot:spatial	de/report/de_spatial_enrichment_distribution_plots.txt
@@ -122,6 +124,7 @@ de_report_citation	true:report_text:optional	citation.txt
 de_end_report	true:report_core:core	none
 
 ##---- mde ----##
+
 mde_sub_directories_core	true:core:directory	none
 
 mde_file_all_genes_IDs	true:core:file	none
@@ -143,12 +146,12 @@ mde_plot_PCA_contribution_of_components	true:plot:optional	mde/plots/mde_PCA_con
 mde_plot_PCA_scatterplot	true:plot:optional	mde/plots/mde_PCA_scatterplot.txt
 mde_plot_correlation_analysis_heatmap	true:plot:optional	mde/plots/mde_correlation_analysis_heatmap.txt
 mde_plot_most_expressed_genes_tables	true:plot:optional	mde/plots/mde_most_expressed_genes_tables.txt
-mde_plot_most_expressed_genes_violin_plots	true:plot:optional	mde/plots/mde_most_expressed_genes_violin_plots.txt
+mde_plot_most_expressed_genes_boxplots	true:plot:optional	mde/plots/mde_most_expressed_genes_boxplots.txt
 mde_plot_number_of_significant_genes	true:plot:optional	mde/plots/mde_number_of_significant_genes.txt
 mde_plot_significant_genes_heatmap	true:plot:optional	mde/plots/mde_significant_genes_heatmap.txt
 mde_plot_pairwise_overlap_table	true:plot:optional	mde/plots/mde_pairwise_overlap_table.txt
 mde_plot_fold_vs_fold_scatterplot	true:plot:optional	mde/plots/mde_fold_vs_fold_scatterplots.txt
-mde_plot_differential_expression_signatures_metagene_violin_plots	true:plot:optional	mde/plots/mde_differential_expression_signature_metagene_violin_plot.txt
+mde_plot_differential_expression_signatures_metagene_boxplots	true:plot:optional	mde/plots/mde_differential_expression_signature_metagene_boxplots.txt
 mde_plot_differential_expression_signatures_heatmap	true:plot:optional	mde/plots/mde_differential_expression_signatures_heatmap.txt
 mde_plot_differential_expression_signatures_oras_barcharts	true:plot:ora	mde/plots/mde_differential_expression_signatures_ora_barchart.txt
 mde_end_plots	true:plot_core:core	none
@@ -161,14 +164,14 @@ mde_report_PCA_contribution_of_components	true:report_plot:optional	mde/report/m
 mde_report_PCA_scatterplot	true:report_plot:optional	mde/report/mde_PCA_scatterplot.txt
 mde_report_correlation_analysis_heatmap	true:report_plot:optional	mde/report/mde_correlation_analysis_heatmap.txt
 mde_report_most_expressed_genes_tables	true:report_plot:optional	mde/report/mde_most_expressed_genes_tables.txt
-mde_report_most_expressed_genes_violin_plots	true:report_plot:optional	mde/report/mde_most_expressed_genes_violin_plots.txt
+mde_report_most_expressed_genes_boxplots	true:report_plot:optional	mde/report/mde_most_expressed_genes_boxplots.txt
 mde_report_multiple_differential_expression	true:report_title:optional	Multiple Differential Expression
 mde_report_number_of_significant_genes	true:report_plot:optional	mde/report/mde_number_of_significant_genes.txt
 mde_report_significant_genes_heatmap	true:report_plot:optional	mde/report/mde_significant_genes_heatmap.txt
 mde_report_pairwise_overlap_table	true:report_plot:optional	mde/report/mde_pairwise_overlap_table.txt
 mde_report_fold_vs_fold_scatterplot	true:report_plot:optional	mde/report/mde_fold_vs_fold_scatterplots.txt
 mde_report_differential_expression_signatures	true:report_title:optional	Differential Expression Signatures
-mde_report_differential_expression_signatures_metagene_violin_plots	true:report_plot:optional	mde/report/mde_differential_expression_signatures_metagene_violin_plot.txt
+mde_report_differential_expression_signatures_metagene_boxplots	true:report_plot:optional	mde/report/mde_differential_expression_signatures_metagene_boxplots.txt
 mde_report_differential_expression_signatures_heatmap	true:report_plot:optional	mde/report/mde_differential_expression_signatures_heatmap.txt
 mde_report_differential_expression_signatures_oras_barcharts	true:report_plot:ora	mde/report/mde_differential_expression_signatures_ora_barchart.txt
 mde_report_methodology	true:report_title:optional	Methodology

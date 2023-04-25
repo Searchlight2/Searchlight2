@@ -1,4 +1,5 @@
-##---- Top 10 Differential Genes Function ----##
+####---- Top 10 Differential Genes Function ----####
+
 get_top_10_differential_genes <- function(direction,type) {
 
   if(type=="log2fold") 

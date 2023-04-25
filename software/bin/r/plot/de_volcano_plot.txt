@@ -1,24 +1,25 @@
-##----- Volcano Plot  -----##
+####---- Volcano Plot  ----####
 
 plot_height = 500
 plot_width = 600
-non_significant_colour = default_non_significant_colour
-significant_colour = default_significant_colour
+sig_up_colour = default_3way_sig_one_colour
+sig_down_colour = default_3way_sig_two_colour
+non_sig_colour = default_3way_non_sig_colour
 dot_size = 1.5
 dot_transparency = 1
-significant_name = "significant"
-non_significant_name = "non-significant"
-x_axis_label = "log2 fold change"
-y_axis_label = "-log10 p-value"
+sig_up_name = "upregulated"
+sig_down_name = "downregulated"
+non_sig_name = "non-significant"
+topn = 10 # option is an integer or "ALL_SIG"
+label_size = 3.5
+x_axis_label = expression("log"[2]* " fold change")
+y_axis_label = expression("-log"[10]* " p-value")
 legend_position = "bottom"
-plot_topn_labels = "sig" # options are sig or a number
-data_label_size = 4.5
 
-ggp = make_volcano_plot(non_significant_colour,significant_colour,dot_size,dot_transparency,significant_name,non_significant_name,x_axis_label,y_axis_label,legend_position,data_label_size, plot_topn_labels)
+ggp = make_volcano_plot(de_annotated, sig_up_colour,sig_down_colour, non_sig_colour, dot_size, dot_transparency, sig_up_name, sig_down_name, non_sig_name, x_axis_label, y_axis_label,legend_position, topn, label_size)
 save_plot(ggp,plot_height,plot_width,"<*path*>plots/volcano_plot/volcano_plot_labelled.png<*/path*>")
 
-data_label_size = 0
-ggp = make_volcano_plot(non_significant_colour,significant_colour,dot_size,dot_transparency,significant_name,non_significant_name,x_axis_label,y_axis_label,legend_position,data_label_size, plot_topn_labels)
+topn = 0
+ggp = make_volcano_plot(de_annotated, sig_up_colour,sig_down_colour, non_sig_colour, dot_size, dot_transparency, sig_up_name, sig_down_name, non_sig_name, x_axis_label, y_axis_label,legend_position, topn, label_size)
 save_plot(ggp,plot_height,plot_width,"<*path*>plots/volcano_plot/volcano_plot_unlabelled.png<*/path*>")
-
 

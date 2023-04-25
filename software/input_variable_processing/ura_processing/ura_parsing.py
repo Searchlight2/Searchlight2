@@ -80,7 +80,7 @@ def ura_parsing(ura_parameters, global_variables):
         ureg_parameter_dict["network_overlap_size"] = network_overlap_size
 
         parsed_ureg_parameters.append(ureg_parameter_dict)
-        print "parsed the ipa ureg parameter: " + ureg_parameter
+        print("parsed the URA parameter: " + ureg_parameter)
 
     global_variables["ura_parameters"] = parsed_ureg_parameters
 

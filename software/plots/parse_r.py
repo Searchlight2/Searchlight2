@@ -10,8 +10,8 @@ def parse_r(r_script_path,pr_dictionary):
     # opens the r-script file
     try:
         r_script_file = open(r_script_path).readlines()
-    except:
-        print >> sys.stderr, "Error: the r-script file: " + r_script_path + " cannot be opened."
+    except Exception as e:
+        print(e, "Error: the r-script file: " + r_script_path + " cannot be opened.")
         sys.exit(1)
 
     parsed_r_script = ""
@@ -100,7 +100,7 @@ def parse_line(line,pr_dictionary):
     if "<*default_sample_group_colours_by_SS_column_list*>" in line:
         line = line.replace("<*default_sample_group_colours_by_SS_column_list*>", pr_dictionary["default_sample_group_colours_by_SS_column_r_string"])
     if "<*working_directory*>" in line:
-        line = line.replace("<*working_directory*>", pr_dictionary["workflow_outpath"])
+        line = line.replace("<*working_directory*>", pr_dictionary["workflow_outpath"].replace("\\","/"))
     if "<*per_ora*>" in line:
         line = ""
     if "<*/per_ora*>" in line:
@@ -118,7 +118,7 @@ def parse_line(line,pr_dictionary):
     if "<*path*>" in line and "<*/path*>" in line:
         path = line.split("<*path*>")[1].split("<*/path*>")[0]
         parsed_path = os.path.join(*path.split("/"))
-        line = line.replace("<*path*>" + path + "<*/path*>", parsed_path)
+        line = line.replace("<*path*>" + path + "<*/path*>", parsed_path.replace("\\","/"))
         new_directory(os.path.join(pr_dictionary["workflow_outpath"], os.path.join(*path.split("/")[0:-1])))
 
     return line

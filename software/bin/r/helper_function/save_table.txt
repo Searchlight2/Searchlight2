@@ -1,4 +1,5 @@
-##---- Save Table Function -----##
+####---- Save Table Function -----####
+
 save_table <- function(gt,plot_height,plot_width,plot_path)
 {
   png(plot_path, height=plot_height, width=plot_width, pointsize=5)

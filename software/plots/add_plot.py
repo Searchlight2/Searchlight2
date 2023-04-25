@@ -18,8 +18,8 @@ def add_plot(config_element_path,pr_dictionary):
     plot_element_list_path = os.path.join(pr_dictionary["element_bin_path"],os.path.join(*config_element_path.split("/")))
     try:
         plot_element_list = open(plot_element_list_path).readlines()
-    except:
-        print >> sys.stderr, "Error: the element list at: " + plot_element_list_path + " cannot be opened."
+    except Exception as e:
+        print(e, "Error: the element list at: " + plot_element_list_path + " cannot be opened.")
         sys.exit(1)
 
 

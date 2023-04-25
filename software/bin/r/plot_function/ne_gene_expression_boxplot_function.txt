@@ -1,0 +1,32 @@
+####---- Gene Expression Boxplot Function  ----####
+
+make_gene_expression_boxplot <- function(e_matrix, gene, box_transparency, box_width, box_line_thickness, box_colours, sample_labels, jitter_dot_size, jitter_dot_colour, jitter_dot_width,x_axis_label, y_axis_label, legend_position)
+{
+  # parse data
+  gene_data = data.frame(t(e_matrix[gene,]))
+  names(gene_data) = "expression"
+
+  # check for negative values
+  if (min(gene_data$expression) < 0)
+  {
+    ymin = min(gene_data$expression) * 1.25
+  }
+  else
+  {
+    ymin = 0
+  }
+
+  # make the plot
+  ggp = ggplot(gene_data, aes(x=sample_groupings, y=expression, fill=sample_groupings)) +
+    geom_boxplot(width = box_width, alpha = box_transparency, size = box_line_thickness) +
+    geom_jitter(size=jitter_dot_size, colour=jitter_dot_colour, width=jitter_dot_width, height=0, show.legend = FALSE) +
+    scale_fill_manual(values=box_colours,labels=sample_labels) +
+    scale_x_discrete(labels=sample_labels) +
+    ylim(ymin, max(gene_data) * 1.25) +
+    labs(x=x_axis_label, y=y_axis_label, title= gene) +
+    theme_SL2() +
+    theme(legend.position=legend_position, axis.text.x = element_text(angle = 45, hjust = 1))
+
+  return(ggp)
+}
+

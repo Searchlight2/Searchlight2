@@ -1,5 +1,5 @@
-PLOT_ID=most_expressed_genes_violin_plots
-TITLE=Most Expressed Genes Violin Plots
+PLOT_ID=most_expressed_genes_boxplots
+TITLE=Most Expressed Genes Box Plots
 PLOTS_PER_ROW=5
 
 <*per_sample_group*>
@@ -16,9 +16,6 @@ PLOT_PATH=plots/most_expressed_genes/<*sample*>_no.9_most_expressed_gene.png
 PLOT_PATH=plots/most_expressed_genes/<*sample*>_no.10_most_expressed_gene.png
 <*/per_sample_group*>
 
-R_CODE_PATH=plots/most_expressed_genes/most_expressed_genes_violin_plots.r
-PLOT_DESCRIPTION=/bin/report/plot_description/ne_most_expressed_genes_violin_plots.txt
-PLOT_LEGEND=/bin/report/plot_legend/ne_most_expressed_genes_violin_plots.txt
-
-
-
+R_CODE_PATH=plots/most_expressed_genes/most_expressed_genes_boxplots.r
+PLOT_DESCRIPTION=/bin/report/plot_description/ne_most_expressed_genes_boxplots.txt
+PLOT_LEGEND=/bin/report/plot_legend/ne_most_expressed_genes_boxplots.txt

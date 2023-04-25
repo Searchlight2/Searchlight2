@@ -1,0 +1,24 @@
+####---- Differential Expression Signature Metagene Boxplots  ----####
+
+plot_height = 350
+plot_width = 400
+box_transparency = 0.25
+box_width = 0.75
+box_line_thickness = 0.5
+box_colours = default_sample_group_colours 	# note: changing this won't change the order the groups appear in the x axis. Merely what they are coloured as.
+sample_labels = default_sample_group_labels	# note: changing this won't change the order the groups appear in the x axis. Merely what they are named as.
+jitter_dot_size = 2
+jitter_dot_colour = "black"
+jitter_dot_width = 0.2
+x_axis_label = ""
+y_axis_label = "expression (Z-score)"
+legend_position = "none"
+
+for (signature_number in 1:nrow(signature_summary))
+{
+  signature_name = paste("signature_",signature_number,sep="")
+  signature_metagene = data.frame(t(signature_summary[,samples]))
+  ggp = make_meta_gene_boxplot(signature_metagene,signature_name,violin_transparency,violin_width,violin_line_thickness,violin_colours,violin_labels,trim_violin,jitter_dot_size,jitter_dot_colour,jitter_dot_width,summary_colour,summary_size,x_axis_label,y_axis_label,legend_position)
+  save_plot(ggp,plot_height,plot_width,paste("<*path*>plots/differential_expression_signature/metagene_boxplots/signature_",signature_number,"_violin.png<*/path*>",sep=""))
+}
+

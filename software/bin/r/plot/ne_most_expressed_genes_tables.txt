@@ -1,4 +1,4 @@
-##----- Most Expressed Genes (Tables) -----##
+####---- Most Expressed Genes (Tables) ----####
 
 plot_height = 300
 plot_width = 750

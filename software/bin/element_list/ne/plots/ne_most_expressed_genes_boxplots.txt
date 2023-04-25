@@ -1,4 +1,4 @@
-R_CODE_OUTPATH=plots/most_expressed_genes/most_expressed_genes_violin_plots.r
+R_CODE_OUTPATH=plots/most_expressed_genes/most_expressed_genes_boxplots.r
 library/general_libraries.txt
 core_parameter/ne_sample_and_sample_group_names.txt
 input_file/working_directory.txt
@@ -11,5 +11,5 @@ default_aesthetic/default_sample_and_sample_group_colours_by_SS_column.txt
 default_aesthetic/default_sample_group_labels.txt
 helper_function/save_plot.txt
 helper_function/ne_top10_genes_expression_function.txt
-plot_function/ne_gene_expression_violin_plot_function.txt
-plot/ne_most_expressed_genes_violin_plots.txt
+plot_function/ne_gene_expression_boxplot_function.txt
+plot/ne_most_expressed_genes_boxplots.txt

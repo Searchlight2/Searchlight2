@@ -1,4 +1,5 @@
-##----- Clustering Method -----##
+####----- Clustering Method -----####
+
 cluster_matrix <- function(mx,cluster_x,cluster_y,distance_method,clustering_method,reorder_function)
 {
   x.cluster = hclust(Dist(t(mx), method=distance_method), method=clustering_method)

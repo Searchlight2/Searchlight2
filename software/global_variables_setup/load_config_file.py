@@ -7,8 +7,8 @@ def load_config_file(global_variables, config_file_parameter):
     if global_variables["config_file_flag"]:
         try:
             config_file = open(config_file_parameter.split("=")[1]).readlines()
-        except:
-            print >> sys.stderr, "Error: the config file path supplied is not valid: " + config_file_parameter
+        except():
+            print(e, "Error: the config file path supplied is not valid: " + config_file_parameter)
             sys.exit(1)
     else:
         SL_path = global_variables["SL_path"]
@@ -22,9 +22,9 @@ def load_config_file(global_variables, config_file_parameter):
 
 
     if global_variables["config_file_flag"]:
-        print "config loaded"
+        print("config loaded")
     else:
-        print "default config loaded"
+        print("default config loaded")
 
     return global_variables
 
@@ -99,7 +99,7 @@ def check_config(config_dict):
 
 
     if ne == False or de == False or mde == False:
-        print >> sys.stderr, "Error: the config file does not have all of the required headers."
+        print(e, "Error: the config file does not have all of the required headers.")
         sys.exit(1)
 
 

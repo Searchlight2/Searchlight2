@@ -1,18 +1,20 @@
-##----- Distribution of Expression Values -----##
+####---- Distribution of Expression Values ----####
 
 plot_height = 250
 plot_width = 250
-transparency = 0.5
+transparency = 0.25
 line_thickness = 1
-x_axis_label = "expression (log10)"
+x_axis_label = expression("expression (log"[10]* ")")
 y_axis_label = "density"
 legend_position = "none"
+plot_labels = default_sample_labels
 
 for(plot_sample_index in 1:length(samples))
 {
   plot_sample = samples[plot_sample_index]
+  plot_sample_label = plot_labels[plot_sample_index]
   plot_colour = default_samples_colours[plot_sample_index]
-  ggp = make_distribution_of_expression_values_plot(plot_sample,plot_colour,transparency,line_thickness,x_axis_label,y_axis_label,legend_position)
+  ggp = make_distribution_of_expression_values_plot(plot_sample, plot_sample_label, plot_colour, transparency, line_thickness, x_axis_label, y_axis_label, legend_position)
   save_plot(ggp,plot_height,plot_width,paste("<*path*>plots/distribution_of_expression_values/",plot_sample,"_distribution_of_expression_values.png<*/path*>",sep=""))
 }
 

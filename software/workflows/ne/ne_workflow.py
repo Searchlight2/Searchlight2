@@ -1,13 +1,13 @@
-from run_ne_workflow import run_ne_workflow
+from workflows.ne.run_ne_workflow import run_ne_workflow
 
 # iterates through biotypes
 def ne_workflow(global_variables):
 
-    print
-    print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-    print "~~~~~       ne       ~~~~~"
-    print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-    print
+    print()
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    print("~~~~~       ne       ~~~~~")
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    print()
 
     run_ne_workflow(global_variables, "all_genes")
 

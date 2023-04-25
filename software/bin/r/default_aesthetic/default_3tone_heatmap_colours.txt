@@ -1,0 +1,5 @@
+####---- Default Three Tone Heatmap Colours  ----####
+
+#default_three_tone_heatmap_colours = c("cornflowerblue","coral3","white")
+#default_three_tone_heatmap_colours = c("blue","red","white")
+default_three_tone_heatmap_colours = c("purple","black","yellow")

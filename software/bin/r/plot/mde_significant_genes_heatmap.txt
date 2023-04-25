@@ -1,4 +1,4 @@
-##----- Significant Genes Heatmap  -----##
+####---- Significant Genes Heatmap  ----####
 
 plot_height = 750
 plot_width = 500

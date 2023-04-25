@@ -1,4 +1,4 @@
-R_CODE_OUTPATH=plots/most_differential_genes/most_differential_genes_violin_plots.r
+R_CODE_OUTPATH=plots/most_differential_genes/most_differential_genes_boxplots.r
 
 library/general_libraries.txt
 library/table_libraries.txt
@@ -13,5 +13,5 @@ default_aesthetic/default_sample_and_sample_group_colours.txt
 default_aesthetic/default_sample_group_labels.txt
 helper_function/save_plot.txt
 helper_function/de_top10_most_differential_genes_function.txt
-plot_function/ne_gene_expression_violin_plot_function.txt
-plot/de_most_differential_genes_violin_plots.txt
+plot_function/ne_gene_expression_boxplot_function.txt
+plot/de_most_differential_genes_boxplots.txt

@@ -1,3 +1,4 @@
-##---- Default Comaparison Labels  ----##
+####---- Default Comaparison Labels  ----####
+
 default_comparison_labels = <*comparisons_list*> # note: changing this won't change the order the comparisons appear on the plots. Merely what they are labelled as.
 

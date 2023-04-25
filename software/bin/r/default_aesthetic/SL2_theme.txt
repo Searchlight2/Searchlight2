@@ -1,4 +1,5 @@
-##---- SL2 Theme ----##
+####---- SL2 Theme ----####
+
 theme_SL2 <- function () { 
     theme_bw() %+replace% 
         theme(

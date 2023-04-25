@@ -1,10 +1,10 @@
 
-from add_input_variable.add_background import add_background
-from add_input_variable.add_ne import add_ne
-from add_input_variable.add_de import add_de
-from add_input_variable.add_annotations import add_annotations
+from input_variable_processing.construct_master_gene_table.add_input_variable.add_background import add_background
+from input_variable_processing.construct_master_gene_table.add_input_variable.add_ne import add_ne
+from input_variable_processing.construct_master_gene_table.add_input_variable.add_de import add_de
+from input_variable_processing.construct_master_gene_table.add_input_variable.add_annotations import add_annotations
 
-from group_stats_calculation.group_stats_caclulation import group_stats_calculation
+from input_variable_processing.construct_master_gene_table.group_stats_calculation.group_stats_caclulation import group_stats_calculation
 
 def construct_master_gene_table(global_variables):
 
@@ -22,7 +22,7 @@ def construct_master_gene_table(global_variables):
 
     global_variables["master_gene_table"] = master_gene_table
 
-    print "master gene table constructed"
+    print("master gene table constructed")
 
     return global_variables
 

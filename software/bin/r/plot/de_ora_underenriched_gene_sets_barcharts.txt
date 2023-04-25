@@ -1,13 +1,13 @@
-##----- Hypergeometric Underenriched Gene Sets (Bar Charts) -----##
+####---- ORA Underenriched Gene Sets (Bar Charts) ----####
 
 plot_height = 350
 plot_width = 1000
 x_axis_label = "-log10 p-value"
 y_axis_label = ""
-non_significant_colour = default_non_significant_colour
-significant_colour = default_significant_colour
+non_significant_colour = default_2way_sig_colour
+significant_colour = default_2way_non_sig_colour
 bar_outline_size = 1
-bar_transparency = 0.75
+bar_transparency = 0.5
 legend_position = "bottom"
 significant_name = "significant"
 non_significant_name = "non-significant"

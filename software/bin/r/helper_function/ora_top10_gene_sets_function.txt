@@ -1,4 +1,5 @@
-##---- Top 10 Gene Sets by Hypergeometric P-value Function ----##
+####---- Top 10 Gene Sets by ORA P-value Function ----####
+
 get_top10_oras_by_p_value <- function(gene_sets,enriched_gene_sets,type) {
 
   if(type=="enrichment")

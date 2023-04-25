@@ -23,7 +23,7 @@ def ora_validation(ora_parameters):
 
             # Tests if there are two parts to the sub-parameter
             if len(sub_param.split("=")) != 2:
-                print >> sys.stderr, "Error: the hyper_gs parameter: " + gene_set_parameter + " is not in the correct format (missing =)."
+                print("Error: the ORA parameter: " + gene_set_parameter + " is not in the correct format (missing =).")
                 sys.exit(1)
 
 
@@ -34,8 +34,8 @@ def ora_validation(ora_parameters):
                 # Tests if the gene set file can be opened:
                 try:
                     gene_set_file = open(gene_set_file_path).readlines()
-                except:
-                    print >> sys.stderr, "Error: the genesets file: " + gene_set_file_path + " cannot be opened."
+                except Exception as e:
+                    print(e, "Error: the gene sets file: " + gene_set_file_path + " cannot be opened.")
                     sys.exit(1)
 
                 # Tests if the gene set file is in the correct format:
@@ -44,7 +44,7 @@ def ora_validation(ora_parameters):
                     line_split = line.rstrip().split("\t")
 
                     if len(line_split) < 3:
-                        print >> sys.stderr, "Error: the genesets file: " + gene_set_file_path + " line " + str(line_counter) + "does not have at least 3 columns."
+                        print("Error: the gene sets file: " + gene_set_file_path + " line " + str(line_counter) + "does not have at least 3 columns.")
                         sys.exit(1)
 
 
@@ -55,50 +55,50 @@ def ora_validation(ora_parameters):
             # Tests the p.adj sub-parameter
             if sub_param.upper().startswith("p.adj=".upper()):
                 if not is_number(sub_param.split("=")[1]):
-                    print >> sys.stderr, "Error: the hyper_gs parameter: " + gene_set_parameter + " is not in the correct format (p.adj)."
+                    print("Error: the ORA parameter: " + gene_set_parameter + " is not in the correct format (p.adj).")
                     sys.exit(1)
 
             # Tests the log2fold sub-parameter
             if sub_param.upper().startswith("log2fold=".upper()):
                 if not is_number(sub_param.split("=")[1]):
-                    print >> sys.stderr, "Error: the hyper_gs parameter: " + gene_set_parameter + " is not in the correct format (log2fold)."
+                    print("Error: the ORA parameter: " + gene_set_parameter + " is not in the correct format (log2fold).")
                     sys.exit(1)
 
             # Tests the min sete size sub-parameter
             if sub_param.upper().startswith("min_set_size=".upper()):
                 if not is_number(sub_param.split("=")[1]):
-                    print >> sys.stderr, "Error: the hyper_gs parameter: " + gene_set_parameter + " is not in the correct format (min_set_size)."
+                    print("Error: the ORA parameter: " + gene_set_parameter + " is not in the correct format (min_set_size).")
                     sys.exit(1)
 
             # Tests the max set size sub-parameter
             if sub_param.upper().startswith("max_set_size=".upper()):
                 if not is_number(sub_param.split("=")[1]):
-                    print >> sys.stderr, "Error: the hyper_gs parameter: " + gene_set_parameter + " is not in the correct format (max_set_size)."
+                    print("Error: the ORA parameter: " + gene_set_parameter + " is not in the correct format (max_set_size).")
                     sys.exit(1)
 
             # Tests the overlap ratio sub-parameter
             if sub_param.upper().startswith("network_overlap_ratio=".upper()):
                 if not is_number(sub_param.split("=")[1]):
-                    print >> sys.stderr, "Error: the hyper_gs parameter: " + gene_set_parameter + " is not in the correct format (network_overlap_ratio)."
+                    print("Error: the ORA parameter: " + gene_set_parameter + " is not in the correct format (network_overlap_ratio).")
                     sys.exit(1)
 
             # Tests the overlap size sub-parameter
             if sub_param.upper().startswith("network_overlap_size=".upper()):
                 if not is_number(sub_param.split("=")[1]):
-                    print >> sys.stderr, "Error: the hyper_gs parameter: " + gene_set_parameter + " is not in the correct format (network_overlap_size)."
+                    print("Error: the ORA parameter: " + gene_set_parameter + " is not in the correct format (network_overlap_size).")
                     sys.exit(1)
 
 
         # Checks for a unique gene sets type:
         if type in gene_set_types_dict:
-            print >> sys.stderr, "Error: the hyper_gs parameter: " + gene_set_parameter + " has does not have a unique type."
+            print("Error: the ORA parameter: " + gene_set_parameter + " has does not have a unique type.")
             sys.exit(1)
         else:
             gene_set_types_dict[type] = True
 
         # tests if the required inputs have been supplied
         if gene_set_file_path == None or type == None:
-            print >> sys.stderr, "Error: the hyper_gs parameter: " + gene_set_parameter + " is not in the correct format (missing essential sub-parameters)."
+            print("Error: the ORA parameter: " + gene_set_parameter + " is not in the correct format (missing essential sub-parameters).")
             sys.exit(1)
 
-        print "validated the hyper gs parameter: " + gene_set_parameter
+        print("validated the ORA parameter: " + gene_set_parameter)

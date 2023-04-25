@@ -1,27 +1,20 @@
-##----- Hypergeometric Gene Sets Bar Chart Function -----##
-make_oras_bar_chart <- function(top_10_gene_sets,x_axis_label,y_axis_label,non_significant_colour,significant_colour,bar_outline_size,bar_transparency,legend_position,significant_name,non_significant_name,data_label_size)
-{ 
-  top_10_gene_sets <- top_10_gene_sets[seq(dim(top_10_gene_sets)[1],1),]
-  n_sig = nrow(subset(top_10_gene_sets,significant == "TRUE"))
-  n_non_sig = nrow(subset(top_10_gene_sets,significant == "FALSE"))
-  
+####---- ORA Gene Sets Bar Chart Function ----####
 
-  if (n_sig+n_non_sig == 0)
-  {
-    ggp = ggplot(data.frame()) + theme_SL2() + geom_blank() + ggtitle("There were too few gene sets sensibly plot this.")
-  }
-  else if (n_sig == 0)
-  {
-      ggp = ggplot(data=top_10_gene_sets , aes(x=gene_set, y=-log10(p), fill=significant,group=significant)) + geom_bar(colour="black",stat="identity", position = "dodge", alpha = bar_transparency) + coord_flip() + scale_x_discrete(limits = top_10_gene_sets$gene_set) + ylab(x_axis_label)  + xlab(y_axis_label) + scale_fill_manual(values=c(non_significant_colour),breaks=c("FALSE"),labels=c(non_significant_name)) + theme_SL2() + theme(axis.text.y = element_text(hjust=1),legend.position=legend_position, legend.spacing.x = unit(0.15, 'cm')) + scale_y_continuous(expand=c(0,0), limits=c(0,max(-log10(top_10_gene_sets$p)*1.25))) + geom_text(aes(label=overlapping_genes), position=position_dodge(width=0.9), size=data_label_size, show.legend = FALSE, hjust=-0.5)
-  }
-  else if (n_non_sig == 0)
-  {
-      ggp = ggplot(data=top_10_gene_sets , aes(x=gene_set, y=-log10(p), fill=significant,group=significant)) + geom_bar(colour="black",stat="identity", position = "dodge", alpha = bar_transparency) + coord_flip() + scale_x_discrete(limits = top_10_gene_sets$gene_set) + ylab(x_axis_label)  + xlab(y_axis_label) + scale_fill_manual(values=c(significant_colour),breaks=c("TRUE"),labels=c(significant_name)) + theme_SL2() + theme(axis.text.y = element_text(hjust=1),legend.position=legend_position, legend.spacing.x = unit(0.15, 'cm')) + scale_y_continuous(expand=c(0,0), limits=c(0,max(-log10(top_10_gene_sets$p)*1.25))) + geom_text(aes(label=overlapping_genes), position=position_dodge(width=0.9), size=data_label_size, show.legend = FALSE, hjust=-0.5)
-  }
-  else if (n_sig != 10 && n_non_sig != 0 && n_sig != 0 && n_non_sig != 10)
-  {
-      ggp = ggplot(data=top_10_gene_sets , aes(x=gene_set, y=-log10(p), fill=significant,group=significant)) + geom_bar(colour="black",stat="identity", position = "dodge", alpha = bar_transparency) + coord_flip() + scale_x_discrete(limits = top_10_gene_sets$gene_set) + ylab(x_axis_label)  + xlab(y_axis_label) + scale_fill_manual(values=c(non_significant_colour,significant_colour),breaks=c("TRUE","FALSE"),labels=c(significant_name, non_significant_name)) + theme_SL2() + theme(axis.text.y = element_text(hjust=1),legend.position=legend_position, legend.spacing.x = unit(0.15, 'cm')) + scale_y_continuous(expand=c(0,0), limits=c(0,max(-log10(top_10_gene_sets$p)*1.25))) + geom_text(aes(label=overlapping_genes), position=position_dodge(width=0.9), size=data_label_size, show.legend = FALSE, hjust=-0.5)
-  }
+make_oras_bar_chart <- function(top_10_gene_sets, x_axis_label, y_axis_label, non_significant_colour, significant_colour, bar_outline_size, bar_transparency, legend_position, significant_name, non_significant_name, data_label_size)
+{ 
+  top_10_gene_sets = top_10_gene_sets[seq(dim(top_10_gene_sets)[1],1),]
+  ggp = ggplot(data=top_10_gene_sets , aes(x=gene_set, y=-log10(p), fill=significant,group=significant)) +
+        geom_bar(colour="black",stat="identity", position = "dodge", alpha = bar_transparency) + 
+        coord_flip() + 
+        scale_x_discrete(limits = top_10_gene_sets$gene_set) + 
+        ylab(x_axis_label)  + 
+        xlab(y_axis_label) + 
+        scale_fill_manual(values=c(non_significant_colour,significant_colour),breaks=c("TRUE","FALSE"),labels=c(significant_name, non_significant_name)) + 
+        theme_SL2() + 
+        theme(axis.text.y = element_text(hjust=1),legend.position=legend_position, legend.spacing.x = unit(0.15, 'cm')) + 
+        scale_y_continuous(expand=c(0,0), limits=c(0,max(-log10(top_10_gene_sets$p)*1.25))) + 
+        geom_text(aes(label=overlapping_genes), position=position_dodge(width=0.9), size=data_label_size, show.legend = FALSE, hjust=-0.5)
+
   return(ggp)
 }
 

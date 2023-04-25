@@ -1,5 +1,5 @@
 import os, sys
-from parse_text_section import parse_text_section
+from reports.parse_text_section import parse_text_section
 
 
 def add_plot_section_to_report(config_element_path, pr_dictionary, global_variables):
@@ -12,15 +12,15 @@ def add_plot_section_to_report(config_element_path, pr_dictionary, global_variab
     # read the html elements list file
     try:
         html_elements_list = open(html_elements_list_path).readlines()
-    except:
-        print >> sys.stderr, "Error: the html elements list: " + html_elements_list_path + " cannot be opened."
+    except Exception as e:
+        print(e, "Error: the html elements list: " + html_elements_list_path + " cannot be opened.")
         sys.exit(1)
 
     # get the default html structure, this file will be parsed and appended to the report body
     try:
         default_html = open(pr_dictionary["html_bin_path"] + "/default_section.html").read()
-    except:
-        print >> sys.stderr, "Error: the default html section cannot be open"
+    except Exception as e:
+        print(e, "Error: the default html section cannot be open")
         sys.exit(1)
 
 
@@ -199,7 +199,7 @@ def parse_lines(line, html_default, pr_dictionary, global_variables):
         r_path = os.path.join(pr_dictionary["workflow_outpath"], line.split("=")[1].replace("\n", ""))
         pr_dictionary["r_script"] = open(r_path, "r").read()
         pr_dictionary["r_script"] = pr_dictionary["r_script"].replace("\n", "<br>").replace("  ", " &emsp;").replace(
-            "##--", "<span class=\"r_comment\">##--").replace("--##", "--##</span>")
+            "####--", "<span class=\"r_comment\">##--").replace("--####", "--####</span>")
         html_default = html_default.replace("<*path_to_r_script*>", pr_dictionary["r_script"])
 
     if line.split("=")[0] == "PLOT_DESCRIPTION":

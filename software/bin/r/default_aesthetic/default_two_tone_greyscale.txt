@@ -1,3 +1,4 @@
-##---- Default Two Tone Greyscale  ----##
+####---- Default Two Tone Greyscale  ----####
+
 default_two_tone_greyscale = c("grey75","grey50")
 

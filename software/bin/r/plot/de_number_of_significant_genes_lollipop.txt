@@ -1,0 +1,19 @@
+####---- Number of Significant Genes Lollipop Plot ----####
+
+plot_height = 150
+plot_width = 500
+x_axis_label = "number of significant genes\n(positive = upregulated\nnegative = downregulated)"
+y_axis_label = ""
+comparison_labels = default_comparison_labels # note: changing this won't change the order the comparisons appear in the x axis. Merely what they are labelled as.
+direction_labels = c("up","down") # note: changing this won't change the order the bars appear in the x axis. Merely what they are labelled as.
+up_lollipop_colour = default_3way_sig_one_colour
+down_lollipop_colour = default_3way_sig_two_colour
+stick_colour = default_3way_non_sig_colour
+stick_size = 1
+lollipop_size = 5
+legend_position = "none"
+data_label_size = 5
+
+ggp = make_number_of_significant_genes_lollipop(x_axis_label, y_axis_label, comparison_labels, direction_labels, up_lollipop_colour, down_lollipop_colour, stick_colour, stick_size, lollipop_size, legend_position, data_label_size)
+save_plot(ggp,plot_height,plot_width,"<*path*>plots/number_of_significant_genes/number_of_significant_genes_lollipop.png<*/path*>")
+

@@ -1,5 +1,5 @@
 PLOT_ID=differential_expression_signature_ora_barcharts
-TITLE=Signature ora Gene Set Barcharts
+TITLE=Signature ORA Gene Set Barcharts
 PLOTS_PER_ROW=2
 
 <*per_de_signature_hypergeom_gene_set*>

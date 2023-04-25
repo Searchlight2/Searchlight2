@@ -1,4 +1,5 @@
-##---- de hypergeometric gene set enrichment files ----##
+####---- de hypergeometric gene set enrichment files ----####
+
 <*per_ora*>
 <*type*>_all_gene_sets = read.table(file="<*path*>data/statistical_analysis/over_representation_analysis/<*type*>/all_significant_genes/all_gene_sets_results.csv"<*/path*>, header=TRUE, sep='\t', quote='',check.names = TRUE)
 <*type*>_all_signficant_genes_enriched_gene_sets = read.table(file="<*path*>data/statistical_analysis/over_representation_analysis/<*type*>/all_significant_genes/enriched_gene_sets_results.csv"<*/path*>, header=TRUE, sep='\t', quote='',check.names = TRUE)

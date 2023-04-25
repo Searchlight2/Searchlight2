@@ -1,23 +1,54 @@
-##----- Volcano Plot Function -----##
-make_volcano_plot <- function(non_significant_colour,significant_colour,dot_size,dot_transparency,significant_name,non_significant_name,x_axis_label,y_axis_label,legend_position,data_label_size, topn) 
+####---- Volcano Plot Function ----####
+
+make_volcano_plot <- function(de_annotated, sig_up_colour,sig_down_colour, non_sig_colour, dot_size, dot_transparency, sig_up_name, sig_down_name, non_sig_name, x_axis_label, y_axis_label,legend_position, topn, label_size) 
 {
-  if (topn == "sig") {
-    de_annotated_sig_volcano = de_annotated_sig
+
+  # create a direction column
+  de_volcano = de_annotated
+  de_volcano$direction = "c"
+
+  de_sig_up = subset(de_volcano, log2fold > 0 & sig == "True")
+  de_sig_down = subset(de_volcano, log2fold < 0 & sig == "True")
+  de_non_sig = subset(de_volcano, sig == "False")
+
+  if (nrow(de_sig_up) > 0)
+  {
+    de_sig_up$direction = "a"
+  }
+  if (nrow(de_sig_down) > 0)
+  {
+    de_sig_down$direction = "b"
+  }
+
+  de_volcano = rbind(de_non_sig, de_sig_down, de_sig_up)
+
+  
+  # get genes to label
+  if (topn == "ALL_SIG")
+  {
+    de_topn = subset(de_volcano, sig = "True")
+
+  }
+  else if (topn == 0)
+  {
+    de_topn = de_volcano[0,]
   }
   else
   {
-    de_annotated_sig_volcano = de_annotated_sig[order(de_annotated_sig$p)[1:topn],]
+    de_topn = de_volcano[order(de_volcano$p),]
+    de_topn = de_topn[1:topn,]
   }
   
-  ggp = ggplot(data=de_annotated, aes(x=log2fold, y=-log10(p), colour=sig, group=sig,fill=sig)) + 
+  
+  # make the plot
+  ggp = ggplot(data=de_volcano, aes(x=log2fold, y=-log10(p), colour=direction)) + 
     geom_point(size=dot_size,alpha=dot_transparency) + 
-    scale_color_manual(values=c(non_significant_colour,significant_colour),breaks=c("True","False"),labels=c(significant_name, non_significant_name)) + 
-    scale_fill_manual(values=c(non_significant_colour,significant_colour),breaks=c("True","False"),labels=c(significant_name, non_significant_name)) + 
-    xlab(x_axis_label) + 
-    ylab(y_axis_label) + 
+    geom_label_repel(data=de_topn, aes(label=rownames(de_topn)), size=label_size, force = 1,box.padding = 1, show.legend = FALSE) +
+    scale_color_manual(breaks=c("a","b","c"), values=c(sig_up_colour ,sig_down_colour, non_sig_colour), labels=c(sig_up_name, sig_down_name, non_sig_name)) +
+    labs(x=x_axis_label, y=y_axis_label) + 
     theme_SL2() + 
-    theme(legend.position=legend_position, legend.title = element_blank()) + 
-    geom_text(data=de_annotated_sig_volcano,aes(label=rownames(de_annotated_sig_volcano)),hjust=-0.1, vjust=-0.1, size=data_label_size, show.legend = FALSE)
+    theme(legend.position=legend_position, legend.title = element_blank())
+  
   return(ggp)
 }
 

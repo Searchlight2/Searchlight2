@@ -1,3 +1,4 @@
-##---- sets the working directory. If you move the SL2 folder please update this path ----##
+####---- sets the working directory. If you move the SL2 folder please update this path ----####
+
 setwd("<*working_directory*>")
 

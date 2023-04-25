@@ -1,17 +1,52 @@
-##---- Spatial Analysis Fold Distribution Function ----##
-make_spatial_enrichment_fold_distribution_plot <- function(current_chromosome,non_significant_colour,significant_colour,dot_size,dot_transparency,significant_name,non_significant_name,x_axis_label,y_axis_label,legend_position,data_label_size) 
+####---- Spatial Analysis Fold Distribution Function ----####
+
+make_spatial_enrichment_fold_distribution_plot <- function(current_chromosome,sig_up_colour,sig_down_colour,non_sig_colour,dot_size,dot_transparency,sig_up_name,sig_down_name,non_sig_name,x_axis_label,y_axis_label,legend_position,data_label_size, show_data_labels)
 {
-  chromosome_data = subset(de_annotated,chromosome==current_chromosome & de_valid=="True")
-  chromosome_data_sig = subset(de_annotated_sig,chromosome==current_chromosome & de_valid=="True")
-  
-  if (nrow(chromosome_data) > 1)
+  # parse the table
+  chr_data =  subset(de_annotated,chromosome==current_chromosome)
+  chr_data$direction = "c"
+  chr_data_non_sig = subset(chr_data, de_valid=="True" & sig == "False")
+  chr_data_sig_up = subset(chr_data, de_valid=="True" & sig == "True" & log2fold >0)
+  chr_data_sig_down = subset(chr_data, de_valid=="True" & sig == "True" & log2fold <0)
+
+  if (nrow(chr_data_sig_up) > 0)
   {
-    ggp = ggplot(data=chromosome_data, aes(x=start+((stop-start)/2), y=log2fold, colour=sig, group=sig,fill=sig)) + geom_point(size=dot_size,alpha=dot_transparency) + scale_color_manual(values=c(non_significant_colour,significant_colour),breaks=c("True","False"),labels=c(significant_name, non_significant_name)) + scale_fill_manual(values=c(non_significant_colour,significant_colour),breaks=c("True","False"),labels=c(significant_name, non_significant_name)) + xlab(x_axis_label) + ylab(y_axis_label) + theme_SL2() + theme(legend.position=legend_position, legend.title = element_blank()) + geom_text(data=chromosome_data_sig,aes(label=rownames(chromosome_data_sig)),hjust=-0.1, vjust=-0.1, size=data_label_size, show.legend = FALSE) + ggtitle(paste("chromosome ",current_chromosome,sep="")) + ylim(c(-max(abs(chromosome_data$log2fold))*1.1,max(abs(chromosome_data$log2fold))*1.1))
+    chr_data_sig_up$direction = "a"
+  }
+  if (nrow(chr_data_sig_down) > 0)
+  {
+    chr_data_sig_down$direction = "b"
+  }
+
+  chr_data = rbind(chr_data_sig_up, chr_data_sig_down, chr_data_non_sig)
+
+  # get labels
+  if (show_data_labels == TRUE)
+  {
+    chr_data_sig = subset(chr_data, sig == "True")
+  }
+  else
+  {
+    chr_data_sig = chr_data[0,]
+  }
+
+  # make the plot
+  if (nrow(chr_data) > 1)
+  {
+    ggp = ggplot(data=chr_data, aes(x=start+((stop-start)/2), y=log2fold, colour=direction)) +
+      geom_point(size=dot_size,alpha=dot_transparency) +
+      geom_label(data=chr_data_sig,aes(label=rownames(chr_data_sig)), size=data_label_size, show.legend = FALSE) +
+      scale_color_manual(breaks=c("a","b","c"), values=c(sig_up_colour,sig_down_colour, non_sig_colour),labels=c(sig_up_name,sig_down_name,non_sig_name)) +
+      ylim(c(-max(abs(chr_data$log2fold))*1.1,max(abs(chr_data$log2fold))*1.1)) +
+      labs(x=x_axis_label, y=y_axis_label, title=paste("chromosome ",current_chromosome,sep="")) +
+      theme_SL2() +
+      theme(legend.position=legend_position, legend.title = element_blank())
+
     return(ggp)
   }
   else
   {
-    return(ggplot(data.frame()) + theme_SL2() + geom_blank() + ggtitle("There were too few valid genes to sensibly plot this."))
+    return(ggplot(data.frame()) + theme_SL2() + geom_blank() + ggtitle("There were too few genes to plot this."))
   }
 }
 

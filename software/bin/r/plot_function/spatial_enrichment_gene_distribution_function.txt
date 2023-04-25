@@ -1,16 +1,45 @@
-##---- Spatial Enrichment Gene Distribution Function ----##
-make_spatial_enrichment_gene_distribution_plot <- function(current_chromosome,non_significant_colour,significant_colour,density_curve_transparency,density_curve_line_thickness,significant_name,non_significant_name,x_axis_label,y_axis_label,legend_position) 
+####---- Spatial Enrichment Gene Distribution Function ----####
+
+make_spatial_enrichment_gene_distribution_plot <- function(current_chromosome,sig_up_colour,sig_down_colour,non_sig_colour,density_curve_transparency,density_curve_line_thickness,sig_up_name,sig_down_name,non_sig_name,x_axis_label,y_axis_label,legend_position)
 {
-  chromosome_data = subset(de_annotated,chromosome==current_chromosome & de_valid=="True")
-  
-  if (nrow(chromosome_data) > 1)
+
+  # parse the table
+  chr_data =  subset(de_annotated,chromosome==current_chromosome)
+  chr_data$direction = "c"
+  chr_data_non_sig = subset(chr_data, de_valid=="True" & sig == "False")
+  chr_data_sig_up = subset(chr_data, de_valid=="True" & sig == "True" & log2fold >0)
+  chr_data_sig_down = subset(chr_data, de_valid=="True" & sig == "True" & log2fold <0)
+
+  if (nrow(chr_data_sig_up) > 0)
   {
-    ggp = ggplot(chromosome_data, aes(x=start+((stop-start)/2), colour=sig, group=sig,fill=sig)) + geom_density(alpha=density_curve_transparency,size=density_curve_line_thickness, adjust=0.25) + scale_color_manual(values=c(non_significant_colour,significant_colour),breaks=c("True","False"),labels=c(significant_name, non_significant_name)) + scale_fill_manual(values=c(non_significant_colour,significant_colour),breaks=c("True","False"),labels=c(significant_name, non_significant_name)) + xlab(x_axis_label) + ylab(y_axis_label) + ggtitle(paste("chromosome ",current_chromosome,sep="")) + theme_SL2() + theme(legend.position=legend_position)
+    chr_data_sig_up$direction = "a"
+  }
+  if (nrow(chr_data_sig_down) > 0)
+  {
+    chr_data_sig_down$direction = "b"
+  }
+
+  chr_data = rbind(chr_data_sig_up, chr_data_sig_down, chr_data_non_sig)
+
+  # make the plot
+  if (nrow(chr_data) > 1)
+  {
+    ggp = ggplot(chr_data, aes(x=start+((stop-start)/2), group=direction, fill=direction, colour = direction)) +
+      geom_density(data = chr_data_non_sig, alpha=density_curve_transparency,size=density_curve_line_thickness, adjust=0.25) +
+      geom_density(data = chr_data_non_sig, aes( y = -(..density..)), alpha=density_curve_transparency,size=density_curve_line_thickness, adjust=0.25) +
+      geom_density(data = chr_data_sig_up, alpha=density_curve_transparency,size=density_curve_line_thickness, adjust=0.25) +
+      geom_density(data = chr_data_sig_down, aes( y = -(..density..)), alpha=density_curve_transparency,size=density_curve_line_thickness, adjust=0.25) +
+      scale_fill_manual(breaks=c("a","b","c"), values=c(sig_up_colour,sig_down_colour, non_sig_colour),labels=c(sig_up_name,sig_down_name,non_sig_name)) +
+      scale_colour_manual(breaks=c("a","b","c"), values=c(sig_up_colour,sig_down_colour, non_sig_colour),labels=c(sig_up_name,sig_down_name,non_sig_name)) +
+      labs(x=x_axis_label, y=y_axis_label,  title=paste("chromosome ",current_chromosome,sep="")) +
+      theme_SL2() +
+      theme(legend.position=legend_position, legend.title = element_blank())
+
     return(ggp)
   }
   else
   {
-    return(ggplot(data.frame()) + theme_SL2() + geom_blank() + ggtitle("There were too few valid genes to sensibly plot this."))
+    return(ggplot(data.frame()) + theme_SL2() + geom_blank() + ggtitle("There were too few  genes to plot this."))
   }
 }
 

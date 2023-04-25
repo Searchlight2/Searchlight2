@@ -33,10 +33,9 @@ def end_plots(pr_dictionary):
     output_workflow_r_subsection(pr_dictionary["subsection_r_plot"], r_script_out_file)
 
     # Code to save session and image
-    r_script_out_file.write("\n##---- image and session info ----##\n")
-    r_script_out_file.write("save.image(\"" + str(r_data_out_file) + "\")\n")
-    r_script_out_file.write("write.table(capture.output(sessionInfo()), file=\"" + str(r_session_out_file) + "\")\n")
-
+    r_script_out_file.write("\n###---- image and session info ----###\n\n")
+    r_script_out_file.write("save.image(\"" + str(r_data_out_file).replace("\\","/") + "\")\n")
+    r_script_out_file.write("write.table(capture.output(sessionInfo()), file=\"" + str(r_session_out_file).replace("\\","/") + "\")\n")
 
 
 

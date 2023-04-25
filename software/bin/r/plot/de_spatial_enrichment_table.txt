@@ -1,4 +1,4 @@
-##----- Spatial Enrichement (Table) -----##
+####---- Spatial Enrichement (Table) ----####
 
 plot_height = 700
 plot_width = 2100

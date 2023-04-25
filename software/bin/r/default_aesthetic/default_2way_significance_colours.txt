@@ -1,0 +1,5 @@
+####---- Default Two Way Significance Colours ----####
+
+default_2way_sig_colour = "coral3"
+default_2way_non_sig_colour = "grey50"
+

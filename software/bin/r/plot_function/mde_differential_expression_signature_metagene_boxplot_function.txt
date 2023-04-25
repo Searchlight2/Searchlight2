@@ -1,0 +1,29 @@
+####---- Meta-Gene Boxplot Function  ----####
+
+make_meta_gene_boxplot <- function(e_matrix,signature_name,violin_transparency,violin_width,violin_line_thickness,violin_colours,violin_labels,trim_violin,jitter_dot_size,jitter_dot_colour,jitter_dot_width,summary_colour,summary_size,x_axis_label,y_axis_label,legend_position)
+{
+
+  # check for negative values
+  if (min(e_matrix) < 0)
+  {
+    ymin = min(e_matrix) * 1.25
+  }
+  else
+  {
+    ymin = 0
+  }
+
+  # make the plot
+  ggp = ggplot(e_matrix, aes(x=sample_groupings, y=e_matrix[[signature_name]], fill=sample_groupings)) +
+    geom_boxplot(width = box_width, alpha = box_transparency, size = box_line_thickness) +
+    geom_jitter(size=jitter_dot_size, colour=jitter_dot_colour, width=jitter_dot_width, height=0, show.legend = FALSE) +
+    scale_fill_manual(values=box_colours,labels=sample_labels) +
+    scale_x_discrete(labels=sample_labels) +
+    ylim(ymin, max(e_matrix) * 1.25) +
+    labs(x=x_axis_label, y=y_axis_label, title= signature_name) +
+    theme_SL2() +
+    theme(legend.position=legend_position, axis.text.x = element_text(angle = 45, hjust = 1))
+  
+  return(ggp)
+}
+

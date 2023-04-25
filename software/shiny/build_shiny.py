@@ -74,8 +74,8 @@ def copy_rdata(biotype, global_variables):
 
         try:
             copyfile(rdata_in_path, rdata_out_path)
-        except:
-            print "Warning: the ne workflow Rdata file is missing. It will be omitted from Shiny."
+        except Exception as e:
+            print("Warning: the ne workflow Rdata file is missing. It will be omitted from Shiny.")
 
 
     if global_variables["de_workflows_flag"]:
@@ -91,8 +91,8 @@ def copy_rdata(biotype, global_variables):
 
             try:
                 copyfile(rdata_in_path, rdata_out_path)
-            except:
-                print "Warning: the de workflow " + de_ID + " Rdata file is missing. It will be omitted from Shiny."
+            except Exception as e:
+                print("Warning: the de workflow " + de_ID + " Rdata file is missing. It will be omitted from Shiny.")
 
     if global_variables["mde_workflows_flag"]:
         parsed_mde_parameters = global_variables["mde_parameters"]
@@ -105,8 +105,8 @@ def copy_rdata(biotype, global_variables):
 
             try:
                 copyfile(rdata_in_path, rdata_out_path)
-            except:
-                print "Warning: the Mde workflow " + mde_ID + " Rdata file is missing. It will be omitted from Shiny."
+            except Exception as e:
+                print("Warning: the Mde workflow " + mde_ID + " Rdata file is missing. It will be omitted from Shiny.")
 
 
 # gets the rdata

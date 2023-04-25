@@ -1,4 +1,5 @@
-##----- Significant Genes Heatmap Function  -----##
+####---- Significant Genes Heatmap Function  ----####
+
 make_significant_genes_heatmap <- function(matrix_scaled,colours,sample_names,cluster_x,cluster_y,distance_method,clustering_method,reorder_function)
 {
 
@@ -13,12 +14,21 @@ make_significant_genes_heatmap <- function(matrix_scaled,colours,sample_names,cl
     matrix_scaled_renamed_clustered_melted$X2 = factor(matrix_scaled_renamed_clustered_melted$X2, levels=colnames(matrix_scaled_renamed_clustered))
 
     hm.palette <- colorRampPalette(colours)
-    ggp = ggplot(matrix_scaled_renamed_clustered_melted, aes(x = X2, y = X1, fill = value)) + geom_tile() + scale_fill_gradientn(colours = hm.palette(100)) + ylab('') + xlab('') + theme_SL2() + theme(legend.position="right", legend.title = element_blank(), legend.spacing.x = unit(0.25, 'cm'),axis.text.x = element_text(angle = 90, hjust = 1), axis.ticks=element_blank()) + scale_x_discrete(expand=c(0,0)) + scale_y_discrete(expand=c(0,0))
+    ggp = ggplot(matrix_scaled_renamed_clustered_melted, aes(x = X2, y = X1, fill = value)) + 
+      geom_tile() + 
+      scale_fill_gradientn(colours = hm.palette(100)) + 
+      ylab('') + 
+      xlab('') + 
+      theme_SL2() + 
+      theme(legend.position="right", legend.title = element_blank(), legend.spacing.x = unit(0.25, 'cm'),axis.text.x = element_text(angle = 90, hjust = 1), axis.ticks=element_blank()) + 
+      scale_x_discrete(expand=c(0,0)) + 
+      scale_y_discrete(expand=c(0,0))
+
     return(ggp)
   }
   else
   {
-    return(ggplot(data.frame()) + theme_SL2() + geom_blank() + ggtitle("There were too few genes to sensibly plot this."))
+    return(ggplot(data.frame()) + theme_SL2() + geom_blank() + ggtitle("There were too few significant genes to plot this."))
   }
 }
 

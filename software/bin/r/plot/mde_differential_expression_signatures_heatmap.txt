@@ -1,4 +1,4 @@
-##----- Differential Expression Signatures Heatmaps  -----##
+####---- Differential Expression Signatures Heatmaps  ----####
 
 plot_height = 750
 plot_width = 500

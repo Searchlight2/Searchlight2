@@ -141,7 +141,7 @@ def spatial_enrichment(global_variables,in_path, sample_groups, out_path, type):
             chromosome_summary.append(round(expressed_genes_log2fold,2))
             odds, expressed_genes_p_value = scipy.stats.fisher_exact([[float(total_genes),float(chromosome_summary[0])],[float(total_expressed_genes),float(chromosome_summary[1])]],alternative='two-sided')
             chromosome_summary.append(expressed_genes_p_value)
-        except:
+        except Exception as e:
             chromosome_summary.append("NA")
             chromosome_summary.append("NA")
 
@@ -151,7 +151,7 @@ def spatial_enrichment(global_variables,in_path, sample_groups, out_path, type):
             chromosome_summary.append(round(significant_genes_log2fold,2))
             odds, sig_genes_bias_p_value = scipy.stats.fisher_exact([[float(total_de_valid_genes),float(chromosome_summary[2])],[float(total_significant),float(chromosome_summary[5])]],alternative='two-sided')
             chromosome_summary.append(sig_genes_bias_p_value)
-        except:
+        except Exception as e:
             chromosome_summary.append("NA")
             chromosome_summary.append("NA")
 
@@ -165,7 +165,7 @@ def spatial_enrichment(global_variables,in_path, sample_groups, out_path, type):
 
             odds,direction_bias_p_value = scipy.stats.fisher_exact([[expected_upregulated,float(chromosome_summary[6])],[expected_downregulated,float(chromosome_summary[7])]], alternative='two-sided')
             chromosome_summary.append(direction_bias_p_value)
-        except:
+        except Exception as e:
             chromosome_summary.append("NA")
             chromosome_summary.append("NA")
 

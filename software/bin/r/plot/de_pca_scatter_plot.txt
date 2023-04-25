@@ -1,4 +1,4 @@
-##----- PCA (Scatter Plots) -----##
+####---- PCA (Scatter Plots) ----####
 
 plot_height = 300
 plot_width = 300
@@ -9,29 +9,30 @@ plot_sample_groupings = sample_groupings
 dot_size = 4
 dot_transparency = 1
 legend_position = "bottom"
-sample_label_size = 4.5
+sample_label_size = 3.5
 show_proportion_of_variance = TRUE
+show_sample_labels = TRUE
 
 component_x = 1
 component_y = 2
 x_axis_label = "PC1"
 y_axis_label = "PC2"
-ggp = make_PCA_scatterplot(plot_sample_groupings,component_x,component_y,x_axis_label,y_axis_label,plot_sample_group_colours,plot_sample_group_labels,plot_sample_labels,dot_size,dot_transparency,legend_position,sample_label_size,show_proportion_of_variance)
+ggp = make_PCA_scatterplot(plot_sample_groupings,component_x,component_y,x_axis_label,y_axis_label,plot_sample_group_colours,plot_sample_group_labels,plot_sample_labels,dot_size,dot_transparency,legend_position,sample_label_size,show_proportion_of_variance, show_sample_labels)
 save_plot(ggp,plot_height,plot_width,"<*path*>plots/PCA/PCA_1_vs_PCA_2_scatter_plot_labelled.png<*/path*>")
 
-sample_label_size = 0 
-ggp = make_PCA_scatterplot(plot_sample_groupings,component_x,component_y,x_axis_label,y_axis_label,plot_sample_group_colours,plot_sample_group_labels,plot_sample_labels,dot_size,dot_transparency,legend_position,sample_label_size,show_proportion_of_variance)
+show_sample_labels = FALSE
+ggp = make_PCA_scatterplot(plot_sample_groupings,component_x,component_y,x_axis_label,y_axis_label,plot_sample_group_colours,plot_sample_group_labels,plot_sample_labels,dot_size,dot_transparency,legend_position,sample_label_size,show_proportion_of_variance, show_sample_labels)
 save_plot(ggp,plot_height,plot_width,"<*path*>plots/PCA/PCA_1_vs_PCA_2_scatter_plot_unlabelled.png<*/path*>")
 
 component_x = 3
 component_y = 4
 x_axis_label = "PC3"
 y_axis_label = "PC4"
-sample_label_size = 4.5
-ggp = make_PCA_scatterplot(plot_sample_groupings,component_x,component_y,x_axis_label,y_axis_label,plot_sample_group_colours,plot_sample_group_labels,plot_sample_labels,dot_size,dot_transparency,legend_position,sample_label_size,show_proportion_of_variance)
+show_sample_labels = FALSE
+ggp = make_PCA_scatterplot(plot_sample_groupings,component_x,component_y,x_axis_label,y_axis_label,plot_sample_group_colours,plot_sample_group_labels,plot_sample_labels,dot_size,dot_transparency,legend_position,sample_label_size,show_proportion_of_variance, show_sample_labels)
 save_plot(ggp,plot_height,plot_width,"<*path*>plots/PCA/PCA_3_vs_PCA_4_scatter_plot_labelled.png<*/path*>")
 
-sample_label_size = 0
-ggp = make_PCA_scatterplot(plot_sample_groupings,component_x,component_y,x_axis_label,y_axis_label,plot_sample_group_colours,plot_sample_group_labels,plot_sample_labels,dot_size,dot_transparency,legend_position,sample_label_size,show_proportion_of_variance)
+show_sample_labels = FALSE
+ggp = make_PCA_scatterplot(plot_sample_groupings,component_x,component_y,x_axis_label,y_axis_label,plot_sample_group_colours,plot_sample_group_labels,plot_sample_labels,dot_size,dot_transparency,legend_position,sample_label_size,show_proportion_of_variance, show_sample_labels)
 save_plot(ggp,plot_height,plot_width,"<*path*>plots/PCA/PCA_3_vs_PCA_4_scatter_plot_unlabelled.png<*/path*>")
 

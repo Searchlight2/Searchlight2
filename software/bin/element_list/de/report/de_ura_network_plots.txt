@@ -1,12 +1,15 @@
 PLOT_ID=ura_network_plots
 TITLE=Upstream Regulator Network Plots
-PLOTS_PER_ROW=1
+PLOTS_PER_ROW=2
 
 <*per_ura*>
 SUB_TITLE=Most Enriched Upstream Regulators (<*ura_type*>)
 PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/enriched_gene_sets_network_plot.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/enriched_gene_sets_network_plot_unlabelled.png
+
 SUB_TITLE=Most Activated and Inhibited Upstream Regulators (<*ura_type*>)
 PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/activated_and_inhibited_gene_sets_network_plot.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/activated_and_inhibited_gene_sets_network_plot_unlabelled.png
 
 <*/per_ura*>
 
