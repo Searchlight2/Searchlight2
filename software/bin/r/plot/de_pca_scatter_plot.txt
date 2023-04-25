@@ -28,7 +28,7 @@ component_x = 3
 component_y = 4
 x_axis_label = "PC3"
 y_axis_label = "PC4"
-show_sample_labels = FALSE
+show_sample_labels = TRUE
 ggp = make_PCA_scatterplot(plot_sample_groupings,component_x,component_y,x_axis_label,y_axis_label,plot_sample_group_colours,plot_sample_group_labels,plot_sample_labels,dot_size,dot_transparency,legend_position,sample_label_size,show_proportion_of_variance, show_sample_labels)
 save_plot(ggp,plot_height,plot_width,"<*path*>plots/PCA/PCA_3_vs_PCA_4_scatter_plot_labelled.png<*/path*>")
 
