@@ -99,7 +99,7 @@ Searchlight2 can be downloaded from this Github page. By clicking the green "Cod
 
 * Once downloaded place the zip file into a folder of choice and unzip
 * No further installation is required for the software
-* Next, you will need to install Python (2.7) and the libraries Scipy and Numpy. [Here is an online guide](https://wiki.python.org/moin/BeginnersGuide/Download)
+* Next, you will need to install Python (3+) and the libraries Scipy and Numpy. [Here is an online guide](https://wiki.python.org/moin/BeginnersGuide/Download)
 * Next, you will need to install R. We recommend doing so via RStudio (choose the free version). [Here is an online guide](https://rstudio.com/products/rstudio/download/)
 * Finally, you will need to install several widely used R-packages: ggplot2, reshape, amap, grid, gridExtra, gtable, ggally, network, sna. [Here is an online guide](https://www.datacamp.com/community/tutorials/r-packages-guide)
 * If you also want to use the Shiny app feature you will need to install these additional R packages: shiny, shinyFiles, fs, shinycssloaders, graphics, dplyr.
