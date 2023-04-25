@@ -1,0 +1,19 @@
+PLOT_ID=ora_enriched_gene_sets_ridgeplot
+TITLE=Enriched Gene Set Ridgeplots
+PLOTS_PER_ROW=2
+
+<*per_hypergeom_gene_set*>
+SUB_TITLE=Most Enriched Amongst All Significant Genes (<*hypergeom_type*>)
+PLOT_PATH=plots/over_representation_analysis/<*hypergeom_type*>/enriched_amongst_all_significant_genes/enriched_gene_sets_ridgeplot.png
+PLOT_PATH=plots/over_representation_analysis/<*hypergeom_type*>/enriched_amongst_all_significant_genes/enriched_gene_sets_ridgeplot_sig.png
+SUB_TITLE=Most Enriched Amongst Upregulated Genes (<*hypergeom_type*>)
+PLOT_PATH=plots/over_representation_analysis/<*hypergeom_type*>/enriched_amongst_upregulated_genes/enriched_gene_sets_ridgeplot.png
+PLOT_PATH=plots/over_representation_analysis/<*hypergeom_type*>/enriched_amongst_upregulated_genes/enriched_gene_sets_ridgeplot_sig.png
+SUB_TITLE=Most Enriched Amongst Downregulated Genes (<*hypergeom_type*>)
+PLOT_PATH=plots/over_representation_analysis/<*hypergeom_type*>/enriched_amongst_downregulated_genes/enriched_gene_sets_ridgeplot.png
+PLOT_PATH=plots/over_representation_analysis/<*hypergeom_type*>/enriched_amongst_downregulated_genes/enriched_gene_sets_ridgeplot_sig.png
+<*/per_hypergeom_gene_set*>
+
+R_CODE_PATH=plots/over_representation_analysis/ora_enriched_gene_sets_ridgeplot.r
+PLOT_DESCRIPTION=/bin/report/plot_description/de_ora_enriched_gene_sets_ridgeplot.txt
+PLOT_LEGEND=/bin/report/plot_legend/de_ora_enriched_gene_sets_ridgeplot.txt

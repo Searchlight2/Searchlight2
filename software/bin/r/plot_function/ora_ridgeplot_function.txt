@@ -1,0 +1,53 @@
+####---- ORA Gene Set Ridgeplot Function ----####
+
+make_ora_ridgeplot <- function(top_n_gene_sets, de_table, colours, x_axis_label, y_axis_label, ridge_transparency, legend_position, colour_fold, significant_name, non_significant_name)
+{
+
+  # setup the ggplot table
+  ridge_data = data.frame(matrix(ncol = 3, nrow = 0))
+  names(ridge_data) = c("pathway", "log2fold", "sig")
+
+  # fill with fold changes by gene set
+  for (row_index in 1:nrow(top_n_gene_sets))
+  {
+    genes_in_gene_set = unlist(lapply(top_n_gene_sets[row_index,"overlapping_gene_names"], function(x) unlist(strsplit(as.character(x),","))))
+    genes_in_gene_set = de_table[genes_in_gene_set,]
+    genes_in_gene_set$pathway = top_n_gene_sets[row_index,"gene_set"]
+    genes_in_gene_set$sig = top_n_gene_sets[row_index,"significant"]
+    genes_in_gene_set = genes_in_gene_set[,c("pathway", "log2fold", "sig")]
+    row.names(genes_in_gene_set) = 1:nrow(genes_in_gene_set)
+    ridge_data = rbind(ridge_data, genes_in_gene_set)
+  }
+
+  # ensures plot y is in top n order
+  ridge_data$pathway = factor(ridge_data$pathway, levels= rev(top_n_gene_sets$gene_set))
+
+  # limits
+  xlims = c(-max(abs(ridge_data$log2fold)), max(abs(ridge_data$log2fold)))
+
+
+  if (colour_fold)
+  {
+    # plot
+    ggp = ggplot(ridge_data, aes(x = log2fold, y = pathway, fill = stat(x))) +
+      geom_density_ridges_gradient(alpha = ridge_transparency) +
+      scale_fill_gradientn(colours = colorRampPalette(colours)(100), name="") +
+      xlim(xlims) +
+      labs(x=x_axis_label, y=y_axis_label) +
+      theme_SL2() +
+      theme(legend.position = legend_position)
+  }
+  else
+  {
+    ggp = ggplot(ridge_data, aes(x = log2fold, y = pathway, fill = sig)) +
+      geom_density_ridges(alpha = ridge_transparency) +
+      scale_fill_manual(values = colours, breaks = c("TRUE", "FALSE"), labels= c(significant_name, non_significant_name), name="") +
+      xlim(xlims) +
+      labs(x=x_axis_label, y=y_axis_label) +
+      theme_SL2() +
+      theme(legend.position = legend_position)
+  }
+
+  return(ggp)
+}
+
