@@ -1,7 +1,22 @@
 ####----- Default GGplot Colours Function -----####
 
-gg_color_hue <- function(n) {
-  hues = seq(15, 375, length = n + 1)
-  hcl(h = hues, l = 65, c = 100)[1:n]
+gg_color_hue <- function(n)
+{
+  # default colour blind palettes
+  cblind_palette = c("#88CCEE", "#CC6677", "#DDCC77", "#117733", "#332288", "#AA4499", "#44AA99", "#999933", "#882255", "#661100", "#6699CC", "#888888")
+  #cblind_palette = c("#E69F00","#56B4E9","#009E73","#F0E442","#0072B2","#D55E00","#CC79A7","#999999")
+  #cblind_palette = c("#DF536B","#61D04F","#2297E6","#28E2E5","#CD0BBC","#F5C710","#9E9E9E")
+
+  # append ggplot colours if groups goes above colour blind palette length
+  if (n <= length(cblind_palette))
+  {
+    return(cblind_palette[1:n])
+  }
+  else
+  {
+    nn = n - length(cblind_palette)
+    hues = seq(15, 375, length = nn + 1)
+    return(append(cblind_palette,hcl(h = hues, l = 65, c = 100)[1:nn]))
+  }
 }
 

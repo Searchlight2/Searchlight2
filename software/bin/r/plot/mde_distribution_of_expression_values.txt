@@ -2,7 +2,7 @@
 
 plot_height = 250
 plot_width = 250
-transparency = 0.25
+transparency = 0.5
 line_thickness = 1
 x_axis_label = expression("expression (log"[10]* ")")
 y_axis_label = "density"

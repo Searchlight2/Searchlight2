@@ -1,3 +1,5 @@
+####---- MA Plot Function ----####
+
 make_MA_plot <- function(de_annotated, sig_up_colour,sig_down_colour, non_sig_colour, dot_size, dot_transparency, sig_up_name, sig_down_name, non_sig_name, x_axis_label, y_axis_label,legend_position, topn, label_size)
 {
 
@@ -39,13 +41,16 @@ make_MA_plot <- function(de_annotated, sig_up_colour,sig_down_colour, non_sig_co
     de_topn = de_topn[1:topn,]
   }
 
+  # get the limits
+  limits = c(-max(abs(de_ma$log2fold)), max(abs(de_ma$log2fold)))
 
   # make the plot
   ggp = ggplot(data=de_ma, aes(x=log10(mean+0.01), y=log2fold, colour=direction)) +
     geom_point(size=dot_size,alpha=dot_transparency) +
-    geom_label_repel(data=de_topn, aes(label=rownames(de_topn)), size=label_size, force = 1,box.padding = 1, show.legend = FALSE) +
+    geom_label_repel(data=de_topn, aes(label=rownames(de_topn)), size=label_size, force = 1,box.padding = 1, show.legend = FALSE, colour = "black") +
     scale_color_manual(breaks=c("a","b","c"), values=c(sig_up_colour ,sig_down_colour, non_sig_colour), labels=c(sig_up_name, sig_down_name, non_sig_name)) +
     labs(x=x_axis_label, y=y_axis_label) +
+    ylim(limits) +
     theme_SL2() +
     theme(legend.position=legend_position, legend.title = element_blank())
 

@@ -2,5 +2,5 @@
 
 default_3way_sig_one_colour = "coral3"
 default_3way_sig_two_colour = "cornflowerblue"
-default_3way_non_sig_colour = "grey50"
+default_3way_non_sig_colour = "grey75"
 

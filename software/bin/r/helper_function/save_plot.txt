@@ -6,6 +6,10 @@ save_plot <- function(ggp,plot_height,plot_width,plot_path)
   print(ggp)
   dev.off()
 
+  svg(gsub(".png", ".svg", plot_path), height=plot_height/90, width=plot_width/90)
+  print(ggp)
+  dev.off()
+
   # clears all devices - as a safety measure
   while (dev.cur()>1) dev.off()
 }

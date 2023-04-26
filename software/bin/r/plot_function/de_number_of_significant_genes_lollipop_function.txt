@@ -19,8 +19,8 @@ make_number_of_significant_genes_lollipop <- function(x_axis_label, y_axis_label
   ggp = ggplot(table_data, aes(x=value, y=comparison, colour = variable)) +
     geom_segment(aes(xend = 0, yend = comparison), size = stick_size, show.legend = FALSE, colour=stick_colour) +
     geom_point(size = lollipop_size) +
-    geom_label(data=table_data_up, aes(label=value),label.padding = unit(0.75, "lines"), show.legend = FALSE, size=data_label_size, nudge_x = max*0.2, vjust = 0.5) +
-    geom_label(data=table_data_down, aes(label=value),label.padding = unit(0.75, "lines"), show.legend = FALSE, size=data_label_size, nudge_x = -max*0.2, vjust = 0.5) +
+    geom_label(data=table_data_up, aes(label=value),label.padding = unit(0.75, "lines"), show.legend = FALSE, size=data_label_size, nudge_x = max*0.2, vjust = 0.5, colour = "black") +
+    geom_label(data=table_data_down, aes(label=value),label.padding = unit(0.75, "lines"), show.legend = FALSE, size=data_label_size, nudge_x = -max*0.2, vjust = 0.5, colour = "black") +
     geom_vline(xintercept = 0, colour = "black", size = 1) +
     scale_color_manual(values=c(up_lollipop_colour,down_lollipop_colour),labels=direction_labels) +
     xlim(limits) +

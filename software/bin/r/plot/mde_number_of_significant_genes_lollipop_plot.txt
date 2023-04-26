@@ -2,7 +2,7 @@
 
 plot_height = 250
 plot_width = 500
-x_axis_label = "number of significant genes"
+x_axis_label = "number of significant genes (pos = up, neg = down)"
 y_axis_label = ""
 comparison_labels = default_comparison_labels # note: changing this won't change the order the comparisons appear in the x axis. Merely what they are labelled as.
 direction_labels = c("up","down") # note: changing this won't change the order the bars appear in the x axis. Merely what they are labelled as.

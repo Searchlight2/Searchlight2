@@ -15,7 +15,7 @@ from shiny.shiny import shiny
 if __name__ == '__main__':
 
     start_time = timeit.default_timer()
-    version = "v2.0.2"
+    version = "v2.0.3"
 
     print()
     print("#####################################")

@@ -35,7 +35,7 @@ make_PCA_scatterplot <- function(plot_sample_groupings,comp_x,comp_y,x_axis_labe
   #make plot
   ggp = ggplot(data=prcomp_coordinates, aes(x=comp_x, y=comp_y, colour=plot_sample_groupings)) +
     geom_point(size=dot_size,alpha=dot_transparency) +
-    geom_label_repel(aes(label=plot_sample_labels), size=sample_label_size, force = 1,box.padding = 1.5, label.padding = unit(0.5, "lines"), show.legend = FALSE) +
+    geom_label_repel(aes(label=plot_sample_labels), size=sample_label_size, force = 1,box.padding = 1.5, label.padding = unit(0.5, "lines"), show.legend = FALSE, colour = "black") +
     scale_color_manual(values=plot_sample_group_colours,labels=plot_sample_group_labels, name="") +
     xlim(c(min(prcomp_coordinates$comp_x)*1.25,max(prcomp_coordinates$comp_x)*1.25)) +
     ylim(c(min(prcomp_coordinates$comp_y)*1.25,max(prcomp_coordinates$comp_y)*1.25)) +

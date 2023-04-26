@@ -39,13 +39,16 @@ make_volcano_plot <- function(de_annotated, sig_up_colour,sig_down_colour, non_s
     de_topn = de_topn[1:topn,]
   }
   
-  
+  # get the limits
+  limits = c(-max(abs(de_volcano$log2fold)), max(abs(de_volcano$log2fold)))
+
   # make the plot
-  ggp = ggplot(data=de_volcano, aes(x=log2fold, y=-log10(p), colour=direction)) + 
-    geom_point(size=dot_size,alpha=dot_transparency) + 
-    geom_label_repel(data=de_topn, aes(label=rownames(de_topn)), size=label_size, force = 1,box.padding = 1, show.legend = FALSE) +
+  ggp = ggplot(data=de_volcano, aes(x=log2fold, y=-log10(p), colour=direction)) +
+    geom_point(size=dot_size,alpha=dot_transparency) +
+    geom_label_repel(data=de_topn, aes(label=rownames(de_topn)), size=label_size, force = 1,box.padding = 1, show.legend = FALSE, colour = "black") +
     scale_color_manual(breaks=c("a","b","c"), values=c(sig_up_colour ,sig_down_colour, non_sig_colour), labels=c(sig_up_name, sig_down_name, non_sig_name)) +
-    labs(x=x_axis_label, y=y_axis_label) + 
+    labs(x=x_axis_label, y=y_axis_label) +
+    xlim(limits) +
     theme_SL2() + 
     theme(legend.position=legend_position, legend.title = element_blank())
   
