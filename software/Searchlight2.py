@@ -99,7 +99,7 @@ if __name__ == '__main__':
     print("===========================")
     print()
 
-    shutil.make_archive(os.path.join(global_variables["out_path"], "results"), 'zip', global_variables["out_path"])
+    #shutil.make_archive(os.path.join(global_variables["out_path"], "results"), 'zip', global_variables["out_path"])
 
 
     print()

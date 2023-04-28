@@ -1,10 +1,10 @@
 PLOT_ID=differential_expression_signature_ora_barcharts
-TITLE=Signature ORA Gene Set Barcharts
+TITLE=Signature ORA Barcharts
 PLOTS_PER_ROW=2
 
 <*per_de_signature_hypergeom_gene_set*>
-SUB_TITLE=Signature <*de_signature*> (<*type*>)
-PLOT_PATH=plots/differential_expression_signature/signature_ora_enrichment/<*type*>/signature_<*de_signature*>_enriched_gene_sets_barchart.png
+SUB_TITLE=Signature <*de_signature*> (<*hypergeom_type*>)
+PLOT_PATH=plots/differential_expression_signature/signature_ora_enrichment/<*hypergeom_type*>/signature_<*de_signature*>_enriched_gene_sets_barchart.png
 <*/per_de_signature_hypergeom_gene_set*>
 
 R_CODE_PATH=plots/differential_expression_signature/signature_ora_barchart.r

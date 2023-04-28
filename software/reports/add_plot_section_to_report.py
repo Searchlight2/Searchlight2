@@ -149,7 +149,7 @@ def add_plot_section_to_report(config_element_path, pr_dictionary, global_variab
             for de_signature in pr_dictionary["de_signatures"]:
                 for ora_type in pr_dictionary["hypergeom_gene_set_types"]:
                     for line in iteration_lines_list:
-                        parsed_elements_list += str(parse_lines(line.replace("<*de_signature*>", str(de_signature)).replace("<*type*>", ora_type), default_html, pr_dictionary, global_variables))
+                        parsed_elements_list += str(parse_lines(line.replace("<*de_signature*>", str(de_signature)).replace("<*hypergeom_type*>", ora_type), default_html, pr_dictionary, global_variables))
             continue
 
         # tests for an active iteration tag

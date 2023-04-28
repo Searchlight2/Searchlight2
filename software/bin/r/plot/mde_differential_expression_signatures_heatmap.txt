@@ -1,6 +1,6 @@
 ####---- Differential Expression Signatures Heatmaps  ----####
 
-plot_height = 750
+plot_height = 500
 plot_width = 500
 colours = default_three_tone_heatmap_colours
 sample_names = default_sample_labels

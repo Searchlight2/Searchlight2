@@ -1,0 +1,22 @@
+PLOT_ID=differential_expression_signatures_ora_boxplots
+TITLE=Signature ORA Boxplots
+PLOTS_PER_ROW=2
+
+<*per_de_signature_hypergeom_gene_set*>
+SUB_TITLE=Signature <*de_signature*> (<*hypergeom_type*>)
+PLOT_PATH=plots/differential_expression_signature/signature_ora_boxplots/<*hypergeom_type*>/signature_<*de_signature*>.no_1_most_enriched_gene_set.png
+PLOT_PATH=plots/differential_expression_signature/signature_ora_boxplots/<*hypergeom_type*>/signature_<*de_signature*>.no_2_most_enriched_gene_set.png
+PLOT_PATH=plots/differential_expression_signature/signature_ora_boxplots/<*hypergeom_type*>/signature_<*de_signature*>.no_3_most_enriched_gene_set.png
+PLOT_PATH=plots/differential_expression_signature/signature_ora_boxplots/<*hypergeom_type*>/signature_<*de_signature*>.no_4_most_enriched_gene_set.png
+PLOT_PATH=plots/differential_expression_signature/signature_ora_boxplots/<*hypergeom_type*>/signature_<*de_signature*>.no_5_most_enriched_gene_set.png
+PLOT_PATH=plots/differential_expression_signature/signature_ora_boxplots/<*hypergeom_type*>/signature_<*de_signature*>.no_6_most_enriched_gene_set.png
+PLOT_PATH=plots/differential_expression_signature/signature_ora_boxplots/<*hypergeom_type*>/signature_<*de_signature*>.no_7_most_enriched_gene_set.png
+PLOT_PATH=plots/differential_expression_signature/signature_ora_boxplots/<*hypergeom_type*>/signature_<*de_signature*>.no_8_most_enriched_gene_set.png
+PLOT_PATH=plots/differential_expression_signature/signature_ora_boxplots/<*hypergeom_type*>/signature_<*de_signature*>.no_9_most_enriched_gene_set.png
+PLOT_PATH=plots/differential_expression_signature/signature_ora_boxplots/<*hypergeom_type*>/signature_<*de_signature*>.no_10_most_enriched_gene_set.png
+<*/per_de_signature_hypergeom_gene_set*>
+
+R_CODE_PATH=plots/differential_expression_signature/signature_ora_boxplots.r
+PLOT_DESCRIPTION=/bin/report/plot_description/mde_differential_expression_signatures_ora_boxplots.txt
+PLOT_LEGEND=/bin/report/plot_legend/mde_differential_expression_signatures_ora_boxplots.txt
+

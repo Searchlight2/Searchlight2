@@ -1,7 +1,7 @@
 ####---- Differential Expression Signature Metagene Boxplots  ----####
 
-plot_height = 350
-plot_width = 400
+plot_height = 500
+plot_width = 500
 box_transparency = 0.75
 box_width = 0.75
 box_line_thickness = 0.5

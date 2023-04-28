@@ -15,7 +15,7 @@ non_sig_name = "non-significant"
 x_axis_label = "gene location"
 y_axis_label = expression("log"[2]* " fold change")
 legend_position = "bottom"
-density_curve_transparency = 0.5
+density_curve_transparency = 0.75
 density_curve_line_thickness = 0
 
 
