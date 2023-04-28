@@ -1,0 +1,27 @@
+####---- Differential Expression Signatures ORA Enriched Gene Sets (Network Plots) ----####
+
+plot_height = 1000
+plot_width = 1500
+
+node_colours = default_two_tone_network_node_colours
+node_outer_max_size = 25
+node_inner_max_size = 20
+node_label_size = 3
+edge_colour = default_network_edge_colour
+edge_transparency = 0.5
+edge_width = 2
+
+<*per_ora*>
+for (signature in 1:nrow(signature_summary))
+{
+  edges = read.table(file=paste0("data/statistical_analysis/differential_expression_signature/over_representation_analysis/<*type*>/signature_",signature,"/network_data/enriched_gene_sets_edges.csv"), header=TRUE, sep='\t', quote='',check.names = TRUE)
+  nodes = read.table(file=paste0("data/statistical_analysis/differential_expression_signature/over_representation_analysis/<*type*>/signature_",signature,"/network_data/enriched_gene_sets_nodes.csv"), header=TRUE, sep='\t', quote='',check.names = TRUE)
+
+  ggp = make_ora_network_plot(edges,nodes,node_colours,node_outer_max_size,node_inner_max_size,node_label_size,edge_colour,edge_transparency,edge_width, TRUE)
+  save_plot(ggp,plot_height,plot_width,paste0("<*path*>plots/differential_expression_signature/signature_ora_networks/<*type*>/<*/path*>signature_",signature,"_enriched_gene_sets_network.png"))
+
+  ggp = make_ora_network_plot(edges,nodes,node_colours,node_outer_max_size,node_inner_max_size,node_label_size,edge_colour,edge_transparency,edge_width, FALSE)
+  save_plot(ggp,plot_height,plot_width,paste0("<*path*>plots/differential_expression_signature/signature_ora_networks/<*type*>/<*/path*>signature_",signature,"_enriched_gene_sets_network_unlabelled.png"))
+}
+<*/per_ora*>
+
