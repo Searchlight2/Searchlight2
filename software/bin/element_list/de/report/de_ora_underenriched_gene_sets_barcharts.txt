@@ -1,5 +1,5 @@
 PLOT_ID=ora_underenriched_gene_set_barcharts
-TITLE=Underenriched Gene Set Barcharts
+TITLE=Underenrichment Barcharts
 PLOTS_PER_ROW=2
 
 <*per_hypergeom_gene_set*>

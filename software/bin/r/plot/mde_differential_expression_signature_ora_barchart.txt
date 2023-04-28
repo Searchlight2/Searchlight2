@@ -14,12 +14,13 @@ non_significant_name = "non-significant"
 data_label_size = 5
 
 
-<*per_de_signature_hyper_gs*>
-all_gene_sets = read.table(file="<*path*>data/statistical_analysis/differential_expression_signature/over_representation_analysis/<*type*>/signature_<*de_signature*>/all_gene_sets_results.csv<*/path*>", header=TRUE, sep='\t', quote='',check.names = TRUE)
-enriched_gene_sets = read.table(file="<*path*>data/statistical_analysis/differential_expression_signature/over_representation_analysis/<*type*>/signature_<*de_signature*>/enriched_gene_sets_results.csv<*/path*>", header=TRUE, sep='\t', quote='',check.names = TRUE)
-top_10_gene_sets = get_top10_oras_by_p_value(all_gene_sets,enriched_gene_sets,"enrichment")
-ggp = make_oras_bar_chart(top_10_gene_sets,x_axis_label,y_axis_label,non_significant_colour,significant_colour,bar_outline_size,bar_transparency,legend_position,significant_name,non_significant_name,data_label_size)
-save_plot(ggp,plot_height,plot_width,"<*path*>plots/differential_expression_signature/signature_ora_enrichment/<*type*>/signature_<*de_signature*>_enriched_gene_sets_barchart.png<*/path*>")
-
-<*/per_de_signature_hyper_gs*>
-
+<*per_ora*>
+for (signature in 1:nrow(signature_summary))
+{
+  all_gene_sets = read.table(file=paste0("data/statistical_analysis/differential_expression_signature/over_representation_analysis/<*type*>/signature_",signature,"/all_gene_sets_results.csv"), header=TRUE, sep='\t', quote='',check.names = TRUE)
+  enriched_gene_sets = read.table(file=paste0("data/statistical_analysis/differential_expression_signature/over_representation_analysis/<*type*>/signature_",signature,"/enriched_gene_sets_results.csv"), header=TRUE, sep='\t', quote='',check.names = TRUE)
+  top_10_gene_sets = get_top10_oras_by_p_value(all_gene_sets,enriched_gene_sets,"enrichment")
+  ggp = make_oras_bar_chart(top_10_gene_sets,x_axis_label,y_axis_label,non_significant_colour,significant_colour,bar_outline_size,bar_transparency,legend_position,significant_name,non_significant_name,data_label_size)
+  save_plot(ggp,plot_height,plot_width,paste0("plots/differential_expression_signature/signature_ora_enrichment/<*type*>/signature_",signature,"_enriched_gene_sets_barchart.png"))
+}
+<*/per_ora*>

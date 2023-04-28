@@ -1,5 +1,5 @@
 PLOT_ID=ora_enriched_gene_set_network_plots
-TITLE=Enriched Gene Set Network Plots
+TITLE=Enrichment Network Plots
 PLOTS_PER_ROW=2
 
 <*per_hypergeom_gene_set*>

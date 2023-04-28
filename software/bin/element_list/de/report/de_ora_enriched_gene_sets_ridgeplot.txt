@@ -1,5 +1,5 @@
 PLOT_ID=ora_enriched_gene_sets_ridgeplot
-TITLE=Enriched Gene Set Ridgeplots
+TITLE=Enrichment Ridgeplots
 PLOTS_PER_ROW=2
 
 <*per_hypergeom_gene_set*>
