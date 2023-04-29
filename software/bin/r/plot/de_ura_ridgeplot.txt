@@ -1,7 +1,7 @@
 ####---- Upstream Regulators (Ridge plots) ----####
 
 plot_height = 350
-plot_width = 1000
+plot_width = 500
 colours_gradient = c(default_3way_sig_two_colour, default_3way_sig_one_colour)
 colours_discrete = c(default_2way_sig_colour, default_2way_non_sig_colour)
 significant_name = "significant"

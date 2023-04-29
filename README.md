@@ -2,7 +2,7 @@
 
 ![link](/software/bin/report/logo.png)
 
-### Rapid and automated bulk, spatial and psuedo RNA-seq exploration and visualisation 
+### Rapid and automated bulk, GEOmx and psuedo-bulk RNA-seq exploration and visualisation 
 
 <br>
 
@@ -31,17 +31,15 @@
 
 <br>
 
-Analysis and visualisation of RNA-seq datasets is a time and cost bottleneck. Searchlight2 automates this step, allowing your project to proceed rapidly and with minimum fuss.  Searchlight2 accepts standard bulk, spatial (GEOmx) and psuedo RNA-seq inputs and produces a wide range of outputs. It uses a pre-built workflow system, which allow it deeply explore data from any experimental design or organism. 
-
-Its range of outputs include:
+Analysis and visualisation of RNA-seq datasets is a time and cost bottleneck. Searchlight2 automates this step, allowing your project to proceed rapidly and with minimum fuss.  Searchlight2 accepts standard bulk, GEOmx and psuedo-bulk RNA-seq inputs and produces a wide range of outputs. It uses a pre-built workflow system, which allow it deeply explore data from any experimental design or organism. Its range of outputs include:
 1. Typical plots and analysis, such as Volcano, MA, PCA, heatmaps, pathway analysis, overlap analysis, signature analysis, and much more.
 2. Results presented as png, svg and collated into reports, which include ready-made methods and legends. 
 3. Raw data files
 4. R scripts for all plots.
 5. An R Shiny app, making it easy for wet-lab scientists to modify any plot visually.
-6. An R-snippet database allowing users change the default appearance of plots 
+6. An R-snippet database allowing users change the default appearance of plots. 
 
-Searchlight2 is 100% automated, and executed as a single command. It has been designed by project bioinformaticians, and is highly sympathetic to the needs of wet-lab scientists and bioinformatic service providers.
+Searchlight2 is 100% automated, and executed as a single command. It has been designed by project bioinformaticians, and is highly sympathetic to the needs of wet-lab scientists and bioinformatic service providers. It can complete analysis projects in minutes, so you can focus on interpretation.
 
 <br>
 
@@ -49,8 +47,8 @@ Searchlight2 is 100% automated, and executed as a single command. It has been de
 
 <br>
 
-From the outset it is important to note that Searchlight2 is not a processing pipeline as it does not perform alignment, count reads or calculate expression and
-differential expression values. These stages must be completed prior to the use of Searchlight2. Any processing pipeline is suitable (FastP, Hisat2, Star2, Kallisto, Deseq2, EdgeR, etc.), so long as you have a matrix of expression values (TPM, RPKM, Rlog, etc) and at least one differential expression table (DEseq2, EdgeR, etc) you may use Searchlight2. 
+From the outset it is important to note that Searchlight2 is an analysis and not a processing pipeline. It does not perform alignment, count reads or calculate expression and
+differential expression values. These stages should be completed prior to the use of Searchlight2, and increasingly are generated for you in advance by sequencing providers. Any processing pipeline is suitable (FastP, Hisat2, Star2, Kallisto, Deseq2, EdgeR, etc.), so long as you have a matrix of expression values (TPM, RPKM, Rlog, etc) and at least one differential expression table (DEseq2, EdgeR, etc) you may use Searchlight2. 
 
 Searchlight2 is executed as a single command. Firstly, it validates the input files and combines them into a single “master gene table”, from which the downstream analysis is based. Next, it iterates through each workflow, generating: intermediate files; statistical analysis result files; per plot and per workflow R scripts, plots; a report in HMTL; and finally a Shiny app.
 
@@ -113,11 +111,11 @@ Searchlight2 is strict about the format of its inputs (but not the source) to en
 * Expression Matrix (EM). Any standard matrix of expression values (TPM, RPKM, Rlog, etc). With genes by row and samples by column. The first column should be the gene ID (Ensembl, Refseq, etc). There must be a header row with the first cell as "ID" and the rest the sample names. Sample names can't start with a number and can only include numbers, letters and underscore (_). [Here is an example EM file.](https://github.com/Searchlight2/Searchlight2/blob/master/sample_datasets/EM.tsv)
 
 
-* Differential expression table(s) (DE). Any standard differential expression table (DESeq2, EdgeR, etc). With the genes by row and the columns trimmed down to include only: gene ID, log2 fold change, p-value and adjusted p-value (in this order). There must be a header row with the headers as exactly: "ID", "Log2Fold", "P", "P.Adj". Not case sensitive, ignoring the quotes. The ID type must be the same as the expression matrix. I.e you can't use ensembl IDs for the expression matrix and Refseq for the differential expression tables. Please supply one differential expression table per comparison. [Here is an example DE file.](https://github.com/Searchlight2/Searchlight2/blob/master/sample_datasets/WT_vs_KO.tsv)
+* Differential expression table(s) (DE). Any standard differential expression table (DESeq2, EdgeR, etc). With the genes by row and the columns trimmed down to include only: gene ID, log2 fold change, p-value and adjusted p-value (in this order). There must be a header row with the headers as exactly: "ID", "Log2Fold", "P", "P.Adj". Not case sensitive, ignoring the quotes. The ID type must be the same as the expression matrix. I.e. you can't use ensembl IDs for the expression matrix and Refseq for the differential expression tables. Please supply one differential expression table per comparison. [Here is an example DE file.](https://github.com/Searchlight2/Searchlight2/blob/master/sample_datasets/WT_vs_KO.tsv)
 
-* Sample sheet (SS). A standard tab delimited sample sheet listing each sample by name in the first column and the sample group it belongs to in the second. There must be a header row with the headers as exactly: "sample", "sample_group". Not case sensitive, ignoring the quotes. If you have several layers of sample groupings (such as cell type and also treatment and also age) you may include additional coulmns, under any header that you wish. Sample names and sample group names can't start with a number and can only include numbers, letters and underscore (_). [Here is an example SS file.](https://github.com/Searchlight2/Searchlight2/blob/master/sample_datasets/SS.tsv)
+* Sample sheet (SS). A standard tab delimited sample sheet listing each sample by name in the first column and the sample group it belongs to in the second. There must be a header row with the headers as exactly: "sample", "sample_group". Not case-sensitive, ignoring the quotes. If you have several layers of sample groupings (such as cell type and also treatment and also age) you may include additional coulmns, under any header that you wish. Sample names and sample group names can't start with a number and can only include numbers, letters and underscore (_). [Here is an example SS file.](https://github.com/Searchlight2/Searchlight2/blob/master/sample_datasets/SS.tsv)
 
-* Background file (BG). A typical background annotation file for the organism and transcriptome build, listing all genes. We supply several of these with the software and they can easily be generated from Ensembls biomart. Genes should be in rows and specific annotation by column. The file must only have the annotations: Gene ID, Gene Symbol, Chromosome, Start position, Stop position and Biotype (type of gene). There must be a header row with the headers as exactly: "ID", "Symbol", "Chromosome", "Start", "Stop", "Biotype". Not case sensitive, ignoring the quotes. If you are unsure as to the gene symbol, just use the ID. If you are unsure at to the biotype simply put "gene" in every cell for that column. Please be aware, for every unique biotype (e.g. coding_gene, linc_RNA, etc) you enter Searchlgiht2 will perform and entire additional analysis (as well as asingle combined), which can be slow. For that reason we recommend simply to have all biotypes set as "gene" in you BG file, for your first few runs. [Here is an example BG file.](https://github.com/Searchlight2/Searchlight2/blob/master/backgrounds/human_GRCh38.p13.tsv)
+* Background file (BG). A typical background annotation file for the organism and transcriptome build, listing all genes. We supply several of these with the software and they can easily be generated from Ensembls biomart. Genes should be in rows and specific annotation by column. The file must only have the annotations: Gene ID, Gene Symbol, Chromosome, Start position, Stop position and Biotype (type of gene). There must be a header row with the headers as exactly: "ID", "Symbol", "Chromosome", "Start", "Stop", "Biotype". Not case-sensitive, ignoring the quotes. If you are unsure as to the gene symbol, just use the ID. If you are unsure at to the biotype simply put "gene" in every cell for that column. Please be aware, for every unique biotype (e.g. coding_gene, linc_RNA, etc) you enter Searchlight2 will perform and entire additional analysis (as well as a single combined), which can be slow. For that reason we recommend simply to have all biotypes set as "gene" in you BG file, for your first few runs. [Here is an example BG file.](https://github.com/Searchlight2/Searchlight2/blob/master/backgrounds/human_GRCh38.p13.tsv)
 
 <br>
 
