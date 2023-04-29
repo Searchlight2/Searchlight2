@@ -33,7 +33,7 @@
 
 Analysis and visualisation of RNA-seq datasets is a time and cost bottleneck. Searchlight2 automates this step, allowing your project to proceed rapidly and with minimum fuss.  Searchlight2 accepts standard bulk, GEOmx and psuedo-bulk RNA-seq inputs and produces a wide range of outputs. It uses pre-built workflows , allowing it deeply explore data from any experimental design or organism. Its range of outputs include:
 1. Typical plots and analysis, such as Volcano, MA, PCA, heatmaps, pathway analysis, upstream regulator, overlap analysis, expression density, fold-vs-fold, signature analysis, and much more.
-2. Results presented as png, svg and collated into reports, which include ready-made methods and legends. 
+2. Results presented as publication quality png and svg files, collated into reports. Which include ready-made methods and legends. 
 3. Raw data files
 4. R scripts for all plots.
 5. An R Shiny app, making it easy for wet-lab scientists to modify any plot visually.
