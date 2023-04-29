@@ -2,7 +2,7 @@
 
 ![link](/software/bin/report/logo.png)
 
-### Rapid and automated bulk, GEOmx and psuedo-bulk RNA-seq exploration and visualisation 
+### Rapid bulk, GEOmx and psuedo-bulk RNA-seq analysis and visualisation 
 
 <br>
 
