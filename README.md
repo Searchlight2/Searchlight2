@@ -31,19 +31,17 @@
 
 <br>
 
-Analysis and visualisation of RNA-seq datasets is a time and cost bottleneck. Searchlight2 automates this step, allowing your project to proceed rapidly and with minimum fuss.
-
-Searchlight2 accepts standard bulk, spatial (GEOmx) and psuedo RNA-seq inputs and produces a wide range of outputs. It uses independent workflows covering expression, differential expression and signature analysis, which allows it to be suitable for use with any experimental design or organism.
+Analysis and visualisation of RNA-seq datasets is a time and cost bottleneck. Searchlight2 automates this step, allowing your project to proceed rapidly and with minimum fuss.  Searchlight2 accepts standard bulk, spatial (GEOmx) and psuedo RNA-seq inputs and produces a wide range of outputs. It uses a pre-built workflow system, which allow it deeply explore data from any experimental design or organism. 
 
 Its range of outputs include:
 1. Typical plots and analysis, such as Volcano, MA, PCA, heatmaps, pathway analysis, overlap analysis, signature analysis, and much more.
 2. Results presented as png, svg and collated into reports, which include ready-made methods and legends. 
-3. R scripts for all plots.
-4. An R Shiny app, making it easy for wet-lab scientists to modify any plot visually.
-5. An R-snippet database allowing users change the default appearance of plots 
+3. Raw data files
+4. R scripts for all plots.
+5. An R Shiny app, making it easy for wet-lab scientists to modify any plot visually.
+6. An R-snippet database allowing users change the default appearance of plots 
 
-Searchlight2 is 100% automated, and executed as a single command.
-
+Searchlight2 is 100% automated, and executed as a single command. It has been designed by project bioinformaticians, and is highly sympathetic to the needs of wet-lab scientists and bioinformatic service providers.
 
 <br>
 
