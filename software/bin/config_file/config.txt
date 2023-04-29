@@ -81,6 +81,7 @@ de_plot_ora_enriched_gene_sets_boxplots	true:plot:ora	de/plots/de_ora_enriched_g
 de_plot_ora_enriched_gene_sets_network_plots	true:plot:ora	de/plots/de_ora_enriched_gene_sets_network_plots.txt
 de_plot_ora_underenriched_gene_barcharts	true:plot:ora	de/plots/de_ora_underenriched_gene_sets_barcharts.txt
 de_plot_ura_barcharts	true:plot:ura	de/plots/de_ura_barcharts.txt
+de_plot_ura_ridgeplot	true:plot:ura	de/plots/de_ura_ridgeplot.txt
 de_plot_ura_boxplots	true:plot:ura	de/plots/de_ura_boxplots.txt
 de_plot_ura_network_plots	true:plot:ura	de/plots/de_ura_network_plots.txt
 de_plot_spatial_enrichment_table	true:plot:spatial	de/plots/de_spatial_enrichment_table.txt
@@ -112,6 +113,7 @@ de_report_ora_enriched_gene_sets_network_plots	true:report_plot:ora	de/report/de
 de_report_ora_underenriched_gene_barcharts	true:report_plot:ora	de/report/de_ora_underenriched_gene_sets_barcharts.txt
 de_report_upstream_regulators	true:report_title:ura	Upstream Regulators
 de_report_ura_barcharts	true:report_plot:ura	de/report/de_ura_barcharts.txt
+de_report_ura_ridgeplot	true:report_plot:ura	de/report/de_ura_ridgeplot.txt
 de_report_ura_boxplots	true:report_plot:ura	de/report/de_ura_boxplots.txt
 de_report_ura_network_plots	true:report_plot:ura	de/report/de_ura_network_plots.txt
 de_report_spatial_enrichment	true:report_title:spatial	Spatial Analysis

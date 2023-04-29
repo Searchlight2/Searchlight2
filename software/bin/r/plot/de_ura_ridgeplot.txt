@@ -1,0 +1,37 @@
+####---- Upstream Regulators (Ridge plots) ----####
+
+plot_height = 350
+plot_width = 1000
+colours_gradient = c(default_3way_sig_two_colour, default_3way_sig_one_colour)
+colours_discrete = c(default_2way_sig_colour, default_2way_non_sig_colour)
+significant_name = "significant"
+non_significant_name = "non-significant"
+x_axis_label = expression("log"[2]* " fold change")
+y_axis_label = ""
+ridge_transparency = 0.5
+legend_position = "bottom"
+
+<*per_ura*>
+top_n_gene_sets = get_top10_ura_function(<*type*>_all_gene_sets,<*type*>_enriched_gene_sets,"enriched")
+ggp = make_ora_ridgeplot(top_n_gene_sets, de_annotated, colours_gradient, x_axis_label, y_axis_label, ridge_transparency, legend_position, TRUE, significant_name, non_significant_name)
+save_plot(ggp,plot_height,plot_width,"<*path*>plots/upstream_regulator_analysis/<*type*>/enriched/enriched_upstream_regulators_ridgeplot.png<*/path*>")
+ggp = make_ora_ridgeplot(top_n_gene_sets, de_annotated, colours_gradient, x_axis_label, y_axis_label, ridge_transparency, legend_position, FALSE, significant_name, non_significant_name)
+save_plot(ggp,plot_height,plot_width,"<*path*>plots/upstream_regulator_analysis/<*type*>/enriched/enriched_upstream_regulators_ridgeplot_sig.png<*/path*>")
+
+significant_name = "activated"
+non_significant_name = "not-activated"
+top_n_upstream_regulators = get_top10_ura_function(<*type*>_all_gene_sets,<*type*>_activated_gene_sets, "activated")
+ggp = make_ura_ridgeplot(top_n_upstream_regulators, de_annotated, colours_gradient, x_axis_label, y_axis_label, ridge_transparency, legend_position, TRUE, significant_name, non_significant_name)
+save_plot(ggp,plot_height,plot_width,"<*path*>plots/upstream_regulator_analysis/<*type*>/activated/activated_upstream_regulators_ridgeplot.png<*/path*>")
+ggp = make_ura_ridgeplot(top_n_upstream_regulators, de_annotated, colours_gradient, x_axis_label, y_axis_label, ridge_transparency, legend_position, FALSE, significant_name, non_significant_name)
+save_plot(ggp,plot_height,plot_width,"<*path*>plots/upstream_regulator_analysis/<*type*>/activated/activated_upstream_regulators_ridgeplot_sig.png<*/path*>")
+
+significant_name = "inhibited"
+non_significant_name = "not-inhibited"
+top_n_upstream_regulators = get_top10_ura_function(<*type*>_all_gene_sets,<*type*>_activated_gene_sets, "inhibited")
+ggp = make_ura_ridgeplot(top_n_upstream_regulators, de_annotated, colours_gradient, x_axis_label, y_axis_label, ridge_transparency, legend_position, TRUE, significant_name, non_significant_name)
+save_plot(ggp,plot_height,plot_width,"<*path*>plots/upstream_regulator_analysis/<*type*>/inhibited/inhibited_upstream_regulators_ridgeplot.png<*/path*>")
+ggp = make_ura_ridgeplot(top_n_upstream_regulators, de_annotated, colours_gradient, x_axis_label, y_axis_label, ridge_transparency, legend_position, FALSE, significant_name, non_significant_name)
+save_plot(ggp,plot_height,plot_width,"<*path*>plots/upstream_regulator_analysis/<*type*>/inhibited/inhibited_upstream_regulators_ridgeplot_sig.png<*/path*>")
+<*/per_ura*>
+

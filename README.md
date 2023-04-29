@@ -2,7 +2,7 @@
 
 ![link](/software/bin/report/logo.png)
 
-### Automated bulk RNA-seq exploration and visualisation using dynamically generated R-scripts
+### Rapid and automated bulk, spatial and psuedo RNA-seq exploration and visualisation 
 
 <br>
 
@@ -31,22 +31,19 @@
 
 <br>
 
-Once bulk RNA-seq differential data has been processed, i.e. aligned and then expression and differential tables generated, there remains the essential process where the biology is explored, visualised and interpreted. Culminating in report, thesis or manuscript figures. The typical method for completing this downstream step is a manually coded command line and R based (or similar) analysis. Which can be laborious - taking days or even weeks to complete.
+Analysis and visualisation of RNA-seq datasets is a time and cost bottleneck. Searchlight2 automates this step, allowing your project to proceed rapidly and with minimum fuss.
 
-Searchlight2 is a bulk RNA-seq exploration, visualisation and interpretation pipeline, that aims to automate the downstream analysis. When used alongside any standard alignment and processing pipeline (e.g. Star2, Hisat2, Kallisto, DEseq2, EdgeR, etc.) investigators can complete bulk RNA-seq projects in a matter of hours and with minimal effort. To a standard that is indistiguishable from a manual R based analysis. 
+Searchlight2 accepts standard bulk, spatial (GEOmx) and psuedo RNA-seq inputs and produces a wide range of outputs. It uses independent workflows covering expression, differential expression and signature analysis, which allows it to be suitable for use with any experimental design or organism.
 
-It is not a complicated pipeline to use or understand. It's strength are: 
+Its range of outputs include:
+1. Typical plots and analysis, such as Volcano, MA, PCA, heatmaps, pathway analysis, overlap analysis, signature analysis, and much more.
+2. Results presented as png, svg and collated into reports, which include ready-made methods and legends. 
+3. R scripts for all plots.
+4. An R Shiny app, making it easy for wet-lab scientists to modify any plot visually.
+5. An R-snippet database allowing users change the default appearance of plots 
 
-1. A wide range of powerful and widely used analysis and visualization methods. 
-2. The use of independent workflows covering expression, differential expression and signature analyssis. These provide compatibility with and experiment, regardless of  design, complexity, biology or organism. Whilst also simplifying the analysis. 
-3. Generating comprehensive reports. 
-4. Its use of R and R Shiny for all plots, making it easy for bioinformaticians and wet-lab scientists to modify all plots visually.
-5. Its R-snippet database which allows users to modify the default appearance of all plots, to their own taste.
-6. Searchlight2 is 100% automated.
+Searchlight2 is 100% automated, and executed as a single command.
 
-Searchlight2 accepts typical RNA-seq downstream analysis inputs - such as a sample sheet, expression matrix and any number of differential expression tables.  It is designed to help bioinformaticians, RNA-seq service providers and bench scientists progress bulk RNA-seq research projects rapidly and with minimal effort, thus freeing up resources for further in-depth analysis or alternative analytical approaches.
-
-**A sample analysis with reports can be found in the software download at sample_datasets/results.zip**
 
 <br>
 
@@ -101,8 +98,8 @@ Searchlight2 can be downloaded from this Github page. By clicking the green "Cod
 * No further installation is required for the software
 * Next, you will need to install Python (3+) and the libraries Scipy and Numpy. [Here is an online guide](https://wiki.python.org/moin/BeginnersGuide/Download)
 * Next, you will need to install R. We recommend doing so via RStudio (choose the free version). [Here is an online guide](https://rstudio.com/products/rstudio/download/)
-* Finally, you will need to install several widely used R-packages: ggplot2, reshape, amap, grid, gridExtra, gtable, ggally, network, sna. [Here is an online guide](https://www.datacamp.com/community/tutorials/r-packages-guide)
-* If you also want to use the Shiny app feature you will need to install these additional R packages: shiny, shinyFiles, fs, shinycssloaders, graphics, dplyr.
+* Finally, you will need to install several widely used R-packages: ggplot2, ggridges, ggrepel, reshape, amap, grid, gridExtra, gtable, ggally, network, sna. [Here is an online guide](https://www.datacamp.com/community/tutorials/r-packages-guide)
+* If you  want to use the Shiny app feature you will need to install these additional R packages: shiny, shinyFiles, fs, shinycssloaders, graphics, dplyr.
 
 If you do not pre-install the R libraries Searchlight2 will run successfully and produce plot R code and reports, however it won't be able to generate the actual images.
 

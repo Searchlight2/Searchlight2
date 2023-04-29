@@ -1,0 +1,20 @@
+PLOT_ID=ura_ridgeplots
+TITLE=Upstream Regulator Ridgeplots
+PLOTS_PER_ROW=2
+
+<*per_ura*>
+SUB_TITLE=Most Enriched Upstream Regulators (<*ura_type*>)
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/enriched/enriched_upstream_regulators_ridgeplot_sig.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/enriched/enriched_upstream_regulators_ridgeplot.png
+SUB_TITLE=Most Activated Upstream Regulators (<*ura_type*>)
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/activated/activated_upstream_regulators_ridgeplot_sig.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/activated/activated_upstream_regulators_ridgeplot.png
+SUB_TITLE=Most Inhibited Upstream Regulators (<*ura_type*>)
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/inhibited/inhibited_upstream_regulators_ridgeplot_sig.png
+PLOT_PATH=plots/upstream_regulator_analysis/<*ura_type*>/inhibited/inhibited_upstream_regulators_ridgeplot.png
+<*/per_ura*>
+
+
+R_CODE_PATH=plots/upstream_regulator_analysis/ura_ridgeplots.r
+PLOT_DESCRIPTION=/bin/report/plot_description/de_ura_ridgeplots.txt
+PLOT_LEGEND=/bin/report/plot_legend/de_ura_ridgeplots.txt

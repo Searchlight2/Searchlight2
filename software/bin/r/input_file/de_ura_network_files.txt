@@ -1,4 +1,4 @@
-####---- de IPA UREG network files ----####
+####---- Upstream regulator network files ----####
 
 <*per_ura*>
 <*type*>_enriched_ura_nodes = read.table(file="<*path*>data/statistical_analysis/upstream_regulator_analysis/<*type*>/network_data/enriched_uregs_nodes.csv<*/path*>", header=TRUE, sep='\t', quote='',check.names = TRUE)
