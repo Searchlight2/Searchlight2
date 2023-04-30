@@ -2,14 +2,18 @@ R_CODE_OUTPATH=plots/upstream_regulator_analysis/ura_network_plots.r
 
 library/network_libraries.txt
 input_file/working_directory.txt
+input_file/de_ura_activation_and_enrichment_files.txt
 input_file/de_ura_network_files.txt
 default_aesthetic/SL2_theme.txt
-default_aesthetic/default_two_tone_network_node_colours.txt
+default_aesthetic/default_GGplot_colours_function.txt
 default_aesthetic/default_four_tone_network_node_colours.txt
 default_aesthetic/default_network_edge_colour.txt
-helper_function/scale_values_from_0_to_1_function.txt
 helper_function/save_plot.txt
+helper_function/scale_values_from_0_to_1_function.txt
+helper_function/cluster_network_function.txt
 plot_function/ora_network_plot_function.txt
+plot_function/ura_network_cluster_wordcloud_function.txt
 plot_function/ura_network_plot_function.txt
-plot/de_ura_network_plots.txt
-
+plot/de_ura_enrichment_network_plot.txt
+plot/de_ura_enrichment_word_cloud.txt
+plot/de_ura_activation_inhibition_network_plot.txt

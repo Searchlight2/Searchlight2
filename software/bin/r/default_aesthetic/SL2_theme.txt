@@ -5,7 +5,7 @@ theme_SL2 <- function () {
         theme(
 	    panel.grid = element_blank(),
             panel.background = element_blank(),
-            panel.border = element_rect(colour = "black", fill=NA, size=1),
+            panel.border = element_rect(colour = "black", fill=NA, linewidth=1),
             plot.background = element_blank(), 
             legend.background = element_rect(fill="transparent", colour=NA),
             legend.key = element_rect(fill="transparent", colour=NA),

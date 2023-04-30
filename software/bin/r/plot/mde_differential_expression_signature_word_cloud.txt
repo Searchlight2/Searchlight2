@@ -1,0 +1,19 @@
+####---- Differential Expression Signatures ORA Enriched Gene Sets (Network Word Clouds) ----####
+
+plot_height = 2000
+plot_width = 2000
+topn = 16
+
+<*per_ora*>
+for (signature in 1:nrow(signature_summary))
+{
+  edges = read.table(file=paste0("data/statistical_analysis/differential_expression_signature/over_representation_analysis/<*type*>/signature_",signature,"/network_data/enriched_gene_sets_edges.csv"), header=TRUE, sep='\t', quote='',check.names = TRUE)
+  nodes = read.table(file=paste0("data/statistical_analysis/differential_expression_signature/over_representation_analysis/<*type*>/signature_",signature,"/network_data/enriched_gene_sets_nodes.csv"), header=TRUE, sep='\t', quote='',check.names = TRUE)
+  enriched_gene_sets = read.table(file=paste0("data/statistical_analysis/differential_expression_signature/over_representation_analysis/<*type*>/signature_",signature,"/enriched_gene_sets_results.csv"), header=TRUE, sep='\t', quote='',check.names = TRUE)
+  table_path = paste0("data/statistical_analysis/differential_expression_signature/over_representation_analysis/<*type*>/signature_",signature,"/network_data/")
+  plot_path = paste0("<*path*>plots/differential_expression_signature/signature_ora_networks/<*type*>/<*/path*>signature_",signature,"_enriched_gene_sets")
+  make_ora_network_word_cloud(edges, nodes, enriched_gene_sets, topn, table_path, plot_path, plot_height, plot_width)
+}
+
+<*/per_ora*>
+

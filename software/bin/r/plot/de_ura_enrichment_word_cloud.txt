@@ -1,0 +1,13 @@
+####---- Upstream Regulator (Enriched Word Cloud) ----####
+
+plot_height = 1000
+plot_width = 1000
+topn = 16
+
+<*per_ura*>
+table_path = "<*path*>data/statistical_analysis/upstream_regulator_analysis/<*type*>/network_data/<*/path*>"
+plot_path = "<*path*>plots/upstream_regulator_analysis/<*type*>/enriched_gene_sets<*/path*>"
+make_ura_enrchment_network_word_cloud(<*type*>_enriched_ura_edges, <*type*>_enriched_ura_nodes, <*type*>_enriched_gene_sets, topn, table_path, plot_path, plot_height, plot_width)
+
+<*/per_ura*>
+

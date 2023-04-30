@@ -1,11 +1,13 @@
 PLOT_ID=differential_expression_signatures_ora_network_plots
 TITLE=Signature Network Plots
-PLOTS_PER_ROW=2
+PLOTS_PER_ROW=4
 
 <*per_de_signature_hypergeom_gene_set*>
 SUB_TITLE=Signature <*de_signature*> (<*hypergeom_type*>)
 PLOT_PATH=plots/differential_expression_signature/signature_ora_networks/<*hypergeom_type*>/signature_<*de_signature*>_enriched_gene_sets_network.png
 PLOT_PATH=plots/differential_expression_signature/signature_ora_networks/<*hypergeom_type*>/signature_<*de_signature*>_enriched_gene_sets_network_unlabelled.png
+PLOT_PATH=plots/differential_expression_signature/signature_ora_networks/<*hypergeom_type*>/signature_<*de_signature*>_enriched_gene_sets_network_cluster_wordcloud.png
+PLOT_PATH=plots/differential_expression_signature/signature_ora_networks/<*hypergeom_type*>/signature_<*de_signature*>_enriched_gene_sets_network_cluster_genes.png
 <*/per_de_signature_hypergeom_gene_set*>
 
 R_CODE_PATH=plots/differential_expression_signature/signature_ora_networks.r

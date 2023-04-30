@@ -2,7 +2,7 @@
 
 ![link](/software/bin/report/logo.png)
 
-### Rapid and automated bulk, GEOmx and psuedo-bulk RNA-seq analysis and visualisation 
+### Rapid and automated bulk, psuedo-bulk and GeoMx RNA-seq analysis and visualisation 
 
 <br>
 
@@ -94,11 +94,10 @@ Searchlight2 can be downloaded from this Github page. By clicking the green "Cod
 * No further installation is required for the software
 * Next, you will need to install Python (3+) and the libraries Scipy and Numpy. [Here is an online guide](https://wiki.python.org/moin/BeginnersGuide/Download)
 * Next, you will need to install R. We recommend doing so via RStudio (choose the free version). [Here is an online guide](https://rstudio.com/products/rstudio/download/)
-* Finally, you will need to install several widely used R-packages: ggplot2, ggridges, ggrepel, reshape, amap, grid, gridExtra, gtable, ggally, network, sna. [Here is an online guide](https://www.datacamp.com/community/tutorials/r-packages-guide)
+* Finally, you will need to install several widely used R-packages: ggplot2, ggridges, ggrepel, reshape, amap, grid, gridExtra, gtable, ggally, network, igraph, ggwordcloud, ggfittext. [Here is an online guide](https://www.datacamp.com/community/tutorials/r-packages-guide)
 * If you  want to use the Shiny app feature you will need to install these additional R packages: shiny, shinyFiles, fs, shinycssloaders, graphics, dplyr.
 
 If you do not pre-install the R libraries Searchlight2 will run successfully and produce plot R code and reports, however it won't be able to generate the actual images.
-
 <br>
 
 # Basic input files <a name="Basic_input_files"></a>

@@ -1,0 +1,21 @@
+####---- ORA Enriched Gene Sets (Network Word Clouds) ----####
+
+plot_height = 2000
+plot_width = 2000
+topn = 16
+
+<*per_ora*>
+table_path = "<*path*>data/statistical_analysis/over_representation_analysis/<*type*>/all_significant_genes/network_data/<*/path*>"
+plot_path = "<*path*>plots/over_representation_analysis/<*type*>/enriched_amongst_all_significant_genes/enriched_gene_sets<*/path*>"
+make_ora_network_word_cloud(<*type*>_all_significant_gene_sets_edges, <*type*>_all_significant_gene_sets_nodes, <*type*>_all_signficant_genes_enriched_gene_sets, topn, table_path, plot_path, plot_height, plot_width)
+
+table_path = "<*path*>data/statistical_analysis/over_representation_analysis/<*type*>/upregulated_genes/network_data/<*/path*>"
+plot_path = "<*path*>plots/over_representation_analysis/<*type*>/enriched_amongst_upregulated_genes/enriched_gene_sets<*/path*>"
+make_ora_network_word_cloud(<*type*>_upregulated_gene_sets_edges, <*type*>_upregulated_gene_sets_nodes, <*type*>_upregulated_enriched_gene_sets, topn, table_path, plot_path, plot_height, plot_width)
+
+table_path = "<*path*>data/statistical_analysis/over_representation_analysis/<*type*>/downregulated_genes/network_data/<*/path*>"
+plot_path = "<*path*>plots/over_representation_analysis/<*type*>/enriched_amongst_downregulated_genes/enriched_gene_sets<*/path*>"
+make_ora_network_word_cloud(<*type*>_downregulated_gene_sets_edges, <*type*>_downregulated_gene_sets_nodes, <*type*>_downregulated_enriched_gene_sets, topn, table_path, plot_path, plot_height, plot_width)
+
+<*/per_ora*>
+

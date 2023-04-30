@@ -1,0 +1,18 @@
+####---- Cluster Network Function ----####
+
+cluster_network <- function(edges, nodes)
+{
+  # sets the row names for nodes
+  row.names(nodes) = nodes$node
+
+  # gets the network clusters
+  g = graph_from_data_frame(edges, directed=TRUE, vertices=nodes)
+  fc = fastgreedy.community(as.undirected(g))
+  clusters = data.frame(cbind(fc$names, fc$membership))
+  names(clusters) = c("name", "cluster")
+  clusters$cluster = as.numeric(clusters$cluster)
+  nodes = merge(nodes, clusters, by = 1)
+
+  return(nodes)
+}
+

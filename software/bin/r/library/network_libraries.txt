@@ -1,6 +1,8 @@
 ####---- network libraries ----####
 
-library(GGally)
+library(igraph)
 library(network)
-library(sna)
+library(GGally)
+library(ggwordcloud)
+library(ggfittext)
 

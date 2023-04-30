@@ -1,0 +1,18 @@
+####---- Upstream Regulator (Enriched Network Plots) ----####
+
+plot_height = 1000
+plot_width = 1000
+
+node_outer_max_size = 10
+node_inner_max_size = 8
+node_label_size = 3
+
+<*per_ura*>
+ggp = make_ora_network_plot(<*type*>_enriched_ura_edges,<*type*>_enriched_ura_nodes,node_colours,node_outer_max_size,node_inner_max_size,node_label_size,TRUE)
+save_plot(ggp,plot_height,plot_width,"<*path*>plots/upstream_regulator_analysis/<*type*>/enriched_gene_sets_network_plot.png<*/path*>")
+
+ggp = make_ora_network_plot(<*type*>_enriched_ura_edges,<*type*>_enriched_ura_nodes,node_colours,node_outer_max_size,node_inner_max_size,node_label_size, FALSE)
+save_plot(ggp,plot_height,plot_width,"<*path*>plots/upstream_regulator_analysis/<*type*>/enriched_gene_sets_network_plot_unlabelled.png<*/path*>")
+
+<*/per_ura*>
+

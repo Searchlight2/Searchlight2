@@ -1,0 +1,103 @@
+####---- ORA Gene Set Network Word Cloud Function ----####
+
+make_ora_network_word_cloud <- function(edges, nodes, sig_gene_sets, topn, table_path, plot_path, plot_height, plot_width)
+{
+
+  set.seed(1)
+
+  if (nrow(edges) > 0) {
+
+    # cluster network
+    nodes = cluster_network(edges, nodes)
+
+    # sets the gene-sets
+    row.names(sig_gene_sets) = sig_gene_sets$gene_set
+
+    # table to store lists of genes and gene-sets per cluster
+    cluster_summary = data.frame(matrix("",nrow=max(nodes$cluster), ncol=3))
+    names(cluster_summary) = c("cluster", "names", "genes")
+
+    # creates combined lists of genes and gene-sets per cluster
+    for (row_index in 1:nrow(nodes))
+    {
+     node_data =  nodes[row_index,]
+     gene_set_data = sig_gene_sets[node_data$node,]
+     gene_set_name = gene_set_data$gene_set
+     gene_set_genes = gene_set_data$overlapping_gene_names
+
+     cluster_number = node_data$cluster
+     cluster_summary[cluster_number,"cluster"] = cluster_number
+     cluster_summary[cluster_number,"names"] = paste(cluster_summary[cluster_number,"names"], gene_set_name, sep=",")
+     cluster_summary[cluster_number,"genes"] = paste(cluster_summary[cluster_number,"genes"], gene_set_genes, sep=",")
+    }
+
+    # trim the unnecessary first comma
+    for (row_index in 1:nrow(cluster_summary))
+    {
+      cluster_summary[row_index,"names"] = sub(',', '', cluster_summary[row_index,"names"])
+      cluster_summary[row_index,"genes"] = sub(',', '', cluster_summary[row_index,"genes"])
+    }
+
+    # Collapse the duplicates in the gene lists
+    for (row_index in 1:nrow(cluster_summary))
+    {
+      genes = unique(unlist(lapply(cluster_summary[row_index,"genes"], function(x) unlist(strsplit(as.character(x),",")))))
+      genes = sort(genes[2:length(genes)])
+      cluster_summary[row_index,"genes"] = paste(genes,collapse=",")
+    }
+
+    # saves the table
+    write.table(cluster_summary, file=paste0(table_path,"enriched_gene_sets_network_clusters.csv") ,sep="\t", quote = FALSE, row.names = FALSE)
+
+    # filters to include only the top n clusters
+    cluster_summary_subset = subset(cluster_summary, as.numeric(cluster_summary$cluster) <= topn)
+
+
+    # removes commas from gene set names
+    cluster_summary_subset$names = gsub(",", "_",cluster_summary_subset$names)
+
+    # collapses the gene-set names, counting the times each word is used.
+    gene_sets_wc = data.frame()
+    for (row_index in 1:nrow(cluster_summary_subset))
+    {
+      gene_sets = unlist(lapply(cluster_summary_subset[row_index,"names"], function(x) unlist(strsplit(as.character(x),"_"))))
+      gene_sets = sort(gene_sets)
+      gene_sets = table(gene_sets)
+      gene_sets = data.frame(gene_sets)
+      gene_sets = gene_sets[order(gene_sets$Freq, decreasing = TRUE),]
+      gene_sets$cluster = row_index
+      gene_sets_wc = rbind(gene_sets_wc, gene_sets)
+    }
+
+    # creates the gene-set name plots
+    ggp_wc = ggplot(gene_sets_wc, aes(label = gene_sets, size = Freq, colour=factor(gene_sets_wc$cluster))) +
+      geom_text_wordcloud() +
+      scale_size_area(max_size = 24)+
+      facet_wrap(~cluster) +
+      scale_colour_manual(values=gg_color_hue(max(as.numeric(nodes$cluster)))) +
+      theme_minimal()
+    save_plot(ggp_wc,plot_height,plot_width,paste0(plot_path,"_network_cluster_wordcloud.png"))
+
+
+    # removes commas from gene names
+    cluster_summary_subset$genes = gsub(",", ", ",cluster_summary_subset$genes)
+
+    # plot the genes
+    cluster_summary_subset$cluster = factor(cluster_summary_subset$cluster, levels=rev(cluster_summary_subset$cluster))
+    ggp_genes = ggplot(cluster_summary_subset, aes(x=1, y=cluster, label=genes)) +
+      geom_tile(fill = "white", colour = "black") +
+      geom_fit_text(reflow = TRUE) + #,grow=TRUE
+      theme_minimal() +
+      theme(axis.title.x = element_blank(),axis.text.x = element_blank()) +
+      labs(x="")
+    save_plot(ggp_genes,plot_height,plot_width,paste0(plot_path,"_network_cluster_genes.png"))
+
+  }
+  else
+  {
+    ggp = ggplot(data.frame()) + theme_SL2() + geom_blank() + ggtitle("There were too few significant nodes to plot this.")
+    save_plot(ggp,plot_height,plot_width,paste0(plot_path,"_network_cluster_wordcloud.png"))
+    save_plot(ggp,plot_height,plot_width,paste0(plot_path,"_network_cluster_genes.png"))
+  }
+}
+
