@@ -22,9 +22,9 @@ if __name__ == '__main__':
     print("#####       Searchlight 2       #####")
     print("#####################################")
     print()
-    print("Rapid and automated bulk, psuedo-bulk and GeoMx RNA-seq analysis and visualisation")
+    print("Rapid analysis and visualisation for bulk RNA-seq, psuedo-bulk RNA-seq, GeoMx and Proteomic datasets")
     print("John J. Cole & Carl S. Goodyear")
-    print("University of Glasgow, 2023")
+    print("Glasgow Bioinformatic Core, 2023")
     print()
     print(version)
 
