@@ -147,9 +147,10 @@ By default Searchlight will look for R in the computers path file. On an Ubuntu 
 
 **This is necessary if you are using a Windows machine** or if Searchlight runs successfully to completion, but no plots appear in the plots folders or report.
 
+<br>
+<br>
 
-
-Normalised Expression             |  Differential Expression
+Figure 1             |  Figure 2
 :-------------------------:|:-------------------------:
 !<img src=https://github.com/Searchlight2/Searchlight2/blob/master/media/Slide1.JPG  width="500">  |  <img src=https://github.com/Searchlight2/Searchlight2/blob/master/media/Slide2.JPG  width="500">
 
