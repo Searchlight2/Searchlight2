@@ -9,21 +9,20 @@
 # Table of contents
 1. [Description](#Description)
 2. [Pipeline overview](#Pipeline_overview)
-3. [Example outputs](#Example_outputs)
-4. [Download and first time setup](#Download_and_first_time_setup)
-5. [Basic input files](#Basic_input_files)
-6. [Quick start guide](#Quick_start_guide)
-7. [Including a pathway analysis](#Including_a_pathway_analysis)
-8. [Datasets with more than one differential comparison](#Datasets_with_more_than_one_differential_comparison)
-9. [Including a formal signature analysis](#Including_a_formal_signature_analysis)
-10. [Using the order sub-parameter](#Using_the_order_sub_parameter)
-11. [Results](#Results)
-12. [Downstream modification of plots and visualisations](#Downstream_modification_of_plots_and_visualisations)
-13. [Default R settings](#Default_R_settings)
-14. [Pathway database formats](#Pathway_database_formats)
-15. [FAQ](#FAQ)
-16. [List of parameters](#List_of_parameters)
-17. [Contact and citation](#Contact_and_citation)
+3. [Download and first time setup](#Download_and_first_time_setup)
+4. [Input files](#Basic_input_files)
+5. [Quick start guide](#Quick_start_guide)
+6. [Including a pathway analysis](#Including_a_pathway_analysis)
+7. [Datasets with more than one differential comparison](#Datasets_with_more_than_one_differential_comparison)
+8. [Including a formal signature analysis](#Including_a_formal_signature_analysis)
+9. [Using the order sub-parameter](#Using_the_order_sub_parameter)
+10. [Results](#Results)
+11. [Downstream modification of plots and visualisations](#Downstream_modification_of_plots_and_visualisations)
+12. [Default R settings](#Default_R_settings)
+13. [Pathway database formats](#Pathway_database_formats)
+14. [FAQ](#FAQ)
+15. [List of parameters](#List_of_parameters)
+16. [Contact and citation](#Contact_and_citation)
 
 <br>
 
@@ -31,12 +30,12 @@
 
 <br>
 
-Analysis and visualisation of RNA-seq datasets is a time and cost bottleneck. Searchlight2 automates this step, allowing your project to proceed rapidly and with minimum fuss.  Searchlight2 accepts standard bulk, GEOmx and psuedo-bulk RNA-seq inputs and produces a wide range of outputs. It uses pre-built workflows , allowing it deeply explore data from any experimental design or organism. Its range of outputs include:
-1. Typical plots and analysis, such as Volcano, MA, PCA, heatmaps, pathway analysis, upstream regulator, overlap analysis, expression density, fold-vs-fold, signature analysis, and much more.
+The analysis and visualisation of RNA-seq datasets is a time and cost bottleneck. Searchlight2 automates this step, allowing your project to proceed rapidly and with minimum fuss. It accepts standard bulk, GEOmx and psuedo-bulk RNA-seq inputs, and produces a wide range of outputs. Searchlight2 uses a pre-built workflow system, allowing it deeply explore data from any experimental design or organism. Its range of outputs include:
+1. Plots and analysis, such as volcano, MA, PCA, heatmaps, top gene bopxplots, pathway analysis, upstream regulator analysis, overlap analysis, expression density, fold-vs-fold, signature analysis, and more.
 2. Results presented as publication quality png and svg files, collated into reports. Which include ready-made methods and legends. 
-3. Raw data files
+3. Statistical analysis data files and lists of significant, signature or enriched genes and pathways
 4. R scripts for all plots.
-5. An R Shiny app, making it easy for wet-lab scientists to modify any plot visually.
+5. An R Shiny app, making it easy for wet-lab scientists to modify each plot visually.
 6. An R-snippet database allowing users change the default appearance of plots. 
 
 Searchlight2 is 100% automated, and executed as a single command. It has been designed by project bioinformaticians, and is highly sympathetic to the needs of wet-lab scientists and bioinformatic service providers. It can complete analysis projects in minutes, so you can focus on interpretation.
@@ -47,74 +46,29 @@ Searchlight2 is 100% automated, and executed as a single command. It has been de
 
 <br>
 
-From the outset it is important to note that Searchlight2 is an analysis and not a processing pipeline. It does not perform alignment, count reads or calculate expression and
+It is important to note that Searchlight2 is an analysis and not a processing pipeline. It does not perform alignment, count reads or calculate expression and
 differential expression values. These stages should be completed prior to the use of Searchlight2, and increasingly are generated for you in advance by sequencing providers. Any processing pipeline is suitable (FastP, Hisat2, Star2, Kallisto, Deseq2, EdgeR, etc.), so long as you have a matrix of expression values (TPM, RPKM, Rlog, etc) and at least one differential expression table (DEseq2, EdgeR, etc) you may use Searchlight2. 
 
 Searchlight2 is executed as a single command. Firstly, it validates the input files and combines them into a single “master gene table”, from which the downstream analysis is based. Next, it iterates through each workflow, generating: intermediate files; statistical analysis result files; per plot and per workflow R scripts, plots; a report in HMTL; and finally a Shiny app.
 
 ![link](/media/outline.png)
 
-<br>
-
-# Example outputs <a name="Example_outputs"></a>
 
 <br>
 
-**A screenshot of the report format.** *Sample reports can be found in the software download at sample_datasets/results.zip*
-
-![link](/media/report.png)
+# Input files <a name="Basic_input_files"></a>
 
 <br>
 
-**A screenshot of the Shiny app**. 
+Searchlight2 is strict about the format of its inputs to ensure that your downstream analysis is correct. Setting up the input files is the most fiddly step first time round, but only takes a few minutes to do. **All input files for Searchlight2 must be tab delimited.**
 
-![link](/media/shiny.png)
-
-<br>
-
-**Example outputs from a dataset exploring the effect of TGFB1 on primary cardiac fibroblasts.** This dataset has two sample groups, control and cells treated with TGFB1. The analysis, interpretation and figure generation was completed by a bioinformatician using 44 minutes and 30 seconds of work from a starting point of raw counts. Using DESeq2 and Searchlight2.
-
-![link](/media/Ex1.png)
-
-<br>
-
-**Example outputs from a dataset exploring the synergistic effects of using a combination of RITA and CPI-203 on Chronic myeloid leukaemia (CML) haemopoietic stem cell (HSC) survival.** This dataset has four sample groups, Control, RITA, CPI and RITA plus CPI (Combo). The analysis, interpretation and figure generation was completed by a bioinformatician using 2 hours, 37 minutes and 11 seconds of work from a starting point of fastQ files. Using Star2, DESeq2 and Searchlight2.
-
-![link](/media/Ex3.png)
-
-<br>
-
-# Download and first time setup <a name="Download_and_first_time_setup"></a>
-
-<br>
-
-Searchlight2 can be downloaded from this Github page. By clicking the green "Code" button near the top right of the page. Then selecting Download Zip. 
-
-* Once downloaded place the zip file into a folder of choice and unzip
-* No further installation is required for the software
-* Next, you will need to install Python (3+) and the libraries Scipy and Numpy. [Here is an online guide](https://wiki.python.org/moin/BeginnersGuide/Download)
-* Next, you will need to install R. We recommend doing so via RStudio (choose the free version). [Here is an online guide](https://rstudio.com/products/rstudio/download/)
-* Finally, you will need to install several widely used R-packages: ggplot2, ggridges, ggrepel, reshape, amap, grid, gridExtra, gtable, ggally, network, igraph, ggwordcloud, ggfittext. [Here is an online guide](https://www.datacamp.com/community/tutorials/r-packages-guide)
-* If you  want to use the Shiny app feature you will need to install these additional R packages: shiny, shinyFiles, fs, shinycssloaders, graphics, dplyr.
-
-If you do not pre-install the R libraries Searchlight2 will run successfully and produce plot R code and reports, however it won't be able to generate the actual images.
-<br>
-
-# Basic input files <a name="Basic_input_files"></a>
-
-
-<br>
-
-Searchlight2 is strict about the format of its inputs (but not the source) to ensure that analysis is correct. Setting up the input files is the most fiddly step but only takes a few minutes. **All input files for Searchlight2 must be tab delimited.**
-
-* Expression Matrix (EM). Any standard matrix of expression values (TPM, RPKM, Rlog, etc). With genes by row and samples by column. The first column should be the gene ID (Ensembl, Refseq, etc). There must be a header row with the first cell as "ID" and the rest the sample names. Sample names can't start with a number and can only include numbers, letters and underscore (_). [Here is an example EM file.](https://github.com/Searchlight2/Searchlight2/blob/master/sample_datasets/EM.tsv)
-
+* Expression Matrix (EM). Any standard matrix of expression values (TPM, RPKM, Rlog, etc). With genes by row and samples by column. The first column should be the gene ID (Ensembl, Refseq, etc). There must be a header row, and the first header must be "ID". Not case-sensitive, ignoring the quotes. The remaining headers should be the sample names. Sample names can't start with a number and can only include numbers, letters and underscore (_). [Here is an example EM file.](https://github.com/Searchlight2/Searchlight2/blob/master/sample_datasets/EM.tsv)
 
 * Differential expression table(s) (DE). Any standard differential expression table (DESeq2, EdgeR, etc). With the genes by row and the columns trimmed down to include only: gene ID, log2 fold change, p-value and adjusted p-value (in this order). There must be a header row with the headers as exactly: "ID", "Log2Fold", "P", "P.Adj". Not case sensitive, ignoring the quotes. The ID type must be the same as the expression matrix. I.e. you can't use ensembl IDs for the expression matrix and Refseq for the differential expression tables. Please supply one differential expression table per comparison. [Here is an example DE file.](https://github.com/Searchlight2/Searchlight2/blob/master/sample_datasets/WT_vs_KO.tsv)
 
 * Sample sheet (SS). A standard tab delimited sample sheet listing each sample by name in the first column and the sample group it belongs to in the second. There must be a header row with the headers as exactly: "sample", "sample_group". Not case-sensitive, ignoring the quotes. If you have several layers of sample groupings (such as cell type and also treatment and also age) you may include additional coulmns, under any header that you wish. Sample names and sample group names can't start with a number and can only include numbers, letters and underscore (_). [Here is an example SS file.](https://github.com/Searchlight2/Searchlight2/blob/master/sample_datasets/SS.tsv)
 
-* Background file (BG). A typical background annotation file for the organism and transcriptome build, listing all genes. We supply several of these with the software and they can easily be generated from Ensembls biomart. Genes should be in rows and specific annotation by column. The file must only have the annotations: Gene ID, Gene Symbol, Chromosome, Start position, Stop position and Biotype (type of gene). There must be a header row with the headers as exactly: "ID", "Symbol", "Chromosome", "Start", "Stop", "Biotype". Not case-sensitive, ignoring the quotes. If you are unsure as to the gene symbol, just use the ID. If you are unsure at to the biotype simply put "gene" in every cell for that column. Please be aware, for every unique biotype (e.g. coding_gene, linc_RNA, etc) you enter Searchlight2 will perform and entire additional analysis (as well as a single combined), which can be slow. For that reason we recommend simply to have all biotypes set as "gene" in you BG file, for your first few runs. [Here is an example BG file.](https://github.com/Searchlight2/Searchlight2/blob/master/backgrounds/human_GRCh38.p13.tsv)
+* Background file (BG). A typical background annotation file for the organism and transcriptome build, listing all genes. We supply several of these with the software and they can easily be generated from Ensembls biomart. Genes should be in rows and specific annotation by column. The file must only have the annotations: Gene ID, Gene Symbol, Chromosome, Start position, Stop position and Biotype (type of gene). There must be a header row with the headers as exactly: "ID", "Symbol", "Chromosome", "Start", "Stop", "Biotype". Not case-sensitive, ignoring the quotes. If you are unsure as to the gene symbol, just use the ID. If you are unsure at to the biotype simply put "gene" in every cell for that column. Please be aware, for every unique biotype (e.g. coding_gene, linc_RNA, etc) you enter Searchlight2 will perform and entire additional analysis (as well as a single combined), which can be slow. For that reason **we recommend to have all biotypes set as "gene" in you BG file**, for your first few runs. [Here is an example BG file.](https://github.com/Searchlight2/Searchlight2/blob/master/backgrounds/human_GRCh38.p13.tsv)
 
 <br>
 
@@ -122,7 +76,7 @@ Searchlight2 is strict about the format of its inputs (but not the source) to en
 
 <br>
 
-To run Searchlight2, firstly ensure that you have correctly prepared your four basic input files as desribed [here](#Basic_input_files). The next (final) step is to set-up and run the command. Searchlight2 can be executed by navigating to the /Searchlight2/Software/ folder and running: 
+To run Searchlight2, firstly ensure that you have correctly prepared your four basic input files as desribed [here](#Basic_input_files). The next (and final) step is to set-up and run the command. Searchlight2 can be executed by navigating to the /Searchlight2/Software/ folder and running: 
 
 <br>
 
@@ -146,7 +100,7 @@ This will throw an error as you have not yet added the input parameters. Searchl
 
 <br>
 
-Mostly this is straightforward, except for the --de parameter which requires the additional sub-parameters: "numerator=" and denomintor=". Here you are expected to enter the names of the two sample groups that are being compared differentially. For example: if the DE file was of a comparison between WT and KO samples, we would enter numerator=KO,denominator=WT. The numerator should always be the sample group where a positive fold change in the DE file means an increase in expression. **It is very important to note** that the values entered into numerator= and denominator= (in this case KO & WT) must also be in the sample_group column of the sample sheet. With the same spelling. **Furthermore all paths must be complete from "root"** and not abbreviated from the working directory. **Importantly, do not put spaces between sub-parameters.**
+Mostly this is straightforward, except for the --de parameter which requires the additional sub-parameters: "numerator=" and denomintor=". Here you are expected to enter the names of the two sample groups that are being compared differentially. For example: if the DE file was of a comparison between WT and KO samples, we would enter numerator=KO,denominator=WT. The numerator should always be the sample group where a positive fold change in the DE file means an increase in expression. **It is very important to note** that the values entered into numerator= and denominator= (in this case KO & WT) must also be in the sample_group column of the sample sheet. With the same spelling. **Furthermore all paths must be complete from "root"** and not abbreviated from the working directory. Don't forget to wrap file paths in "" if they contain spaces. **Importantly, do not put spaces between sub-parameters.**
 
 <br>
 
@@ -155,7 +109,7 @@ To execute Searchlight2 using the provided sample dataset we might run the follo
 <br>
 
 ```
-python Searchlight2.py --out path=/home/john/Downloads/results --bg file=/home/john/Downloads/Searchlight2/backgrounds/mouse_GRCm38.p6.tsv --em file=/home/john/Downloads/Searchlight2/sample_datasets/EM.tsv --ss file=/home/john/Downloads/Searchlight2/sample_datasets/SS.tsv --de file=/home/john/Downloads/Searchlight2/sample_datasets/DE_WT_vs_KO.tsv ,numerator=KO,denominator=WT
+python Searchlight2.py --out path=/home/john/Downloads/results --bg file=/home/john/Downloads/Searchlight2/backgrounds/mouse_GRCm38.p6.tsv --em file=/home/john/Downloads/Searchlight2/sample_datasets/EM.tsv --ss file=/home/john/Downloads/Searchlight2/sample_datasets/SS.tsv --de file=/home/john/Downloads/Searchlight2/sample_datasets/DE_WT_vs_KO.tsv,numerator=KO,denominator=WT
 ```
 
 <br>
@@ -185,11 +139,21 @@ The default settings for deciding statistical significance are p.adj <= 0.05 and
 
 <br>
 
+By default Searchlight will look for R in the computers path file. On an Ubuntu or Mac machine this is equivalent to running the RScript command in the terminal. You can explicitly specify the path to the RScript command using the --r command:
+
+```
+--r path="C:\Program Files\R\R-4.2.3\bin\Rscript.exe"
+```
+
+**This is necessary if you are using a Windows machine** or if Searchlight runs successfully to completion, but no plots appear in the plots folders or report.
+
+<br>
+
 # Including a pathway analysis <a name="Including_a_pathway_analysis"></a>
 
 <br>
 
-In the results you may notice that it does not currently include a pathway analysis (over-representation analysis (ORA) or upstream regulator analysis (URA)). This is because we have yet to include an ORA or URA database (such as GEO or TRRUST). To include over-representation analysis add the --ora parameter to the command:
+In the results you may notice that it does not currently include a pathway analysis, such as over-representation analysis (ORA) or upstream regulator analysis (URA). This is because we have yet to include an ORA or URA database (such as GEO or TRRUST). To include over-representation analysis add the --ora parameter to the previous command:
 
 <br>
 
