@@ -151,7 +151,7 @@ By default Searchlight will look for R in the computers path file. On an Ubuntu 
 
 Normalised Expression             |  Differential Expression
 :-------------------------:|:-------------------------:
-!<img src=https://github.com/Searchlight2/Searchlight2/blob/master/media/Slide1.JPG  width="500" height="500">  |  <img src=https://github.com/Searchlight2/Searchlight2/blob/master/media/Slide2.JPG  width="500" height="500">
+!<img src=https://github.com/Searchlight2/Searchlight2/blob/master/media/Slide1.JPG  width="500">  |  <img src=https://github.com/Searchlight2/Searchlight2/blob/master/media/Slide2.JPG  width="500">
 
 <br>
 
