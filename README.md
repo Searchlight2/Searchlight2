@@ -148,9 +148,12 @@ By default Searchlight will look for R in the computers path file. On an Ubuntu 
 **This is necessary if you are using a Windows machine** or if Searchlight runs successfully to completion, but no plots appear in the plots folders or report.
 
 <br>
+
+Some examples of the types of plots expected are shown below. See further sections for extensive additional analysis types.
+
 <br>
 
-Figure 1             |  Figure 2
+Exmple figure 1             |  Example figure 2
 :-------------------------:|:-------------------------:
 !<img src=https://github.com/Searchlight2/Searchlight2/blob/master/media/Slide1.JPG  width="500">  |  <img src=https://github.com/Searchlight2/Searchlight2/blob/master/media/Slide2.JPG  width="500">
 
