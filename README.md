@@ -139,7 +139,7 @@ The default settings for deciding statistical significance are p.adj <= 0.05 and
 
 <br>
 
-By default Searchlight will looks for R in the computers path file. On an Ubuntu or Mac machine this is equivalent to running the RScript command in the terminal. You can explicitly specify the path to the RScript command using the --r command:
+By default Searchlight will look for R in the computers path file. On an Ubuntu or Mac machine this is equivalent to running the RScript command in the terminal. You can explicitly specify the path to the RScript command using the --r command:
 
 ```
 --r path="C:\Program Files\R\R-4.2.3\bin\Rscript.exe"
@@ -147,6 +147,7 @@ By default Searchlight will looks for R in the computers path file. On an Ubuntu
 
 **This is necessary if you are using a Windows machine** or if Searchlight runs successfully to completion, but no plots appear in the plots folders or report.
 
+<br>
 
 # Including a pathway analysis <a name="Including_a_pathway_analysis"></a>
 
