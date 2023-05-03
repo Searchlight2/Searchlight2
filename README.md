@@ -10,7 +10,7 @@
 1. [Description](#Description)
 2. [Pipeline overview](#Pipeline_overview)
 3. [Download and first time setup](#Download_and_first_time_setup)
-4. [Basic input files](#Basic_input_files)
+4. [Input files](#Basic_input_files)
 5. [Quick start guide](#Quick_start_guide)
 6. [Including a pathway analysis](#Including_a_pathway_analysis)
 7. [Datasets with more than one differential comparison](#Datasets_with_more_than_one_differential_comparison)
@@ -30,12 +30,12 @@
 
 <br>
 
-Analysis and visualisation of RNA-seq datasets is a time and cost bottleneck. Searchlight2 automates this step, allowing your project to proceed rapidly and with minimum fuss.  Searchlight2 accepts standard bulk, GEOmx and psuedo-bulk RNA-seq inputs and produces a wide range of outputs. It uses pre-built workflows , allowing it deeply explore data from any experimental design or organism. Its range of outputs include:
-1. Typical plots and analysis, such as Volcano, MA, PCA, heatmaps, pathway analysis, upstream regulator, overlap analysis, expression density, fold-vs-fold, signature analysis, and much more.
+The analysis and visualisation of RNA-seq datasets is a time and cost bottleneck. Searchlight2 automates this step, allowing your project to proceed rapidly and with minimum fuss. It accepts standard bulk, GEOmx and psuedo-bulk RNA-seq inputs, and produces a wide range of outputs. Searchlight2 uses a pre-built workflow system, allowing it deeply explore data from any experimental design or organism. Its range of outputs include:
+1. Plots and analysis, such as volcano, MA, PCA, heatmaps, top gene bopxplots, pathway analysis, upstream regulator analysis, overlap analysis, expression density, fold-vs-fold, signature analysis, and more.
 2. Results presented as publication quality png and svg files, collated into reports. Which include ready-made methods and legends. 
-3. Raw data files
+3. Statistical analysis data files and lists of significant, signature or enriched genes and pathways
 4. R scripts for all plots.
-5. An R Shiny app, making it easy for wet-lab scientists to modify any plot visually.
+5. An R Shiny app, making it easy for wet-lab scientists to modify each plot visually.
 6. An R-snippet database allowing users change the default appearance of plots. 
 
 Searchlight2 is 100% automated, and executed as a single command. It has been designed by project bioinformaticians, and is highly sympathetic to the needs of wet-lab scientists and bioinformatic service providers. It can complete analysis projects in minutes, so you can focus on interpretation.
@@ -56,14 +56,13 @@ Searchlight2 is executed as a single command. Firstly, it validates the input fi
 
 <br>
 
-# Basic input files <a name="Basic_input_files"></a>
+# Input files <a name="Basic_input_files"></a>
 
 <br>
 
-Searchlight2 is strict about the format of its inputs (but not the source) to ensure that analysis is correct. Setting up the input files is the most fiddly step but only takes a few minutes. **All input files for Searchlight2 must be tab delimited.**
+Searchlight2 is strict about the format of its inputs to ensure that your downstream analysis is correct. Setting up the input files is the most fiddly step first time round, but only takes a few minutes to do. **All input files for Searchlight2 must be tab delimited.**
 
-* Expression Matrix (EM). Any standard matrix of expression values (TPM, RPKM, Rlog, etc). With genes by row and samples by column. The first column should be the gene ID (Ensembl, Refseq, etc). There must be a header row with the first cell as "ID" and the rest the sample names. Sample names can't start with a number and can only include numbers, letters and underscore (_). [Here is an example EM file.](https://github.com/Searchlight2/Searchlight2/blob/master/sample_datasets/EM.tsv)
-
+* Expression Matrix (EM). Any standard matrix of expression values (TPM, RPKM, Rlog, etc). With genes by row and samples by column. The first column should be the gene ID (Ensembl, Refseq, etc). There must be a header row, and the first header must be "ID". Not case-sensitive, ignoring the quotes. The remaining headers should be the sample names. Sample names can't start with a number and can only include numbers, letters and underscore (_). [Here is an example EM file.](https://github.com/Searchlight2/Searchlight2/blob/master/sample_datasets/EM.tsv)
 
 * Differential expression table(s) (DE). Any standard differential expression table (DESeq2, EdgeR, etc). With the genes by row and the columns trimmed down to include only: gene ID, log2 fold change, p-value and adjusted p-value (in this order). There must be a header row with the headers as exactly: "ID", "Log2Fold", "P", "P.Adj". Not case sensitive, ignoring the quotes. The ID type must be the same as the expression matrix. I.e. you can't use ensembl IDs for the expression matrix and Refseq for the differential expression tables. Please supply one differential expression table per comparison. [Here is an example DE file.](https://github.com/Searchlight2/Searchlight2/blob/master/sample_datasets/WT_vs_KO.tsv)
 
@@ -77,7 +76,7 @@ Searchlight2 is strict about the format of its inputs (but not the source) to en
 
 <br>
 
-To run Searchlight2, firstly ensure that you have correctly prepared your four basic input files as desribed [here](#Basic_input_files). The next (final) step is to set-up and run the command. Searchlight2 can be executed by navigating to the /Searchlight2/Software/ folder and running: 
+To run Searchlight2, firstly ensure that you have correctly prepared your four basic input files as desribed [here](#Basic_input_files). The next (and final) step is to set-up and run the command. Searchlight2 can be executed by navigating to the /Searchlight2/Software/ folder and running: 
 
 <br>
 
@@ -110,7 +109,7 @@ To execute Searchlight2 using the provided sample dataset we might run the follo
 <br>
 
 ```
-python Searchlight2.py --out path=/home/john/Downloads/results --bg file=/home/john/Downloads/Searchlight2/backgrounds/mouse_GRCm38.p6.tsv --em file=/home/john/Downloads/Searchlight2/sample_datasets/EM.tsv --ss file=/home/john/Downloads/Searchlight2/sample_datasets/SS.tsv --de file=/home/john/Downloads/Searchlight2/sample_datasets/DE_WT_vs_KO.tsv ,numerator=KO,denominator=WT
+python Searchlight2.py --out path=/home/john/Downloads/results --bg file=/home/john/Downloads/Searchlight2/backgrounds/mouse_GRCm38.p6.tsv --em file=/home/john/Downloads/Searchlight2/sample_datasets/EM.tsv --ss file=/home/john/Downloads/Searchlight2/sample_datasets/SS.tsv --de file=/home/john/Downloads/Searchlight2/sample_datasets/DE_WT_vs_KO.tsv,numerator=KO,denominator=WT
 ```
 
 <br>
@@ -144,7 +143,7 @@ The default settings for deciding statistical significance are p.adj <= 0.05 and
 
 <br>
 
-In the results you may notice that it does not currently include a pathway analysis (over-representation analysis (ORA) or upstream regulator analysis (URA)). This is because we have yet to include an ORA or URA database (such as GEO or TRRUST). To include over-representation analysis add the --ora parameter to the command:
+In the results you may notice that it does not currently include a pathway analysis, such as over-representation analysis (ORA) or upstream regulator analysis (URA). This is because we have yet to include an ORA or URA database (such as GEO or TRRUST). To include over-representation analysis add the --ora parameter to the previous command:
 
 <br>
 
