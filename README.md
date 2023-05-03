@@ -100,7 +100,7 @@ This will throw an error as you have not yet added the input parameters. Searchl
 
 <br>
 
-Mostly this is straightforward, except for the --de parameter which requires the additional sub-parameters: "numerator=" and denomintor=". Here you are expected to enter the names of the two sample groups that are being compared differentially. For example: if the DE file was of a comparison between WT and KO samples, we would enter numerator=KO,denominator=WT. The numerator should always be the sample group where a positive fold change in the DE file means an increase in expression. **It is very important to note** that the values entered into numerator= and denominator= (in this case KO & WT) must also be in the sample_group column of the sample sheet. With the same spelling. **Furthermore all paths must be complete from "root"** and not abbreviated from the working directory. **Importantly, do not put spaces between sub-parameters.**
+Mostly this is straightforward, except for the --de parameter which requires the additional sub-parameters: "numerator=" and denomintor=". Here you are expected to enter the names of the two sample groups that are being compared differentially. For example: if the DE file was of a comparison between WT and KO samples, we would enter numerator=KO,denominator=WT. The numerator should always be the sample group where a positive fold change in the DE file means an increase in expression. **It is very important to note** that the values entered into numerator= and denominator= (in this case KO & WT) must also be in the sample_group column of the sample sheet. With the same spelling. **Furthermore all paths must be complete from "root"** and not abbreviated from the working directory. Don't forget to wrap file paths in "" if they contain spaces. **Importantly, do not put spaces between sub-parameters.**
 
 <br>
 
@@ -138,6 +138,15 @@ The default settings for deciding statistical significance are p.adj <= 0.05 and
 ```
 
 <br>
+
+By default Searchlight will looks for R in the computers path file. On an Ubuntu or Mac machine this is equivalent to running the RScript command in the terminal. You can explicitly specify the path to the RScript command using the --r command:
+
+```
+--r path="C:\Program Files\R\R-4.2.3\bin\Rscript.exe"
+```
+
+**This is necessary if you are using a Windows machine** or if Searchlight runs successfully to completion, but no plots appear in the plots folders or report.
+
 
 # Including a pathway analysis <a name="Including_a_pathway_analysis"></a>
 
