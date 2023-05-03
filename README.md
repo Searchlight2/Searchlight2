@@ -150,14 +150,7 @@ By default Searchlight will look for R in the computers path file. On an Ubuntu 
 <br>
 
 <img src=https://github.com/Searchlight2/Searchlight2/blob/master/media/Slide1.JPG  width="300" height="500">
-
-
-
-![link](/media/Slide1.JPG width="300" height="500")
-
-<br>
-
-![link](/media/Slide2.JPG)
+<img src=https://github.com/Searchlight2/Searchlight2/blob/master/media/Slide2.JPG  width="300" height="500">
 
 <br>
 
