@@ -9,21 +9,20 @@
 # Table of contents
 1. [Description](#Description)
 2. [Pipeline overview](#Pipeline_overview)
-3. [Example outputs](#Example_outputs)
-4. [Download and first time setup](#Download_and_first_time_setup)
-5. [Basic input files](#Basic_input_files)
-6. [Quick start guide](#Quick_start_guide)
-7. [Including a pathway analysis](#Including_a_pathway_analysis)
-8. [Datasets with more than one differential comparison](#Datasets_with_more_than_one_differential_comparison)
-9. [Including a formal signature analysis](#Including_a_formal_signature_analysis)
-10. [Using the order sub-parameter](#Using_the_order_sub_parameter)
-11. [Results](#Results)
-12. [Downstream modification of plots and visualisations](#Downstream_modification_of_plots_and_visualisations)
-13. [Default R settings](#Default_R_settings)
-14. [Pathway database formats](#Pathway_database_formats)
-15. [FAQ](#FAQ)
-16. [List of parameters](#List_of_parameters)
-17. [Contact and citation](#Contact_and_citation)
+3. [Download and first time setup](#Download_and_first_time_setup)
+4. [Basic input files](#Basic_input_files)
+5. [Quick start guide](#Quick_start_guide)
+6. [Including a pathway analysis](#Including_a_pathway_analysis)
+7. [Datasets with more than one differential comparison](#Datasets_with_more_than_one_differential_comparison)
+8. [Including a formal signature analysis](#Including_a_formal_signature_analysis)
+9. [Using the order sub-parameter](#Using_the_order_sub_parameter)
+10. [Results](#Results)
+11. [Downstream modification of plots and visualisations](#Downstream_modification_of_plots_and_visualisations)
+12. [Default R settings](#Default_R_settings)
+13. [Pathway database formats](#Pathway_database_formats)
+14. [FAQ](#FAQ)
+15. [List of parameters](#List_of_parameters)
+16. [Contact and citation](#Contact_and_citation)
 
 <br>
 
@@ -47,61 +46,17 @@ Searchlight2 is 100% automated, and executed as a single command. It has been de
 
 <br>
 
-From the outset it is important to note that Searchlight2 is an analysis and not a processing pipeline. It does not perform alignment, count reads or calculate expression and
+It is important to note that Searchlight2 is an analysis and not a processing pipeline. It does not perform alignment, count reads or calculate expression and
 differential expression values. These stages should be completed prior to the use of Searchlight2, and increasingly are generated for you in advance by sequencing providers. Any processing pipeline is suitable (FastP, Hisat2, Star2, Kallisto, Deseq2, EdgeR, etc.), so long as you have a matrix of expression values (TPM, RPKM, Rlog, etc) and at least one differential expression table (DEseq2, EdgeR, etc) you may use Searchlight2. 
 
 Searchlight2 is executed as a single command. Firstly, it validates the input files and combines them into a single “master gene table”, from which the downstream analysis is based. Next, it iterates through each workflow, generating: intermediate files; statistical analysis result files; per plot and per workflow R scripts, plots; a report in HMTL; and finally a Shiny app.
 
 ![link](/media/outline.png)
 
-<br>
 
-# Example outputs <a name="Example_outputs"></a>
-
-<br>
-
-**A screenshot of the report format.** *Sample reports can be found in the software download at sample_datasets/results.zip*
-
-![link](/media/report.png)
-
-<br>
-
-**A screenshot of the Shiny app**. 
-
-![link](/media/shiny.png)
-
-<br>
-
-**Example outputs from a dataset exploring the effect of TGFB1 on primary cardiac fibroblasts.** This dataset has two sample groups, control and cells treated with TGFB1. The analysis, interpretation and figure generation was completed by a bioinformatician using 44 minutes and 30 seconds of work from a starting point of raw counts. Using DESeq2 and Searchlight2.
-
-![link](/media/Ex1.png)
-
-<br>
-
-**Example outputs from a dataset exploring the synergistic effects of using a combination of RITA and CPI-203 on Chronic myeloid leukaemia (CML) haemopoietic stem cell (HSC) survival.** This dataset has four sample groups, Control, RITA, CPI and RITA plus CPI (Combo). The analysis, interpretation and figure generation was completed by a bioinformatician using 2 hours, 37 minutes and 11 seconds of work from a starting point of fastQ files. Using Star2, DESeq2 and Searchlight2.
-
-![link](/media/Ex3.png)
-
-<br>
-
-# Download and first time setup <a name="Download_and_first_time_setup"></a>
-
-<br>
-
-Searchlight2 can be downloaded from this Github page. By clicking the green "Code" button near the top right of the page. Then selecting Download Zip. 
-
-* Once downloaded place the zip file into a folder of choice and unzip
-* No further installation is required for the software
-* Next, you will need to install Python (3+) and the libraries Scipy and Numpy. [Here is an online guide](https://wiki.python.org/moin/BeginnersGuide/Download)
-* Next, you will need to install R. We recommend doing so via RStudio (choose the free version). [Here is an online guide](https://rstudio.com/products/rstudio/download/)
-* Finally, you will need to install several widely used R-packages: ggplot2, ggridges, ggrepel, reshape, amap, grid, gridExtra, gtable, ggally, network, igraph, ggwordcloud, ggfittext. [Here is an online guide](https://www.datacamp.com/community/tutorials/r-packages-guide)
-* If you  want to use the Shiny app feature you will need to install these additional R packages: shiny, shinyFiles, fs, shinycssloaders, graphics, dplyr.
-
-If you do not pre-install the R libraries Searchlight2 will run successfully and produce plot R code and reports, however it won't be able to generate the actual images.
 <br>
 
 # Basic input files <a name="Basic_input_files"></a>
-
 
 <br>
 
