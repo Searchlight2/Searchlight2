@@ -149,7 +149,7 @@ By default Searchlight will look for R in the computers path file. On an Ubuntu 
 
 <br>
 
-Some examples of the types of plots expected are shown below. See further sections for extensive additional analysis types.
+Some examples of the types of plots expected are shown below. See further sections of this guide for extensive additional analysis types, such as pathway, regulator and signature analysis.
 
 <br>
 
