@@ -155,7 +155,7 @@ Some examples of the types of plots expected are shown below. See further sectio
 
 Exmple figure 1             |  Example figure 2
 :-------------------------:|:-------------------------:
-!<img src=https://github.com/Searchlight2/Searchlight2/blob/master/media/Slide1.JPG  width="500">  |  <img src=https://github.com/Searchlight2/Searchlight2/blob/master/media/Slide2.JPG  width="500">
+<img src=https://github.com/Searchlight2/Searchlight2/blob/master/media/Slide1.JPG  width="500">  |  <img src=https://github.com/Searchlight2/Searchlight2/blob/master/media/Slide2.JPG  width="500">
 
 <br>
 
