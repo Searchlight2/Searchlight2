@@ -149,6 +149,14 @@ By default Searchlight will look for R in the computers path file. On an Ubuntu 
 
 <br>
 
+![link](/media/Slide1.JPG)
+
+<br>
+
+![link](/media/Slide2.JPG)
+
+<br>
+
 # Including a pathway analysis <a name="Including_a_pathway_analysis"></a>
 
 <br>
