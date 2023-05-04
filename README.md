@@ -43,7 +43,8 @@ Searchlight2 is 100% automated, and executed as a single command. It has been de
 
 <br>
 
-# Pipeline overview <a name="Pipeline_overview"></a>
+# Pipeline overview 
+<a name="Pipeline_overview"></a>
 
 <br>
 
@@ -57,7 +58,8 @@ Searchlight2 is executed as a single command. Firstly, it validates the input fi
 
 <br>
 
-# Download and first time setup <a name="Download_and_first_time_setup"></a>
+# Download and first time setup 
+<a name="Download_and_first_time_setup"></a>
 
 <br>
 
@@ -74,7 +76,8 @@ If you do not pre-install the R libraries Searchlight2 will run successfully and
 
 <br>
 
-# Input files <a name="Basic_input_files"></a>
+# Input files 
+<a name="Basic_input_files"></a>
 
 <br>
 
@@ -90,7 +93,8 @@ Searchlight2 is strict about the format of its inputs to ensure that your downst
 
 <br>
 
-# Quick start guide <a name="Quick_start_guide"></a>
+# Quick start guide 
+<a name="Quick_start_guide"></a>
 
 <br>
 
@@ -179,7 +183,8 @@ Exmple figure 1             |  Example figure 2
 
 
 
-# Including a pathway analysis <a name="Including_a_pathway_analysis"></a>
+# Including a pathway analysis 
+<a name="Including_a_pathway_analysis"></a>
 
 <br>
 
@@ -241,7 +246,8 @@ python Searchlight2.py
 <br>
 
 
-# Datasets with more than one differential comparison <a name="Datasets_with_more_than_one_differential_comparison"></a>
+# Datasets with more than one differential comparison 
+<a name="Datasets_with_more_than_one_differential_comparison"></a>
 
 <br>
 
@@ -270,7 +276,8 @@ In this scenario Searchlight2 will run a seperate de workflow for each, and will
 <br>
 
 
-# Including a formal signature analysis <a name="Including_a_formal_signature_analysis"></a>
+# Including a formal signature analysis
+<a name="Including_a_formal_signature_analysis"></a>
 
 <br>
 
@@ -341,7 +348,8 @@ This is obviously starting to appear unweildy. However, it is worth noting that 
 
 <br>
 
-# Using the order sub-parameter <a name="Using_the_order_sub_parameter"></a>
+# Using the order sub-parameter 
+<a name="Using_the_order_sub_parameter"></a>
 
 <br>
 
@@ -370,7 +378,8 @@ This feature is particularly useful when using DE files generated from complex l
 
 <br>
 
-# Results <a name="Results"></a>
+# Results 
+<a name="Results"></a>
 
 <br>
 
@@ -448,7 +457,8 @@ Once the results have been generated, and panels selected for report, thesis or 
 
 <br>
 
-# Default R settings <a name="Default_R_settings"></a>
+# Default R settings 
+<a name="Default_R_settings"></a>
 
 <br>
 
@@ -471,7 +481,8 @@ The R-scripts used to gernerate plots are assembles dynamically during run-time 
 
 <br>
 
-# Pathway database formats <a name="Pathway_database_formats"></a>
+# Pathway database formats 
+<a name="Pathway_database_formats"></a>
 
 <br>
 
@@ -482,7 +493,8 @@ The R-scripts used to gernerate plots are assembles dynamically during run-time 
 
 <br>
 
-# FAQ <a name="FAQ"></a>
+# FAQ 
+<a name="FAQ"></a>
 
 <br>
 
@@ -523,7 +535,8 @@ The R-scripts used to gernerate plots are assembles dynamically during run-time 
 
 <br>
 
-# List of parameters <a name="List_of_parameters"></a>
+# List of parameters 
+<a name="List_of_parameters"></a>
 
 <br>
 
@@ -663,7 +676,8 @@ The R-scripts used to gernerate plots are assembles dynamically during run-time 
 <br>
 
 
-# Contact and citation <a name="Contact_and_citation"></a>
+# Contact and citation 
+<a name="Contact_and_citation"></a>
 
 <br>
 
