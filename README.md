@@ -72,6 +72,7 @@ Searchlight2 can be downloaded from this Github page. By clicking the green "Cod
 If you do not pre-install the R libraries Searchlight2 will run successfully and produce plot R code and reports, however it won't be able to generate the actual images.
 
 <br>
+
 # Input files <a name="Basic_input_files"></a>
 
 <br>
