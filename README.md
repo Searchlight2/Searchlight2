@@ -672,6 +672,15 @@ The R-scripts used to gernerate plots are assembles dynamically during run-time 
 
 <br>
 
+**R path.** Specifies the path to the RScript command. This parameter is to be used if typing RScript into the console does not run R. This is more typically the case on Windows machines.
+
+```
+--r path="C:\Program Files\R\R-4.2.3\bin\Rscript.exe"
+```
+
+<br>
+
+
 **Upstream Regulator Analysis.** Specifies the upstream_regulator file and settings for an upstream regulator analysis. This will be performed for each relevant workflow. This is parameter is optional, and can be included several times each with a different upstream_regulator file (e.g. TRRUST, IPA), if desired.
 
 ```
