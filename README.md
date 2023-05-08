@@ -171,7 +171,7 @@ By default Searchlight will look for R in the computers path file. On an Ubuntu 
 
 <br>
 
-Some examples of the types of plots expected are shown below. See further sections of this guide for extensive additional analysis types, such as pathway, regulator and signature analysis.
+Some examples of the types of plots expected are shown below. See later sections of this guide for extensive additional analysis types, such as pathway, regulator and signature analysis.
 
 <br>
 
@@ -242,6 +242,16 @@ python Searchlight2.py
 --ura file=/home/john/Downloads/Searchlight2/upstream_regulator_databases/TRRUST_mouse.tsv,type=TRRUST
 --ura file=/home/john/Downloads/IPA/IPA_database.tsv,type=IPA
 ```
+
+<br>
+
+Some examples of the types of plots expected are shown below. See later sections of this guide for additional analysis types, such as signature analysis.
+
+<br>
+
+Example figure 3             |  Example figure 4
+:-------------------------:|:-------------------------:
+<img src=https://github.com/Searchlight2/Searchlight2/blob/master/media/Slide3.JPG  width="500">  |  <img src=https://github.com/Searchlight2/Searchlight2/blob/master/media/Slide4.JPG  width="500">
 
 <br>
 
