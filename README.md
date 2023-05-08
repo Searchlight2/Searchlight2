@@ -175,7 +175,7 @@ Some examples of the types of plots expected are shown below. See later sections
 
 <br>
 
-Example figure 1             |  Example figure 2
+Example figure 1 - expression analysis             |  Example figure 2 - differential expression analysis
 :-------------------------:|:-------------------------:
 <img src=https://github.com/Searchlight2/Searchlight2/blob/master/media/Slide1.JPG  width="500">  |  <img src=https://github.com/Searchlight2/Searchlight2/blob/master/media/Slide2.JPG  width="500">
 
