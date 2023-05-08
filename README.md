@@ -26,11 +26,12 @@
 
 <br>
 
-# Description <a name="Description"></a>
+# Description 
+<a name="Description"></a>
 
 <br>
 
-The analysis and visualisation of RNA-seq datasets is a time and cost bottleneck. Searchlight2 automates this step, allowing your project to proceed rapidly and with minimum fuss. It accepts standard bulk, GEOmx and psuedo-bulk RNA-seq inputs, and produces a wide range of outputs. Searchlight2 uses a pre-built workflow system, allowing it deeply explore data from any experimental design or organism. Its range of outputs include:
+The analysis and visualisation of RNA-seq datasets is a time and cost bottleneck. Searchlight2 automates this step, allowing your project to proceed rapidly and with minimum fuss. It accepts standard bulk, GEOmx and psuedo-bulk RNA-seq inputs, and produces a wide range of outputs. Searchlight2 uses a pre-built workflow system, allowing it to deeply explore data from any experimental design or organism. Its range of outputs include:
 1. Plots and analysis, such as volcano, MA, PCA, heatmaps, top gene bopxplots, pathway analysis, upstream regulator analysis, overlap analysis, expression density, fold-vs-fold, signature analysis, and more.
 2. Results presented as publication quality png and svg files, collated into reports. Which include ready-made methods and legends. 
 3. Statistical analysis data files and lists of significant, signature or enriched genes and pathways
@@ -42,7 +43,8 @@ Searchlight2 is 100% automated, and executed as a single command. It has been de
 
 <br>
 
-# Pipeline overview <a name="Pipeline_overview"></a>
+# Pipeline overview 
+<a name="Pipeline_overview"></a>
 
 <br>
 
@@ -56,7 +58,26 @@ Searchlight2 is executed as a single command. Firstly, it validates the input fi
 
 <br>
 
-# Input files <a name="Basic_input_files"></a>
+# Download and first time setup 
+<a name="Download_and_first_time_setup"></a>
+
+<br>
+
+Searchlight2 can be downloaded from this Github page. By clicking the green "Code" button near the top right of the page. Then selecting Download Zip. 
+
+* Once downloaded place the zip file into a folder of choice and unzip
+* No further installation is required for the software
+* Next, you will need to install Python (3+) and the libraries Scipy and Numpy. [Here is an online guide](https://wiki.python.org/moin/BeginnersGuide/Download)
+* Next, you will need to install R. We recommend doing so via RStudio (choose the free version). [Here is an online guide](https://rstudio.com/products/rstudio/download/)
+* Finally, you will need to install several widely used R-packages: ggplot2, ggrepel, reshape, ggridges, amap, grid, gridExtra, gtable, igraph, network, GGally, ggwordcloud, ggfittext. [Here is an online guide](https://www.datacamp.com/community/tutorials/r-packages-guide)
+* If you also want to use the Shiny app feature you will need to install these additional R packages: shiny, shinyFiles, fs, shinycssloaders, graphics, dplyr.
+
+If you do not pre-install the R libraries Searchlight2 will run successfully and produce plot R code and reports, however it won't be able to generate the actual images.
+
+<br>
+
+# Input files 
+<a name="Basic_input_files"></a>
 
 <br>
 
@@ -72,7 +93,8 @@ Searchlight2 is strict about the format of its inputs to ensure that your downst
 
 <br>
 
-# Quick start guide <a name="Quick_start_guide"></a>
+# Quick start guide 
+<a name="Quick_start_guide"></a>
 
 <br>
 
@@ -149,7 +171,20 @@ By default Searchlight will look for R in the computers path file. On an Ubuntu 
 
 <br>
 
-# Including a pathway analysis <a name="Including_a_pathway_analysis"></a>
+Some examples of the types of plots expected are shown below. See further sections of this guide for extensive additional analysis types, such as pathway, regulator and signature analysis.
+
+<br>
+
+Example figure 1             |  Example figure 2
+:-------------------------:|:-------------------------:
+<img src=https://github.com/Searchlight2/Searchlight2/blob/master/media/Slide1.JPG  width="500">  |  <img src=https://github.com/Searchlight2/Searchlight2/blob/master/media/Slide2.JPG  width="500">
+
+<br>
+
+
+
+# Including a pathway analysis 
+<a name="Including_a_pathway_analysis"></a>
 
 <br>
 
@@ -211,7 +246,8 @@ python Searchlight2.py
 <br>
 
 
-# Datasets with more than one differential comparison <a name="Datasets_with_more_than_one_differential_comparison"></a>
+# Datasets with more than one differential comparison 
+<a name="Datasets_with_more_than_one_differential_comparison"></a>
 
 <br>
 
@@ -240,7 +276,8 @@ In this scenario Searchlight2 will run a seperate de workflow for each, and will
 <br>
 
 
-# Including a formal signature analysis <a name="Including_a_formal_signature_analysis"></a>
+# Including a formal signature analysis
+<a name="Including_a_formal_signature_analysis"></a>
 
 <br>
 
@@ -311,7 +348,8 @@ This is obviously starting to appear unweildy. However, it is worth noting that 
 
 <br>
 
-# Using the order sub-parameter <a name="Using_the_order_sub_parameter"></a>
+# Using the order sub-parameter 
+<a name="Using_the_order_sub_parameter"></a>
 
 <br>
 
@@ -340,7 +378,8 @@ This feature is particularly useful when using DE files generated from complex l
 
 <br>
 
-# Results <a name="Results"></a>
+# Results 
+<a name="Results"></a>
 
 <br>
 
@@ -418,7 +457,8 @@ Once the results have been generated, and panels selected for report, thesis or 
 
 <br>
 
-# Default R settings <a name="Default_R_settings"></a>
+# Default R settings 
+<a name="Default_R_settings"></a>
 
 <br>
 
@@ -441,7 +481,8 @@ The R-scripts used to gernerate plots are assembles dynamically during run-time 
 
 <br>
 
-# Pathway database formats <a name="Pathway_database_formats"></a>
+# Pathway database formats 
+<a name="Pathway_database_formats"></a>
 
 <br>
 
@@ -452,7 +493,8 @@ The R-scripts used to gernerate plots are assembles dynamically during run-time 
 
 <br>
 
-# FAQ <a name="FAQ"></a>
+# FAQ 
+<a name="FAQ"></a>
 
 <br>
 
@@ -493,7 +535,8 @@ The R-scripts used to gernerate plots are assembles dynamically during run-time 
 
 <br>
 
-# List of parameters <a name="List_of_parameters"></a>
+# List of parameters 
+<a name="List_of_parameters"></a>
 
 <br>
 
@@ -633,7 +676,8 @@ The R-scripts used to gernerate plots are assembles dynamically during run-time 
 <br>
 
 
-# Contact and citation <a name="Contact_and_citation"></a>
+# Contact and citation 
+<a name="Contact_and_citation"></a>
 
 <br>
 
