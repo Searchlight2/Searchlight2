@@ -61,6 +61,7 @@ make_significant_genes_heatmap <- function(matrix_scaled,colours,sample_names,cl
     ggp = as.ggplot(grid.arrange(ggp.rug, ggp.hm,  ncol = 1, heights = c(1, 15)))
 
     # clears all devices - as a safety measure
+    pdf(NULL)
     while (dev.cur()>1) dev.off()
 
     return(ggp)
