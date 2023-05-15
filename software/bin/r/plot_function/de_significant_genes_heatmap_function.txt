@@ -31,13 +31,16 @@ make_significant_genes_heatmap <- function(matrix_scaled,colours,sample_names,cl
       scale_x_discrete(expand=c(0,0)) +
       scale_y_discrete(expand=c(0,0))
 
+
     ## create the rug data
-    rug_data = data.frame(sample_groupings)
-    names(rug_data) = "X"
+    rug_data = data.frame(default_samples_colours)
+    names(rug_data) = "colours"
     row.names(rug_data) = samples
     rug_data$Y = "1"
-    rug_data$colours = default_samples_colours
     rug_data = rug_data[ gsub(" ","_",colnames(matrix_scaled_renamed_clustered)),]
+    rug_data$X = row.names(rug_data)
+    rug_data$X = factor(row.names(rug_data), row.names(rug_data))
+
 
     # create rug
     ggp.rug = ggplot(rug_data, aes(x = X, y = Y)) +
