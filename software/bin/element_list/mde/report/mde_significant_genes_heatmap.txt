@@ -1,13 +1,16 @@
 PLOT_ID=significant_genes_heatmaps
 TITLE=Significant Genes Heatmaps
-PLOTS_PER_ROW=2
+PLOTS_PER_ROW=3
 
 SUB_TITLE=Genes That Are Significant In Any Comparison
 PLOT_PATH=plots/significant_genes_heatmaps/genes_significant_in_any_des_heatmap.png
 PLOT_PATH=plots/significant_genes_heatmaps/genes_significant_in_any_des_heatmap_column_clustered.png
+
+
 SUB_TITLE=Genes That Are Significant In All Comparisons
 PLOT_PATH=plots/significant_genes_heatmaps/genes_significant_in_all_des_heatmap.png
 PLOT_PATH=plots/significant_genes_heatmaps/genes_significant_in_all_des_heatmap_column_clustered.png
+
 
 R_CODE_PATH=plots/significant_genes_heatmaps/significant_genes_heatmap.r
 PLOT_DESCRIPTION=/bin/report/plot_description/mde_significant_genes_heatmap.txt

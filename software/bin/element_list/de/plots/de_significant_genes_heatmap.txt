@@ -1,6 +1,7 @@
 R_CODE_OUTPATH=plots/significant_genes_heatmap/significant_genes_heatmap.r
 library/general_libraries.txt
 library/heatmap_libraries.txt
+library/table_libraries.txt
 core_parameter/de_sample_and_sample_group_names.txt
 input_file/working_directory.txt
 input_file/de_input_files.txt
@@ -9,6 +10,8 @@ parse_data/de_transpose_and_scale_significant_genes_ne_matrix.txt
 default_aesthetic/SL2_theme.txt
 default_aesthetic/default_three_tone_heatmap_colours.txt
 default_aesthetic/default_sample_labels.txt
+default_aesthetic/default_GGplot_colours_function.txt
+default_aesthetic/default_sample_and_sample_group_colours.txt
 helper_function/save_plot.txt
 helper_function/clustering_method.txt
 plot_function/de_significant_genes_heatmap_function.txt

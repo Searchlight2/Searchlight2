@@ -1,28 +1,64 @@
 ####---- Significant Genes Heatmap Function  ----####
 
-make_significant_genes_heatmap <- function(matrix_scaled,colours,sample_names,cluster_x,cluster_y,distance_method,clustering_method,reorder_function)
+make_significant_genes_heatmap <- function(matrix_scaled,colours,sample_names,cluster_x,cluster_y,distance_method,clustering_method,reorder_function, sample_groupings, default_samples_colours)
 {
 
+  # tests for enough genes to make a heatmap
   if(nrow(matrix_scaled) >= 2) 
   {
+
+    # parse the table
     matrix_scaled_renamed = as.matrix(matrix_scaled)
     colnames(matrix_scaled_renamed) = sample_names
-  
+
+    # cluster the table
     matrix_scaled_renamed_clustered = cluster_matrix(matrix_scaled_renamed,cluster_x,cluster_y,distance_method,clustering_method,reorder_function)
-    matrix_scaled_renamed_clustered_melted <- melt(matrix_scaled_renamed_clustered)
+    matrix_scaled_renamed_clustered_melted = melt(matrix_scaled_renamed_clustered)
     matrix_scaled_renamed_clustered_melted$X1 = factor(matrix_scaled_renamed_clustered_melted$X1, levels=row.names(matrix_scaled_renamed_clustered))
     matrix_scaled_renamed_clustered_melted$X2 = factor(matrix_scaled_renamed_clustered_melted$X2, levels=colnames(matrix_scaled_renamed_clustered))
 
-    hm.palette <- colorRampPalette(colours)
-    ggp = ggplot(matrix_scaled_renamed_clustered_melted, aes(x = X2, y = X1, fill = value)) + 
-      geom_tile() + 
-      scale_fill_gradientn(colours = hm.palette(100)) + 
-      ylab('') + 
-      xlab('') + 
-      theme_SL2() + 
-      theme(legend.position="right", legend.title = element_blank(), legend.spacing.x = unit(0.25, 'cm'),axis.text.x = element_text(angle = 90, hjust = 1), axis.ticks=element_blank()) + 
-      scale_x_discrete(expand=c(0,0)) + 
+    # colours
+    hm.palette = colorRampPalette(colours)
+
+    # make the heatmap
+    ggp.hm = ggplot(matrix_scaled_renamed_clustered_melted, aes(x = X2, y = X1, fill = value)) +
+      geom_tile() +
+      scale_fill_gradientn(colours = hm.palette(100)) +
+      ylab('') +
+      xlab('') +
+      theme_SL2() +
+      theme(legend.position="right", legend.title = element_blank(), legend.spacing.x = unit(0.25, 'cm'),axis.text.x = element_text(angle = 90, hjust = 1), axis.ticks=element_blank()) +
+      scale_x_discrete(expand=c(0,0)) +
       scale_y_discrete(expand=c(0,0))
+
+    ## create the rug data
+    rug_data = data.frame(sample_groupings)
+    names(rug_data) = "X"
+    row.names(rug_data) = samples
+    rug_data$Y = "1"
+    rug_data$colours = default_samples_colours
+    rug_data = rug_data[ gsub(" ","_",colnames(matrix_scaled_renamed_clustered)),]
+
+    # create rug
+    ggp.rug = ggplot(rug_data, aes(x = X, y = Y)) +
+      geom_tile(fill = rug_data$colours) +
+      theme_void() +
+      theme(legend.position = "none") +
+      ylab('') +
+      xlab('') +
+      scale_x_discrete(expand=c(0,0)) +
+      scale_y_discrete(expand=c(0,0))
+
+    # sets the widths
+    max_widths = unit.pmax(ggplotGrob(ggp.hm)$widths)
+    ggp.rug = ggplotGrob(ggp.rug)
+    ggp.rug$widths = max_widths
+
+    # combine
+    ggp = as.ggplot(grid.arrange(ggp.rug, ggp.hm,  ncol = 1, heights = c(1, 15)))
+
+    # clears all devices - as a safety measure
+    while (dev.cur()>1) dev.off()
 
     return(ggp)
   }

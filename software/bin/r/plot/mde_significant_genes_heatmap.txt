@@ -11,24 +11,23 @@ reorder_function = "average"
 cluster_x = FALSE
 cluster_y = TRUE
 
-ggp = make_significant_genes_heatmap(ne_matrix_sig_any_scaled,colours,sample_names,cluster_x,cluster_y,distance_method,clustering_method,reorder_function)
+ggp = make_significant_genes_heatmap(ne_matrix_sig_any_scaled,colours,sample_names,cluster_x,cluster_y,distance_method,clustering_method,reorder_function, sample_groupings, default_samples_colours)
 save_plot(ggp,plot_height,plot_width,"<*path*>plots/significant_genes_heatmaps/genes_significant_in_any_des_heatmap.png<*/path*>")
 
 cluster_x = TRUE
 cluster_y = TRUE
 
-ggp = make_significant_genes_heatmap(ne_matrix_sig_any_scaled,colours,sample_names,cluster_x,cluster_y,distance_method,clustering_method,reorder_function)
+ggp = make_significant_genes_heatmap(ne_matrix_sig_any_scaled,colours,sample_names,cluster_x,cluster_y,distance_method,clustering_method,reorder_function, sample_groupings, default_samples_colours)
 save_plot(ggp,plot_height,plot_width,"<*path*>plots/significant_genes_heatmaps/genes_significant_in_any_des_heatmap_column_clustered.png<*/path*>")
 
 cluster_x = FALSE
 cluster_y = TRUE
 
-ggp = make_significant_genes_heatmap(ne_matrix_sig_all_scaled,colours,sample_names,cluster_x,cluster_y,distance_method,clustering_method,reorder_function)
+ggp = make_significant_genes_heatmap(ne_matrix_sig_all_scaled,colours,sample_names,cluster_x,cluster_y,distance_method,clustering_method,reorder_function, sample_groupings, default_samples_colours)
 save_plot(ggp,plot_height,plot_width,"<*path*>plots/significant_genes_heatmaps/genes_significant_in_all_des_heatmap.png<*/path*>")
 
 cluster_x = TRUE
 cluster_y = TRUE
 
-ggp = make_significant_genes_heatmap(ne_matrix_sig_all_scaled,colours,sample_names,cluster_x,cluster_y,distance_method,clustering_method,reorder_function)
+ggp = make_significant_genes_heatmap(ne_matrix_sig_all_scaled,colours,sample_names,cluster_x,cluster_y,distance_method,clustering_method,reorder_function, sample_groupings, default_samples_colours)
 save_plot(ggp,plot_height,plot_width,"<*path*>plots/significant_genes_heatmaps/genes_significant_in_all_des_heatmap_column_clustered.png<*/path*>")
-

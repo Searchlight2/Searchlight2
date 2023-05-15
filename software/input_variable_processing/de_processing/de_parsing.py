@@ -64,16 +64,21 @@ def de_parsing(de_workflow_parameters, global_variables):
                     log2fold = round(float(log2fold),2)
                 else:
                     log2fold_valid = False
+                    log2fold = 0
+
                 if is_number(p):
                     p_valid = True
                     p = float(p)
                 else:
                     p_valid = False
+                    p = 1
+
                 if is_number(padj):
                     padj_valid = True
                     padj = float(padj)
                 else:
                     padj_valid = False
+                    padj = 1
 
                 if log2fold_valid and p_valid and padj_valid:
                     valid = True

@@ -19,7 +19,8 @@ rownames(signature_ne_matrix_scaled) = rownames(signature_ne_matrix)
 signature_ne_matrix_scaled = na.omit(signature_ne_matrix_scaled)
 signature_ne_matrix_scaled = signature_ne_matrix_scaled[is.finite(rowSums(signature_ne_matrix_scaled)), ]
 
-ggp = make_significant_genes_heatmap(signature_ne_matrix_scaled,colours,sample_names,cluster_x,cluster_y,distance_method,clustering_method,reorder_function)
+ggp = make_significant_genes_heatmap(signature_ne_matrix_scaled,colours,sample_names,cluster_x,cluster_y,distance_method,clustering_method,reorder_function, sample_groupings, default_samples_colours)
 save_plot(ggp,plot_height,plot_width,paste("<*path*>plots/differential_expression_signature/signature_heatmaps/signature_",signature,"_heatmap.png<*/path*>",sep=""))
+
 }
 
