@@ -6,6 +6,8 @@ from misc.is_number import is_number
 
 def de_validation(de_workflow_parameters, sample_groups):
 
+    de_workflow_name_dict = {}
+
     for de_parameter in de_workflow_parameters:
 
         # required inputs
@@ -115,6 +117,16 @@ def de_validation(de_workflow_parameters, sample_groups):
         if de_file_path == None or numerator == None or denominator == None:
             print("Error: the de parameter: " + de_parameter + " is not in the correct format.")
             sys.exit(1)
+
+
+        # tests that the DE has not been supplied twice
+        if numerator + "\t" + denominator in de_workflow_name_dict:
+            print("Error: the de numerator / combination: " + numerator + " / " + denominator + " has been supplied twice, in two different --de.")
+            sys.exit(1)
+
+
+        # updates the list of DE workflow names
+        de_workflow_name_dict[numerator + "\t" + denominator] = True
 
 
         print("validated the de parameter: " + de_parameter)

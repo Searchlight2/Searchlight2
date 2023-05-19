@@ -60,7 +60,7 @@ make_ora_network_word_cloud <- function(edges, nodes, sig_gene_sets, topn, table
     gene_sets_wc = data.frame()
     for (row_index in 1:nrow(cluster_summary_subset))
     {
-      gene_sets = unlist(lapply(cluster_summary_subset[row_index,"names"], function(x) unlist(strsplit(as.character(x),"_"))))
+      gene_sets = unlist(lapply(cluster_summary_subset[row_index,"names"], function(x) unlist(strsplit(as.character(x), "[, _]+"))))
       gene_sets = sort(gene_sets)
       gene_sets = table(gene_sets)
       gene_sets = data.frame(gene_sets)

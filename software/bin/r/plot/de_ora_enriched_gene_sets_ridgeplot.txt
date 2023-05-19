@@ -12,19 +12,19 @@ ridge_transparency = 0.5
 legend_position = "bottom"
 
 <*per_ora*>
-top_10_gene_sets = get_top10_oras_by_p_value(GO_BP_all_gene_sets,GO_BP_all_signficant_genes_enriched_gene_sets,"enrichment")
+top_10_gene_sets = get_top10_oras_by_p_value(<*type*>_all_gene_sets,<*type*>_all_signficant_genes_enriched_gene_sets,"enrichment")
 ggp = make_ora_ridgeplot(top_10_gene_sets, de_annotated, colours_gradient, x_axis_label, y_axis_label, ridge_transparency, legend_position, TRUE, significant_name, non_significant_name)
 save_plot(ggp,plot_height,plot_width,"<*path*>plots/over_representation_analysis/<*type*>/enriched_amongst_all_significant_genes/enriched_gene_sets_ridgeplot.png<*/path*>")
 ggp = make_ora_ridgeplot(top_10_gene_sets, de_annotated, colours_discrete, x_axis_label, y_axis_label, ridge_transparency, legend_position, FALSE, significant_name, non_significant_name)
 save_plot(ggp,plot_height,plot_width,"<*path*>plots/over_representation_analysis/<*type*>/enriched_amongst_all_significant_genes/enriched_gene_sets_ridgeplot_sig.png<*/path*>")
 
-top_10_gene_sets = get_top10_oras_by_p_value(GO_BP_downregulated_gene_sets,GO_BP_downregulated_enriched_gene_sets,"enrichment")
+top_10_gene_sets = get_top10_oras_by_p_value(<*type*>_downregulated_gene_sets,<*type*>_downregulated_enriched_gene_sets,"enrichment")
 ggp = make_ora_ridgeplot(top_10_gene_sets, de_annotated, colours_gradient, x_axis_label, y_axis_label, ridge_transparency, legend_position, TRUE, significant_name, non_significant_name)
 save_plot(ggp,plot_height,plot_width,"<*path*>plots/over_representation_analysis/<*type*>/enriched_amongst_downregulated_genes/enriched_gene_sets_ridgeplot.png<*/path*>")
 ggp = make_ora_ridgeplot(top_10_gene_sets, de_annotated, colours_discrete, x_axis_label, y_axis_label, ridge_transparency, legend_position, FALSE, significant_name, non_significant_name)
 save_plot(ggp,plot_height,plot_width,"<*path*>plots/over_representation_analysis/<*type*>/enriched_amongst_downregulated_genes/enriched_gene_sets_ridgeplot_sig.png<*/path*>")
 
-top_10_gene_sets = get_top10_oras_by_p_value(GO_BP_upregulated_gene_sets,GO_BP_upregulated_enriched_gene_sets,"enrichment")
+top_10_gene_sets = get_top10_oras_by_p_value(<*type*>_upregulated_gene_sets,<*type*>_upregulated_enriched_gene_sets,"enrichment")
 ggp = make_ora_ridgeplot(top_10_gene_sets, de_annotated, colours_gradient, x_axis_label, y_axis_label, ridge_transparency, legend_position, TRUE, significant_name, non_significant_name)
 save_plot(ggp,plot_height,plot_width,"<*path*>plots/over_representation_analysis/<*type*>/enriched_amongst_upregulated_genes/enriched_gene_sets_ridgeplot.png<*/path*>")
 ggp = make_ora_ridgeplot(top_10_gene_sets, de_annotated, colours_discrete, x_axis_label, y_axis_label, ridge_transparency, legend_position, FALSE, significant_name, non_significant_name)

@@ -171,21 +171,21 @@ def ura_processing(ureg_dict, ipa_candidate_dict):
             target_weight = 1.00 - float(ipa_candidate_dict[target_name][1])
             target_weight_squared = target_weight * target_weight
 
-
             # gets the activation and inhibition counts / weighted counts
-            if ureg_target_direction_list[0]:
+            if ureg_target_direction_list[0] and not ureg_target_direction_list[1]:
                 if target_direction > 0:
                     n_activated += 1
                     genes_activated.append(target_name)
                     x += target_weight
                     alpha_x += target_weight_squared
+
                 elif target_direction < 0:
                     n_inhibited += 1
                     genes_inhibited.append(target_name)
                     x -= target_weight
                     alpha_x += target_weight_squared
 
-            if ureg_target_direction_list[1]:
+            if ureg_target_direction_list[1] and not ureg_target_direction_list[0]:
                 if target_direction < 0:
                     n_activated += 1
                     genes_activated.append(target_name)
@@ -205,7 +205,7 @@ def ura_processing(ureg_dict, ipa_candidate_dict):
             bias_term = float(u_data) * float(u_tr)
             zscore = (x - alpha_x) / alpha_x
 
-            ureg_results_dict[ureg_name] = [zscore,bias_term,n_activated,n_inhibited,genes_activated,genes_inhibited, ureg_targets_dict.keys()]
+            ureg_results_dict[ureg_name] = [zscore+1,bias_term,n_activated,n_inhibited,genes_activated,genes_inhibited, ureg_targets_dict.keys()]
 
         else:
             ureg_results_dict[ureg_name] = [0.0, 0.0, 0.0, 0.0, [], [],[]]

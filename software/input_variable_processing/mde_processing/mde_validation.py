@@ -26,6 +26,10 @@ def mde_validation(mde_workflow_parameters, sample_groups, de_parameters):
         #number of des
         de_count = 0
 
+        # de_names
+        des_dict = {}
+
+
         # checks the sub params
         for sub_param in sub_params_list:
 
@@ -94,7 +98,14 @@ def mde_validation(mde_workflow_parameters, sample_groups, de_parameters):
                     print("Error: the Mde parameter " + mde_parameter + " is not in the correct format (no de parameter of same name): " + de_ID)
                     sys.exit(1)
 
+                if sub_param.upper() in des_dict:
+                    print("Error: the Mde parameter " + mde_parameter + " has this de twice: "  + sub_param)
+                    sys.exit(1)
+
+
+                des_dict[sub_param.upper()] = True
                 de_count += 1
+
 
 
             # Tests the correlation cut-off sub-parameter
@@ -102,9 +113,6 @@ def mde_validation(mde_workflow_parameters, sample_groups, de_parameters):
                 if not is_number(sub_param.split("=")[1]):
                     print("Error: the Mde parameter " + mde_parameter + " is not in the correct format (scc is not a number)")
                     sys.exit(1)
-
-
-
 
 
         # tests if the required inputs have been supplied
@@ -115,6 +123,9 @@ def mde_validation(mde_workflow_parameters, sample_groups, de_parameters):
         if mde_name == None:
             print("Error: the Mde parameter: " + mde_parameter + " is not in the correct format (missing name=).")
             sys.exit(1)
+
+
+
 
 
         print("validated the mde parameter: " + mde_parameter)
