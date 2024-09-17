@@ -22,4 +22,4 @@ def get_chromosome_list(in_file_path):
             line_split = line.rstrip().split("\t")
             chromosome_dict[line_split[chromosome_column]] = True
 
-    return sorted(chromosome_dict.keys(), key=lambda item: (int(item.partition(' ')[0])if item[0].isdigit() else float('inf'), item))
+    return sorted(chromosome_dict.keys())
