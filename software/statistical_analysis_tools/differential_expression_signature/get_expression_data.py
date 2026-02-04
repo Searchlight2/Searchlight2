@@ -31,7 +31,7 @@ def get_expression_data(data, sample_list,genes_by_signature, signatures_by_gene
                 expression_data.append(line_split[column])
 
             # converts to a z-score
-            zscore_data = np.array(expression_data).astype(np.float)
+            zscore_data = np.array(expression_data).astype(float)
             z_transformed = zscore(zscore_data)
 
             # checks that the z-score is not nan
